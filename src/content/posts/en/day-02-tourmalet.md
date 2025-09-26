@@ -3,7 +3,7 @@ title: "Photos from the Col du Tourmalet"
 tagline: "One of the giants of the Pyrenees."
 pubDate: 2026-10-01T14:15:00Z
 image:
-  src: '/src/assets/images/en/tourmalet-view.jpg'
+  src: '../../../assets/images/en/tourmalet-view.jpg'
   alt: 'A view from the summit of the Col du Tourmalet'
 ---
 

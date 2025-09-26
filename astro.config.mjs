@@ -2,13 +2,10 @@ import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
 
-import tailwindcss from "@tailwindcss/vite";
+// The import for @tailwindcss/vite is no longer needed
 
 export default defineConfig({
   integrations: [tailwind(), react()],
   viewTransitions: true,
-
-  vite: {
-    plugins: [tailwindcss()]
-  }
+  // The vite section has been removed
 });
