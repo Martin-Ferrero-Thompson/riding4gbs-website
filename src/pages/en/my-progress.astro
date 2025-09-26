@@ -1,0 +1,260 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import AnimatedCard from "../../components/AnimatedCard.jsx";
+---
+
+<MainLayout title="My Progress">
+  <AnimatedCard client:load>
+    <div
+      class="m-4 md:m-12 p-6 md:p-10 bg-white rounded-xl max-w-4xl w-full mx-auto text-gray-800 font-sans bg-opacity-70"
+    >
+      <div class="text-center">
+        <h2
+          class="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900"
+        >
+          Follow The Journey: Live Progress
+        </h2>
+        <p class="mt-4 max-w-3xl mx-auto text-center text-xl text-gray-500">
+          During the ride in Sept/Oct 2026, this page will be the official hub
+          to follow my progress in real-time. Check back daily for updates from
+          the road!
+        </p>
+      </div>
+
+      <div class="mt-16 grid lg:grid-cols-3 gap-12 items-start">
+        <div class="lg:col-span-2">
+          <h3 class="text-3xl font-bold text-gray-900 mb-4">
+            Live Location Map
+          </h3>
+          <p class="text-lg text-gray-600 mb-4">
+            Once the ride begins, this map will show my completed route for each
+            day. You'll be able to see exactly which mountain pass I've climbed
+            or which valley I'm riding through!
+          </p>
+          <div
+            class="aspect-w-16 aspect-h-9 bg-gray-200 rounded-xl shadow-lg overflow-hidden"
+          >
+            <img
+              src="/riding4gbs-atlantics2med.png"
+              alt="The complete 1,685km route map for the Riding for GBS Pyrenean challenge."
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="max-w-4xl mx-auto mt-8 px-4">
+            <img
+              src="/riding4gbs-atlantic2med-profile.png"
+              alt="The complete elevation profile for the 1,685km Riding for GBS Pyrenean challenge."
+              class="w-full h-auto rounded-lg shadow-xl"
+            />
+          </div>
+        </div>
+
+        <div
+          class="bg-gray-800 rounded-xl shadow-lg p-6 space-y-6 progress-panel"
+        >
+          <h3 class="text-3xl font-bold text-center text-white">
+            By the Numbers
+          </h3>
+
+          <div id="days-stat">
+            <div class="flex justify-between items-baseline mb-1">
+              <span class="text-base font-medium text-gray-300 progress-label"
+              ></span>
+              <span class="text-lg font-bold text-white progress-value"></span>
+            </div>
+            <div class="w-full bg-gray-600 rounded-full h-4">
+              <div
+                class="bg-blue-500 h-4 rounded-full progress-bar"
+                style="width: 0%;"
+              >
+              </div>
+            </div>
+          </div>
+
+          <div id="distance-stat">
+            <div class="flex justify-between items-baseline mb-1">
+              <span class="text-base font-medium text-gray-300 progress-label"
+              ></span>
+              <span class="text-lg font-bold text-white progress-value"></span>
+            </div>
+            <div class="w-full bg-gray-600 rounded-full h-4">
+              <div
+                class="bg-blue-500 h-4 rounded-full progress-bar"
+                style="width: 0%;"
+              >
+              </div>
+            </div>
+          </div>
+
+          <div id="climbing-stat">
+            <div class="flex justify-between items-baseline mb-1">
+              <span class="text-base font-medium text-gray-300 progress-label"
+              ></span>
+              <span class="text-lg font-bold text-white progress-value"></span>
+            </div>
+            <div class="w-full bg-gray-600 rounded-full h-4">
+              <div
+                class="bg-blue-500 h-4 rounded-full progress-bar"
+                style="width: 0%;"
+              >
+              </div>
+            </div>
+          </div>
+
+          <div id="funds-gbp-stat" class="pt-4">
+            <div class="text-center">
+              <span class="text-base font-medium text-gray-300 progress-label"
+              ></span>
+              <span
+                class="text-4xl font-bold text-blue-400 progress-value block"
+              ></span>
+            </div>
+          </div>
+          <div id="funds-eur-stat" class="pt-2">
+            <div class="text-center">
+              <span class="text-base font-medium text-gray-300 progress-label"
+              ></span>
+              <span
+                class="text-4xl font-bold text-blue-400 progress-value block"
+              ></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-20">
+        <hr class="my-16 border-gray-300 w-48 mx-auto" />
+        <div class="text-center">
+          <h3 class="text-3xl font-bold text-gray-900 mb-4">
+            Daily Ride Journal
+          </h3>
+          <p class="text-center text-lg text-gray-500 mb-8">
+            Daily updates from the road will appear here once the challenge
+            begins in September 2026!
+          </p>
+        </div>
+
+        <div class="max-w-4xl mx-auto space-y-8">
+          <div
+            class="bg-white p-6 rounded-xl shadow-lg flex flex-col md:flex-row gap-6 opacity-50"
+          >
+            <img
+              src="https://placehold.co/600x400/333/fff?text=Epic+Pyrenees+Photo"
+              alt="View from the Tourmalet"
+              class="w-full md:w-1/3 h-48 md:h-auto object-cover rounded-lg"
+            />
+            <div class="flex flex-col">
+              <p class="text-sm font-semibold text-gray-500">Day 10 of 21</p>
+              <h4 class="text-2xl font-bold text-gray-900">
+                To the Mediterranean
+              </h4>
+              <p class="mt-2 text-gray-600 leading-relaxed flex-grow">
+                The final push to the sea! A day of rolling terrain and stunning
+                coastal views as the Pyrenees faded behind me. The sense of
+                achievement rolling into Collioure and seeing the Mediterranean
+                was immense. Halfway point reached, and ready for a
+                well-deserved rest. What an incredible first half of the
+                challenge!
+              </p>
+              <a
+                href="#"
+                class="mt-4 text-blue-600 font-semibold hover:underline self-start"
+                >View on Strava &rarr;</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="max-w-4xl mx-auto space-y-8">
+          <div
+            class="bg-white p-6 rounded-xl shadow-lg flex flex-col md:flex-row gap-6 opacity-50"
+          >
+            <img
+              src="https://placehold.co/600x400/333/fff?text=Epic+Pyrenees+Photo"
+              alt="View from the Tourmalet"
+              class="w-full md:w-1/3 h-48 md:h-auto object-cover rounded-lg"
+            />
+            <div class="flex flex-col">
+              <p class="text-sm font-semibold text-gray-500">Day 9 of 21</p>
+              <h4 class="text-2xl font-bold text-gray-900">
+                The Mighty Pailhères
+              </h4>
+              <p class="mt-2 text-gray-600 leading-relaxed flex-grow">
+                The final push to the sea! A day of rolling terrain and stunning
+                coastal views as the Pyrenees faded behind me. The sense of
+                achievement rolling into Collioure and seeing the Mediterranean
+                was immense. Halfway point reached, and ready for a
+                well-deserved rest. What an incredible first half of the
+                challenge!
+              </p>
+              <a
+                href="#"
+                class="mt-4 text-blue-600 font-semibold hover:underline self-start"
+                >View on Strava &rarr;</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="max-w-4xl mx-auto space-y-8">
+          <div
+            class="bg-white p-6 rounded-xl shadow-lg flex flex-col md:flex-row gap-6 opacity-50"
+          >
+            <img
+              src="https://placehold.co/600x400/333/fff?text=Epic+Pyrenees+Photo"
+              alt="View from the Tourmalet"
+              class="w-full md:w-1/3 h-48 md:h-auto object-cover rounded-lg"
+            />
+            <div class="flex flex-col">
+              <p class="text-sm font-semibold text-gray-500">Day 8 of 21</p>
+              <h4 class="text-2xl font-bold text-gray-900">
+                The Recovery Roller
+              </h4>
+              <p class="mt-2 text-gray-600 leading-relaxed flex-grow">
+                A shorter day, but no less picturesque. The rolling terrain
+                offered a chance to recover the legs slightly after a big block
+                of climbing, yet still kept me fully engaged. Ax-les-Thermes is
+                a beautiful spot, a perfect transition before tomorrow's immense
+                challenge. Every day is a gift on this journey.
+              </p>
+              <a
+                href="#"
+                class="mt-4 text-blue-600 font-semibold hover:underline self-start"
+                >View on Strava &rarr;</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="max-w-4xl mx-auto space-y-8">
+          <div
+            class="bg-white p-6 rounded-xl shadow-lg flex flex-col md:flex-row gap-6 opacity-50"
+          >
+            <img
+              src="https://placehold.co/600x400/333/fff?text=Epic+Pyrenees+Photo"
+              alt="View from the Tourmalet"
+              class="w-full md:w-1/3 h-48 md:h-auto object-cover rounded-lg"
+            />
+            <div class="flex flex-col">
+              <p class="text-sm font-semibold text-gray-500">Day 7 of 21</p>
+              <h4 class="text-2xl font-bold text-gray-900">
+                The Ariège Heights
+              </h4>
+              <p class="mt-2 text-gray-600 leading-relaxed flex-grow">
+                Deep into the Ariège today, conquering the Col de Port and the
+                stunning Port de Lers. These climbs are less famous but
+                incredibly beautiful and challenging, with long, sustained
+                gradients. The wildness of the landscape is incredible.
+                Finishing in Tarascon-sur-Ariège, tired but fulfilled.
+              </p>
+              <a
+                href="#"
+                class="mt-4 text-blue-600 font-semibold hover:underline self-start"
+                >View on Strava &rarr;</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </AnimatedCard></MainLayout
+>

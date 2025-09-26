@@ -1,0 +1,92 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import AnimatedCard from "../../components/AnimatedCard.jsx";
+---
+
+<MainLayout title="The Slow Road Back | Home">
+  <AnimatedCard client:load>
+    <div
+      class="m-4 md:m-12 p-6 md:p-8 bg-gray-900 bg-opacity-70 rounded-xl backdrop-blur-sm text-center text-white max-w-4xl mx-auto"
+    >
+      <h1 class="font-display text-4xl md:text-7xl font-bold">
+        The Slow Road Back
+      </h1>
+
+      <p class="font-display text-2xl md:text-4xl font-bold text-blue-500 mt-4">
+        #RIDING4GBS
+      </p>
+
+      <p class="font-sans text-base md:text-lg mt-6 md:mt-8">
+        September 30th, 2026
+      </p>
+
+      <div id="countdown-timer" class="my-4 md:my-6">
+        <p class="text-xl md:text-2xl font-sans tracking-widest">
+          1Y : 6D : 18H : 42M : 8S
+        </p>
+      </div>
+
+      <div
+        class="font-sans text-left text-sm md:text-lg max-w-3xl mx-auto space-y-6"
+      >
+        <p>
+          My name is Martin, and I am a survivor of Guillain-Barré Syndrome
+          (GBS). My recovery taught me that the journey is more important than
+          the destination. This is my <strong>'Slow Road Back'.</strong>
+        </p>
+        <p>
+          <strong>On September 30th, 2026</strong>, I will begin a deeply
+          personal cycling challenge, starting from my home in Pamplona. My goal
+          is to ride into the heart of the Pyrenees, to traverse the mountains
+          from the Atlantic coast to the Mediterranean, and to see how far this
+          journey of recovery and resilience will take me.
+        </p>
+        <p>
+          This ride is a mission to raise vital awareness and funds for the GBS
+          community. I don't know exactly how many days it will take, or how
+          many mountains I'll have to climb. But I invite you to follow along,
+          day by day, on this journey of hope and resilience.
+        </p>
+
+        <div class="mt-8 md:mt-12">
+          <p class="font-sans font-bold">In proud partnership with</p>
+          <div
+            class="mt-4 flex flex-col md:flex-row justify-center items-center gap-6 md:gap-8"
+          >
+            <div
+              class="flex flex-col items-center justify-between gap-4 p-6 bg-white rounded-lg h-40 w-64"
+            >
+              <img
+                src="/logos/INUK-Wordmark-Logo_RGB.png"
+                alt="Inflammatory Neuropathies UK Logo"
+                class="max-h-16 object-contain"
+              />
+              <a
+                href="#"
+                class="font-sans bg-gray-200 text-gray-800 px-6 py-2 rounded-md hover:bg-gray-300"
+              >
+                Visit Website
+              </a>
+            </div>
+
+            <div
+              class="flex flex-col items-center justify-between gap-4 p-6 bg-white rounded-lg h-40 w-64"
+            >
+              <img
+                src="/logos/GBS-CIDP_neuropatias-RC-3.png"
+                alt="Neuropatías España Logo"
+                class="max-h-16 object-contain"
+              />
+              <a
+                href="#"
+                class="font-sans bg-gray-200 text-gray-800 px-6 py-2 rounded-md hover:bg-gray-300"
+              >
+                Visita el sitio web
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </AnimatedCard>
+</MainLayout>

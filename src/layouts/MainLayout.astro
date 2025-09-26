@@ -1,0 +1,65 @@
+---
+import "@fontsource/lato/400.css"; // Regular
+import "@fontsource/lato/700.css"; // Bold
+import "@fontsource/montserrat/700.css"; // Bold
+import "@fontsource/montserrat/900.css"; // Black
+
+// Import our global stylesheet
+import "../styles/global.css";
+
+import Sidebar from "../components/Sidebar.astro";
+import Hamburger from "../components/Hamburger.astro";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+
+  <body class="bg-gray-800 font-sans relative">
+    <Hamburger />
+
+    <div class="flex flex-col md:flex-row">
+      <Sidebar />
+
+      <div class="w-full overflow-hidden">
+        <main
+          class="w-full h-screen overflow-y-auto bg-cover bg-center bg-fixed flex items-center justify-center"
+          style="background-image: url('/background.png');"
+        >
+          <slot />
+        </main>
+      </div>
+    </div>
+
+    <script>
+      function setupHamburger() {
+        const hamburgerButton = document.getElementById("hamburger-button");
+        const sidebar = document.getElementById("sidebar");
+
+        if (hamburgerButton && sidebar) {
+          hamburgerButton.addEventListener("click", () => {
+            sidebar.classList.toggle("hidden");
+          });
+        }
+      }
+
+      // Run the setup function when the page is fully loaded
+      document.addEventListener("DOMContentLoaded", setupHamburger);
+
+      // Also run it on Astro's page-load event for subsequent page navigations
+      document.addEventListener("astro:page-load", setupHamburger);
+    </script>
+  </body>
+</html>

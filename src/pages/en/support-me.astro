@@ -1,0 +1,36 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import AnimatedCard from "../../components/AnimatedCard.jsx";
+---
+
+<MainLayout title="Support Me">
+  <AnimatedCard client:load>
+<div class="m-4 md:m-12 p-6 md:p-10 bg-white rounded-xl max-w-3xl w-full mx-auto text-gray-800 font-sans">
+
+    <div class="text-center">
+        <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900" style="font-family: 'Poppins', sans-serif;">
+            Support Me: Be Part of the Effort
+        </h2>
+        <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600 text-left" style="font-family: 'Lora', serif;">
+            A self-supported ride across the Pyrenees is a huge logistical challenge. This page is for friends, family, and members of the cycling community who wish to contribute directly to the effort of the ride itself. This support is entirely separate from the charitable fundraising.
+        </p>
+    </div>
+    
+    <hr class="my-12 border-gray-200 w-48 mx-auto">
+
+    <div class="text-center max-w-2xl mx-auto">
+        <h3 class="text-2xl font-bold text-gray-900" style="font-family: 'Poppins', sans-serif;">
+            ⚙️ Help Keep the Wheels Turning
+        </h3>
+        <p class="mt-2 text-gray-600 leading-relaxed text-left" style="font-family: 'Lora', serif;">
+          Every aspect of this journey, from specialized gear and durable components to daily nutrition and simple shelter, is self-funded. Your direct contribution, no matter the size, helps cover these essential costs and provides a huge morale boost on my <strong>Slow Road Back</strong>. 
+        </p>
+        <p class="text-2xl font-bold text-gray-900" style="font-family: 'Poppins', sans-serif;">Thank you for being part of my personal support crew.</p>
+        <a href="[LINK_TO_YOUR_KOFI_PAGE]" target="_blank" class="mt-6 inline-block px-8 py-3 bg-gray-600 hover:bg-gray-700 text-white font-semibold text-lg rounded-full transition-all duration-300">
+          Contribute to the Ride Fund
+        </a>
+    </div>
+
+</div>
+  </AnimatedCard>
+</MainLayout>

@@ -1,0 +1,294 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import AnimatedCard from "../../components/AnimatedCard.jsx";
+---
+
+<MainLayout title="About GBS">
+  <AnimatedCard client:load>
+    <div
+      class="m-4 md:m-12 p-6 md:p-10 bg-white rounded-xl max-w-4xl w-full mx-auto text-gray-800 font-sans bg-opacity-70"
+    >
+      <div class="text-center">
+        <h1 class="font-display text-4xl md:text-5xl font-bold text-gray-900">
+          What is Guillain-Barré Syndrome?
+        </h1>
+        <p class="mt-2 max-w-2xl mx-auto">
+          Understanding the condition behind the challenge.
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto my-12 px-4">
+        <a
+          href="/gbs-info.png"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Open full-size GBS infographic in a new tab"
+          title="Click to view full size"
+        >
+          <img
+            src="/gbs-info.png"
+            alt="An infographic summarizing key facts about Guillain-Barré Syndrome, including its rarity (1-2 in 100,000), cause (autoimmune), and recovery statistics (~85% recover well, ~15% have long-term effects)."
+            class="w-full h-auto rounded-lg shadow-xl cursor-pointer"
+          />
+        </a>
+      </div>
+      <div class="mt-16 grid md:grid-cols-2 gap-x-16 gap-y-12">
+        <div class="space-y-10">
+          <div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">
+              What is Guillain-Barré Syndrome?
+            </h3>
+            <div class="space-y-4 text-lg text-gray-600 leading-relaxed">
+              <p>
+                Guillain-Barré Syndrome (GBS) is a rare and serious autoimmune
+                disorder where the body's immune system mistakenly attacks its
+                own peripheral nerves—the network outside of the brain and
+                spinal cord.
+              </p>
+              <p>
+                The onset is often sudden, escalating over hours or days into a
+                neurological emergency. It is the leading cause of acute,
+                non-trauma-related paralysis worldwide.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">
+              A Case of Mistaken Identity
+            </h3>
+            <div class="space-y-4 text-lg text-gray-600 leading-relaxed">
+              <p>
+                The most accepted theory is <strong
+                  class="font-semibold text-gray-900"
+                  >"molecular mimicry"</strong
+                >. Often, the syndrome begins after a common infection, like a
+                stomach bug (*Campylobacter jejuni*) or a respiratory virus.
+              </p>
+              <p>
+                The immune system creates antibodies to fight the germ, but some
+                parts of the germ look remarkably similar to our own nerve
+                cells. The antibodies make a catastrophic error and begin
+                attacking the healthy nerves, leading to the weakness, numbness,
+                and paralysis that define GBS.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">
+              Hope on the Horizon
+            </h3>
+            <p class="text-lg text-gray-600 leading-relaxed">
+              While current treatments help, they are not a cure and are not
+              effective for everyone. This is why research is so critical.
+              Scientists are working to find faster diagnostic tools and develop
+              new, more targeted therapies. Your support helps fuel this vital
+              research and brings hope to every person affected by GBS.
+            </p>
+          </div>
+        </div>
+
+        <div class="space-y-10">
+          <div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">
+              A Rapidly Escalating Emergency
+            </h3>
+            <p class="text-lg text-gray-600 leading-relaxed mb-6">
+              Symptoms often begin with tingling in the feet and hands, quickly
+              followed by muscle weakness that spreads upwards over hours or
+              days. At its most severe, GBS can be devastating:
+            </p>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <div class="flex-shrink-0">
+                  <svg
+                    class="h-6 w-6 text-red-500"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                    ></path>
+                  </svg>
+                </div>
+                <p class="ml-3 text-lg text-gray-600">
+                  <strong class="font-semibold text-gray-900"
+                    >Respiratory Failure:</strong
+                  > Up to one-third of patients require a mechanical ventilator in
+                  an ICU to survive.
+                </p>
+              </li>
+              <li class="flex items-start">
+                <div class="flex-shrink-0">
+                  <svg
+                    class="h-6 w-6 text-red-500"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                    ></path>
+                  </svg>
+                </div>
+                <p class="ml-3 text-lg text-gray-600">
+                  <strong class="font-semibold text-gray-900"
+                    >Severe Pain & Paralysis:</strong
+                  > Many patients experience near-total paralysis and debilitating
+                  nerve pain.
+                </p>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">
+              The Long Road to Recovery
+            </h3>
+            <p class="text-lg text-gray-600 leading-relaxed mb-6">
+              Recovery from GBS is a marathon. While most people learn to walk
+              again, the process can take months or even years, and many
+              survivors are left with life-altering residual issues, including:
+            </p>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <div class="flex-shrink-0">
+                  <svg
+                    class="h-6 w-6 text-blue-500"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+                <p class="ml-3 text-lg text-gray-600">
+                  Chronic Neuropathic Pain
+                </p>
+              </li>
+              <li class="flex items-start">
+                <div class="flex-shrink-0">
+                  <svg
+                    class="h-6 w-6 text-blue-500"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+                <p class="ml-3 text-lg text-gray-600">Debilitating Fatigue</p>
+              </li>
+              <li class="flex items-start">
+                <div class="flex-shrink-0">
+                  <svg
+                    class="h-6 w-6 text-blue-500"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+                <p class="ml-3 text-lg text-gray-600">
+                  Lingering Weakness and Numbness
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <img
+          src="/gbs-details.png"
+          alt="Guillain-Barré Syndrome Explanation - Neuron and Nerve System"
+          class="rounded-xl shadow-lg w-full object-cover"
+        />
+        <p class="mt-4 text-center text-sm text-gray-500">
+          *Image illustrating the impact of GBS on nerve cells and pathways.
+        </p>
+      </div>
+
+      <hr class="my-16 border-gray-200 w-48 mx-auto" />
+
+      <div class="max-w-4xl mx-auto">
+        <h3 class="text-3xl font-bold text-center mb-8">Find Out More</h3>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="bg-white rounded-xl shadow-md p-6 flex flex-col text-center"
+          >
+            <h4 class="text-xl font-bold text-gray-900">
+              GBS|CIDP Foundation Int.
+            </h4>
+            <p class="text-gray-600 mt-2 flex-grow text-sm">
+              The leading global nonprofit for supporting patients and funding
+              research for GBS.
+            </p>
+            <a
+              href="https://www.gbs-cidp.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-4 inline-block text-blue-600 font-semibold hover:underline"
+              >Visit Website &rarr;</a
+            >
+          </div>
+
+          <div
+            class="bg-white rounded-xl shadow-md p-6 flex flex-col text-center"
+          >
+            <h4 class="text-xl font-bold text-gray-900">GBS|CIDP España</h4>
+            <p class="text-gray-600 mt-2 flex-grow text-sm">
+              A patient advocacy group based in Spain, providing support and
+              resources.
+            </p>
+            <a
+              href="https://gbs-cidp.org.es/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-blue-600 font-semibold hover:underline"
+              >Visit Website &rarr;</a
+            >
+          </div>
+
+          <div
+            class="bg-white rounded-xl shadow-md p-6 flex flex-col text-center"
+          >
+            <h4 class="text-xl font-bold text-gray-900">NINDS (USA)</h4>
+            <p class="text-gray-600 mt-2 flex-grow text-sm">
+              Provides reliable, in-depth medical information on GBS from the
+              U.S. National Institutes of Health.
+            </p>
+            <a
+              href="https://www.ninds.nih.gov/health-information/disorders/guillain-barre-syndrome"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-blue-600 font-semibold hover:underline"
+              >Visit Information Page &rarr;</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </AnimatedCard>
+</MainLayout>

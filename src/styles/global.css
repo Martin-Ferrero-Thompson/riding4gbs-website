@@ -1,0 +1,22 @@
+/* Import the Tailwind directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Define our custom fonts at the base layer */
+@layer base {
+  :root {
+    --font-sans: 'Lato', sans-serif;
+    --font-display: 'Montserrat', sans-serif;
+  }
+  
+  /* Apply the body font */
+  body {
+    font-family: var(--font-sans);
+  }
+  
+  /* Apply the heading font to all headings */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
