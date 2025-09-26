@@ -1,0 +1,13 @@
+// ...
+    {post.data.image && (
+      <div class="mt-8">
+        <Image 
+          src={post.data.image.src}      // <-- Change this
+          alt={post.data.image.alt}      // <-- Change this
+          class="w-full h-auto rounded-lg shadow-lg"
+          widths={[400, 800, 1200]}
+          sizes="(max-width: 800px) 100vw, 800px"
+        />
+      </div>
+    )}
+//...
