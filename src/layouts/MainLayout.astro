@@ -25,6 +25,14 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
+        <style>
+      ::view-transition-old(*) {
+        animation: fade-out 0.5s ease-in-out forwards;
+      }
+      ::view-transition-new(*) {
+        animation: slide-in-from-left 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+      }
+    </style>
   </head>
 
   <body class="bg-gray-800 font-sans relative">
