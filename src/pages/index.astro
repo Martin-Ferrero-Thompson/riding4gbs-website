@@ -1,6 +1,11 @@
----
-// Only perform the redirect during local development.
-// if (import.meta.env.DEV) {
-  return Astro.redirect('/en');
-// }
----
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="0; url=/en" />
+    <title>Redirecting...</title>
+  </head>
+  <body>
+    <p>If you are not redirected automatically, <a href="/en">click here</a>.</p>
+  </body>
+</html>
