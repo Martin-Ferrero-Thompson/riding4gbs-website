@@ -1,6 +1,8 @@
 {
-  "i18n": {
-    "locales": ["en", "es"],
-    "defaultLocale": "en"
-  }
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/en"
+    }
+  ]
 }
