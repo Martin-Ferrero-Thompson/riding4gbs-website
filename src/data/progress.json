@@ -1,0 +1,29 @@
+{
+  "days": {
+    "label": "Days Completed",
+    "current": 11,
+    "total": 21
+  },
+  "distance": {
+    "label": "Distance Ridden",
+    "current": 730,
+    "total": 1685,
+    "unit": "km"
+  },
+  "climbing": {
+    "label": "Metres Climbed",
+    "current": 17900,
+    "total": 34900,
+    "unit": "m"
+  },
+  "funds_gbp": {
+    "label": "Funds Raised for GBS UK",
+    "current": 2020,
+    "unit": "£"
+  },
+  "funds_eur": {
+    "label": "Funds Raised for GBS España",
+    "current": 4800,
+    "unit": "€"
+  }
+}
