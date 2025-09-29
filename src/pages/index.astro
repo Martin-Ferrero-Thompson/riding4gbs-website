@@ -1,11 +1,85 @@
+---
+// This page is our new multilingual splash screen.
+---
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="refresh" content="0; url=/en" />
-    <title>Redirecting...</title>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>The Slow Road Back | A Ride for GBS Research</title>
+    
+    <style is:global>
+      @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700;900&display=swap');
+      
+      body {
+        background-image: url("/background.png");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+    </style>
   </head>
-  <body>
-    <p>If you are not redirected automatically, <a href="/en">click here</a>.</p>
+  <body class="bg-gray-800 text-white font-sans">
+    <div class="min-h-screen flex flex-col items-center justify-center p-4">
+      
+      <div class="bg-gray-900 bg-opacity-70 rounded-xl backdrop-blur-sm text-center p-6 md:p-8 max-w-3xl">
+        <div class="mb-6">
+          <h1 class="font-display font-extrabold text-3xl md:text-4xl lg:text-5xl">
+            The Slow Road Back: Ride for GBS Research
+          </h1>
+          <p class="mt-2 text-lg">
+            Welcome to an epic journey of resilience across the Pyrenees. Select your language to explore the challenge.
+          </p>
+        </div>
+        <div class="mb-6">
+          <h2 class="font-display font-bold text-2xl md:text-3xl">
+            The Slow Road Back: Pedaleando por la investigación del SGB
+          </h2>
+          <p class="mt-1">
+            Bienvenido a un viaje épico de resiliencia a través de los Pirineos. Selecciona tu idioma para explorar el desafío.
+          </p>
+        </div>
+        <div>
+          <h2 class="font-display font-bold text-2xl md:text-3xl">
+            The Slow Road Back : Pédaler pour la recherche sur le SGB
+          </h2>
+          <p class="mt-1">
+            Bienvenue dans un voyage épique de résilience à travers les Pyrénées. Sélectionnez votre langue pour explorer le défi.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl">
+        
+        <a href="/en" class="group relative bg-white/90 text-gray-800 rounded-xl p-6 text-center hover:bg-white transition-transform hover:scale-105">
+          <div class="text-4xl mb-4">🇬🇧</div>
+          <img src="/logos/INUK-Wordmark-Logo_RGB.png" alt="Inflammatory Neuropathies UK" class="h-12 mx-auto object-contain"/>
+          <p class="mt-4 font-bold font-display text-lg">English</p>
+          <div class="absolute inset-0 bg-black/80 text-white flex items-center justify-center p-4 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <p class="font-sans font-bold">Inflammatory Neuropathies UK</p>
+          </div>
+        </a>
+
+        <a href="/es" class="group relative bg-white/90 text-gray-800 rounded-lg p-6 text-center hover:bg-white transition-transform hover:scale-105">
+          <div class="text-4xl mb-4">🇪🇸</div>
+          <img src="/logos/GBS-CIDP_neuropatias-RC-3.png" alt="GBS|CIDP España" class="h-12 mx-auto object-contain"/>
+          <p class="mt-4 font-bold font-display text-lg">Español</p>
+          <div class="absolute inset-0 bg-black/80 text-white flex items-center justify-center p-4 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <p class="font-sans font-bold">GBS|CIDP España</p>
+          </div>
+        </a>
+
+        <a href="/fr" class="group relative bg-white/90 text-gray-800 rounded-lg p-6 text-center hover:bg-white transition-transform hover:scale-105">
+          <div class="text-4xl mb-4">🇫🇷</div>
+          <img src="/logos/fr.jpg" alt="Association Française du Syndrome de Guillain-Barré" class="h-12 mx-auto object-contain"/>
+          <p class="mt-4 font-bold font-display text-lg">Français</p>
+          <div class="absolute inset-0 bg-black/80 text-white flex items-center justify-center p-4 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <p class="font-sans font-bold text-center">Association Française du Syndrome de Guillain-Barré</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
   </body>
 </html>
