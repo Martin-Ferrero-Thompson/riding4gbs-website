@@ -1,0 +1,44 @@
+{
+  "en": {
+    "challenge": "The Challenge",
+    "myStory": "My Story",
+    "aboutGBS": "About GBS",
+    "myProgress": "My Progress",
+    "dailyDiary": "Daily Ride Diary",
+    "partners": "Partners",
+    "supportMe": "Support Me",
+    "donateNow": "Donate Now",
+    "totalRaised": "Total Raised",
+    "followJourney": "Follow the Journey On:",
+    "language": "Language",
+    "rightsReserved": "All Rights Reserved."
+  },
+  "es": {
+    "challenge": "El Reto",
+    "myStory": "Mi Historia",
+    "aboutGBS": "Sobre el SGB",
+    "myProgress": "Mi Progreso",
+    "dailyDiary": "Diario de Ruta",
+    "partners": "Colaboradores",
+    "supportMe": "Apóyame",
+    "donateNow": "Donar Ahora",
+    "totalRaised": "Total Recaudado",
+    "followJourney": "Sigue el Viaje En:",
+    "language": "Idioma",
+    "rightsReserved": "Todos los derechos reservados."
+  },
+  "fr": {
+    "challenge": "Le Défi",
+    "myStory": "Mon Histoire",
+    "aboutGBS": "À propos du SGB",
+    "myProgress": "Ma Progression",
+    "dailyDiary": "Journal de Route",
+    "partners": "Partenaires",
+    "supportMe": "Soutenez-moi",
+    "donateNow": "Faire un Don",
+    "totalRaised": "Total Collecté",
+    "followJourney": "Suivez le voyage sur :",
+    "language": "Langue",
+    "rightsReserved": "Tous droits réservés."
+  }
+}
