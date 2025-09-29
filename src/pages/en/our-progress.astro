@@ -1,6 +1,6 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
-import data from "../../data/progress.json"; // <-- Import your data file
+import data from "../../data/progress.json";
 
 // Calculate percentages for the progress bars
 const daysPercent = (data.days.current / data.days.total) * 100;
@@ -13,13 +13,16 @@ const eurFormatter = new Intl.NumberFormat('de-DE', { style: 'currency', currenc
 ---
 
 <MainLayout title="Our Progress">
-  <div class="m-4 md:m-12 p-6 md:p-10 bg-white rounded-xl max-w-5xl w-full mx-auto text-gray-800 font-sans">
+  <div
+    transition:name="our-progress-card"
+    class="m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 bg-white rounded-xl max-w-5xl w-full mx-auto text-gray-800 font-sans"
+  >
     
     <div class="text-center mb-12">
-      <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 font-display">
+      <h1 class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-gray-900">
         Follow The Journey: Live Progress
       </h1>
-      <p class="mt-4 max-w-3xl mx-auto text-center text-xl text-gray-500">
+      <p class="mt-4 max-w-3xl mx-auto text-center text-lg text-gray-500">
         This page will be updated daily with data from the road.
       </p>
     </div>
@@ -27,7 +30,7 @@ const eurFormatter = new Intl.NumberFormat('de-DE', { style: 'currency', currenc
     <div class="grid lg:grid-cols-3 gap-8 items-start">
       <div class="lg:col-span-2 space-y-8">
         <div>
-          <h2 class="text-3xl font-bold text-gray-900 font-display mb-4">Live Location Map</h2>
+          <h2 class="font-display font-bold text-3xl md:text-4xl text-gray-900 mb-4">Live Location Map</h2>
           <p class="text-lg text-gray-600 mb-4">
             This map shows the completed route so far. Check back daily to see my progress across the Pyrenees!
           </p>
@@ -35,13 +38,10 @@ const eurFormatter = new Intl.NumberFormat('de-DE', { style: 'currency', currenc
             <img src="/riding4gbs-atlantics2med.png" alt="The route map for the challenge." class="w-full h-full object-cover"/>
           </div>
         </div>
-        <!-- <div>
-          <img src="/riding4gbs-atlantic2med-profile.png" alt="The elevation profile for the challenge." class="w-full h-auto rounded-lg shadow-xl"/>
-        </div> -->
       </div>
 
       <div class="bg-gray-800 text-white rounded-xl shadow-lg p-6 space-y-6 lg:sticky lg:top-8">
-        <h2 class="text-3xl font-bold text-center font-display">By the Numbers</h2>
+        <h2 class="font-display font-bold text-3xl md:text-4xl text-center">By the Numbers</h2>
         
         <div>
           <div class="flex justify-between items-baseline mb-1 text-sm">
@@ -49,7 +49,7 @@ const eurFormatter = new Intl.NumberFormat('de-DE', { style: 'currency', currenc
             <span class="font-bold">{data.days.current} / {data.days.total}</span>
           </div>
           <div class="w-full bg-gray-600 rounded-full h-3">
-            <div class="bg-blue-500 h-3 rounded-full" style={`width: ${daysPercent}%`}></div>
+            <div class="bg-brand-blue h-3 rounded-full" style={`width: ${daysPercent}%`}></div>
           </div>
         </div>
 
@@ -59,7 +59,7 @@ const eurFormatter = new Intl.NumberFormat('de-DE', { style: 'currency', currenc
             <span class="font-bold">{data.distance.current} / {data.distance.total} {data.distance.unit}</span>
           </div>
           <div class="w-full bg-gray-600 rounded-full h-3">
-            <div class="bg-blue-500 h-3 rounded-full" style={`width: ${distancePercent}%`}></div>
+            <div class="bg-brand-blue h-3 rounded-full" style={`width: ${distancePercent}%`}></div>
           </div>
         </div>
         
@@ -69,18 +69,18 @@ const eurFormatter = new Intl.NumberFormat('de-DE', { style: 'currency', currenc
             <span class="font-bold">{data.climbing.current.toLocaleString()} / {data.climbing.total.toLocaleString()} {data.climbing.unit}</span>
           </div>
           <div class="w-full bg-gray-600 rounded-full h-3">
-            <div class="bg-blue-500 h-3 rounded-full" style={`width: ${climbingPercent}%`}></div>
+            <div class="bg-brand-blue h-3 rounded-full" style={`width: ${climbingPercent}%`}></div>
           </div>
         </div>
 
         <div class="text-center pt-4">
           <p class="text-base font-medium text-gray-300">{data.funds_gbp.label}</p>
-          <p class="text-4xl font-bold text-blue-400">{gbpFormatter.format(data.funds_gbp.current)}</p>
+          <p class="text-4xl font-bold text-brand-blue">{gbpFormatter.format(data.funds_gbp.current)}</p>
         </div>
 
         <div class="text-center pt-2">
           <p class="text-base font-medium text-gray-300">{data.funds_eur.label}</p>
-          <p class="text-4xl font-bold text-blue-400">{eurFormatter.format(data.funds_eur.current)}</p>
+          <p class="text-4xl font-bold text-brand-blue">{eurFormatter.format(data.funds_eur.current)}</p>
         </div>
       </div>
     </div>

@@ -1,123 +1,94 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
-import AnimatedCard from "../../components/AnimatedCard.jsx";
 ---
 
-<MainLayout title="Sponsors">
-  <AnimatedCard client:load>
-    <div
-      class="m-4 md:m-12 p-6 md:p-10 bg-white rounded-xl max-w-4xl w-full mx-auto text-gray-800 font-sans bg-opacity-70"
-    >
-      <div class="text-center">
-        <h2
-          class="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900"
-        >
-          Our Partners: The Team Behind the Challenge
-        </h2>
-        <p class="mt-4 max-w-3xl mx-auto text-center text-xl text-gray-500">
-          This ambitious challenge is only possible thanks to the generous
-          support of our partners. Every contribution—whether financial or
-          in-kind—directly fuels our mission to raise awareness and fund vital
-          research for Guillain-Barré Syndrome. We are incredibly grateful to
-          the following organizations for believing in our journey.
-        </p>
-      </div>
+<MainLayout title="Partners">
+  <div
+    transition:name="partners-card"
+    class="m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 bg-white rounded-xl max-w-4xl w-full mx-auto text-gray-800 font-sans"
+  >
+    <div class="text-center">
+      <h1 class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-gray-900">
+        Our Partners: The Team Behind the Challenge
+      </h1>
+      <p class="mt-4 max-w-3xl mx-auto text-center text-lg text-gray-500">
+        This ambitious challenge is only possible thanks to the generous support of our partners. Every contribution—whether financial or in-kind—directly fuels our mission to raise awareness and fund vital research for Guillain-Barré Syndrome. We are incredibly grateful to the following organizations for believing in our journey.
+      </p>
+    </div>
 
-      <div class="mt-16">
-        <div class="mb-12">
-          <h3
-            class="text-2xl font-bold text-center text-gray-400 tracking-wider uppercase"
-          >
-            Pirineo Partners
-          </h3>
-          <div
-            class="mt-8 flex flex-wrap justify-center items-center gap-x-12 gap-y-6"
-          >
+    <div class="mt-12 md:mt-16">
+      <div class="mb-12">
+        <h2 class="font-display font-bold text-2xl md:text-3xl text-center text-gray-500 tracking-wider uppercase">
+          Pirineo Partners
+        </h2>
+        <div class="mt-8 flex flex-wrap justify-center items-center gap-x-12 gap-y-8">
+          <a href="#" target="_blank" rel="noopener noreferrer">
             <img
               src="/logos/GBS-CIDP_neuropatias-RC-3.png"
               alt="GBS|CIDP España Logo"
               class="h-16 opacity-90 hover:opacity-100 transition"
               title="GBS|CIDP España"
             />
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer">
             <img
               src="/logos/INUK-Wordmark-Logo_RGB.png"
               alt="Inflammatory Neuropathies UK Logo"
               class="h-16 opacity-90 hover:opacity-100 transition"
               title="Inflammatory Neuropathies UK"
             />
-          </div>
-        </div>
-        <div class="mb-12">
-          <h3
-            class="text-xl font-bold text-center text-gray-400 tracking-wider uppercase"
-          >
-            Cima Supporters
-          </h3>
-          <div class="mt-6 flex flex-wrap justify-center items-center gap-8">
+          </a>
+           <a href="#" target="_blank" rel="noopener noreferrer">
             <img
-              src="https://placehold.co/180x90/666/fff?text=Supporter+Logo"
-              alt="Sponsor Logo"
-              class="h-14 opacity-90"
+              src="/logos/fr.jpg"
+              alt="Association Française du Syndrome de Guillain-Barré"
+              class="h-16 opacity-90 hover:opacity-100 transition"
+              title="Association Française du Syndrome de Guillain-Barré"
             />
-            <img
-              src="https://placehold.co/180x90/666/fff?text=Supporter+Logo"
-              alt="Sponsor Logo"
-              class="h-14 opacity-90"
-            />
-          </div>
-        </div>
-
-        <div>
-          <h3
-            class="text-lg font-bold text-center text-gray-400 tracking-wider uppercase"
-          >
-            Amigos del Reto
-          </h3>
-          <div class="mt-6 flex flex-wrap justify-center items-center gap-8">
-            <img
-              src="https://placehold.co/150x75/666/fff?text=Amigo+Logo"
-              alt="Sponsor Logo"
-              class="h-12 opacity-80"
-            />
-            <img
-              src="https://placehold.co/150x75/666/fff?text=Amigo+Logo"
-              alt="Sponsor Logo"
-              class="h-12 opacity-80"
-            />
-            <img
-              src="https://placehold.co/150x75/666/fff?text=Amigo+Logo"
-              alt="Sponsor Logo"
-              class="h-12 opacity-80"
-            />
-          </div>
-        </div>
-      </div>
-
-      <hr class="my-16 border-gray-200 w-48 mx-auto" />
-
-      <div class="bg-gray-100 rounded-2xl p-12 text-center">
-        <h3 class="text-3xl md:text-4xl font-extrabold text-gray-900">
-          Become a Partner: Join the Journey
-        </h3>
-        <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">
-          Associate your brand with a powerful, international story of
-          resilience, hope, and endurance. We offer a unique opportunity to
-          showcase your products and services to an engaged audience across
-          Spain, the UK, and beyond. By partnering with us, you are not just
-          sponsoring a bike ride; you are funding a cure and inspiring a
-          community.
-        </p>
-        <div class="mt-8">
-          <a
-            id="sponsor-download"
-            href="#"
-            data-modal="true"
-            class="inline-block px-10 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg rounded-full transition-all duration-300 transform hover:scale-105"
-          >
-            Download Sponsorship Packet
           </a>
         </div>
       </div>
+      
+      <div class="mb-12">
+        <h3 class="font-display font-bold text-xl md:text-2xl text-center text-gray-500 tracking-wider uppercase">
+          Cima Supporters
+        </h3>
+        <div class="mt-6 flex flex-wrap justify-center items-center gap-8">
+          <img src="https://placehold.co/180x90/ccc/fff?text=Supporter+Logo" alt="Sponsor Logo" class="h-14 opacity-90"/>
+          <img src="https://placehold.co/180x90/ccc/fff?text=Supporter+Logo" alt="Sponsor Logo" class="h-14 opacity-90"/>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="font-display font-bold text-lg md:text-xl text-center text-gray-500 tracking-wider uppercase">
+          Amigos del Reto
+        </h3>
+        <div class="mt-6 flex flex-wrap justify-center items-center gap-8">
+          <img src="https://placehold.co/150x75/ccc/fff?text=Amigo+Logo" alt="Sponsor Logo" class="h-12 opacity-80"/>
+          <img src="https://placehold.co/150x75/ccc/fff?text=Amigo+Logo" alt="Sponsor Logo" class="h-12 opacity-80"/>
+          <img src="https://placehold.co/150x75/ccc/fff?text=Amigo+Logo" alt="Sponsor Logo" class="h-12 opacity-80"/>
+        </div>
+      </div>
     </div>
-  </AnimatedCard>
+
+    <hr class="my-12 md:my-16 border-gray-200 w-48 mx-auto" />
+
+    <div class="bg-gray-100 rounded-xl p-8 md:p-12 text-center">
+      <h2 class="font-display font-bold text-3xl md:text-4xl text-gray-900">
+        Become a Partner: Join the Journey
+      </h2>
+      <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">
+        Associate your brand with a powerful, international story of resilience, hope, and endurance. We offer a unique opportunity to showcase your products and services to an engaged audience across Spain, the UK, and beyond. By partnering with us, you are not just sponsoring a bike ride; you are funding a cure and inspiring a community.
+      </p>
+      <div class="mt-8">
+        <a
+          id="sponsor-download"
+          href="#"
+          class="inline-block px-10 py-4 bg-brand-blue hover:bg-blue-700 text-white font-bold text-lg rounded-full transition-transform transform hover:scale-105"
+        >
+          Download Partnership Packet
+        </a>
+      </div>
+    </div>
+  </div>
 </MainLayout>

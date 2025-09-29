@@ -1,89 +1,66 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
-import AnimatedCard from "../../components/AnimatedCard.jsx";
 ---
 
 <MainLayout title="The Challenge | Riding4GBS">
-  <AnimatedCard client:load>
-    <div
-      class="m-4 md:m-12 p-6 md:p-10 bg-white rounded-xl max-w-4xl w-full mx-auto text-gray-800 font-sans bg-opacity-70"
-    >
-      <div class="text-center">
-        <h1 class="font-display text-4xl md:text-5xl font-bold text-gray-900">
-          Conquering the Pyrenees: The Route 🚵
-        </h1>
-        <p class="mt-2 max-w-2xl mx-auto">
-          This is not just a bike ride; it's a complete coast-to-coast traverse
-          of one of the world's most formidable mountain ranges.
-        </p>
-      </div>
+  <div
+    transition:name="challenge-card"
+    class="m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 bg-white rounded-xl max-w-4xl w-full mx-auto text-gray-800 font-sans"
+  >
+    <div class="text-center">
+      <h1 class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-gray-900">
+        Conquering the Pyrenees: The Route 🚵
+      </h1>
+      <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">
+        This is not just a bike ride; it's a complete coast-to-coast traverse of one of the world's most formidable mountain ranges.
+      </p>
+    </div>
 
-      <div
-        class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center my-10 border-y py-6"
-      >
-        <div>
-          <p class="font-display text-3xl font-bold text-blue-600">21</p>
-          <p class="text-sm text-gray-600">Total Days</p>
-        </div>
-        <div>
-          <p class="font-display text-3xl font-bold text-blue-600">1,685</p>
-          <p class="text-sm text-gray-600">Kilometres</p>
-        </div>
-        <div>
-          <p class="font-display text-3xl font-bold text-blue-600">34,900</p>
-          <p class="text-sm text-gray-600">Metres of Climbing</p>
-        </div>
-        <div>
-          <p class="font-display text-3xl font-bold text-blue-600">4+x</p>
-          <p class="text-sm text-gray-600">The Height of Everest</p>
-        </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center my-10 md:my-12 border-y py-6">
+      <div>
+        <p class="font-display text-3xl md:text-4xl font-bold text-brand-blue">21</p>
+        <p class="text-sm text-gray-600">Total Days</p>
       </div>
-
-      <div class="text-center max-w-3xl mx-auto">
-        <h2 class="font-display text-3xl font-bold text-gray-900">
-          The Style: A Self-Supported Journey
-        </h2>
-        <p class="mt-4 text-left">
-          This challenge is a journey back to basics, undertaken in a
-          self-supported bikepacking style. I'll be carrying all my own
-          equipment, relying on the kindness of the community I meet along the
-          way. While the logistical test is a personal one, the road itself is
-          open to all. I would be honoured and motivated to have local riders
-          join me for a few kilometres or to share the effort on a classic
-          mountain pass. This journey is about community, and I welcome anyone
-          who wants to be a part of it.
-        </p>
+      <div>
+        <p class="font-display text-3xl md:text-4xl font-bold text-brand-blue">1,685</p>
+        <p class="text-sm text-gray-600">Kilometres</p>
       </div>
-
-      <div class="grid md:grid-cols-2 gap-8 mt-12">
-        <div class="bg-gray-50 p-6 rounded-lg">
-          <h3 class="font-display text-2xl font-bold text-gray-900">
-            Leg 1: The Epic Crossing
-          </h3>
-          <p class="mt-2">
-            The journey begins by heading east from the Basque Country,
-            following the path of the Tour de France legends. This first leg of
-            the journey crosses into France to conquer icons like the Col du
-            Tourmalet before tackling "The Pinnacle"—the Port d'Envalira in
-            Andorra. It is a pure test of climbing strength on the road to the
-            Mediterranean.
-          </p>
-        </div>
-        <div class="bg-gray-50 p-6 rounded-lg">
-          <h3 class="font-display text-2xl font-bold text-gray-900">
-            Leg 2: The Journey Home
-          </h3>
-          <p class="mt-2">
-            Upon reaching the coast, the goal is to turn back west and begin the
-            long journey home. This is a test of endurance and resilience. The
-            return route will focus on the Spanish side, tackling the long,
-            remote, and beautiful roads of the Pre-Pyrenees in Catalunya,
-            Aragón, and finally, Navarra. The climbs are less steep but just as
-            relentless, demanding a different kind of strength for the long road
-            back.
-          </p>
-        </div>
+      <div>
+        <p class="font-display text-3xl md:text-4xl font-bold text-brand-blue">34,900</p>
+        <p class="text-sm text-gray-600">Metres of Climbing</p>
+      </div>
+      <div>
+        <p class="font-display text-3xl md:text-4xl font-bold text-brand-blue">4x</p>
+        <p class="text-sm text-gray-600">The Height of Everest</p>
       </div>
     </div>
-  </AnimatedCard>
+
+    <div class="text-center max-w-3xl mx-auto">
+      <h2 class="font-display font-bold text-3xl md:text-4xl text-gray-900">
+        The Style: A Self-Supported Journey
+      </h2>
+      <p class="mt-4 text-lg text-gray-600 text-left">
+        This challenge is a journey back to basics, undertaken in a self-supported bikepacking style. I'll be carrying all my own equipment, relying on the kindness of the community I meet along the way. While the logistical test is a personal one, the road itself is open to all. I would be honoured and motivated to have local riders join me for a few kilometres or to share the effort on a classic mountain pass. This journey is about community, and I welcome anyone who wants to be a part of it.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 mt-12">
+      <div class="bg-gray-50 p-6 rounded-lg">
+        <h3 class="font-display font-bold text-2xl md:text-3xl text-gray-900">
+          Leg 1: The Epic Crossing
+        </h3>
+        <p class="mt-2 text-lg text-gray-600">
+          The journey begins by heading east from the Basque Country, following the path of the Tour de France legends. This first leg of the journey crosses into France to conquer icons like the Col du Tourmalet before tackling "The Pinnacle"—the Port d'Envalira in Andorra. It is a pure test of climbing strength on the road to the Mediterranean.
+        </p>
+      </div>
+      <div class="bg-gray-50 p-6 rounded-lg">
+        <h3 class="font-display font-bold text-2xl md:text-3xl text-gray-900">
+          Leg 2: The Journey Home
+        </h3>
+        <p class="mt-2 text-lg text-gray-600">
+          Upon reaching the coast, the goal is to turn back west and begin the long journey home. This is a test of endurance and resilience. The return route will focus on the Spanish side, tackling the long, remote, and beautiful roads of the Pre-Pyrenees in Catalunya, Aragón, and finally, Navarra. The climbs are less steep but just as relentless, demanding a different kind of strength for the long road back.
+        </p>
+      </div>
+    </div>
+  </div>
 </MainLayout>

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 
-export function Carousel({ slides }) { // Now accepts a 'slides' prop
+export function Carousel({ slides }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const contentRef = useRef(null);
   const totalSlides = slides ? slides.length : 0;
@@ -16,13 +16,12 @@ export function Carousel({ slides }) { // Now accepts a 'slides' prop
   }, [currentIndex]);
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-full mt-10">
       <div ref={contentRef} className="flex overflow-x-hidden snap-x snap-mandatory scroll-smooth">
-        {/* We now map over the slides array to render the content */}
         {slides.map((slide, index) => (
           <div key={index} className="w-full flex-shrink-0 snap-center">
             <div className="p-4 md:p-8">
-              <h3 className="font-display text-3xl font-bold text-gray-900 mb-4">
+              <h3 className="font-display font-bold text-2xl md:text-3xl text-gray-900 mb-4">
                 {slide.title}
               </h3>
               <div 
@@ -34,7 +33,6 @@ export function Carousel({ slides }) { // Now accepts a 'slides' prop
         ))}
       </div>
 
-{/* Pill Navigation */}
       <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex space-x-3 p-2">
         {Array.from({ length: totalSlides }).map((_, index) => (
           <button
@@ -50,5 +48,3 @@ export function Carousel({ slides }) { // Now accepts a 'slides' prop
     </div>
   );
 }
-
-// The CarouselSlide component is no longer needed

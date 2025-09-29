@@ -1,9 +1,6 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
-import AnimatedCard from "../../components/AnimatedCard.jsx";
 import { Carousel } from "../../components/Carousel.jsx";
-
-// Define the slide content as an array of objects
 const storySlides = [
   {
     title: "The Rider Before",
@@ -25,27 +22,26 @@ const storySlides = [
 ---
 
 <MainLayout title="My Story">
-  <AnimatedCard client:load>
-    <div
-      class="m-4 md:m-12 p-6 md:p-10 bg-white rounded-xl max-w-4xl w-full mx-auto text-gray-800 font-sans"
-    >
-      <div class="text-center">
-        <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900">
-          My Story: The Slow Road Back
-        </h2>
-        <p class="mt-4 max-w-3xl mx-auto text-center text-xl text-gray-500">
-          A journey of resilience, partnership, and a newfound purpose.
-        </p>
-      </div>
-      <div class="mt-12 max-w-4xl mx-auto">
-        <img
-          class="rounded-xl shadow-lg object-cover w-full h-96"
-          src="https://placehold.co/1200x800/667/fff?text=A+powerful+photo+of+Martin and Bike"
-          alt="Martin and Bike"
-        />
-      </div>
-
-      <Carousel client:load slides={storySlides} />
+  <div
+    transition:name="my-story-card"
+    class="m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 bg-white rounded-xl max-w-4xl w-full mx-auto text-gray-800 font-sans"
+  >
+    <div class="text-center">
+      <h1 class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-gray-900">
+        My Story: The Slow Road Back
+      </h1>
+      <p class="mt-4 max-w-3xl mx-auto text-center text-lg text-gray-500">
+        A journey of resilience, partnership, and a newfound purpose. [cite: 29]
+      </p>
     </div>
-  </AnimatedCard>
+    <div class="mt-12 max-w-4xl mx-auto">
+      <img
+        class="rounded-xl shadow-lg object-cover w-full h-96"
+        src="https://placehold.co/1200x800/667/fff?text=A+powerful+photo+of+Martin+and+Bike"
+        alt="Martin and Bike"
+      />
+    </div>
+
+    <Carousel client:load slides={storySlides} />
+  </div>
 </MainLayout>

@@ -18,12 +18,6 @@ const eurFormatter = new Intl.NumberFormat('de-DE', { style: 'currency', currenc
     <p class="text-sm text-gray-400 font-sans">#RIDING4GBS</p>
   </div>
 
-  <div class="mb-8 font-sans">
-    <a href={`/${lang}/donate`} class="block w-full text-center bg-brand-teal hover:bg-teal-600 p-3 rounded-lg font-bold transition-colors">
-      {t.donateNow}
-    </a>
-  </div>
-
   <div class="bg-gray-800 rounded-lg p-4 text-center font-sans mb-8">
     <p class="text-sm font-bold text-gray-300 mb-2">{t.totalRaised}</p>
     <div class="space-y-2">
@@ -38,11 +32,17 @@ const eurFormatter = new Intl.NumberFormat('de-DE', { style: 'currency', currenc
     </div>
   </div>
 
+  <div class="mb-8 font-sans">
+    <a href={`/${lang}/donate`} class="block w-full text-center bg-brand-teal hover:bg-teal-600 p-3 rounded-lg font-bold transition-colors">
+      {t.donateNow}
+    </a>
+  </div>  
+
   <nav class="flex flex-col space-y-4 font-sans">
-    <a href={`/${lang}/about-challenge`} class="hover:text-blue-400 transition-colors">{t.challenge}</a>
+    <a href={`/${lang}/the-challenge`} class="hover:text-blue-400 transition-colors">{t.challenge}</a>
     <a href={`/${lang}/my-story`} class="hover:text-blue-400 transition-colors">{t.myStory}</a>
     <a href={`/${lang}/about-gbs`} class="hover:text-blue-400 transition-colors">{t.aboutGBS}</a>
-    <a href={`/${lang}/my-progress`} class="hover:text-blue-400 transition-colors">{t.myProgress}</a>
+    <a href={`/${lang}/our-progress`} class="hover:text-blue-400 transition-colors">{t.ourProgress}</a>
     <a href={`/${lang}/daily-ride-diary`} class="hover:text-blue-400 transition-colors">{t.dailyDiary}</a>
     <a href={`/${lang}/partners`} class="hover:text-blue-400 transition-colors">{t.partners}</a>
     <a href={`/${lang}/support-me`} class="hover:text-blue-400 transition-colors">{t.supportMe}</a>
