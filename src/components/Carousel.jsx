@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 
-export function Carousel({ slides }) {
+export function Carousel({ slides, i18n }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const contentRef = useRef(null);
   const totalSlides = slides ? slides.length : 0;
@@ -23,15 +23,13 @@ export function Carousel({ slides }) {
     }
   }, [currentIndex]);
 
+  const labels = i18n?.carousel || { previous: 'Previous Slide', next: 'Next Slide' };
+
   return (
-    // Main container now has padding to create space for the buttons
     <div className="relative w-full mt-10 px-10">
-      
       <div ref={contentRef} className="flex overflow-x-hidden snap-x snap-mandatory scroll-smooth">
         {slides.map((slide, index) => (
           <div key={index} className="w-full flex-shrink-0 snap-center">
-            
-            {/* Add bg-gray-50 and rounded-lg to this div */}
             <div className="p-4 md:p-8 bg-gray-50 rounded-lg"> 
               <h3 className="font-display font-bold text-2xl md:text-3xl text-gray-900 mb-4">
                 {slide.title}
@@ -45,25 +43,24 @@ export function Carousel({ slides }) {
         ))}
       </div>
 
-      {/* Buttons are positioned relative to the padded container */}
       <button 
         onClick={handlePrev} 
-        title="Previous"
+        title={labels.previous}
+        aria-label={labels.previous}
         className="absolute top-1/2 left-2 -translate-y-1/2 bg-gray-800/50 hover:bg-gray-800/80 rounded-full p-2 text-white z-10 transition-colors"
-        aria-label="Previous slide"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
         </svg>
       </button>
       <button 
         onClick={handleNext} 
-        title="Next"
+        title={labels.next}
+        aria-label={labels.next}
         className="absolute top-1/2 right-2 -translate-y-1/2 bg-gray-800/50 hover:bg-gray-800/80 rounded-full p-2 text-white z-10 transition-colors"
-        aria-label="Next slide"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+          <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
         </svg>
       </button>
     </div>

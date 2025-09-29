@@ -1,6 +1,12 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
 import { Carousel } from "../../components/Carousel.jsx";
+import i18n from '../../data/sidebar.json'; // Import the data file
+
+// Detect language and get the correct text
+const currentPath = Astro.url.pathname;
+const lang = currentPath.startsWith('/es') ? 'es' : currentPath.startsWith('/fr') ? 'fr' : 'en';
+const t = i18n[lang];
 const storySlides = [
   {
     title: "The Rider Before",
@@ -31,7 +37,7 @@ const storySlides = [
         My Story: The Slow Road Back
       </h1>
       <p class="mt-4 max-w-3xl mx-auto text-center text-lg text-gray-500">
-        A journey of resilience, partnership, and a newfound purpose. [cite: 29]
+        A journey of resilience, partnership, and a newfound purpose.
       </p>
     </div>
     <div class="mt-12 max-w-4xl mx-auto">

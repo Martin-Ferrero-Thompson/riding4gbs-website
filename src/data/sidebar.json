@@ -11,7 +11,11 @@
     "totalRaised": "Total Raised",
     "followJourney": "Follow the Journey On:",
     "language": "Language",
-    "rightsReserved": "All Rights Reserved."
+    "rightsReserved": "All Rights Reserved.",
+    "carousel": {
+      "previous": "Previous Slide",
+      "next": "Next Slide"
+    }
   },
   "es": {
     "challenge": "El Reto",
@@ -25,7 +29,11 @@
     "totalRaised": "Total Recaudado",
     "followJourney": "Sigue el Viaje En:",
     "language": "Idioma",
-    "rightsReserved": "Todos los derechos reservados."
+    "rightsReserved": "Todos los derechos reservados.",
+    "carousel": {
+      "previous": "Diapositiva Anterior",
+      "next": "Siguiente Diapositiva"
+    }
   },
   "fr": {
     "challenge": "Le Défi",
@@ -39,6 +47,10 @@
     "totalRaised": "Total Collecté",
     "followJourney": "Suivez le voyage sur :",
     "language": "Langue",
-    "rightsReserved": "Tous droits réservés."
+    "rightsReserved": "Tous droits réservés.",
+    "carousel": {
+      "previous": "Diapositive Précédente",
+      "next": "Diapositive Suivante"
+    }
   }
 }
