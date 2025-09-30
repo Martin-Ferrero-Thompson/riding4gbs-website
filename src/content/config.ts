@@ -10,6 +10,8 @@ const postsCollection = defineCollection({
       src: image(),
       alt: z.string(),
     }).optional(),
+        tags: z.array(z.string()).optional(),
+    featured: z.boolean().optional(), 
   }),
 });
 
