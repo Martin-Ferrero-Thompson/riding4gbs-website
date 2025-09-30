@@ -1,90 +1,88 @@
 ---
-// This page is our new multilingual splash screen with a single container card.
+import MainLayout from "../../layouts/MainLayout.astro";
+import data from "../../data/progress.json";
+
+// Calculate percentages for the progress bars
+const daysPercent = (data.days.current / data.days.total) * 100;
+const distancePercent = (data.distance.current / data.distance.total) * 100;
+const climbingPercent = (data.climbing.current / data.climbing.total) * 100;
+
+// Format currency for display
+const gbpFormatter = new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP' });
+const eurFormatter = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' });
 ---
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>The Slow Road Back | A Ride for GBS Research</title>
+
+<MainLayout title="Our Progress">
+  <div
+    transition:name="our-progress-card"
+    class="m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 bg-white rounded-xl max-w-6xl w-full mx-auto text-gray-800 font-sans"
+  >
     
-    <style is:global>
-      @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700;900&display=swap');
-      
-      body {
-        background-image: url("/background.png");
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-      }
+    <div class="text-center mb-12">
+      <h1 class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-gray-900">
+        Follow The Journey: Live Progress
+      </h1>
+      <p class="mt-4 max-w-3xl mx-auto text-center text-lg text-gray-500">
+        This page will be updated daily with data from the road.
+      </p>
+    </div>
 
-      @keyframes fade-in {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      .animate-fade-in {
-        animation: fade-in 1s ease-out forwards;
-      }
-    </style>
-  </head>
-  <body class="bg-gray-800 text-white font-sans">
-    <div class="min-h-screen flex flex-col items-center justify-center p-4 animate-fade-in">
-      
-      <div class="bg-gray-900/80 backdrop-blur-sm rounded-xl p-6 md:p-8 max-w-6xl w-full">
+    <div class="grid lg:grid-cols-3 gap-8 items-start">
+      <div class="lg:col-span-2 space-y-8">
+        <div>
+          <h2 class="font-display font-bold text-3xl md:text-4xl text-gray-900 mb-4">Live Location Map</h2>
+          <p class="text-lg text-gray-600 mb-4">
+            This map shows the completed route so far. Check back daily to see my progress across the Pyrenees!
+          </p>
+          <div class="bg-gray-200 rounded-xl shadow-lg overflow-hidden">
+            <img src="/riding4gbs-atlantics2med.png" alt="The route map for the challenge." class="w-full h-full object-cover"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gray-800 text-white rounded-xl shadow-lg p-6 space-y-6 lg:sticky lg:top-8">
+        <h2 class="font-display font-bold text-3xl md:text-4xl text-center">By the Numbers</h2>
         
-        <h1 class="font-display font-extrabold text-3xl md:text-5xl text-center text-brand-blue mb-6">
-          #RIDING4GBS
-        </h1>
+        <div>
+          <div class="flex justify-between items-baseline mb-1 text-sm">
+            <span class="font-medium text-gray-300">{data.days.label}</span>
+            <span class="font-bold">{data.days.current} / {data.days.total}</span>
+          </div>
+          <div class="w-full bg-gray-600 rounded-full h-3">
+            <div class="bg-brand-blue h-3 rounded-full" style={`width: ${daysPercent}%`}></div>
+          </div>
+        </div>
 
-        <img src="/riding4gbs-atlantics2med.png" alt="The challenge route map" class="rounded-lg shadow-md mb-8 mx-auto" />
+        <div>
+          <div class="flex justify-between items-baseline mb-1 text-sm">
+            <span class="font-medium text-gray-300">{data.distance.label}</span>
+            <span class="font-bold">{data.distance.current} / {data.distance.total} {data.distance.unit}</span>
+          </div>
+          <div class="w-full bg-gray-600 rounded-full h-3">
+            <div class="bg-brand-blue h-3 rounded-full" style={`width: ${distancePercent}%`}></div>
+          </div>
+        </div>
+        
+        <div>
+          <div class="flex justify-between items-baseline mb-1 text-sm">
+            <span class="font-medium text-gray-300">{data.climbing.label}</span>
+            <span class="font-bold">{data.climbing.current.toLocaleString()} / {data.climbing.total.toLocaleString()} {data.climbing.unit}</span>
+          </div>
+          <div class="w-full bg-gray-600 rounded-full h-3">
+            <div class="bg-brand-blue h-3 rounded-full" style={`width: ${climbingPercent}%`}></div>
+          </div>
+        </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          
-          <a href="/en" class="group relative bg-gray-800/50 rounded-xl p-6 flex flex-col text-center transition-transform hover:scale-105">
-            <header class="text-5xl mb-4">🇬🇧</header>
-            <main class="flex-grow text-gray-200">
-              <h2 class="font-display font-bold text-xl mb-2 text-white">Ride for GBS Research</h2>
-              <p>Welcome to an epic journey of resilience. Select your language to explore the challenge.</p>
-            </main>
-            <footer class="mt-6 p-3 bg-white rounded-lg">
-              <img src="/logos/INUK-Wordmark-Logo_RGB.png" alt="Inflammatory Neuropathies UK" class="h-10 mx-auto object-contain"/>
-            </footer>
-            <div class="absolute inset-0 bg-black/80 text-white flex items-center justify-center p-4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <p class="font-sans font-bold text-lg">Click to enter the English site</p>
-            </div>
-          </a>
+        <div class="text-center pt-4">
+          <p class="text-base font-medium text-gray-300">{data.funds_gbp.label}</p>
+          <p class="text-4xl font-bold text-brand-blue">{gbpFormatter.format(data.funds_gbp.current)}</p>
+        </div>
 
-          <a href="/es" class="group relative bg-gray-800/50 rounded-xl p-6 flex flex-col text-center transition-transform hover:scale-105">
-            <header class="text-5xl mb-4">🇪🇸</header>
-            <main class="flex-grow text-gray-200">
-              <h2 class="font-display font-bold text-xl mb-2 text-white">Pedaleando por la investigación del SGB</h2>
-              <p>Bienvenido a un viaje épico de resiliencia. Selecciona tu idioma para explorar el desafío.</p>
-            </main>
-            <footer class="mt-6 p-3 bg-white rounded-lg">
-              <img src="/logos/GBS-CIDP_neuropatias-RC-3.png" alt="GBS|CIDP España" class="h-10 mx-auto object-contain"/>
-            </footer>
-            <div class="absolute inset-0 bg-black/80 text-white flex items-center justify-center p-4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <p class="font-sans font-bold text-lg">Haga clic para entrar en el sitio en español</p>
-            </div>
-          </a>
-
-          <a href="/fr" class="group relative bg-gray-800/50 rounded-xl p-6 flex flex-col text-center transition-transform hover:scale-105">
-            <header class="text-5xl mb-4">🇫🇷</header>
-            <main class="flex-grow text-gray-200">
-              <h2 class="font-display font-bold text-xl mb-2 text-white">Pédaler pour la recherche sur le SGB</h2>
-              <p>Bienvenue dans un voyage épique de résilience. Sélectionnez votre langue pour explorer le défi.</p>
-            </main>
-            <footer class="mt-6 p-3 bg-white rounded-lg">
-              <img src="/logos/fr.jpg" alt="Association Française du Syndrome de Guillain-Barré" class="h-10 mx-auto object-contain"/>
-            </footer>
-            <div class="absolute inset-0 bg-black/80 text-white flex items-center justify-center p-4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <p class="font-sans font-bold text-lg">Cliquez pour accéder au site en français</p>
-            </div>
-          </a>
-
+        <div class="text-center pt-2">
+          <p class="text-base font-medium text-gray-300">{data.funds_eur.label}</p>
+          <p class="text-4xl font-bold text-brand-blue">{eurFormatter.format(data.funds_eur.current)}</p>
         </div>
       </div>
     </div>
-  </body>
-</html>
+  </div>
+</MainLayout>

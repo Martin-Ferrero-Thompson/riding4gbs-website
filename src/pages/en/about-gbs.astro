@@ -1,6 +1,12 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
 import { Carousel } from "../../components/Carousel.jsx";
+import i18n from '../../data/sidebar.json'; // <-- Import the data file
+
+// Detect language and get the correct text
+const currentPath = Astro.url.pathname;
+const lang = currentPath.startsWith('/es') ? 'es' : currentPath.startsWith('/fr') ? 'fr' : 'en';
+const t = i18n[lang];
 
 const gbsSlides = [
   {
@@ -15,17 +21,17 @@ const gbsSlides = [
     title: "Hope on the Horizon",
     content: `<p class="text-lg text-gray-600 leading-relaxed">While current treatments help, they are not a cure and are not effective for everyone. This is why research is so critical. Scientists are working to find faster diagnostic tools and develop new, more targeted therapies. Your support helps fuel this vital research and brings hope to every person affected by GBS.</p>`,
   },
-  {
-    title: "Impact on Nerve Cells",
-    content: `<img src="/gbs-details.png" alt="Guillain-Barré Syndrome Explanation - Neuron and Nerve System" class="rounded-xl shadow-lg w-full object-cover" /><p class="mt-4 text-center text-sm text-gray-500">*Image illustrating the impact of GBS on nerve cells and pathways.</p>`,
-  },
+  // {
+  //   title: "Impact on Nerve Cells",
+  //   content: `<img src="/gbs-details.png" alt="Guillain-Barré Syndrome Explanation - Neuron and Nerve System" class="rounded-xl shadow-lg w-full object-cover" /><p class="mt-4 text-center text-sm text-gray-500">*Image illustrating the impact of GBS on nerve cells and pathways.</p>`,
+  // },
 ];
 ---
 
 <MainLayout title="About GBS">
   <div
     transition:name="about-gbs-card"
-    class="m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 bg-white rounded-xl max-w-4xl w-full mx-auto text-gray-800 font-sans"
+    class="m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 bg-white rounded-xl max-w-6xl w-full mx-auto text-gray-800 font-sans"
   >
     <div class="text-center">
       <h1
@@ -38,11 +44,12 @@ const gbsSlides = [
       </p>
     </div>
 
-    <div class="my-12">
-      <Carousel client:load slides={gbsSlides} />
+    <div class="mt-8">
+      {/* Pass the translations object 't' as a prop */}
+      <Carousel client:load slides={gbsSlides} i18n={t} />
     </div>
 
-    <hr class="my-12 md:my-16 border-gray-200 w-48 mx-auto" />
+    <hr class="my-8 md:my-12 border-gray-200 w-48 mx-auto" />
 
     <div class="max-w-4xl mx-auto">
       <h3 class="font-display font-bold text-2xl md:text-3xl text-center mb-8">

@@ -27,7 +27,8 @@ export function Carousel({ slides, i18n }) {
 
   return (
     <div className="relative w-full mt-10 px-10">
-      <div ref={contentRef} className="flex overflow-x-hidden snap-x snap-mandatory scroll-smooth">
+      {/* Add items-start to prevent slides from stretching vertically */}
+      <div ref={contentRef} className="flex overflow-x-hidden snap-x snap-mandatory scroll-smooth items-start">
         {slides.map((slide, index) => (
           <div key={index} className="w-full flex-shrink-0 snap-center">
             <div className="p-4 md:p-8 bg-gray-50 rounded-lg"> 
@@ -43,6 +44,7 @@ export function Carousel({ slides, i18n }) {
         ))}
       </div>
 
+      {/* Buttons remain the same */}
       <button 
         onClick={handlePrev} 
         title={labels.previous}
