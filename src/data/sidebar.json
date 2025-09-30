@@ -15,6 +15,14 @@
     "carousel": {
       "previous": "Previous Slide",
       "next": "Next Slide"
+    },
+    "underway": "Ride in Progress!",
+    "countdownUnits": {
+      "year": "Yrs",
+      "day": "Days",
+      "hour": "Hrs",
+      "minute": "Mins",
+      "second": "Secs"
     }
   },
   "es": {
@@ -33,6 +41,14 @@
     "carousel": {
       "previous": "Diapositiva Anterior",
       "next": "Siguiente Diapositiva"
+    },
+    "underway": "¡Ruta en Marcha!",
+    "countdownUnits": {
+      "year": "Años",
+      "day": "Días",
+      "hour": "Horas",
+      "minute": "Mins",
+      "second": "Segs"
     }
   },
   "fr": {
@@ -51,6 +67,14 @@
     "carousel": {
       "previous": "Diapositive Précédente",
       "next": "Diapositive Suivante"
+    },
+    "underway": "Parcours en cours !",
+    "countdownUnits": {
+      "year": "Ans",
+      "day": "Jours",
+      "hour": "Heures",
+      "minute": "Mins",
+      "second": "Secs"
     }
   }
 }

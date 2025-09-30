@@ -1,5 +1,5 @@
 ---
-// This page is our new multilingual splash screen with a single container card.
+import data from '../data/progress.json';
 ---
 <!doctype html>
 <html lang="en">
@@ -8,20 +8,18 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>The Slow Road Back | A Ride for GBS Research</title>
-    
+
     <style is:global>
-      @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700;900&display=swap');
-      
+      @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700;900&display=swap");
       body {
         background-image: url("/background.png");
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
       }
-
       @keyframes fade-in {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
+        from { opacity: 0; }
+        to { opacity: 1; }
       }
       .animate-fade-in {
         animation: fade-in 1s ease-out forwards;
@@ -30,22 +28,20 @@
   </head>
   <body class="bg-gray-800 text-white font-sans">
     <div class="min-h-screen flex flex-col items-center justify-center p-4 animate-fade-in">
-      
       <div class="bg-gray-900/80 backdrop-blur-sm rounded-xl p-6 md:p-8 max-w-6xl w-full">
-        
         <h1 class="font-display font-extrabold text-3xl md:text-5xl text-center text-brand-blue mb-6">
           #RIDING4GBS
         </h1>
 
-        <div id="countdown" class="my-8 font-sans">
-          <div id="cd-display" class="flex justify-center items-center gap-2 md:gap-4 text-white">
-            </div>
+        {/* Pass the date to the script via a data attribute */}
+        <div id="countdown" class="my-8 font-sans" data-target-date={data.targetDate}>
+          <div id="cd-display" class="flex justify-center items-center gap-2 md:gap-4 text-white"></div>
           <p id="cd-message" class="text-lg text-center text-gray-300 mt-2"></p>
         </div>
+
         <img src="/riding4gbs-atlantics2med.png" alt="The challenge route map" class="rounded-lg shadow-md mb-8 mx-auto" />
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          
           <a href="/en" class="group relative bg-gray-800/50 rounded-xl p-6 flex flex-col text-center transition-transform hover:scale-105">
             <header class="text-5xl mb-4">🇬🇧</header>
             <main class="flex-grow text-gray-200">
@@ -53,13 +49,12 @@
               <p>Welcome to an epic journey of resilience. Select your language to explore the challenge.</p>
             </main>
             <footer class="mt-6 p-3 bg-white rounded-lg">
-              <img src="/logos/INUK-Wordmark-Logo_RGB.png" alt="Inflammatory Neuropathies UK" class="h-10 mx-auto object-contain"/>
+              <img src="/logos/INUK-Wordmark-Logo_RGB.png" alt="Inflammatory Neuropathies UK" class="h-10 mx-auto object-contain" />
             </footer>
             <div class="absolute inset-0 bg-black/80 text-white flex items-center justify-center p-4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <p class="font-sans font-bold text-lg">Click to enter the English site</p>
             </div>
           </a>
-
           <a href="/es" class="group relative bg-gray-800/50 rounded-xl p-6 flex flex-col text-center transition-transform hover:scale-105">
             <header class="text-5xl mb-4">🇪🇸</header>
             <main class="flex-grow text-gray-200">
@@ -67,13 +62,12 @@
               <p>Bienvenido a un viaje épico de resiliencia. Selecciona tu idioma para explorar el desafío.</p>
             </main>
             <footer class="mt-6 p-3 bg-white rounded-lg">
-              <img src="/logos/GBS-CIDP_neuropatias-RC-3.png" alt="GBS|CIDP España" class="h-10 mx-auto object-contain"/>
+              <img src="/logos/GBS-CIDP_neuropatias-RC-3.png" alt="GBS|CIDP España" class="h-10 mx-auto object-contain" />
             </footer>
             <div class="absolute inset-0 bg-black/80 text-white flex items-center justify-center p-4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <p class="font-sans font-bold text-lg">Haga clic para entrar en el sitio en español</p>
             </div>
           </a>
-
           <a href="/fr" class="group relative bg-gray-800/50 rounded-xl p-6 flex flex-col text-center transition-transform hover:scale-105">
             <header class="text-5xl mb-4">🇫🇷</header>
             <main class="flex-grow text-gray-200">
@@ -81,91 +75,70 @@
               <p>Bienvenue dans un voyage épique de résilience. Sélectionnez votre langue pour explorer le défi.</p>
             </main>
             <footer class="mt-6 p-3 bg-white rounded-lg">
-              <img src="/logos/fr.jpg" alt="Association Française du Syndrome de Guillain-Barré" class="h-10 mx-auto object-contain"/>
+              <img src="/logos/fr.jpg" alt="Association Française du Syndrome de Guillain-Barré" class="h-10 mx-auto object-contain" />
             </footer>
             <div class="absolute inset-0 bg-black/80 text-white flex items-center justify-center p-4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <p class="font-sans font-bold text-lg">Cliquez pour accéder au site en français</p>
             </div>
           </a>
-
         </div>
       </div>
     </div>
-    
-<script>
-  // This is a self-executing anonymous function that runs as soon as the page is ready.
-  (function() {
-    // This tells TypeScript about our custom timer property on the Window object.
-    const TARGET_DATE = new Date("2026-09-30T06:30:00+02:00");
+    <script>
+      (function () {
+        const countdownContainer = document.getElementById("countdown") as HTMLElement | null;
+        if (!countdownContainer) return;
+        
+        const targetDateString = countdownContainer.dataset.targetDate;
+        if (!targetDateString) return;
 
-    const lang = document.documentElement.lang.startsWith("es") ? "es" : "en";
+        const TARGET_DATE = new Date(targetDateString);
+        const lang = document.documentElement.lang.startsWith("es") ? "es" : "en";
+        const i18n = {
+          en: { begins: (dateStr: string) => `The challenge begins on ${dateStr}`, underway: "The ride is underway! Follow the progress.", units: { year: ["Year", "Years"], day: ["Day", "Days"], hour: ["Hour", "Hours"], minute: ["Minute", "Minutes"], second: ["Second", "Seconds"] }, dateLocale: "en-GB", },
+          es: { begins: (dateStr: string) => `El reto comienza el ${dateStr}`, underway: "¡La ruta está en marcha! Sigue el progreso.", units: { year: ["Año", "Años"], day: ["Día", "Días"], hour: ["Hora", "Horas"], minute: ["Minuto", "Minutos"], second: ["Segundo", "Segundos"] }, dateLocale: "es-ES", },
+        }[lang];
+        const displayEl = document.getElementById("cd-display") as HTMLElement | null;
+        const msgEl = document.getElementById("cd-message") as HTMLElement | null;
+        if (!displayEl || !msgEl) return;
 
-    const i18n = {
-      en: {
-        begins: (dateStr) => `The challenge begins on ${dateStr}`,
-        underway: "The ride is underway! Follow the progress.",
-        units: { year: ["Year", "Years"], day: ["Day", "Days"], hour: ["Hour", "Hours"], minute: ["Minute", "Minutes"], second: ["Second", "Seconds"], },
-        dateLocale: "en-GB",
-      },
-      es: {
-        begins: (dateStr) => `El reto comienza el ${dateStr}`,
-        underway: "¡La ruta está en marcha! Sigue el progreso.",
-        units: { year: ["Año", "Años"], day: ["Día", "Días"], hour: ["Hora", "Horas"], minute: ["Minuto", "Minutos"], second: ["Segundo", "Segundos"], },
-        dateLocale: "es-ES",
-      },
-    }[lang];
+        let timerId: number;
+        if ('countdownTimer' in window) {
+          clearInterval(window.countdownTimer as number);
+        }
 
-    const displayEl = document.getElementById("cd-display");
-    const msgEl = document.getElementById("cd-message");
-    const countdownContainer = document.getElementById("countdown");
+        function updateCountdown() {
+          const now = new Date();
+          const diff = TARGET_DATE.getTime() - now.getTime();
+          if (diff <= 0) {
+            msgEl.classList.remove("hidden");
+            msgEl.textContent = i18n.underway;
+            if (countdownContainer) countdownContainer.innerHTML = "";
+            clearInterval(timerId);
+            return;
+          }
+          let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+          let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+          let seconds = Math.floor((diff % (1000 * 60)) / 1000);
+          const years = Math.floor(days / 365);
+          days %= 365;
 
-    if (!displayEl || !msgEl || !countdownContainer) {
-      return;
-    }
-
-    if (window.countdownTimer) {
-      clearInterval(window.countdownTimer);
-    }
-
-    function updateCountdown() {
-      const now = new Date();
-      const diff = TARGET_DATE.getTime() - now.getTime();
-
-      if (diff <= 0) {
-        msgEl.classList.remove("hidden");
-        msgEl.textContent = i18n.underway;
-        countdownContainer.innerHTML = "";
-        clearInterval(window.countdownTimer);
-        return;
-      }
-
-      let days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      let seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-      const years = Math.floor(days / 365);
-      days %= 365;
-      
-      function label(units, n) {
-        return n === 1 ? units[0] : units[1];
-      }
-      
-      const parts = [];
-      if (years > 0) parts.push(`<div class="text-center"><div class="font-bold text-2xl md:text-3xl">${years}</div><div class="text-xs">${label(i18n.units.year, years)}</div></div>`);
-      if (days > 0 || years > 0) parts.push(`<div class="text-center"><div class="font-bold text-2xl md:text-3xl">${days}</div><div class="text-xs">${label(i18n.units.day, days)}</div></div>`);
-      if (hours > 0 || days > 0 || years > 0) parts.push(`<div class="text-center"><div class="font-bold text-2xl md:text-3xl">${hours}</div><div class="text-xs">${label(i18n.units.hour, hours)}</div></div>`);
-      parts.push(`<div class="text-center"><div class="font-bold text-2xl md:text-3xl">${minutes}</div><div class="text-xs">${label(i18n.units.minute, minutes)}</div></div>`);
-      parts.push(`<div class="text-center"><div class="font-bold text-2xl md:text-3xl">${seconds}</div><div class="text-xs">${label(i18n.units.second, seconds)}</div></div>`);
-      
-      displayEl.innerHTML = parts.join('<div class="text-2xl md:text-3xl font-bold">:</div>');
-      const targetLocaleString = TARGET_DATE.toLocaleString(i18n.dateLocale, { day: '2-digit', month: 'long', year: 'numeric', timeZone: "Europe/Madrid" });
-      msgEl.textContent = i18n.begins(targetLocaleString);
-    }
-
-    updateCountdown();
-    window.countdownTimer = setInterval(updateCountdown, 1000);
-  })();
-</script>
+          const label = (units: readonly [string, string], n: number) => n === 1 ? units[0] : units[1];
+          const parts: string[] = [];
+          if (years > 0) parts.push(`<div class="text-center"><div class="font-bold text-2xl md:text-3xl">${years}</div><div class="text-xs">${label(i18n.units.year as const, years)}</div></div>`);
+          if (days > 0 || years > 0) parts.push(`<div class="text-center"><div class="font-bold text-2xl md:text-3xl">${days}</div><div class="text-xs">${label(i18n.units.day as const, days)}</div></div>`);
+          if (hours > 0 || days > 0 || years > 0) parts.push(`<div class="text-center"><div class="font-bold text-2xl md:text-3xl">${hours}</div><div class="text-xs">${label(i18n.units.hour as const, hours)}</div></div>`);
+          parts.push(`<div class="text-center"><div class="font-bold text-2xl md:text-3xl">${minutes}</div><div class="text-xs">${label(i18n.units.minute as const, minutes)}</div></div>`);
+          parts.push(`<div class="text-center"><div class="font-bold text-2xl md:text-3xl">${seconds}</div><div class="text-xs">${label(i18n.units.second as const, seconds)}</div></div>`);
+          if (displayEl) displayEl.innerHTML = parts.join('<div class="text-2xl md:text-3xl font-bold">:</div>');
+          const targetLocaleString = TARGET_DATE.toLocaleString(i18n.dateLocale, { day: "2-digit", month: "long", year: "numeric", timeZone: "Europe/Madrid" });
+          if (msgEl) msgEl.textContent = i18n.begins(targetLocaleString);
+        }
+        updateCountdown();
+        timerId = setInterval(updateCountdown, 1000);
+        (window as any).countdownTimer = timerId;
+      })();
+    </script>
   </body>
 </html>

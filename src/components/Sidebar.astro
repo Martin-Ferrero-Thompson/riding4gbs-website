@@ -1,11 +1,12 @@
 ---
 import progressData from '../data/progress.json';
 import i18n from '../data/sidebar.json';
+import { Countdown } from './Countdown.jsx';
 
 // Detect current language from URL
 const currentPath = Astro.url.pathname;
 const lang = currentPath.startsWith('/es') ? 'es' : currentPath.startsWith('/fr') ? 'fr' : 'en';
-const t = i18n[lang]; // 't' is a common shorthand for "translations"
+const t = i18n[lang];
 
 // Format currency for display
 const gbpFormatter = new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP', minimumFractionDigits: 0 });
@@ -16,6 +17,10 @@ const eurFormatter = new Intl.NumberFormat('de-DE', { style: 'currency', currenc
   <div class="logo mb-8">
     <a href={`/${lang}`} class="text-3xl font-bold text-brand-blue font-display">Riding4GBS</a>
     <p class="text-sm text-gray-400 font-sans">#RIDING4GBS</p>
+  </div>
+
+  <div class="bg-gray-800 rounded-lg p-4 text-center font-sans mb-8">
+    <Countdown client:visible i18n={t} targetDate={progressData.targetDate} />
   </div>
 
   <div class="bg-gray-800 rounded-lg p-4 text-center font-sans mb-8">
@@ -39,7 +44,7 @@ const eurFormatter = new Intl.NumberFormat('de-DE', { style: 'currency', currenc
   </div>  
 
   <nav class="flex flex-col space-y-4 font-sans">
-    <a href={`/${lang}/the-challenge`} class="hover:text-blue-400 transition-colors">{t.challenge}</a>
+    <a href={`/${lang}/about-challenge`} class="hover:text-blue-400 transition-colors">{t.challenge}</a>
     <a href={`/${lang}/my-story`} class="hover:text-blue-400 transition-colors">{t.myStory}</a>
     <a href={`/${lang}/about-gbs`} class="hover:text-blue-400 transition-colors">{t.aboutGBS}</a>
     <a href={`/${lang}/our-progress`} class="hover:text-blue-400 transition-colors">{t.ourProgress}</a>
