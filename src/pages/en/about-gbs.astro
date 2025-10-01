@@ -1,30 +1,51 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
 import { Carousel } from "../../components/Carousel.jsx";
-import i18n from '../../data/sidebar.json'; // <-- Import the data file
+import i18n from '../../data/sidebar.json';
 
 // Detect language and get the correct text
 const currentPath = Astro.url.pathname;
 const lang = currentPath.startsWith('/es') ? 'es' : currentPath.startsWith('/fr') ? 'fr' : 'en';
 const t = i18n[lang];
 
+// Define the content for each slide as a data array
 const gbsSlides = [
   {
     title: "What is Guillain-Barré Syndrome?",
-    content: `<div class="space-y-4 text-lg text-gray-600 leading-relaxed"><p>Guillain-Barré Syndrome (GBS) is a rare and serious autoimmune disorder where the body's immune system mistakenly attacks its own peripheral nerves—the network outside of the brain and spinal cord.</p><p>The onset is often sudden, escalating over hours or days into a neurological emergency. It is the leading cause of acute, non-trauma-related paralysis worldwide.</p></div>`,
+    content: `<div class="space-y-4 text-lg text-gray-600 leading-relaxed"><p>Guillain-Barré Syndrome (GBS) is a rare and serious autoimmune disorder where the body's immune system mistakenly attacks its own peripheral nerves—the network outside of the brain and spinal cord.</p><p>The onset is often sudden, escalating over hours or days into a neurological emergency. It is the leading cause of acute, non-trauma-related paralysis worldwide.</p></div>`
   },
   {
     title: "A Case of Mistaken Identity",
-    content: `<div class="space-y-4 text-lg text-gray-600 leading-relaxed"><p>The most accepted theory is <strong class="font-semibold text-gray-900">"molecular mimicry"</strong>. Often, the syndrome begins after a common infection, like a stomach bug (*Campylobacter jejuni*) or a respiratory virus.</p><p>The immune system creates antibodies to fight the germ, but some parts of the germ look remarkably similar to our own nerve cells. The antibodies make a catastrophic error and begin attacking the healthy nerves, leading to the weakness, numbness, and paralysis that define GBS.</p></div>`,
+    content: `<div class="space-y-4 text-lg text-gray-600 leading-relaxed"><p>The most accepted theory is <strong class="font-semibold text-gray-900">"molecular mimicry"</strong>. Often, the syndrome begins after a common infection, like a stomach bug (*Campylobacter jejuni*) or a respiratory virus.</p><p>The immune system creates antibodies to fight the germ, but some parts of the germ look remarkably similar to our own nerve cells. The antibodies make a catastrophic error and begin attacking the healthy nerves, leading to the weakness, numbness, and paralysis that define GBS.</p></div>`
   },
   {
     title: "Hope on the Horizon",
-    content: `<p class="text-lg text-gray-600 leading-relaxed">While current treatments help, they are not a cure and are not effective for everyone. This is why research is so critical. Scientists are working to find faster diagnostic tools and develop new, more targeted therapies. Your support helps fuel this vital research and brings hope to every person affected by GBS.</p>`,
+    content: `<p class="text-lg text-gray-600 leading-relaxed">While current treatments help, they are not a cure and are not effective for everyone. This is why research is so critical. Scientists are working to find faster diagnostic tools and develop new, more targeted therapies. Your support helps fuel this vital research and brings hope to every person affected by GBS.</p>`
   },
-  // {
-  //   title: "Impact on Nerve Cells",
-  //   content: `<img src="/gbs-details.png" alt="Guillain-Barré Syndrome Explanation - Neuron and Nerve System" class="rounded-xl shadow-lg w-full object-cover" /><p class="mt-4 text-center text-sm text-gray-500">*Image illustrating the impact of GBS on nerve cells and pathways.</p>`,
-  // },
+  {
+    title: "Impact on Nerve Cells",
+    content: `<img src="/gbs-details.png" alt="Guillain-Barré Syndrome Explanation - Neuron and Nerve System" class="rounded-xl shadow-lg w-full object-cover" /><p class="mt-4 text-center text-sm text-gray-500">*Image illustrating the impact of GBS on nerve cells and pathways.</p>`
+  },
+  {
+    title: "Find Out More",
+    content: `<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg shadow-sm p-6 flex flex-col text-center">
+          <h4 class="font-display font-bold text-xl text-gray-900">GBS|CIDP Foundation Int.</h4>
+          <p class="text-gray-600 mt-2 flex-grow text-sm">The leading global nonprofit for supporting patients and funding research for GBS.</p>
+          <a href="https://www.gbs-cidp.org/" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-brand-blue font-semibold hover:underline">Visit Website &rarr;</a>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm p-6 flex flex-col text-center">
+          <h4 class="font-display font-bold text-xl text-gray-900">GBS|CIDP España</h4>
+          <p class="text-gray-600 mt-2 flex-grow text-sm">A patient advocacy group based in Spain, providing support and resources.</p>
+          <a href="https://gbs-cidp.org.es/" target="_blank" rel="noopener noreferrer" class="text-brand-blue font-semibold hover:underline">Visit Website &rarr;</a>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm p-6 flex flex-col text-center">
+          <h4 class="font-display font-bold text-xl text-gray-900">AFSGB & TSFN (France)</h4>
+          <p class="text-gray-600 mt-2 flex-grow text-sm">The French association for Guillain-Barré Syndrome, providing information and support to patients in France.</p>
+          <a href="https://www.guillainbarre.fr/" target="_blank" rel="noopener noreferrer" class="text-brand-blue font-semibold hover:underline">Visiter le site web &rarr;</a>
+        </div>
+      </div>`
+  }
 ];
 ---
 
@@ -45,77 +66,8 @@ const gbsSlides = [
     </div>
 
     <div class="mt-8">
-      {/* Pass the translations object 't' as a prop */}
       <Carousel client:load slides={gbsSlides} i18n={t} />
     </div>
-
-    <hr class="my-8 md:my-12 border-gray-200 w-48 mx-auto" />
-
-    <div class="max-w-4xl mx-auto">
-      <h3 class="font-display font-bold text-2xl md:text-3xl text-center mb-8">
-        Find Out More
-      </h3>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div
-          class="bg-gray-50 rounded-lg shadow-sm p-6 flex flex-col text-center"
-        >
-          <h4 class="font-display font-bold text-xl text-gray-900">
-            GBS|CIDP Foundation Int.
-          </h4>
-          <p class="text-gray-600 mt-2 flex-grow text-sm">
-            The leading global nonprofit for supporting patients and funding
-            research for GBS.
-          </p>
-          <a
-            href="https://www.gbs-cidp.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="mt-4 inline-block text-brand-blue font-semibold hover:underline"
-          >
-            Visit Website &rarr;
-          </a>
-        </div>
-
-        <div
-          class="bg-gray-50 rounded-lg shadow-sm p-6 flex flex-col text-center"
-        >
-          <h4 class="font-display font-bold text-xl text-gray-900">
-            GBS|CIDP España
-          </h4>
-          <p class="text-gray-600 mt-2 flex-grow text-sm">
-            A patient advocacy group based in Spain, providing support and
-            resources.
-          </p>
-          <a
-            href="https://gbs-cidp.org.es/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-brand-blue font-semibold hover:underline"
-          >
-            Visit Website &rarr;
-          </a>
-        </div>
-
-        <div
-          class="bg-gray-50 rounded-lg shadow-sm p-6 flex flex-col text-center"
-        >
-          <h4 class="font-display font-bold text-xl text-gray-900">
-            AFSGB & TSFN (France)
-          </h4>
-          <p class="text-gray-600 mt-2 flex-grow text-sm">
-            The French association for Guillain-Barré Syndrome, providing
-            information and support to patients in France.
-          </p>
-          <a
-            href="https://www.guillainbarre.fr/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-brand-blue font-semibold hover:underline"
-          >
-            Visiter le site web &rarr;
-          </a>
-        </div>
-      </div>
-    </div>
+    
   </div>
 </MainLayout>
