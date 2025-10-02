@@ -1,5 +1,7 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
+import { SupportersCarousel } from "../../components/SupportersCarousel.jsx";
+import supporters from "../../data/supporters.json";
 ---
 
 <MainLayout title="Support Me">
@@ -12,7 +14,7 @@ import MainLayout from "../../layouts/MainLayout.astro";
         Support Me: Be Part of the Effort
       </h1>
       <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-600 text-left">
-        [cite_start]A self-supported ride across the Pyrenees is a huge logistical challenge. [cite: 51] [cite_start]This page is for friends, family, and members of the cycling community who wish to contribute directly to the effort of the ride itself. [cite: 52] This support is entirely separate from the charitable fundraising.
+        A self-supported ride across the Pyrenees is a huge logistical challenge. This page is for friends, family, and members of the cycling community who wish to contribute directly to the effort of the ride itself. This support is entirely separate from the charitable fundraising.
       </p>
     </div>
     
@@ -23,16 +25,27 @@ import MainLayout from "../../layouts/MainLayout.astro";
         ⚙️ Help Keep the Wheels Turning
       </h2>
       <p class="mt-4 text-lg text-gray-600 leading-relaxed text-left">
-        [cite_start]Every aspect of this journey, from specialized gear and durable components to daily nutrition and simple shelter, is self-funded. [cite: 53] [cite_start]Your direct contribution, no matter the size, helps cover these essential costs and provides a huge morale boost on my <strong>Slow Road Back</strong>. [cite: 54]
+        Every aspect of this journey, from specialized gear and durable components to daily nutrition and simple shelter, is self-funded. Your direct contribution, no matter the size, helps cover these essential costs and provides a huge morale boost on my <strong>Slow Road Back</strong>.
       </p>
-      <p class="mt-8 font-display font-bold text-xl text-gray-900">Thank you for being part of my personal support crew.</p>
+      <!-- <p class="mt-8 font-display font-bold text-xl text-gray-900">Thank you for being part of my personal support crew.</p> -->
+    </div>
+
+    <div class="my-12">
+      <SupportersCarousel 
+        client:visible 
+        supporters={supporters}
+        title="Our Incredible Support Crew"
+        footerText='A heartfelt thank you to everyone who has directly contributed to making this journey possible. Your support means the world to me!'
+      />
+    </div>
+    <div class="text-center max-w-3xl mx-auto">
       <a 
         href="[LINK_TO_YOUR_KOFI_PAGE]" 
         target="_blank" 
         rel="noopener noreferrer"
-        class="mt-6 inline-block px-8 py-3 bg-brand-blue hover:bg-blue-700 text-white font-semibold text-lg rounded-full transition-transform transform hover:scale-105"
+        class="inline-block px-8 py-3 bg-brand-blue hover:bg-blue-700 text-white font-bold text-lg rounded-full transition-transform transform hover:scale-105"
       >
-        Contribute to the Ride Fund
+        Want to see your name here - Join my amazing support crew!
       </a>
     </div>
   </div>

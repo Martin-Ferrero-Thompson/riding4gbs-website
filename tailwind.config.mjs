@@ -15,7 +15,7 @@ export default {
       },
       animation: {
         'slide-in-left': 'slide-in-from-left 1s ease-out forwards',
-        'infinite-scroll': 'infinite-scroll 40s linear infinite', 
+        'infinite-scroll': 'infinite-scroll 100s linear infinite', 
 
       },
       keyframes: {
