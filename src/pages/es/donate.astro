@@ -1,0 +1,88 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout title="Donar">
+  <div
+    transition:name="donate-card"
+    class="m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 bg-gray-900/70 rounded-xl max-w-6xl w-full mx-auto font-sans"
+  >
+    <div class="text-center">
+      <h1 class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-white">
+        Apoya la Misión: Financia una Cura
+      </h1>
+      <p class="mt-4 max-w-3xl mx-auto text-center text-lg text-gray-300 leading-relaxed">
+        Este desafío épico está dedicado a un único objetivo: financiar la investigación vital que conducirá a mejores tratamientos y, un día, a una cura para el Síndrome de Guillain-Barré. El 100% de cada donación benéfica va directamente a nuestras organizaciones asociadas oficiales. Tu contribución, sin importar el tamaño, es un poderoso acto de esperanza para cada persona afectada por esta devastadora condición.
+      </p>
+    </div>
+
+    <div class="mt-12 max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="bg-white rounded-xl shadow-lg p-8 text-center flex flex-col">
+        <h2 class="font-display font-bold text-2xl md:text-3xl text-gray-900">Para Donantes del Reino Unido</h2>
+        <div class="my-4 flex-grow flex justify-center items-center">
+          <img
+            src="/logos/INUK-Wordmark-Logo_RGB.png"
+            alt="Logo de Inflammatory Neuropathies UK"
+            class="h-12"
+          />
+        </div>
+        <p class="text-gray-600 leading-relaxed flex-grow">
+          Apoya la investigación financiada por Inflammatory Neuropathies UK. Los contribuyentes del Reino Unido pueden añadir un 25% a su donación sin coste adicional a través de <strong>Gift Aid</strong>.
+        </p>
+        <a
+          href="[LINK_TO_UK_JUSTGIVING_PAGE]"
+          target="_blank"
+          class="mt-6 inline-block w-full px-8 py-3 text-white bg-brand-teal hover:bg-teal-600 font-bold text-lg rounded-full transition-transform transform hover:scale-105"
+        >
+          Donar en £ (GBP)
+        </a>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-lg p-8 text-center flex flex-col">
+        <h2 class="font-display font-bold text-2xl md:text-3xl text-gray-900">
+          Para Donantes Españoles y de la UE
+        </h2>
+        <div class="my-4 flex-grow flex justify-center items-center">
+          <img
+            src="/logos/GBS-CIDP_neuropatias-RC-3.png"
+            alt="Logo de GBS CIDP España"
+            class="h-12"
+          />
+        </div>
+        <p class="text-gray-600 leading-relaxed flex-grow">
+          Apoya la investigación financiada por GBS|CIDP España para ayudar a los pacientes en toda España.
+        </p>
+        <a
+          href="[LINK_TO_SPANISH_DONATION_PAGE]"
+          target="_blank"
+          class="mt-6 inline-block w-full px-8 py-3 text-white bg-brand-teal hover:bg-teal-600 font-bold text-lg rounded-full transition-transform transform hover:scale-105"
+        >
+          Donar en € (EUR)
+        </a>
+      </div>
+      
+      <div class="bg-white rounded-xl shadow-lg p-8 text-center flex flex-col md:col-span-2 lg:col-span-1">
+        <h2 class="font-display font-bold text-2xl md:text-3xl text-gray-900">
+          Para Donantes Franceses
+        </h2>
+        <div class="my-4 flex-grow flex justify-center items-center">
+          <img
+            src="/logos/fr.jpg"
+            alt="Logo de la Association Française du Syndrome de Guillain-Barré"
+            class="h-12"
+          />
+        </div>
+        <p class="text-gray-600 leading-relaxed flex-grow">
+          Soutenez la recherche financée par l'Association Française du Syndrome de Guillain-Barré.
+        </p>
+        <a
+          href="[LINK_TO_FRENCH_DONATION_PAGE]"
+          target="_blank"
+          class="mt-6 inline-block w-full px-8 py-3 text-white bg-brand-teal hover:bg-teal-600 font-bold text-lg rounded-full transition-transform transform hover:scale-105"
+        >
+          Faire un don en € (EUR)
+        </a>
+      </div>
+    </div>
+  </div>
+</MainLayout>

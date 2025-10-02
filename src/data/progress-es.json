@@ -1,0 +1,30 @@
+{
+  "targetDate": "2026-09-30T08:30:00+02:00",
+  "days": {
+    "label": "Días Completados",
+    "current": 11,
+    "total": 21
+  },
+  "distance": {
+    "label": "Distancia Recorrida",
+    "current": 730,
+    "total": 1685,
+    "unit": "km"
+  },
+  "climbing": {
+    "label": "Metros Ascendidos",
+    "current": 17900,
+    "total": 34900,
+    "unit": "m"
+  },
+  "funds_gbp": {
+    "label": "Fondos Recaudados para GBS UK",
+    "current": 2020,
+    "unit": "£"
+  },
+  "funds_eur": {
+    "label": "Fondos Recaudados para GBS España",
+    "current": 4800,
+    "unit": "€"
+  }
+}
