@@ -1,0 +1,98 @@
+{
+  "pirineoPartners": [
+    {
+      "name": "GBS|CIDP España",
+      "logo": "/logos/GBS-CIDP_neuropatias-RC-3.png",
+      "website": "#"
+    },
+    {
+      "name": "Inflammatory Neuropathies UK",
+      "logo": "/logos/INUK-Wordmark-Logo_RGB.png",
+      "website": "#"
+    },
+    {
+      "name": "Association Française du Syndrome de Guillain-Barré",
+      "logo": "/logos/fr.jpg",
+      "website": "#"
+    }
+  ],
+  "cimaSupporters": [
+    {
+      "name": "Supporter Logo - 1",
+      "logo": "https://placehold.co/180x90/ccc/fff?text=Supporter+Logo+1",
+      "website": "#"
+    },
+    {
+      "name": "Supporter Logo - 2",
+      "logo": "https://placehold.co/180x90/ccc/fff?text=Supporter+Logo+2",
+      "website": "#"
+    },
+    {
+      "name": "Supporter Logo - 3",
+      "logo": "https://placehold.co/180x90/ccc/fff?text=Supporter+Logo+3",
+      "website": "#"
+    },
+        {
+      "name": "Supporter Logo - 4",
+      "logo": "https://placehold.co/180x90/ccc/fff?text=Supporter+Logo+4",
+      "website": "#"
+    },
+        {
+      "name": "Supporter Logo - ",
+      "logo": "https://placehold.co/180x90/ccc/fff?text=Supporter+Logo+5",
+      "website": "#"
+    },
+        {
+      "name": "Supporter Logo - 6",
+      "logo": "https://placehold.co/180x90/ccc/fff?text=Supporter+Logo+6",
+      "website": "#"
+    }
+  ],
+  "amigosDelReto": [
+    {
+      "name": "Amigo Logo - 1",
+      "logo": "https://placehold.co/150x75/ccc/fff?text=Amigo+Logo+1",
+      "website": "#"
+    },
+    {
+      "name": "Amigo Logo - 2",
+      "logo": "https://placehold.co/150x75/ccc/fff?text=Amigo+Logo+2",
+      "website": "#"
+    },
+    {
+      "name": "Amigo Logo - 3",
+      "logo": "https://placehold.co/150x75/ccc/fff?text=Amigo+Logo+3",
+      "website": "#"
+    },
+        {
+      "name": "Amigo Logo - 4",
+      "logo": "https://placehold.co/150x75/ccc/fff?text=Amigo+Logo+4",
+      "website": "#"
+    },
+    {
+      "name": "Amigo Logo - 5",
+      "logo": "https://placehold.co/150x75/ccc/fff?text=Amigo+Logo+5",
+      "website": "#"
+    },
+    {
+      "name": "Amigo Logo - 6",
+      "logo": "https://placehold.co/150x75/ccc/fff?text=Amigo+Logo+6",
+      "website": "#"
+    },
+        {
+      "name": "Amigo Logo - 7",
+      "logo": "https://placehold.co/150x75/ccc/fff?text=Amigo+Logo+7",
+      "website": "#"
+    },
+    {
+      "name": "Amigo Logo - 8",
+      "logo": "https://placehold.co/150x75/ccc/fff?text=Amigo+Logo+8",
+      "website": "#"
+    },
+    {
+      "name": "Amigo Logo - 9",
+      "logo": "https://placehold.co/150x75/ccc/fff?text=Amigo+Logo+9",
+      "website": "#"
+    }
+  ]
+}

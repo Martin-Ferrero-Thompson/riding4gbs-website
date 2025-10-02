@@ -10,11 +10,13 @@ export default {
         'display': ['Montserrat', 'sans-serif'],
       },
       colors: {
-        'brand-blue': '#2563eb', // This is blue-600
-        'brand-teal': '#14b8a6', // This is teal-500
+        'brand-blue': '#2563eb',
+        'brand-teal': '#14b8a6',
       },
       animation: {
         'slide-in-left': 'slide-in-from-left 1s ease-out forwards',
+        'infinite-scroll': 'infinite-scroll 40s linear infinite', 
+
       },
       keyframes: {
         'slide-in-from-left': {
@@ -26,6 +28,10 @@ export default {
             transform: 'translateX(0)',
             opacity: '1',
           },
+        },
+        'infinite-scroll': { 
+          'from': { transform: 'translateX(0)' },
+          'to': { transform: 'translateX(-100%)' },
         },
       },
     },
