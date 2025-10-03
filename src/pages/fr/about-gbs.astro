@@ -1,0 +1,73 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import { Carousel } from "../../components/Carousel.jsx";
+import i18n from '../../data/sidebar.json';
+
+// Detect language and get the correct text
+const currentPath = Astro.url.pathname;
+const lang = currentPath.startsWith('/es') ? 'es' : currentPath.startsWith('/fr') ? 'fr' : 'en';
+const t = i18n[lang];
+
+// Define the content for each slide as a data array
+const gbsSlides = [
+  {
+    title: "Qu'est-ce que le syndrome de Guillain-Barré ?",
+    content: `<div class="space-y-4 text-lg text-gray-600 leading-relaxed"><p>Le syndrome de Guillain-Barré (SGB) est une maladie auto-immune rare et grave dans laquelle le système immunitaire de l'organisme attaque par erreur ses propres nerfs périphériques — le réseau nerveux situé à l'extérieur du cerveau et de la moelle épinière.</p><p>L'apparition est souvent soudaine, s'aggravant en quelques heures ou quelques jours pour devenir une urgence neurologique. C'est la principale cause de paralysie aiguë non traumatique dans le monde.</p></div>`
+  },
+  {
+    title: "Un Cas d'Erreur d'Identité",
+    content: `<div class="space-y-4 text-lg text-gray-600 leading-relaxed"><p>La théorie la plus acceptée est celle du <strong class="font-semibold text-gray-900">"mimétisme moléculaire"</strong>. Souvent, le syndrome débute après une infection courante, comme une gastro-entérite (*Campylobacter jejuni*) ou un virus respiratoire.</p><p>Le système immunitaire crée des anticorps pour combattre le microbe, mais certaines parties de ce microbe ressemblent étrangement à nos propres cellules nerveuses. Les anticorps commettent une erreur catastrophique et commencent à attaquer les nerfs sains, entraînant la faiblesse, l'engourdissement et la paralysie qui définissent le SGB.</p></div>`
+  },
+  {
+    title: "L'Espoir à l'Horizon",
+    content: `<p class="text-lg text-gray-600 leading-relaxed">Bien que les traitements actuels aident, ils ne constituent pas un remède et ne sont pas efficaces pour tout le monde. C'est pourquoi la recherche est si cruciale. Les scientifiques s'efforcent de trouver des outils de diagnostic plus rapides et de développer de nouvelles thérapies plus ciblées. Votre soutien alimente cette recherche vitale et apporte de l'espoir à chaque personne touchée par le SGB.</p>`
+  },
+  {
+    title: "Impact sur les Cellules Nerveuses",
+    content: `<img src="/gbs-details.png" alt="Explication du syndrome de Guillain-Barré - Neurone et système nerveux" class="rounded-xl shadow-lg w-full object-cover" /><p class="mt-4 text-center text-sm text-gray-500">*Image illustrant l'impact du SGB sur les cellules et voies nerveuses.</p>`
+  },
+  {
+    title: "En Savoir Plus",
+    content: `<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg shadow-sm p-6 flex flex-col text-center">
+          <h4 class="font-display font-bold text-xl text-gray-900">GBS|CIDP Foundation Int.</h4>
+          <p class="text-gray-600 mt-2 flex-grow text-sm">La principale organisation mondiale à but non lucratif qui soutient les patients et finance la recherche sur le SGB.</p>
+          <a href="https://www.gbs-cidp.org/" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-brand-blue font-semibold hover:underline">Visiter le site &rarr;</a>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm p-6 flex flex-col text-center">
+          <h4 class="font-display font-bold text-xl text-gray-900">GBS|CIDP España</h4>
+          <p class="text-gray-600 mt-2 flex-grow text-sm">Un groupe de défense des patients basé en Espagne, qui fournit soutien et ressources.</p>
+          <a href="https://gbs-cidp.org.es/" target="_blank" rel="noopener noreferrer" class="text-brand-blue font-semibold hover:underline">Visitar el sitio web &rarr;</a>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm p-6 flex flex-col text-center">
+          <h4 class="font-display font-bold text-xl text-gray-900">AFSGB & TSFN (France)</h4>
+          <p class="text-gray-600 mt-2 flex-grow text-sm">L'association française du syndrome de Guillain-Barré, qui fournit des informations et un soutien aux patients en France.</p>
+          <a href="https://www.guillainbarre.fr/" target="_blank" rel="noopener noreferrer" class="text-brand-blue font-semibold hover:underline">Visiter le site web &rarr;</a>
+        </div>
+      </div>`
+  }
+];
+---
+
+<MainLayout title="À propos du SGB">
+  <div
+    transition:name="about-gbs-card"
+    class="m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 bg-white rounded-xl max-w-6xl w-full mx-auto text-gray-800 font-sans"
+  >
+    <div class="text-center">
+      <h1
+        class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-gray-900"
+      >
+        Qu'est-ce que le syndrome de Guillain-Barré ?
+      </h1>
+      <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-500">
+        Comprendre la maladie derrière le défi.
+      </p>
+    </div>
+
+    <div class="mt-8">
+      <Carousel client:load slides={gbsSlides} i18n={t} />
+    </div>
+    
+  </div>
+</MainLayout>

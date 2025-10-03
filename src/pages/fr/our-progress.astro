@@ -1,0 +1,88 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import data from "../../data/progress-fr.json";
+
+// Calculate percentages for the progress bars
+const daysPercent = (data.days.current / data.days.total) * 100;
+const distancePercent = (data.distance.current / data.distance.total) * 100;
+const climbingPercent = (data.climbing.current / data.climbing.total) * 100;
+
+// Format currency for display
+const gbpFormatter = new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP' });
+const eurFormatter = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' });
+---
+
+<MainLayout title="Notre Progression">
+  <div
+    transition:name="our-progress-card"
+    class="m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 bg-white rounded-xl max-w-6xl w-full mx-auto text-gray-800 font-sans"
+  >
+    
+    <div class="text-center mb-12">
+      <h1 class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-gray-900">
+        Suivez l'Aventure : Progression en Direct
+      </h1>
+      <p class="mt-4 max-w-3xl mx-auto text-center text-lg text-gray-500">
+        Cette page sera mise à jour quotidiennement avec les données de la route.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-8 items-start">
+      <div class="lg:col-span-2 space-y-8">
+        <div>
+          <h2 class="font-display font-bold text-3xl md:text-4xl text-gray-900 mb-4">Carte de Localisation en Direct</h2>
+          <p class="text-lg text-gray-600 mb-4">
+            Cette carte montre l'itinéraire accompli jusqu'à présent. Revenez chaque jour pour voir ma progression à travers les Pyrénées !
+          </p>
+          <div class="bg-gray-200 rounded-xl shadow-lg overflow-hidden">
+            <img src="/riding4gbs-atlantics2med.png" alt="La carte de l'itinéraire du défi." class="w-full h-full object-cover"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gray-800 text-white rounded-xl shadow-lg p-6 space-y-6 lg:sticky lg:top-8">
+        <h2 class="font-display font-bold text-3xl md:text-4xl text-center">Les Chiffres</h2>
+        
+        <div>
+          <div class="flex justify-between items-baseline mb-1 text-sm">
+            <span class="font-medium text-gray-300">{data.days.label}</span>
+            <span class="font-bold">{data.days.current} / {data.days.total}</span>
+          </div>
+          <div class="w-full bg-gray-600 rounded-full h-3">
+            <div class="bg-brand-blue h-3 rounded-full" style={`width: ${daysPercent}%`}></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="flex justify-between items-baseline mb-1 text-sm">
+            <span class="font-medium text-gray-300">{data.distance.label}</span>
+            <span class="font-bold">{data.distance.current} / {data.distance.total} {data.distance.unit}</span>
+          </div>
+          <div class="w-full bg-gray-600 rounded-full h-3">
+            <div class="bg-brand-blue h-3 rounded-full" style={`width: ${distancePercent}%`}></div>
+          </div>
+        </div>
+        
+        <div>
+          <div class="flex justify-between items-baseline mb-1 text-sm">
+            <span class="font-medium text-gray-300">{data.climbing.label}</span>
+            <span class="font-bold">{data.climbing.current.toLocaleString('fr-FR')} / {data.climbing.total.toLocaleString('fr-FR')} {data.climbing.unit}</span>
+          </div>
+          <div class="w-full bg-gray-600 rounded-full h-3">
+            <div class="bg-brand-blue h-3 rounded-full" style={`width: ${climbingPercent}%`}></div>
+          </div>
+        </div>
+
+        <div class="text-center pt-4">
+          <p class="text-base font-medium text-gray-300">{data.funds_gbp.label}</p>
+          <p class="text-4xl font-bold text-brand-blue">{gbpFormatter.format(data.funds_gbp.current)}</p>
+        </div>
+
+        <div class="text-center pt-2">
+          <p class="text-base font-medium text-gray-300">{data.funds_eur.label}</p>
+          <p class="text-4xl font-bold text-brand-blue">{eurFormatter.format(data.funds_eur.current)}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</MainLayout>

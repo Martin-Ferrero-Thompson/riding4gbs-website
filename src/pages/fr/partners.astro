@@ -1,0 +1,70 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import { LogoCarousel } from "../../components/LogoCarousel.jsx";
+import partners from "../../data/partners.json";
+---
+
+<MainLayout title="Partenaires">
+  <div
+    transition:name="partners-card"
+    class="m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 bg-white rounded-xl max-w-6xl w-full mx-auto text-gray-800 font-sans"
+  >
+    <div class="text-center">
+      <h1 class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-gray-900">
+        Nos Partenaires : L'Équipe Derrière le Défi
+      </h1>
+      <p class="mt-4 max-w-3xl mx-auto text-center text-lg text-gray-500">
+        Ce défi ambitieux n'est possible que grâce au soutien généreux de nos partenaires. Chaque contribution, qu'elle soit financière ou en nature, alimente directement notre mission de sensibilisation et de financement de la recherche vitale sur le syndrome de Guillain-Barré. Nous sommes incroyablement reconnaissants envers les organisations suivantes de croire en notre voyage.
+      </p>
+    </div>
+
+    <div class="mt-12 md:mt-16 space-y-12">
+      <div>
+        <h2 class="font-display font-bold text-2xl md:text-3xl text-center text-gray-500 tracking-wider uppercase">
+          Partenaires des Pyrénées
+        </h2>
+        <div class="mt-8">
+          <LogoCarousel client:visible partners={partners.pirineoPartners} />
+        </div>
+      </div>
+      
+      <div>
+        <h2 class="font-display font-bold text-xl md:text-2xl text-center text-gray-500 tracking-wider uppercase">
+          Soutiens de Cima
+        </h2>
+        <div class="mt-6">
+          <LogoCarousel client:visible partners={partners.cimaSupporters} />
+        </div>
+      </div>
+
+      <div>
+        <h2 class="font-display font-bold text-lg md:text-xl text-center text-gray-500 tracking-wider uppercase">
+          Amis du Défi
+        </h2>
+        <div class="mt-6">
+          <LogoCarousel client:visible partners={partners.amigosDelReto} />
+        </div>
+      </div>
+    </div>
+
+    <hr class="my-12 md:my-16 border-gray-200 w-48 mx-auto" />
+
+    <div class="bg-gray-100 rounded-xl p-8 md:p-12 text-center">
+      <h2 class="font-display font-bold text-3xl md:text-4xl text-gray-900">
+        Devenez Partenaire : Rejoignez l'Aventure
+      </h2>
+      <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">
+        Associez votre marque à une histoire internationale puissante de résilience, d'espoir et d'endurance. Nous offrons une occasion unique de présenter vos produits et services à un public engagé en Espagne, au Royaume-Uni et au-delà. En vous associant à nous, vous ne parrainez pas seulement une randonnée à vélo ; vous financez un remède et inspirez une communauté.
+      </p>
+      <div class="mt-8">
+        <a
+          id="sponsor-download"
+          href="#"
+          class="inline-block px-10 py-4 bg-brand-blue hover:bg-blue-700 text-white font-bold text-lg rounded-full transition-transform transform hover:scale-105"
+        >
+          Télécharger le Dossier de Partenariat
+        </a>
+      </div>
+    </div>
+  </div>
+</MainLayout>
