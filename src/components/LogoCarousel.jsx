@@ -40,7 +40,7 @@ export function LogoCarousel({ partners }) {
     >
       <ul 
         ref={scrollerRef}
-        className={`flex items-center ${shouldAnimate ? 'justify-start animate-infinite-scroll' : 'justify-center w-full'}`}
+        className={`flex items-center ${shouldAnimate ? 'justify-start animate-infinite-scroll pause-on-hover' : 'justify-center w-full'}`}
       >
         {extendedPartners.map((partner, index) => (
           <li key={index} className="mx-8 flex-shrink-0">

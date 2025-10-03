@@ -14,7 +14,7 @@ export function SupportersCarousel({ supporters, title, footerText }) {
         className="w-full mt-8 flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_64px,_black_calc(100%-64px),transparent_100%)]"
       >
         <ul 
-          className="flex items-center justify-start animate-infinite-scroll"
+          className="flex items-center justify-start animate-infinite-scroll pause-on-hover"
         >
           {extendedSupporters.map((supporter, index) => (
             <li key={index} className="mx-4 flex-shrink-0 bg-white p-4 rounded-lg shadow-sm w-56">

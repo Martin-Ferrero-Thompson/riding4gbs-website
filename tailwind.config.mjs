@@ -29,9 +29,10 @@ export default {
             opacity: '1',
           },
         },
-        'infinite-scroll': { 
+        'infinite-scroll': {
+          // With duplicated content, scrolling -50% creates a seamless loop
           'from': { transform: 'translateX(0)' },
-          'to': { transform: 'translateX(-100%)' },
+          'to': { transform: 'translateX(-50%)' },
         },
       },
     },
