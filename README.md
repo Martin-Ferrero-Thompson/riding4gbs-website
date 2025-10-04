@@ -91,6 +91,18 @@ My Story page (EN/ES/FR)
 		- Progress bar widths are clamped between 0 and 100; totals of 0 render 0%.
 		- GBP uses the locale in `format.gbpLocale`; EUR uses `format.eurLocale`. FR also sets `climbingNumberLocale: "fr-FR"` to preserve digit grouping.
 
+	Journal Hub (EN/ES/FR)
+	- Static copy/i18n: `src/data/journalHub.i18n.ts`
+	- Component: `src/components/JournalHubPage.astro`
+	- Pages (wrappers): `src/pages/{en,es,fr}/journal-hub.astro`
+	- How it works:
+		- The component fetches posts from the Content Collection for the given `lang` (`src/content/posts/<lang>/*`).
+		- Featured posts (`featured: true`) render in the hero card; others appear in "Latest Updates".
+		- Dates are formatted using locale strings defined under `dates` per locale.
+	- What to edit:
+		- Copy: Update titles, headings, and date locales in `journalHub.i18n.ts`.
+		- Posts: Add markdown files under `src/content/posts/{en,es,fr}/` with frontmatter (title, pubDate, optional image, featured, etc.).
+
 Add a new locale
 - Add the locale key and strings to `src/data/home.i18n.ts`
 - Create `src/pages/<locale>/index.astro` with:
