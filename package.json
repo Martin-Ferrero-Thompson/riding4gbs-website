@@ -13,15 +13,12 @@
     "@astrojs/tailwind": "^6.0.2",
     "@fontsource/lato": "^5.2.7",
     "@fontsource/montserrat": "^5.2.8",
-    "@tailwindcss/postcss": "^4.1.13",
-    "@tailwindcss/vite": "^4.1.13",
     "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.9",
     "astro": "^5.13.10",
-    "motion": "^12.23.20",
+    "marked": "^13.0.2",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1",
-    "marked": "^13.0.2"
+    "react-dom": "^19.1.1"
   },
   "devDependencies": {
     "autoprefixer": "^10",
