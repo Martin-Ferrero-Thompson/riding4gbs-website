@@ -7,6 +7,23 @@ const currentPath = Astro.url.pathname;
 const lang = currentPath.startsWith("/es") ? "es" : currentPath.startsWith("/fr") ? "fr" : "en";
 const t = i18n[lang];
 
+// Normalize paths to ensure exact-match comparison works regardless of trailing slashes
+const normalizePath = (p: string) => {
+  if (!p) return "/";
+  try {
+    const u = new URL(p, "http://local");
+    p = u.pathname;
+  } catch {
+    // p is likely already a pathname like "/en/my-story"
+  }
+  // Remove trailing slash except for root
+  if (p.length > 1 && p.endsWith("/")) p = p.slice(0, -1);
+  return p;
+};
+
+const currentPathNormalized = normalizePath(currentPath);
+const isActive = (href: string) => normalizePath(href) === currentPathNormalized;
+
 const gbpFormatter = new Intl.NumberFormat("en-GB", {
   style: "currency",
   currency: "GBP",
@@ -64,28 +81,73 @@ const eurFormatter = new Intl.NumberFormat("de-DE", {
   <nav class="flex flex-col space-y-6 font-sans text-lg">
     <a
       href={`/${lang}/the-challenge`}
-      class="hover:text-blue-400 transition-colors">{t.challenge}</a
+      class:list={{
+        "px-3 py-2 rounded-md transition-colors": true,
+        "bg-brand-blue text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80": isActive(`/${lang}/the-challenge`),
+        "hover:bg-brand-blue/20": !isActive(`/${lang}/the-challenge`),
+      }}
+      aria-current={isActive(`/${lang}/the-challenge`) ? "page" : undefined}
+      >{t.challenge}</a
     >
-    <a href={`/${lang}/my-story`} class="hover:text-blue-400 transition-colors"
+    <a
+      href={`/${lang}/my-story`}
+      class:list={{
+        "px-3 py-2 rounded-md transition-colors": true,
+        "bg-brand-blue text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80": isActive(`/${lang}/my-story`),
+        "hover:bg-brand-blue/20": !isActive(`/${lang}/my-story`),
+      }}
+      aria-current={isActive(`/${lang}/my-story`) ? "page" : undefined}
       >{t.myStory}</a
     >
-    <a href={`/${lang}/about-gbs`} class="hover:text-blue-400 transition-colors"
+    <a
+      href={`/${lang}/about-gbs`}
+      class:list={{
+        "px-3 py-2 rounded-md transition-colors": true,
+        "bg-brand-blue text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80": isActive(`/${lang}/about-gbs`),
+        "hover:bg-brand-blue/20": !isActive(`/${lang}/about-gbs`),
+      }}
+      aria-current={isActive(`/${lang}/about-gbs`) ? "page" : undefined}
       >{t.aboutGBS}</a
     >
     <a
       href={`/${lang}/our-progress`}
-      class="hover:text-blue-400 transition-colors">{t.ourProgress}</a
+      class:list={{
+        "px-3 py-2 rounded-md transition-colors": true,
+        "bg-brand-blue text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80": isActive(`/${lang}/our-progress`),
+        "hover:bg-brand-blue/20": !isActive(`/${lang}/our-progress`),
+      }}
+      aria-current={isActive(`/${lang}/our-progress`) ? "page" : undefined}
+      >{t.ourProgress}</a
     >
     <a
       href={`/${lang}/journal-hub`}
-      class="hover:text-blue-400 transition-colors">{t.journalHub}</a
+      class:list={{
+        "px-3 py-2 rounded-md transition-colors": true,
+        "bg-brand-blue text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80": isActive(`/${lang}/journal-hub`),
+        "hover:bg-brand-blue/20": !isActive(`/${lang}/journal-hub`),
+      }}
+      aria-current={isActive(`/${lang}/journal-hub`) ? "page" : undefined}
+      >{t.journalHub}</a
     >
-    <a href={`/${lang}/partners`} class="hover:text-blue-400 transition-colors"
+    <a
+      href={`/${lang}/partners`}
+      class:list={{
+        "px-3 py-2 rounded-md transition-colors": true,
+        "bg-brand-blue text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80": isActive(`/${lang}/partners`),
+        "hover:bg-brand-blue/20": !isActive(`/${lang}/partners`),
+      }}
+      aria-current={isActive(`/${lang}/partners`) ? "page" : undefined}
       >{t.partners}</a
     >
     <a
       href={`/${lang}/support-me`}
-      class="hover:text-blue-400 transition-colors">{t.supportMe}</a
+      class:list={{
+        "px-3 py-2 rounded-md transition-colors": true,
+        "bg-brand-blue text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80": isActive(`/${lang}/support-me`),
+        "hover:bg-brand-blue/20": !isActive(`/${lang}/support-me`),
+      }}
+      aria-current={isActive(`/${lang}/support-me`) ? "page" : undefined}
+      >{t.supportMe}</a
     >
   </nav>
 
