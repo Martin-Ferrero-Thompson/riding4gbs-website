@@ -1,0 +1,55 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { Carousel } from "./Carousel.jsx";
+import i18n from "../data/sidebar.json";
+import type { AboutGbsLocaleContent, AboutGbsSlide } from "../data/aboutGbs.i18n";
+import { marked } from "marked";
+
+export interface Props {
+  lang: "en" | "es" | "fr";
+  t: AboutGbsLocaleContent;
+}
+
+const { lang, t } = Astro.props as Props;
+const sidebar = i18n[lang];
+
+function renderSlideToHtml(slide: AboutGbsSlide): string {
+  if (slide.kind === "narrative") {
+    return `<div class=\"space-y-4 text-lg text-gray-600 leading-relaxed\">${marked.parse(slide.bodyMd)}</div>`;
+  }
+  if (slide.kind === "image") {
+    const caption = slide.captionMd ? `<p class=\"mt-4 text-center text-sm text-gray-500\">${marked.parse(slide.captionMd)}</p>` : "";
+    return `\n      <img src=\"${slide.image.src}\" alt=\"${slide.image.alt}\" class=\"rounded-xl shadow-lg w-full object-cover\" />\n      ${caption}\n    `;
+  }
+  // resources
+  const cards = slide.resources
+    .map(
+      (r) => `
+        <div class=\"bg-white rounded-lg shadow-sm p-6 flex flex-col text-center\">\n          <h4 class=\"font-display font-bold text-xl text-gray-900\">${r.title}</h4>\n          <p class=\"text-gray-600 mt-2 flex-grow text-sm\">${marked.parse(r.descriptionMd)}</p>\n          <a href=\"${r.href}\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"mt-4 inline-block text-brand-blue font-semibold hover:underline\">${r.ctaLabel}</a>\n        </div>\n      `
+    )
+    .join("");
+  return `<div class=\"grid sm:grid-cols-2 lg:grid-cols-3 gap-8\">${cards}</div>`;
+}
+
+const slides = t.slides.map((s) => ({ title: s.title, content: renderSlideToHtml(s) }));
+---
+
+<MainLayout title={t.metaTitle}>
+  <div
+    transition:name="about-gbs-card"
+    class="m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 bg-white rounded-xl max-w-6xl w-full mx-auto text-gray-800 font-sans"
+  >
+    <div class="text-center">
+      <h1 class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-gray-900">
+        {t.heroTitle}
+      </h1>
+      <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-500">
+        {t.heroSubtitle}
+      </p>
+    </div>
+
+    <div class="mt-8">
+      <Carousel client:load slides={slides} i18n={sidebar} />
+    </div>
+  </div>
+</MainLayout>

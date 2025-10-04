@@ -63,6 +63,22 @@ My Story page (EN/ES/FR)
 	- The Carousel API expects `{ title, content: html }`. The component converts markdown slides to HTML and passes them to the existing `Carousel.jsx`.
 	- Keep slide count and order consistent across locales for a smooth UX.
 
+	About GBS page (EN/ES/FR)
+	- Data file: `src/data/aboutGbs.i18n.ts`
+	- Component: `src/components/AboutGbsPage.astro`
+	- Pages (wrappers): `src/pages/{en,es,fr}/about-gbs.astro`
+	- What to edit per locale in `aboutGbs.i18n.ts`:
+		- `metaTitle`: document title
+		- `heroTitle`: H1 title
+		- `heroSubtitle`: short intro under H1
+		- `slides`: array of 5 items using a discriminated union:
+			- Narrative: `{ kind: "narrative", title, bodyMd }` (Markdown supported)
+			- Image: `{ kind: "image", title, image: { src, alt }, captionMd? }`
+			- Resources: `{ kind: "resources", title, resources: [{ title, descriptionMd, href, ctaLabel }] }`
+	- Notes
+		- Use Markdown; it’s converted to HTML at build time. For the resources cards, just edit fields; layout is handled by the component.
+		- External links automatically include `target="_blank" rel="noopener noreferrer"`.
+
 Add a new locale
 - Add the locale key and strings to `src/data/home.i18n.ts`
 - Create `src/pages/<locale>/index.astro` with:
