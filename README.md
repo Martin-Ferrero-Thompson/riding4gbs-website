@@ -29,6 +29,25 @@ Partners and supporters
 - Supporters carousel data: `src/data/supporters.json`
 - Images: put under `public/` for external assets or `src/assets/` for processed assets.
 
+The Challenge page (EN/ES/FR)
+- Data file: `src/data/challenge.i18n.ts`
+- Component: `src/components/ChallengePage.astro`
+- Pages (wrappers): `src/pages/{en,es,fr}/the-challenge.astro`
+- What to edit per locale in `challenge.i18n.ts`:
+	- `metaTitle`: page title
+	- `heroTitle`: keep the emoji as authored (e.g., "🚵")
+	- `heroDescriptionMd`: markdown for the intro under H1
+	- `stats`: array of 4 items – `{ value: string, label: string }`
+		- Keep `value` exactly as authored (e.g., `~21`, `~2,000`, `~38,000`, `~4.5x`)
+	- `styleHeading`: section heading
+	- `styleBodyMd`: markdown paragraph under the Style heading
+	- `legs`: two entries – `{ title: string, bodyMd: string }`
+
+Tips
+- Use standard Markdown for emphasis; it’s converted to HTML at build time.
+- If you need anchor links later (e.g., to “Leg 1”), we can add IDs in the component or the data.
+- The three localized pages are thin wrappers; structure lives in `ChallengePage.astro`.
+
 Add a new locale
 - Add the locale key and strings to `src/data/home.i18n.ts`
 - Create `src/pages/<locale>/index.astro` with:
