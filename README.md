@@ -116,6 +116,20 @@ My Story page (EN/ES/FR)
 		- `sections`: array of `{ key: 'pirineoPartners' | 'cimaSupporters' | 'amigosDelReto', heading: string }` to set order and headings
 		- `cta`: `{ heading, bodyMd, buttonLabel, buttonHref }` — update `buttonHref` when the partnership PDF/link is ready
 
+	Support Me page (EN/ES/FR)
+	- Static copy/i18n: `src/data/supportMe.i18n.ts`
+	- Component: `src/components/SupportMePage.astro`
+	- Pages (wrappers): `src/pages/{en,es,fr}/support-me.astro`
+	- How it works:
+		- Supporters list comes from `src/data/supporters.json`.
+		- CTA button link comes from the environment variable `PUBLIC_KOFI_URL` (shared across locales). If missing, the CTA is hidden.
+		- Copy fields (`heroIntroMd`, `section.bodyMd`, `carousel.footerMd`) accept Markdown and are converted to HTML at build time.
+	- What to edit per locale:
+		- `metaTitle`, `heroTitle`, `heroIntroMd`
+		- `section`: `{ heading, bodyMd }`
+		- `carousel`: `{ title, footerMd }`
+		- `cta`: `{ label }`
+
 Add a new locale
 - Add the locale key and strings to `src/data/home.i18n.ts`
 - Create `src/pages/<locale>/index.astro` with:
@@ -245,6 +259,17 @@ This site is designed for static output and deployed on Vercel.
 
 Environment variables
 - None required for basic operation. Add as needed for future integrations.
+- Optional: `PUBLIC_KOFI_URL` — used for the Support Me page CTA button (shared across locales). If not set, the CTA is hidden.
+
+## Environment variables
+
+Create a `.env.local` (not committed) for local dev. Example in `.env.example`.
+
+- `PUBLIC_KOFI_URL` — Shared Ko‑fi link for the Support Me page CTA (exposed to the client). If not set, the CTA is hidden.
+
+Vercel
+- Add `PUBLIC_KOFI_URL` in Project Settings → Environment Variables
+- Redeploy to apply
 
 ## Troubleshooting
 

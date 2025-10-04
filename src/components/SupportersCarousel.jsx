@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function SupportersCarousel({ supporters, title, footerText }) {
+export function SupportersCarousel({ supporters, title, footerText, footerHtml }) {
   // We duplicate the list to create a seamless looping effect
   const extendedSupporters = supporters.length > 0 ? [...supporters, ...supporters] : [];
 
@@ -25,9 +25,11 @@ export function SupportersCarousel({ supporters, title, footerText }) {
         </ul>
       </div>
 
-      <p className="mt-8 max-w-2xl mx-auto text-lg text-gray-600">
-        {footerText}
-      </p>
+      {footerHtml ? (
+        <p className="mt-8 max-w-2xl mx-auto text-lg text-gray-600" dangerouslySetInnerHTML={{ __html: footerHtml }} />
+      ) : footerText ? (
+        <p className="mt-8 max-w-2xl mx-auto text-lg text-gray-600">{footerText}</p>
+      ) : null}
     </div>
   );
 }
