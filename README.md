@@ -6,12 +6,12 @@ Multilingual campaign site for The Slow Road Back / #RIDING4GBS. Built with Astr
 
 Homepage copy (en/es/fr)
 - File: `src/data/home.i18n.ts`
-- What to edit: localized strings and HTML for the homepage card.
+- What to edit: localized strings and Markdown for the homepage card.
 - Keys per locale:
 	- `metaTitle`, `heroTitle`
-	- `introParagraphsHtml`: array of paragraph strings (you can use <strong> for emphasis)
-	- `hometownPartnerHeading`, `hometownPartnerDescriptionHtml`, `partnerLinkTitle`
-	- `supportersHeading`, `ctaLabel` (applies to all three supporter cards)
+	- `introParagraphsMd`: array of Markdown paragraph strings (supports **bold**, links later if needed)
+	- `hometownPartnerHeading`, `hometownPartnerDescriptionMd`, `partnerLinkTitle`, `partnerLogoAlt`
+	- `supportersHeading`, `supporters`: 3 cards each with `{ id, href, imgSrc, imgAlt, overlayTitle, ctaLabel, ctaLang }`
 - Where it’s rendered: `src/components/HomePage.astro` (used by `src/pages/{en,es,fr}/index.astro`).
 
 Sidebar strings and countdown
@@ -47,6 +47,21 @@ Tips
 - Use standard Markdown for emphasis; it’s converted to HTML at build time.
 - If you need anchor links later (e.g., to “Leg 1”), we can add IDs in the component or the data.
 - The three localized pages are thin wrappers; structure lives in `ChallengePage.astro`.
+
+My Story page (EN/ES/FR)
+- Data file: `src/data/myStory.i18n.ts`
+- Component: `src/components/MyStoryPage.astro`
+- Pages (wrappers): `src/pages/{en,es,fr}/my-story.astro`
+- What to edit per locale in `myStory.i18n.ts`:
+	- `metaTitle`: document title
+	- `heroTitle`: H1 title
+	- `heroSubtitle`: short intro under H1
+	- `image`: `{ src, alt }` for the hero image
+	- `slides`: array of 4 items – `{ title: string, bodyMd: string }`
+- Notes
+	- Use standard Markdown in `bodyMd`; it's converted to HTML at build time.
+	- The Carousel API expects `{ title, content: html }`. The component converts markdown slides to HTML and passes them to the existing `Carousel.jsx`.
+	- Keep slide count and order consistent across locales for a smooth UX.
 
 Add a new locale
 - Add the locale key and strings to `src/data/home.i18n.ts`

@@ -1,0 +1,41 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { Carousel } from "./Carousel.jsx";
+import i18n from "../data/sidebar.json";
+import type { MyStoryLocaleContent } from "../data/myStory.i18n";
+import { marked } from "marked";
+
+export interface Props {
+  lang: "en" | "es" | "fr";
+  t: MyStoryLocaleContent;
+}
+
+const { lang, t } = Astro.props as Props;
+const sidebar = i18n[lang];
+const slides = t.slides.map((s) => ({ title: s.title, content: marked.parse(s.bodyMd) as string }));
+---
+
+<MainLayout title={t.metaTitle}>
+  <div
+    transition:name="my-story-card"
+    class="m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 bg-white rounded-xl max-w-6xl w-full mx-auto text-gray-800 font-sans"
+  >
+    <div class="text-center">
+      <h1 class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-gray-900">
+        {t.heroTitle}
+      </h1>
+      <p class="mt-4 max-w-3xl mx-auto text-center text-lg text-gray-500">
+        {t.heroSubtitle}
+      </p>
+    </div>
+    <div class="mt-12 max-w-4xl mx-auto">
+      <img
+        class="rounded-xl shadow-lg object-cover w-full h-96"
+        src={t.image.src}
+        alt={t.image.alt}
+      />
+    </div>
+
+    <Carousel client:load slides={slides} i18n={sidebar} />
+  </div>
+</MainLayout>
