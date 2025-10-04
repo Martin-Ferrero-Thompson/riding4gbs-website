@@ -79,6 +79,18 @@ My Story page (EN/ES/FR)
 		- Use Markdown; it’s converted to HTML at build time. For the resources cards, just edit fields; layout is handled by the component.
 		- External links automatically include `target="_blank" rel="noopener noreferrer"`.
 
+	Our Progress page (EN/ES/FR)
+	- Data file (live numbers): `src/data/progress.json`, `src/data/progress-es.json`, `src/data/progress-fr.json`
+	- Static copy/i18n: `src/data/ourProgress.i18n.ts`
+	- Component: `src/components/OurProgressPage.astro`
+	- Pages (wrappers): `src/pages/{en,es,fr}/our-progress.astro`
+	- What to edit:
+		- Daily updates: edit the corresponding `progress*.json` values (days, distance, climbing, funds in GBP/EUR). Labels live alongside the numbers and are already localized.
+		- Static copy: edit per-locale strings in `ourProgress.i18n.ts` (hero title/subtitle, map heading/intro, map image alt, numbers card heading). Also controls currency/number formatting locales under `format`.
+	- Notes
+		- Progress bar widths are clamped between 0 and 100; totals of 0 render 0%.
+		- GBP uses the locale in `format.gbpLocale`; EUR uses `format.eurLocale`. FR also sets `climbingNumberLocale: "fr-FR"` to preserve digit grouping.
+
 Add a new locale
 - Add the locale key and strings to `src/data/home.i18n.ts`
 - Create `src/pages/<locale>/index.astro` with:
