@@ -1,0 +1,53 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import type { DonateLocaleContent } from "../data/donate.i18n";
+import { marked } from "marked";
+
+export interface Props {
+  lang: 'en' | 'es' | 'fr';
+  t: DonateLocaleContent;
+}
+
+const { t } = Astro.props as Props;
+
+const urls: Record<'uk' | 'es' | 'fr', string | undefined> = {
+  uk: import.meta.env.PUBLIC_DONATE_UK_URL as string | undefined,
+  es: import.meta.env.PUBLIC_DONATE_ES_URL as string | undefined,
+  fr: import.meta.env.PUBLIC_DONATE_FR_URL as string | undefined,
+};
+---
+<MainLayout title={t.metaTitle}>
+  <div
+    transition:name="donate-card"
+    class="m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 bg-gray-900/70 rounded-xl max-w-6xl w-full mx-auto font-sans"
+  >
+    <div class="text-center">
+      <h1 class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-white">
+        {t.heroTitle}
+      </h1>
+      <p class="mt-4 max-w-3xl mx-auto text-center text-lg text-gray-300 leading-relaxed" set:html={marked.parse(t.heroIntroMd)} />
+    </div>
+
+    <div class="mt-12 max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {t.cards.map((card, idx) => (
+        <div class={`bg-white rounded-xl shadow-lg p-8 text-center flex flex-col ${idx === 2 ? 'md:col-span-2 lg:col-span-1' : ''}`}>
+          <h2 class="font-display font-bold text-2xl md:text-3xl text-gray-900">{card.title}</h2>
+          <div class="my-4 flex-grow flex justify-center items-center">
+            <img src={card.image.src} alt={card.image.alt} class="h-12" />
+          </div>
+          <p class="text-gray-600 leading-relaxed flex-grow" set:html={marked.parse(card.bodyMd)} />
+          {urls[card.id] && (
+            <a
+              href={urls[card.id]!}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-6 inline-block w-full px-8 py-3 text-white bg-brand-teal hover:bg-teal-600 font-bold text-lg rounded-full transition-transform transform hover:scale-105"
+            >
+              {card.buttonLabel}
+            </a>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</MainLayout>

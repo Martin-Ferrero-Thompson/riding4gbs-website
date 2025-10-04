@@ -130,6 +130,22 @@ My Story page (EN/ES/FR)
 		- `carousel`: `{ title, footerMd }`
 		- `cta`: `{ label }`
 
+	Donate page (EN/ES/FR)
+	- Static copy/i18n: `src/data/donate.i18n.ts`
+	- Component: `src/components/DonatePage.astro`
+	- Pages (wrappers): `src/pages/{en,es,fr}/donate.astro`
+	- How it works:
+		- Three cards (UK, Spain/EU, France) defined per locale; image src/alt localized.
+		- Hero intro and card bodies accept Markdown (`heroIntroMd`, `bodyMd`).
+		- Donation links come from env vars (shared across locales):
+			- `PUBLIC_DONATE_UK_URL`
+			- `PUBLIC_DONATE_ES_URL`
+			- `PUBLIC_DONATE_FR_URL`
+		- If a donation URL is missing, that card’s button is hidden.
+	- What to edit per locale:
+		- `metaTitle`, `heroTitle`, `heroIntroMd`
+		- `cards[]`: `{ id: 'uk'|'es'|'fr', title, image: { src, alt }, bodyMd, buttonLabel }`
+
 Add a new locale
 - Add the locale key and strings to `src/data/home.i18n.ts`
 - Create `src/pages/<locale>/index.astro` with:
@@ -260,15 +276,17 @@ This site is designed for static output and deployed on Vercel.
 Environment variables
 - None required for basic operation. Add as needed for future integrations.
 - Optional: `PUBLIC_KOFI_URL` — used for the Support Me page CTA button (shared across locales). If not set, the CTA is hidden.
+- Optional: `PUBLIC_DONATE_UK_URL`, `PUBLIC_DONATE_ES_URL`, `PUBLIC_DONATE_FR_URL` — used for the Donate page cards (shared across locales). If any URL is missing, the corresponding card button is hidden.
 
 ## Environment variables
 
 Create a `.env.local` (not committed) for local dev. Example in `.env.example`.
 
 - `PUBLIC_KOFI_URL` — Shared Ko‑fi link for the Support Me page CTA (exposed to the client). If not set, the CTA is hidden.
+- `PUBLIC_DONATE_UK_URL`, `PUBLIC_DONATE_ES_URL`, `PUBLIC_DONATE_FR_URL` — Donation URLs for the Donate page cards (exposed to the client). If any URL is missing, the corresponding card button is hidden.
 
 Vercel
-- Add `PUBLIC_KOFI_URL` in Project Settings → Environment Variables
+- Add `PUBLIC_KOFI_URL`, `PUBLIC_DONATE_UK_URL`, `PUBLIC_DONATE_ES_URL`, `PUBLIC_DONATE_FR_URL` in Project Settings → Environment Variables
 - Redeploy to apply
 
 ## Troubleshooting
