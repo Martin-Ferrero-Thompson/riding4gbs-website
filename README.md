@@ -2,6 +2,46 @@
 
 Multilingual campaign site for The Slow Road Back / #RIDING4GBS. Built with Astro 5, Tailwind CSS, and a few React islands for interactive UI (carousels, countdowns). Deployed on Vercel.
 
+## Updating content (quick guide)
+
+Homepage copy (en/es/fr)
+- File: `src/data/home.i18n.ts`
+- What to edit: localized strings and HTML for the homepage card.
+- Keys per locale:
+	- `metaTitle`, `heroTitle`
+	- `introParagraphsHtml`: array of paragraph strings (you can use <strong> for emphasis)
+	- `hometownPartnerHeading`, `hometownPartnerDescriptionHtml`, `partnerLinkTitle`
+	- `supportersHeading`, `ctaLabel` (applies to all three supporter cards)
+- Where it’s rendered: `src/components/HomePage.astro` (used by `src/pages/{en,es,fr}/index.astro`).
+
+Sidebar strings and countdown
+- Strings: `src/data/sidebar.json` (per-locale labels for the sidebar UI)
+- Countdown date and totals: `src/data/progress.json` (`targetDate`, funds in GBP/EUR)
+- Rendering: `src/components/Sidebar.astro` uses both files.
+
+Journal posts (Markdown)
+- Location: `src/content/posts/{en,es,fr}/*.md`
+- Schema: see `src/content/config.ts` (title, pubDate, image, etc.)
+- Add a post: create a new `.md` in the right locale folder with frontmatter; it appears automatically in the locale’s Journal Hub and routes under `/{locale}/posts/{slug}/`.
+
+Partners and supporters
+- Partners carousel data: `src/data/partners.json`
+- Supporters carousel data: `src/data/supporters.json`
+- Images: put under `public/` for external assets or `src/assets/` for processed assets.
+
+Add a new locale
+- Add the locale key and strings to `src/data/home.i18n.ts`
+- Create `src/pages/<locale>/index.astro` with:
+	- `import HomePage from "../../components/HomePage.astro";`
+	- `import { homeContent } from "../../data/home.i18n";`
+	- Render `<HomePage lang="<locale>" t={homeContent.<locale>} />`
+- Add localized sidebar strings to `src/data/sidebar.json`
+- Create a posts folder: `src/content/posts/<locale>/`
+
+Tips
+- Keep CTA labels consistent per locale (current behavior). If you need per-card CTA text, we can split the single `ctaLabel` into three fields.
+- For fully localized a11y, you can add per-locale alt/title for the Cycla logo and wire them in `HomePage.astro`.
+
 ## Tech Stack
 - Astro 5 (view transitions enabled)
 - Tailwind CSS (custom fonts/colors/animations)
@@ -37,7 +77,7 @@ Scripts (from `package.json`)
 │   ├── content/            # Content collections (markdown posts)
 │   │   ├── config.ts       # Post schema (title, pubDate, image, featured, ...)
 │   │   └── posts/{en,es,fr}/*.md
-│   ├── data/               # JSON data (progress, sidebar i18n, partners, ...)
+│   ├── data/               # Data (TS/JSON): home.i18n, progress, sidebar i18n, partners, supporters
 │   ├── layouts/            # Main layout with sidebar and hamburger
 │   ├── pages/              # Astro pages and localized routes
 │   │   ├── index.astro     # Landing language selector (+countdown)
@@ -114,7 +154,7 @@ This site is designed for static output and deployed on Vercel.
 - Build command: `pnpm build`
 - Output directory: `dist/`
 - `vercel.json` rewrites:
-	- Root rewrite to `/en` for convenience on bare domain.
+	- Preserve the splash page at `/` and serve localized routes under `/en`, `/es`, `/fr`.
 
 Environment variables
 - None required for basic operation. Add as needed for future integrations.
