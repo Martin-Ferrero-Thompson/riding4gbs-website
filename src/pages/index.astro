@@ -32,6 +32,8 @@ import "../styles/global.css";
     </style>
   </head>
   <body class="bg-gray-800 text-white font-sans">
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <main id="main">
     <div class="min-h-screen flex flex-col items-center justify-center p-4 animate-fade-in">
       <div class="bg-gray-900/80 backdrop-blur-sm rounded-xl p-6 md:p-8 max-w-6xl w-full">
         <h1 class="font-display font-extrabold text-3xl md:text-5xl text-center text-brand-blue mb-6">
@@ -93,7 +95,8 @@ import "../styles/global.css";
           </a>
         </div>
       </div>
-    </div>
+  </div>
+  </main>
     <script>
       (function () {
         const countdownContainer = document.getElementById("countdown") as HTMLElement | null;

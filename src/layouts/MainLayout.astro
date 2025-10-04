@@ -38,6 +38,7 @@ const lang = path.startsWith('/es') ? 'es' : path.startsWith('/fr') ? 'fr' : 'en
   </head>
 
   <body class="bg-gray-800 font-sans relative">
+    <a href="#main" class="skip-link">Skip to main content</a>
     <Hamburger />
 
     <div class="flex flex-col md:flex-row">
@@ -45,6 +46,7 @@ const lang = path.startsWith('/es') ? 'es' : path.startsWith('/fr') ? 'fr' : 'en
 
       <div class="w-full overflow-hidden">
         <main
+          id="main"
           class="w-full h-screen overflow-y-auto bg-cover bg-center bg-fixed flex items-start justify-center"
           style="background-image: url('/background.png');"
         >
@@ -59,8 +61,16 @@ const lang = path.startsWith('/es') ? 'es' : path.startsWith('/fr') ? 'fr' : 'en
         const sidebar = document.getElementById("sidebar");
 
         if (hamburgerButton && sidebar) {
+          const updateAria = () => {
+            const isHidden = sidebar.classList.contains("hidden");
+            hamburgerButton.setAttribute("aria-expanded", String(!isHidden));
+          };
+          // Initialize state on load
+          updateAria();
+
           hamburgerButton.addEventListener("click", () => {
             sidebar.classList.toggle("hidden");
+            updateAria();
           });
         }
       }
