@@ -1,19 +1,9 @@
 {
   "pirineoPartners": [
     {
-      "name": "GBS|CIDP España",
-      "logo": "/logos/GBS-CIDP_neuropatias-RC-3.png",
-      "website": "#"
-    },
-    {
-      "name": "Inflammatory Neuropathies UK",
-      "logo": "/logos/INUK-Wordmark-Logo_RGB.png",
-      "website": "#"
-    },
-    {
-      "name": "Association Française du Syndrome de Guillain-Barré",
-      "logo": "/logos/fr.jpg",
-      "website": "#"
+      "name": "Cycla Bikes Pamplona - Your reference cycling workshop",
+      "logo": "/partners/logo-cycla-bikes.png",
+      "website": "https://cyclabikes.es/"
     }
   ],
   "cimaSupporters": [

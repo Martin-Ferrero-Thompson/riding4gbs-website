@@ -4,7 +4,6 @@ import MainLayout from "../../layouts/MainLayout.astro";
 
 <MainLayout title="The Slow Road Back | Home">
   <div transition:name="hero-card" class="w-full flex justify-center">
-    
     <div
       class="m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 bg-gray-900 bg-opacity-80 rounded-xl backdrop-blur-sm text-center text-white max-w-6xl w-full"
     >
@@ -12,48 +11,129 @@ import MainLayout from "../../layouts/MainLayout.astro";
         The Slow Road Back
       </h1>
 
-      <p class="font-display text-2xl md:text-4xl font-bold text-brand-blue mt-4">
+      <p
+        class="font-display text-2xl md:text-4xl font-bold text-brand-blue mt-4"
+      >
         #RIDING4GBS
       </p>
 
       <div class="font-sans text-lg max-w-4xl mx-auto space-y-6 mt-8 text-left">
         <p>
-          My name is Martin, and I am a survivor of Guillain-Barré Syndrome (GBS). My recovery taught me that the journey is more important than the destination. This is my <strong>Slow Road Back</strong>.
+          My name is Martin, and I am a survivor of Guillain-Barré Syndrome
+          (GBS). My recovery taught me that the journey is more important than
+          the destination. This is my <strong>Slow Road Back</strong>.
         </p>
         <p>
-          <strong>On September 30th, 2026</strong>, I will begin a deeply personal cycling challenge, starting from my home in Pamplona. My goal is to ride into the heart of the Pyrenees, to traverse the mountains from the Atlantic coast to the Mediterranean, and to see how far this journey of recovery and resilience will take me.
+          <strong>On September 30th, 2026</strong>, I will begin a deeply
+          personal cycling challenge, starting from my home in Pamplona. My goal
+          is to ride into the heart of the Pyrenees, to traverse the mountains
+          from the Atlantic coast to the Mediterranean, and to see how far this
+          journey of recovery and resilience will take me.
         </p>
         <p>
-          This ride is a mission to raise vital awareness and funds for the GBS community. I don't know exactly how many days it will take, or how many mountains I'll have to climb. But I invite you to follow along, day by day, on this journey of hope and resilience.
+          This ride is a mission to raise vital awareness and funds for the GBS
+          community. I don't know exactly how many days it will take, or how
+          many mountains I'll have to climb. But I invite you to follow along,
+          day by day, on this journey of hope and resilience.
         </p>
 
+        <div class="bg-gray-50 py-16 sm:py-24 rounded-lg">
+          <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+            <h2
+              class="text-2xl font-display font-semibold leading-7 text-blue-600"
+            >
+              Our Hometown Partner
+            </h2>
+
+            <div class="mt-8">
+              <a
+                href="https://cyclabikes.es/"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Cycla Bikes - Your reference cycling workshop"
+              >
+                <img
+                  src="/partners/logo-cycla-bikes.png"
+                  alt="Cycla Bikes Pamplona Logo"
+                  class="h-16 sm:h-20 mx-auto object-contain transition-transform duration-300 hover:scale-110"
+                />
+              </a>
+            </div>
+
+            <p
+              class="mt-6 text-lg leading-8 text-gray-600 max-w-2xl mx-auto"
+            >
+              We are incredibly proud to partner with <strong>Cycla Bikes</strong>, our local
+              bike shop here in Pamplona. Their expert support and deep roots in
+              the cycling community are a cornerstone of this challenge. They
+              are generously providing the official <strong>Start and Finish Line</strong>
+              for this epic journey.
+            </p>
+          </div>
+        </div>
+
         <div class="mt-8 md:mt-12">
-          <p class="font-sans font-bold text-center">In proud partnership with</p>
+          <p class="font-sans font-bold text-center">
+            Proudly Supporting:
+          </p>
           <div class="mt-4 flex flex-wrap justify-center items-center gap-6">
-            <a href="https://www.inflammatoryneuropathies.uk/" class="group relative flex flex-col items-center justify-between gap-4 p-6 bg-white rounded-lg h-40 w-64 transition-transform hover:scale-105">
-              <img src="/logos/INUK-Wordmark-Logo_RGB.png" alt="Inflammatory Neuropathies UK" class="max-h-16 object-contain" />
-              <div class="font-sans bg-gray-100 text-gray-800 px-6 py-2 rounded-md">
+            <a
+              href="https://www.inflammatoryneuropathies.uk/"
+              class="group relative flex flex-col items-center justify-between gap-4 p-6 bg-white rounded-lg h-40 w-64 transition-transform hover:scale-105"
+            >
+              <img
+                src="/logos/INUK-Wordmark-Logo_RGB.png"
+                alt="Inflammatory Neuropathies UK"
+                class="max-h-16 object-contain"
+              />
+              <div
+                class="font-sans bg-gray-100 text-gray-800 px-6 py-2 rounded-md"
+              >
                 Visit Website
               </div>
-              <div class="absolute inset-0 bg-black/80 text-white flex items-center justify-center p-4 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div
+                class="absolute inset-0 bg-black/80 text-white flex items-center justify-center p-4 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >
                 <p class="font-sans font-bold">Inflammatory Neuropathies UK</p>
               </div>
             </a>
-            <a href="https://gbs-cidp.org.es/" class="group relative flex flex-col items-center justify-between gap-4 p-6 bg-white rounded-lg h-40 w-64 transition-transform hover:scale-105">
-              <img src="/logos/GBS-CIDP_neuropatias-RC-3.png" alt="GBS|CIDP España" class="max-h-16 object-contain" />
-              <div class="font-sans bg-gray-100 text-gray-800 px-6 py-2 rounded-md">
+            <a
+              href="https://gbs-cidp.org.es/"
+              class="group relative flex flex-col items-center justify-between gap-4 p-6 bg-white rounded-lg h-40 w-64 transition-transform hover:scale-105"
+            >
+              <img
+                src="/logos/GBS-CIDP_neuropatias-RC-3.png"
+                alt="GBS|CIDP España"
+                class="max-h-16 object-contain"
+              />
+              <div
+                class="font-sans bg-gray-100 text-gray-800 px-6 py-2 rounded-md"
+              >
                 Visita el sitio web
               </div>
-              <div class="absolute inset-0 bg-black/80 text-white flex items-center justify-center p-4 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div
+                class="absolute inset-0 bg-black/80 text-white flex items-center justify-center p-4 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >
                 <p class="font-sans font-bold">GBS|CIDP España</p>
               </div>
             </a>
-            <a href="https://syndrome-guillain-barre.fr/" class="group relative flex flex-col items-center justify-between gap-4 p-6 bg-white rounded-lg h-40 w-64 transition-transform hover:scale-105">
-              <img src="/logos/fr.jpg" alt="Association Française du Syndrome de Guillain-Barré" class="max-h-16 object-contain" />
-              <div class="font-sans bg-gray-100 text-gray-800 px-6 py-2 rounded-md">
+            <a
+              href="https://syndrome-guillain-barre.fr/"
+              class="group relative flex flex-col items-center justify-between gap-4 p-6 bg-white rounded-lg h-40 w-64 transition-transform hover:scale-105"
+            >
+              <img
+                src="/logos/fr.jpg"
+                alt="Association Française du Syndrome de Guillain-Barré"
+                class="max-h-16 object-contain"
+              />
+              <div
+                class="font-sans bg-gray-100 text-gray-800 px-6 py-2 rounded-md"
+              >
                 Visiter le site web
               </div>
-              <div class="absolute inset-0 bg-black/80 text-white flex items-center justify-center p-4 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div
+                class="absolute inset-0 bg-black/80 text-white flex items-center justify-center p-4 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >
                 <p class="font-sans font-bold text-center">
                   Association Française du Syndrome de Guillain-Barré
                 </p>
