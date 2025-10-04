@@ -1,7 +1,7 @@
 ---
 import type { HomeLocaleContent } from "../data/home.i18n";
 import MainLayout from "../layouts/MainLayout.astro";
-// Rendering trusted HTML strings from i18n data
+import { marked } from "marked";
 
 export interface Props {
   lang: "en" | "es" | "fr";
@@ -25,8 +25,8 @@ const { lang, t } = Astro.props as Props;
       </p>
 
       <div class="font-sans text-lg max-w-4xl mx-auto space-y-6 mt-8 text-left">
-        {t.introParagraphsHtml.map((html) => (
-          <p set:html={html} />
+        {t.introParagraphsMd.map((md) => (
+          <div set:html={marked.parse(md)} />
         ))}
 
         <div class="bg-gray-50 py-16 sm:py-24 rounded-lg">
@@ -44,77 +44,40 @@ const { lang, t } = Astro.props as Props;
               >
                 <img
                   src="/partners/logo-cycla-bikes.png"
-                  alt="Cycla Bikes Pamplona Logo"
+                  alt={t.partnerLogoAlt}
                   class="h-16 sm:h-20 mx-auto object-contain transition-transform duration-300 hover:scale-110"
                 />
               </a>
             </div>
 
-            <p class="mt-6 text-lg leading-8 text-gray-600 max-w-2xl mx-auto">
-              <span set:html={t.hometownPartnerDescriptionHtml} />
-            </p>
+            <div
+              class="mt-6 text-lg leading-8 text-gray-600 max-w-2xl mx-auto"
+              set:html={marked.parse(t.hometownPartnerDescriptionMd)}
+            />
           </div>
         </div>
 
         <div class="mt-8 md:mt-12">
           <p class="font-sans font-bold text-center">{t.supportersHeading}</p>
           <div class="mt-4 flex flex-wrap justify-center items-center gap-6">
-            <a
-              href="https://www.inflammatoryneuropathies.uk/"
-              class="group relative flex flex-col items-center justify-between gap-4 p-6 bg-white rounded-lg h-40 w-64 transition-transform hover:scale-105"
-            >
-              <img
-                src="/logos/INUK-Wordmark-Logo_RGB.png"
-                alt="Inflammatory Neuropathies UK"
-                class="max-h-16 object-contain"
-              />
-              <div class="font-sans bg-gray-100 text-gray-800 px-6 py-2 rounded-md">
-                {t.ctaLabel}
-              </div>
-              <div
-                class="absolute inset-0 bg-black/80 text-white flex items-center justify-center p-4 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            {t.supporters.map((s) => (
+              <a
+                href={s.href}
+                class="group relative flex flex-col items-center justify-between gap-4 p-6 bg-white rounded-lg h-40 w-64 transition-transform hover:scale-105"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <p class="font-sans font-bold">Inflammatory Neuropathies UK</p>
-              </div>
-            </a>
-            <a
-              href="https://gbs-cidp.org.es/"
-              class="group relative flex flex-col items-center justify-between gap-4 p-6 bg-white rounded-lg h-40 w-64 transition-transform hover:scale-105"
-            >
-              <img
-                src="/logos/GBS-CIDP_neuropatias-RC-3.png"
-                alt="GBS|CIDP España"
-                class="max-h-16 object-contain"
-              />
-              <div class="font-sans bg-gray-100 text-gray-800 px-6 py-2 rounded-md">
-                {t.ctaLabel}
-              </div>
-              <div
-                class="absolute inset-0 bg-black/80 text-white flex items-center justify-center p-4 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              >
-                <p class="font-sans font-bold">GBS|CIDP España</p>
-              </div>
-            </a>
-            <a
-              href="https://syndrome-guillain-barre.fr/"
-              class="group relative flex flex-col items-center justify-between gap-4 p-6 bg-white rounded-lg h-40 w-64 transition-transform hover:scale-105"
-            >
-              <img
-                src="/logos/fr.jpg"
-                alt="Association Française du Syndrome de Guillain-Barré"
-                class="max-h-16 object-contain"
-              />
-              <div class="font-sans bg-gray-100 text-gray-800 px-6 py-2 rounded-md">
-                {t.ctaLabel}
-              </div>
-              <div
-                class="absolute inset-0 bg-black/80 text-white flex items-center justify-center p-4 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              >
-                <p class="font-sans font-bold text-center">
-                  Association Française du Syndrome de Guillain-Barré
-                </p>
-              </div>
-            </a>
+                <img src={s.imgSrc} alt={s.imgAlt} class="max-h-16 object-contain" />
+                <div class="font-sans bg-gray-100 text-gray-800 px-6 py-2 rounded-md">
+                  <span lang={s.ctaLang}>{s.ctaLabel}</span>
+                </div>
+                <div
+                  class="absolute inset-0 bg-black/80 text-white flex items-center justify-center p-4 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                >
+                  <p class="font-sans font-bold text-center">{s.overlayTitle}</p>
+                </div>
+              </a>
+            ))}
           </div>
         </div>
       </div>
