@@ -103,6 +103,19 @@ My Story page (EN/ES/FR)
 		- Copy: Update titles, headings, and date locales in `journalHub.i18n.ts`.
 		- Posts: Add markdown files under `src/content/posts/{en,es,fr}/` with frontmatter (title, pubDate, optional image, featured, etc.).
 
+	Partners page (EN/ES/FR)
+	- Static copy/i18n: `src/data/partners.i18n.ts`
+	- Component: `src/components/PartnersPage.astro`
+	- Pages (wrappers): `src/pages/{en,es,fr}/partners.astro`
+	- How it works:
+		- Logos come from `src/data/partners.json` (do not duplicate lists). The page renders sections in the order defined by `sections` per locale.
+		- `heroSubtitleMd` and `cta.bodyMd` accept Markdown and are converted to HTML at build time.
+		- Optional horizontal divider appears before the CTA when `showDividerBeforeCta` is `true` (ES/FR currently true, EN false).
+	- What to edit per locale:
+		- `metaTitle`, `heroTitle`, `heroSubtitleMd`
+		- `sections`: array of `{ key: 'pirineoPartners' | 'cimaSupporters' | 'amigosDelReto', heading: string }` to set order and headings
+		- `cta`: `{ heading, bodyMd, buttonLabel, buttonHref }` — update `buttonHref` when the partnership PDF/link is ready
+
 Add a new locale
 - Add the locale key and strings to `src/data/home.i18n.ts`
 - Create `src/pages/<locale>/index.astro` with:

@@ -19,7 +19,7 @@
   },
   "funds_gbp": {
     "label": "Funds Raised for GBS UK",
-    "current": 2020,
+    "current": 20,
     "unit": "£"
   },
   "funds_eur": {
