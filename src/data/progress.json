@@ -17,6 +17,11 @@
     "total": 34900,
     "unit": "m"
   },
+  "summits": {
+    "label": "Summits conquered",
+    "current": 5,
+    "total": 20
+  },
   "funds_gbp": {
     "label": "Funds Raised for GBS UK",
     "current": 20,

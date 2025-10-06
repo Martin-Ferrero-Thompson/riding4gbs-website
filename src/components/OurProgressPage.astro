@@ -19,6 +19,7 @@ function pct(current: number, total: number): number {
 const daysPercent = pct(data.days?.current ?? 0, data.days?.total ?? 0);
 const distancePercent = pct(data.distance?.current ?? 0, data.distance?.total ?? 0);
 const climbingPercent = pct(data.climbing?.current ?? 0, data.climbing?.total ?? 0);
+const summitsPercent = pct(data.summits?.current ?? 0, data.summits?.total ?? 0);
 
 const gbpFormatter = new Intl.NumberFormat(t.format.gbpLocale, { style: 'currency', currency: 'GBP' });
 const eurFormatter = new Intl.NumberFormat(t.format.eurLocale, { style: 'currency', currency: 'EUR' });
@@ -86,6 +87,18 @@ const formatClimb = (n: number) => climbLocale ? n.toLocaleString(climbLocale) :
             <div class="bg-brand-blue h-3 rounded-full" style={`width: ${climbingPercent}%`}></div>
           </div>
         </div>
+
+        {data.summits && (
+          <div>
+            <div class="flex justify-between items-baseline mb-1 text-sm">
+              <span class="font-medium text-gray-300">{data.summits.label}</span>
+              <span class="font-bold">{data.summits.current} / {data.summits.total}</span>
+            </div>
+            <div class="w-full bg-gray-600 rounded-full h-3">
+              <div class="bg-brand-blue h-3 rounded-full" style={`width: ${summitsPercent}%`}></div>
+            </div>
+          </div>
+        )}
 
         <div class="text-center pt-4">
           <p class="text-base font-medium text-gray-300">{data.funds_gbp.label}</p>
