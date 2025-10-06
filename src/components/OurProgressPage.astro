@@ -96,6 +96,13 @@ const formatClimb = (n: number) => climbLocale ? n.toLocaleString(climbLocale) :
           <p class="text-base font-medium text-gray-300">{data.funds_eur.label}</p>
           <p class="text-4xl font-bold text-brand-blue">{eurFormatter.format(data.funds_eur.current)}</p>
         </div>
+
+        {data.funds_eur_fr && (
+          <div class="text-center pt-2">
+            <p class="text-base font-medium text-gray-300">{data.funds_eur_fr.label}</p>
+            <p class="text-4xl font-bold text-brand-blue">{eurFormatter.format(data.funds_eur_fr.current)}</p>
+          </div>
+        )}
       </div>
     </div>
   </div>

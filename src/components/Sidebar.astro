@@ -55,17 +55,25 @@ const eurFormatter = new Intl.NumberFormat("de-DE", {
     <p class="text-sm font-bold text-gray-300 mb-2">{t.totalRaised}</p>
     <div class="space-y-2">
       <div>
-        <span class="text-2xl font-bold text-blue-400"
-          >{gbpFormatter.format(progressData.funds_gbp.current)}</span
-        >
-        <span class="text-xs text-gray-400"> (UK)</span>
+        <span class="text-2xl font-bold text-blue-400">
+          {gbpFormatter.format(progressData.funds_gbp.current)}
+        </span>
+        <span class="text-xs text-gray-400"> ({t.countries.uk})</span>
       </div>
       <div>
-        <span class="text-2xl font-bold text-blue-400"
-          >{eurFormatter.format(progressData.funds_eur.current)}</span
-        >
-        <span class="text-xs text-gray-400"> (España)</span>
+        <span class="text-2xl font-bold text-blue-400">
+          {eurFormatter.format(progressData.funds_eur.current)}
+        </span>
+        <span class="text-xs text-gray-400"> ({t.countries.es})</span>
       </div>
+      {progressData.funds_eur_fr && (
+        <div>
+          <span class="text-2xl font-bold text-blue-400">
+            {eurFormatter.format(progressData.funds_eur_fr.current)}
+          </span>
+          <span class="text-xs text-gray-400"> ({t.countries.fr})</span>
+        </div>
+      )}
     </div>
   </div>
 

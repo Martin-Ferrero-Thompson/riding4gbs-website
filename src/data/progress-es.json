@@ -27,4 +27,10 @@
     "current": 4800,
     "unit": "€"
   }
+  ,
+  "funds_eur_fr": {
+    "label": "Fondos Recaudados para GBS Francia",
+    "current": 0,
+    "unit": "€"
+  }
 }

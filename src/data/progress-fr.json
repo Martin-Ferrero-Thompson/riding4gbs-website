@@ -23,8 +23,13 @@
     "unit": "£"
   },
   "funds_eur": {
-    "label": "Fonds récoltés pour GBS France",
+    "label": "Fonds récoltés pour GBS Espagne",
     "current": 4800,
+    "unit": "€"
+  },
+  "funds_eur_fr": {
+    "label": "Fonds récoltés pour GBS France",
+    "current": 0,
     "unit": "€"
   }
 }

@@ -12,6 +12,11 @@
     "followJourney": "Follow the Journey On:",
     "language": "Language",
     "rightsReserved": "All Rights Reserved.",
+    "countries": {
+      "uk": "UK",
+      "es": "Spain",
+      "fr": "France"
+    },
     "carousel": {
       "previous": "Previous Slide",
       "next": "Next Slide"
@@ -38,6 +43,11 @@
     "followJourney": "Sigue el Viaje En:",
     "language": "Idioma",
     "rightsReserved": "Todos los derechos reservados.",
+    "countries": {
+      "uk": "UK",
+      "es": "España",
+      "fr": "Francia"
+    },
     "carousel": {
       "previous": "Diapositiva Anterior",
       "next": "Siguiente Diapositiva"
@@ -64,6 +74,11 @@
     "followJourney": "Suivez le voyage sur :",
     "language": "Langue",
     "rightsReserved": "Tous droits réservés.",
+    "countries": {
+      "uk": "UK",
+      "es": "Espagne",
+      "fr": "France"
+    },
     "carousel": {
       "previous": "Diapositive Précédente",
       "next": "Diapositive Suivante"

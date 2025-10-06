@@ -27,4 +27,10 @@
     "current": 4800,
     "unit": "€"
   }
+  ,
+  "funds_eur_fr": {
+    "label": "Funds Raised for GBS France",
+    "current": 0,
+    "unit": "€"
+  }
 }
