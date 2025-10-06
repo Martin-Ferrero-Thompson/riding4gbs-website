@@ -22,10 +22,10 @@ const urls: Record<'uk' | 'es' | 'fr', string | undefined> = {
     class="m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 bg-gray-900/70 rounded-xl max-w-6xl w-full mx-auto font-sans"
   >
     <div class="text-center">
-      <h1 class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-white">
+      <h1 class="font-display font-extrabold text-5xl md:text-6xl lg:text-7xl text-white">
         {t.heroTitle}
       </h1>
-      <p class="mt-4 max-w-3xl mx-auto text-center text-lg text-gray-300 leading-relaxed" set:html={marked.parse(t.heroIntroMd)} />
+  <div class="mt-4 max-w-3xl mx-auto text-center text-xl md:text-2xl text-white leading-relaxed [&_p]:text-white" set:html={marked.parse(t.heroIntroMd)}></div>
     </div>
 
     <div class="mt-12 max-w-3xl mx-auto">
@@ -34,7 +34,7 @@ const urls: Record<'uk' | 'es' | 'fr', string | undefined> = {
         <div class="my-4 flex-grow flex justify-center items-center">
           <img src={t.card.image.src} alt={t.card.image.alt} class="h-12" />
         </div>
-        <p class="text-gray-600 leading-relaxed flex-grow" set:html={marked.parse(t.card.bodyMd)} />
+  <div class="text-gray-600 leading-relaxed flex-grow [&_p]:text-gray-600" set:html={marked.parse(t.card.bodyMd)}></div>
         {urls[t.card.id] ? (
           <a
             href={urls[t.card.id]!}
