@@ -30,7 +30,7 @@ export const homeContent: Record<"en" | "es" | "fr", HomeLocaleContent> = {
     supportersHeading: "Proudly Supporting:",
     introParagraphsMd: [
       "My name is Martin, and I am a survivor of Guillain-Barré Syndrome (GBS). My recovery taught me that the journey is more important than the destination. This is my **Slow Road Back**.",
-      "**On September 30th, 2026**, I will begin a deeply personal cycling challenge, starting from my home in Pamplona. With my incredible wife, Edurne, as the heart of my support team, we are taking on the Pyrenees. Our goal is for us to ride from the Atlantic coast to the Mediterranean and back again to see how far this journey of resilience will take us.",
+      "**In October 2026**, I will begin a deeply personal cycling challenge, starting from my home in Pamplona. With my incredible wife, Edurne, as the heart of my support team, we are taking on the Pyrenees. Our goal is for us to ride from the Atlantic coast to the Mediterranean and back again to see how far this journey of resilience will take us.",
       "Our ride is a shared mission to raise vital awareness and funds for the GBS community. We don't know exactly how many days it will take, or how many mountains will have to be climbed. But we invite you to follow along, day by day, on our journey of hope and resilience.",
     ],
     partnerLinkTitle: "Cycla Bikes - Your reference cycling workshop",
@@ -74,7 +74,7 @@ export const homeContent: Record<"en" | "es" | "fr", HomeLocaleContent> = {
     supportersHeading: "Apoyando con orgullo a:",
     introParagraphsMd: [
       "Me llamo Martin, y soy un superviviente del Síndrome de Guillain-Barré (SGB). Mi recuperación me enseñó que el viaje es más importante que el destino. Este es mi **\"Lento Camino de Regreso\"**.",
-      "**El 30 de septiembre de 2026**, comenzaré un reto ciclista muy personal, desde mi casa en Pamplona. Pero no lo haré solo. Con mi increíble esposa, Edurne, como el corazón de mi equipo de apoyo, nos enfrentamos a los Pirineos. Nuestro objetivo es que nosotros pedaleemos desde la costa atlántica hasta el Mediterráneo y de vuelta, para ver hasta dónde nos lleva este viaje de resiliencia.",
+      "**En octubre de 2026**, comenzaré un reto ciclista muy personal, desde mi casa en Pamplona. Pero no lo haré solo. Con mi increíble esposa, Edurne, como el corazón de mi equipo de apoyo, nos enfrentamos a los Pirineos. Nuestro objetivo es que nosotros pedaleemos desde la costa atlántica hasta el Mediterráneo y de vuelta, para ver hasta dónde nos lleva este viaje de resiliencia.",
       "Nuestra travesía es una misión compartida para dar visibilidad y recaudar fondos para la comunidad del SGB. No sabemos exactamente cuántos días tomará, ni cuántas montañas habrá que escalar. Pero os invitamos a seguirnos, día a día, en nuestro viaje de esperanza y resiliencia.",
     ],
     partnerLinkTitle: "Cycla Bikes - Your reference cycling workshop",
@@ -118,7 +118,7 @@ export const homeContent: Record<"en" | "es" | "fr", HomeLocaleContent> = {
     supportersHeading: "Fièrement en soutien à :",
     introParagraphsMd: [
       "Je m'appelle Martin, et je suis un survivant du syndrome de Guillain-Barré (SGB). Ma convalescence m'a appris que le voyage est plus important que la destination. C'est mon **\"Lent Chemin du Retour\"**.",
-      "**Le 30 septembre 2026**, je commencerai un défi cycliste profondément personnel depuis notre domicile à Pampelune. Mais je ne le fais pas seul. Avec mon incroyable épouse, Edurne, qui est le cœur de mon équipe de soutien, nous nous attaquons aux Pyrénées. Notre objectif est que nous roulions de la côte atlantique à la Méditerranée et retour, pour voir jusqu'où ce voyage de résilience nous mènera.",
+      "**En octobre 2026**, je commencerai un défi cycliste profondément personnel depuis notre domicile à Pampelune. Mais je ne le fais pas seul. Avec mon incroyable épouse, Edurne, qui est le cœur de mon équipe de soutien, nous nous attaquons aux Pyrénées. Notre objectif est que nous roulions de la côte atlantique à la Méditerranée et retour, pour voir jusqu'où ce voyage de résilience nous mènera.",
       "Notre parcours est une mission partagée pour sensibiliser et collecter des fonds pour la communauté du SGB. Nous ne savons pas exactement combien de jours cela prendra, ni combien de montagnes il faudra gravir. Mais nous vous invitons à nous suivre, jour après jour, dans notre voyage d'espoir et de résilience.",
     ],
     partnerLinkTitle: "Cycla Bikes - Your reference cycling workshop",
