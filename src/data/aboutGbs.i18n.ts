@@ -155,7 +155,7 @@ export const aboutGbsContent: Record<"en" | "es" | "fr", AboutGbsLocaleContent> 
           {
             title: "EPODIN - European Patient Organisation for Dysimmune & Inflammatory Neuropathies",
             descriptionMd:
-              "L'association française du syndrome de Guillain-Barré, qui fournit des informations et un soutien aux patients en France.",
+              "EPODIN - European Patient Organisation for Dysimmune & Inflammatory Neuropathies, qui fournit des informations et un soutien aux patients en France.",
             href: "https://www.epodin.org/",
             ctaLabel: "Visiter le site web →",
           },
