@@ -66,23 +66,10 @@ export const aboutGbsContent: Record<"en" | "es" | "fr", AboutGbsLocaleContent> 
         title: "[5/5] Find Out More",
         resources: [
           {
-            title: "GBS|CIDP Foundation Int.",
-            descriptionMd: "The leading global nonprofit for supporting patients and funding research for GBS.",
-            href: "https://www.gbs-cidp.org/",
+            title: "Inflammatory Neuropathies UK",
+            descriptionMd: "A patient advocacy group based in the UK, providing support and resources.",
+            href: "https://www.inflammatoryneuropathies.uk/information-hub",
             ctaLabel: "Visit Website →",
-          },
-          {
-            title: "GBS|CIDP España",
-            descriptionMd: "A patient advocacy group based in Spain, providing support and resources.",
-            href: "https://gbs-cidp.org.es/",
-            ctaLabel: "Visit Website →",
-          },
-          {
-            title: "AFSGB & TSFN (France)",
-            descriptionMd:
-              "The French association for Guillain-Barré Syndrome, providing information and support to patients in France.",
-            href: "https://www.guillainbarre.fr/",
-            ctaLabel: "Visiter le site web →",
           },
         ],
       },
@@ -121,26 +108,12 @@ export const aboutGbsContent: Record<"en" | "es" | "fr", AboutGbsLocaleContent> 
         kind: "resources",
         title: "[5/5] Más Información",
         resources: [
-          {
-            title: "GBS|CIDP Foundation Int.",
-            descriptionMd:
-              "La principal organización mundial sin ánimo de lucro que apoya a los pacientes y financia la investigación del SGB.",
-            href: "https://www.gbs-cidp.org/",
-            ctaLabel: "Visitar Sitio Web →",
-          },
-          {
+         {
             title: "GBS|CIDP España",
             descriptionMd:
               "Un grupo de defensa de pacientes con sede en España, que ofrece apoyo y recursos.",
             href: "https://gbs-cidp.org.es/",
             ctaLabel: "Visitar Sitio Web →",
-          },
-          {
-            title: "AFSGB & TSFN (Francia)",
-            descriptionMd:
-              "La asociación francesa del Síndrome de Guillain-Barré, que proporciona información y apoyo a los pacientes en Francia.",
-            href: "https://www.guillainbarre.fr/",
-            ctaLabel: "Visiter le site web →",
           },
         ],
       },
@@ -180,24 +153,10 @@ export const aboutGbsContent: Record<"en" | "es" | "fr", AboutGbsLocaleContent> 
         title: "[5/5] En Savoir Plus",
         resources: [
           {
-            title: "GBS|CIDP Foundation Int.",
-            descriptionMd:
-              "La principale organisation mondiale à but non lucratif qui soutient les patients et finance la recherche sur le SGB.",
-            href: "https://www.gbs-cidp.org/",
-            ctaLabel: "Visiter le site →",
-          },
-          {
-            title: "GBS|CIDP España",
-            descriptionMd:
-              "Un groupe de défense des patients basé en Espagne, qui fournit soutien et ressources.",
-            href: "https://gbs-cidp.org.es/",
-            ctaLabel: "Visitar el sitio web →",
-          },
-          {
-            title: "AFSGB & TSFN (France)",
+            title: "EPODIN - European Patient Organisation for Dysimmune & Inflammatory Neuropathies",
             descriptionMd:
               "L'association française du syndrome de Guillain-Barré, qui fournit des informations et un soutien aux patients en France.",
-            href: "https://www.guillainbarre.fr/",
+            href: "https://www.epodin.org/",
             ctaLabel: "Visiter le site web →",
           },
         ],
