@@ -30,7 +30,7 @@ export function LogoCarousel({ partners }) {
     }
   }, [partners]); // Re-run when the partners list changes
 
-  // Duplicate partners only if animation is needed
+  // Duplicate partners only if animation is needed at md+ (marquee)
   const extendedPartners = shouldAnimate ? [...partners, ...partners] : partners;
 
   return (
@@ -40,10 +40,10 @@ export function LogoCarousel({ partners }) {
     >
       <ul 
         ref={scrollerRef}
-        className={`flex items-center ${shouldAnimate ? 'justify-start animate-infinite-scroll pause-on-hover' : 'justify-center w-full'}`}
+        className={`flex items-center w-full md:w-auto ${shouldAnimate ? 'justify-start md:animate-infinite-scroll pause-on-hover' : 'justify-start'} overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none gap-0`}
       >
         {extendedPartners.map((partner, index) => (
-          <li key={index} className="mx-4 md:mx-8 flex-shrink-0">
+          <li key={index} className="mx-4 md:mx-8 flex-shrink-0 snap-start">
             <a href={partner.website} target="_blank" rel="noopener noreferrer" title={partner.name}>
               <img src={partner.logo} alt={partner.name} className="h-12 md:h-16 max-w-none opacity-90 hover:opacity-100 transition-opacity object-contain" />
             </a>
