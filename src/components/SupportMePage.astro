@@ -17,7 +17,7 @@ const hasSupporters = Array.isArray(supporters) && supporters.length > 0;
 <MainLayout title={t.metaTitle}>
   <div
     transition:name="support-me-card"
-    class="m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 bg-white rounded-xl max-w-6xl w-full mx-auto text-gray-800 font-sans"
+    class="m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 bg-white rounded-xl max-w-6xl w-full mx-auto text-gray-800 font-sans pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]"
   >
     <div class="text-center">
       <h1 class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-gray-900">

@@ -20,7 +20,13 @@ import "../styles/global.css";
         background-image: url("/background.png");
         background-size: cover;
         background-position: center;
-        background-attachment: fixed;
+        /* Default to non-fixed on small screens to avoid jank */
+        background-attachment: scroll;
+      }
+      @media (min-width: 768px) {
+        body {
+          background-attachment: fixed;
+        }
       }
       @keyframes fade-in {
         from { opacity: 0; }
@@ -31,10 +37,10 @@ import "../styles/global.css";
       }
     </style>
   </head>
-  <body class="bg-gray-800 text-white font-sans">
+  <body class="bg-gray-800 text-white font-sans overflow-x-hidden">
     <a href="#main" class="skip-link">Skip to main content</a>
     <main id="main">
-    <div class="min-h-screen flex flex-col items-center justify-center p-4 animate-fade-in">
+    <div class="min-h-screen flex flex-col items-center justify-center p-4 animate-fade-in pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]">
       <div class="bg-gray-900/80 backdrop-blur-sm rounded-xl p-6 md:p-8 max-w-6xl w-full">
         <h1 class="font-display font-extrabold text-3xl md:text-5xl text-center text-brand-blue mb-6">
           #RIDING4GBS
@@ -45,16 +51,16 @@ import "../styles/global.css";
           <p id="cd-message" class="text-lg text-center text-gray-300 mt-2"></p>
         </div> -->
 
-        <div class="text-center max-w-4xl mx-auto mb-8 space-y-4 text-gray-300 text-lg">
+        <div class="text-center max-w-4xl mx-auto mb-8 space-y-3 md:space-y-4 text-gray-300 text-base md:text-lg">
           <p><span class="mr-2">🇬🇧</span>In October 2026, this epic 2,000km journey across the Pyrenees is dedicated to funding vital GBS research through our international partners below.</p>
           <p><span class="mr-2">🇪🇸</span>En octubre de 2026, este épico viaje de 2.000 km a través de los Pirineos está dedicado a financiar la investigación vital del SGB a través de nuestros socios internacionales a continuación.</p>
           <p><span class="mr-2">🇫🇷</span>En octobre 2026, ce voyage épique de 2 000 km à travers les Pyrénées est dédié au financement de la recherche essentielle sur le SGB par le biais de nos partenaires internationaux ci-dessous.</p>
         </div>
 
-        <img src="/riding4gbs-atlantics2med.png" alt="The challenge route map" class="rounded-lg shadow-md mb-8 mx-auto max-w-3xl" />
+        <img src="/riding4gbs-atlantics2med.png" alt="The challenge route map" class="rounded-lg shadow-md mb-8 mx-auto w-full h-auto max-w-full md:max-w-3xl object-contain" />
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <a href="/en/" data-astro-reload class="group relative bg-gray-800/50 rounded-xl p-6 flex flex-col text-center transition-transform hover:scale-105">
+          <a href="/en/" data-astro-reload class="group relative bg-gray-800/50 rounded-xl p-6 flex flex-col text-center transition-transform md:hover:scale-105">
             <header class="text-5xl mb-4">🇬🇧</header>
             <main class="flex-grow text-gray-200">
               <h2 class="font-display font-bold text-xl mb-2 text-white">Ride for GBS Research</h2>
@@ -64,10 +70,10 @@ import "../styles/global.css";
               <img src="/logos/INUK-Wordmark-Logo_RGB.png" alt="Inflammatory Neuropathies UK" class="h-10 mx-auto object-contain" />
             </footer>
             <div class="absolute inset-0 bg-black/80 text-white flex items-center justify-center p-4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <p class="font-sans font-bold text-lg">Click to enter the English site</p>
+              <p class="font-sans font-bold text-base md:text-lg">Click to enter the English site</p>
             </div>
           </a>
-          <a href="/es/" data-astro-reload class="group relative bg-gray-800/50 rounded-xl p-6 flex flex-col text-center transition-transform hover:scale-105">
+          <a href="/es/" data-astro-reload class="group relative bg-gray-800/50 rounded-xl p-6 flex flex-col text-center transition-transform md:hover:scale-105">
             <header class="text-5xl mb-4">🇪🇸</header>
             <main class="flex-grow text-gray-200">
               <h2 class="font-display font-bold text-xl mb-2 text-white">Pedaleando por la investigación del SGB</h2>
@@ -77,10 +83,10 @@ import "../styles/global.css";
               <img src="/logos/GBS-CIDP_neuropatias-RC-3.png" alt="GBS|CIDP España" class="h-10 mx-auto object-contain" />
             </footer>
             <div class="absolute inset-0 bg-black/80 text-white flex items-center justify-center p-4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <p class="font-sans font-bold text-lg">Haga clic para entrar en el sitio en español</p>
+              <p class="font-sans font-bold text-base md:text-lg">Haga clic para entrar en el sitio en español</p>
             </div>
           </a>
-          <a href="#" data-astro-reload class="group relative bg-gray-800/50 rounded-xl p-6 flex flex-col text-center transition-transform hover:scale-105">
+          <a href="#" data-astro-reload class="group relative bg-gray-800/50 rounded-xl p-6 flex flex-col text-center transition-transform md:hover:scale-105">
             <header class="text-5xl mb-4">🇫🇷</header>
             <main class="flex-grow text-gray-200">
               <h2 class="font-display font-bold text-xl mb-2 text-white">Pédaler pour la recherche sur le SGB</h2>
@@ -90,7 +96,7 @@ import "../styles/global.css";
               <img src="/logos/fr.jpg" alt="Association Française du Syndrome de Guillain-Barré" class="h-10 mx-auto object-contain" />
             </footer>
             <div class="absolute inset-0 bg-black/80 text-white flex items-center justify-center p-4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <p class="font-sans font-bold text-lg">Cliquez pour accéder au site en français</p>
+              <p class="font-sans font-bold text-base md:text-lg">Cliquez pour accéder au site en français</p>
             </div>
           </a>
         </div>

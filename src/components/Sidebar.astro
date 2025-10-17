@@ -38,7 +38,7 @@ const eurFormatter = new Intl.NumberFormat("de-DE", {
 
 <aside
   id="sidebar"
-  class="bg-gray-900 bg-opacity-90 text-white p-6 flex flex-col min-h-screen w-72 hidden md:flex absolute md:relative z-40"
+  class="bg-gray-900 bg-opacity-90 text-white p-6 flex flex-col min-h-screen w-72 hidden md:flex fixed md:relative inset-y-0 left-0 z-40 overflow-y-auto md:overflow-visible max-h-[calc(100vh_-_env(safe-area-inset-top)_-_env(safe-area-inset-bottom))] md:max-h-none pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]"
 >
   <div class="logo mb-8">
     <a href={`/${lang}/`} class="text-3xl font-bold text-brand-blue font-display"
@@ -86,11 +86,11 @@ const eurFormatter = new Intl.NumberFormat("de-DE", {
     </a>
   </div>
 
-  <nav class="flex flex-col space-y-6 font-sans text-lg">
+  <nav class="flex flex-col space-y-2 md:space-y-6 font-sans text-lg">
     <a
       href={`/${lang}/the-challenge`}
       class:list={{
-        "px-3 py-2 rounded-md transition-colors": true,
+        "px-3 py-3 md:py-2 rounded-md transition-colors": true,
         "bg-brand-blue text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80": isActive(`/${lang}/the-challenge`),
         "hover:bg-brand-blue/20": !isActive(`/${lang}/the-challenge`),
       }}
@@ -100,7 +100,7 @@ const eurFormatter = new Intl.NumberFormat("de-DE", {
     <a
       href={`/${lang}/my-story`}
       class:list={{
-        "px-3 py-2 rounded-md transition-colors": true,
+        "px-3 py-3 md:py-2 rounded-md transition-colors": true,
         "bg-brand-blue text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80": isActive(`/${lang}/my-story`),
         "hover:bg-brand-blue/20": !isActive(`/${lang}/my-story`),
       }}
@@ -110,7 +110,7 @@ const eurFormatter = new Intl.NumberFormat("de-DE", {
     <a
       href={`/${lang}/about-gbs`}
       class:list={{
-        "px-3 py-2 rounded-md transition-colors": true,
+        "px-3 py-3 md:py-2 rounded-md transition-colors": true,
         "bg-brand-blue text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80": isActive(`/${lang}/about-gbs`),
         "hover:bg-brand-blue/20": !isActive(`/${lang}/about-gbs`),
       }}
@@ -120,7 +120,7 @@ const eurFormatter = new Intl.NumberFormat("de-DE", {
     <a
       href={`/${lang}/our-progress`}
       class:list={{
-        "px-3 py-2 rounded-md transition-colors": true,
+        "px-3 py-3 md:py-2 rounded-md transition-colors": true,
         "bg-brand-blue text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80": isActive(`/${lang}/our-progress`),
         "hover:bg-brand-blue/20": !isActive(`/${lang}/our-progress`),
       }}
@@ -130,7 +130,7 @@ const eurFormatter = new Intl.NumberFormat("de-DE", {
     <a
       href={`/${lang}/journal-hub`}
       class:list={{
-        "px-3 py-2 rounded-md transition-colors": true,
+        "px-3 py-3 md:py-2 rounded-md transition-colors": true,
         "bg-brand-blue text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80": isActive(`/${lang}/journal-hub`),
         "hover:bg-brand-blue/20": !isActive(`/${lang}/journal-hub`),
       }}
@@ -140,7 +140,7 @@ const eurFormatter = new Intl.NumberFormat("de-DE", {
     <a
       href={`/${lang}/partners`}
       class:list={{
-        "px-3 py-2 rounded-md transition-colors": true,
+        "px-3 py-3 md:py-2 rounded-md transition-colors": true,
         "bg-brand-blue text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80": isActive(`/${lang}/partners`),
         "hover:bg-brand-blue/20": !isActive(`/${lang}/partners`),
       }}
@@ -150,7 +150,7 @@ const eurFormatter = new Intl.NumberFormat("de-DE", {
     <a
       href={`/${lang}/support-me`}
       class:list={{
-        "px-3 py-2 rounded-md transition-colors": true,
+        "px-3 py-3 md:py-2 rounded-md transition-colors": true,
         "bg-brand-blue text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80": isActive(`/${lang}/support-me`),
         "hover:bg-brand-blue/20": !isActive(`/${lang}/support-me`),
       }}

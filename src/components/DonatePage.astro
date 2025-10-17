@@ -19,7 +19,7 @@ const urls: Record<'uk' | 'es' | 'fr', string | undefined> = {
 <MainLayout title={t.metaTitle}>
   <div
     transition:name="donate-card"
-    class="m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 bg-gray-900/70 rounded-xl max-w-6xl w-full mx-auto font-sans"
+    class="m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 bg-gray-900/70 rounded-xl max-w-6xl w-full mx-auto font-sans pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]"
   >
     <div class="text-center">
       <h1 class="font-display font-extrabold text-5xl md:text-6xl lg:text-7xl text-white">
@@ -45,7 +45,7 @@ const urls: Record<'uk' | 'es' | 'fr', string | undefined> = {
             {t.card.buttonLabel}
           </a>
         ) : (
-          <p class="mt-6 text-sm text-gray-500 italic">Coming soon</p>
+          <p class="mt-6 text-sm text-gray-300 italic">{t.comingSoon}</p>
         )}
       </div>
     </div>

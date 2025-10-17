@@ -13,6 +13,7 @@ export type DonateLocaleContent = {
   heroTitle: string;
   heroIntroMd: string;
   card: DonateCard; // single, locale-specific donation card
+  comingSoon: string;
 };
 
 export const donateContent: Record<'en' | 'es' | 'fr', DonateLocaleContent> = {
@@ -21,6 +22,7 @@ export const donateContent: Record<'en' | 'es' | 'fr', DonateLocaleContent> = {
     heroTitle: 'Support the Mission: Fund a Cure',
     heroIntroMd:
       'This epic challenge is dedicated to one single goal: funding the vital research that will lead to better treatments and, one day, a cure for Guillain-Barré Syndrome. 100% of every charitable donation goes directly to our official partner organizations. Your contribution, no matter the size, is a powerful act of hope for every person affected by this devastating condition.',
+    comingSoon: 'Coming soon',
     card: {
       id: 'uk',
       title: 'For UK Donors',
@@ -35,6 +37,7 @@ export const donateContent: Record<'en' | 'es' | 'fr', DonateLocaleContent> = {
     heroTitle: 'Apoya la Misión: Financia una Cura',
     heroIntroMd:
       'Este desafío épico está dedicado a un único objetivo: financiar la investigación vital que conducirá a mejores tratamientos y, un día, a una cura para el Síndrome de Guillain-Barré. El 100% de cada donación benéfica va directamente a nuestras organizaciones asociadas oficiales. Tu contribución, sin importar el tamaño, es un poderoso acto de esperanza para cada persona afectada por esta devastadora condición.',
+    comingSoon: 'Próximamente',
     card: {
       id: 'es',
       title: 'Para Donantes Españoles',
@@ -49,6 +52,7 @@ export const donateContent: Record<'en' | 'es' | 'fr', DonateLocaleContent> = {
     heroTitle: 'Soutenez la Mission : Financez un Remède',
     heroIntroMd:
       "Ce défi épique est dédié à un seul objectif : financer la recherche vitale qui mènera à de meilleurs traitements et, un jour, à un remède pour le syndrome de Guillain-Barré. 100% de chaque don caritatif va directement à nos organisations partenaires officielles. Votre contribution, quelle que soit sa taille, est un puissant acte d'espoir pour chaque personne touchée par cette maladie dévastatrice.",
+    comingSoon: 'Bientôt disponible',
     card: {
       id: 'fr',
       title: 'Pour les Donateurs Français',

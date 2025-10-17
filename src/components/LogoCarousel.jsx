@@ -36,16 +36,16 @@ export function LogoCarousel({ partners }) {
   return (
     <div 
       ref={containerRef} 
-      className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]"
+      className="w-full inline-flex flex-nowrap overflow-hidden px-4 md:px-0 [mask-image:_linear-gradient(to_right,transparent_0,_black_48px,_black_calc(100%-48px),transparent_100%)] md:[mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]"
     >
       <ul 
         ref={scrollerRef}
         className={`flex items-center ${shouldAnimate ? 'justify-start animate-infinite-scroll pause-on-hover' : 'justify-center w-full'}`}
       >
         {extendedPartners.map((partner, index) => (
-          <li key={index} className="mx-8 flex-shrink-0">
+          <li key={index} className="mx-4 md:mx-8 flex-shrink-0">
             <a href={partner.website} target="_blank" rel="noopener noreferrer" title={partner.name}>
-              <img src={partner.logo} alt={partner.name} className="h-16 max-w-none opacity-90 hover:opacity-100 transition-opacity" />
+              <img src={partner.logo} alt={partner.name} className="h-12 md:h-16 max-w-none opacity-90 hover:opacity-100 transition-opacity object-contain" />
             </a>
           </li>
         ))}

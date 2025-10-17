@@ -31,7 +31,7 @@ const formatClimb = (n: number) => climbLocale ? n.toLocaleString(climbLocale) :
 <MainLayout title={t.metaTitle}>
   <div
     transition:name="our-progress-card"
-    class="m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 bg-white rounded-xl max-w-6xl w-full mx-auto text-gray-800 font-sans"
+    class="m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 bg-white rounded-xl max-w-6xl w-full mx-auto text-gray-800 font-sans pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]"
   >
     <div class="text-center mb-12">
       <h1 class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-gray-900">
@@ -55,47 +55,47 @@ const formatClimb = (n: number) => climbLocale ? n.toLocaleString(climbLocale) :
         </div>
       </div>
 
-      <div class="bg-gray-800 text-white rounded-xl shadow-lg p-6 space-y-6 lg:sticky lg:top-8">
+      <div class="bg-gray-800 text-white rounded-xl shadow-lg p-5 md:p-6 space-y-5 md:space-y-6 lg:sticky lg:top-8">
         <h2 class="font-display font-bold text-3xl md:text-4xl text-center">{t.numbersHeading}</h2>
         
         <div>
-          <div class="flex justify-between items-baseline mb-1 text-sm">
+          <div class="flex flex-wrap justify-between items-baseline gap-x-2 gap-y-1 mb-1 text-xs md:text-sm">
             <span class="font-medium text-gray-300">{data.days.label}</span>
             <span class="font-bold">{data.days.current} / {data.days.total}</span>
           </div>
-          <div class="w-full bg-gray-600 rounded-full h-3">
-            <div class="bg-brand-blue h-3 rounded-full" style={`width: ${daysPercent}%`}></div>
+          <div class="w-full bg-gray-600 rounded-full h-4 md:h-3">
+            <div class="bg-brand-blue h-4 md:h-3 rounded-full" style={`width: ${daysPercent}%`}></div>
           </div>
         </div>
 
         <div>
-          <div class="flex justify-between items-baseline mb-1 text-sm">
+          <div class="flex flex-wrap justify-between items-baseline gap-x-2 gap-y-1 mb-1 text-xs md:text-sm">
             <span class="font-medium text-gray-300">{data.distance.label}</span>
             <span class="font-bold">{data.distance.current} / {data.distance.total} {data.distance.unit}</span>
           </div>
-          <div class="w-full bg-gray-600 rounded-full h-3">
-            <div class="bg-brand-blue h-3 rounded-full" style={`width: ${distancePercent}%`}></div>
+          <div class="w-full bg-gray-600 rounded-full h-4 md:h-3">
+            <div class="bg-brand-blue h-4 md:h-3 rounded-full" style={`width: ${distancePercent}%`}></div>
           </div>
         </div>
         
         <div>
-          <div class="flex justify-between items-baseline mb-1 text-sm">
+          <div class="flex flex-wrap justify-between items-baseline gap-x-2 gap-y-1 mb-1 text-xs md:text-sm">
             <span class="font-medium text-gray-300">{data.climbing.label}</span>
             <span class="font-bold">{formatClimb(data.climbing.current)} / {formatClimb(data.climbing.total)} {data.climbing.unit}</span>
           </div>
-          <div class="w-full bg-gray-600 rounded-full h-3">
-            <div class="bg-brand-blue h-3 rounded-full" style={`width: ${climbingPercent}%`}></div>
+          <div class="w-full bg-gray-600 rounded-full h-4 md:h-3">
+            <div class="bg-brand-blue h-4 md:h-3 rounded-full" style={`width: ${climbingPercent}%`}></div>
           </div>
         </div>
 
         {data.summits && (
           <div>
-            <div class="flex justify-between items-baseline mb-1 text-sm">
+            <div class="flex flex-wrap justify-between items-baseline gap-x-2 gap-y-1 mb-1 text-xs md:text-sm">
               <span class="font-medium text-gray-300">{data.summits.label}</span>
               <span class="font-bold">{data.summits.current} / {data.summits.total}</span>
             </div>
-            <div class="w-full bg-gray-600 rounded-full h-3">
-              <div class="bg-brand-blue h-3 rounded-full" style={`width: ${summitsPercent}%`}></div>
+            <div class="w-full bg-gray-600 rounded-full h-4 md:h-3">
+              <div class="bg-brand-blue h-4 md:h-3 rounded-full" style={`width: ${summitsPercent}%`}></div>
             </div>
           </div>
         )}

@@ -20,7 +20,7 @@ function hasList(key: PartnersSectionKey): boolean {
 <MainLayout title={t.metaTitle}>
   <div
     transition:name="partners-card"
-    class="m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 bg-white rounded-xl max-w-6xl w-full mx-auto text-gray-800 font-sans"
+    class="m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 bg-white rounded-xl max-w-6xl w-full mx-auto text-gray-800 font-sans pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]"
   >
     <div class="text-center">
       <h1 class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-gray-900">
@@ -29,7 +29,7 @@ function hasList(key: PartnersSectionKey): boolean {
       <p class="mt-4 max-w-3xl mx-auto text-center text-lg text-gray-500" set:html={marked.parse(t.heroSubtitleMd)} />
     </div>
 
-    <div class="mt-12 md:mt-16 space-y-12">
+  <div class="mt-10 md:mt-16 space-y-10 md:space-y-12">
       {t.sections.map((section) => (
         hasList(section.key) && (
           <div>
