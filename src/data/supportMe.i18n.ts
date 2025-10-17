@@ -12,6 +12,8 @@ export type SupportMeLocaleContent = {
   };
   cta: {
     label: string;
+    url?: string; // optional per-locale URL for the CTA
+    missingMd?: string; // optional fallback message when url is missing
   };
 };
 
@@ -33,6 +35,9 @@ export const supportMeContent: Record<'en' | 'es' | 'fr', SupportMeLocaleContent
     },
     cta: {
       label: 'Want to see your name here - Join my amazing support crew!',
+      url: 'https://Ko-fi.com/riding4gbs',
+      missingMd:
+        "CTA coming soon. In the meantime, please reach out if you'd like to contribute directly to the ride support.",
     },
   },
   es: {
@@ -52,6 +57,9 @@ export const supportMeContent: Record<'en' | 'es' | 'fr', SupportMeLocaleContent
     },
     cta: {
       label: '¿Quieres ver tu nombre aquí? ¡Únete a mi increíble equipo de apoyo!',
+      url: 'https://Ko-fi.com/riding4gbs',
+      missingMd:
+        'CTA próximamente. Mientras tanto, ponte en contacto si deseas contribuir directamente al apoyo del viaje.',
     },
   },
   fr: {
@@ -71,6 +79,9 @@ export const supportMeContent: Record<'en' | 'es' | 'fr', SupportMeLocaleContent
     },
     cta: {
       label: 'Rejoignez mon incroyable équipe de soutien !',
+      url: 'https://Ko-fi.com/riding4gbs',
+      missingMd:
+        "CTA à venir. En attendant, contactez-moi si vous souhaitez contribuer directement au soutien du voyage.",
     },
   },
 };

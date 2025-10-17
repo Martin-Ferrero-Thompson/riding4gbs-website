@@ -11,7 +11,7 @@ export interface Props {
 }
 
 const { t } = Astro.props as Props;
-const koFiUrl = import.meta.env.PUBLIC_KOFI_URL as string | undefined;
+const koFiUrl = t.cta?.url && t.cta.url.trim().length > 0 ? t.cta.url : undefined;
 const hasSupporters = Array.isArray(supporters) && supporters.length > 0;
 ---
 <MainLayout title={t.metaTitle}>
@@ -47,7 +47,7 @@ const hasSupporters = Array.isArray(supporters) && supporters.length > 0;
       </div>
     )}
 
-    {koFiUrl && (
+    {koFiUrl ? (
       <div class="text-center max-w-3xl mx-auto">
         <a 
           href={koFiUrl}
@@ -57,6 +57,10 @@ const hasSupporters = Array.isArray(supporters) && supporters.length > 0;
         >
           {t.cta.label}
         </a>
+      </div>
+    ) : (
+      <div class="text-center max-w-3xl mx-auto mt-4">
+        <p class="text-gray-500 text-sm" set:html={t.cta?.missingMd ?? ''} />
       </div>
     )}
   </div>
