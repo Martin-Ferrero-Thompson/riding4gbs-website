@@ -53,11 +53,11 @@ export function Carousel({ slides, i18n }) {
   const labels = i18n?.carousel || { previous: 'Previous Slide', next: 'Next Slide' };
 
   return (
-    <div className="relative w-full mt-10 px-10">
+    <div className="relative w-full mt-10 px-0 md:px-10">
       {/* Add items-start to prevent slides from stretching vertically */}
       <div ref={contentRef} className="flex overflow-x-auto md:overflow-x-hidden snap-x snap-mandatory scroll-smooth items-start">
         {slides.map((slide, index) => (
-          <div key={index} className="w-full flex-shrink-0 snap-start md:snap-center">
+          <div key={index} className="w-full flex-none snap-start md:snap-center">
             <div className="p-4 md:p-8 bg-gray-50 rounded-lg"> 
               <h3 className="font-display font-bold text-2xl md:text-3xl text-gray-900 mb-4">
                 {slide.title}
