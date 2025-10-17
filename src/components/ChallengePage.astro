@@ -20,7 +20,7 @@ const { t } = Astro.props as Props;
       <h1 class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-gray-900">
         {t.heroTitle}
       </h1>
-      <div class="mt-4 max-w-2xl mx-auto text-lg text-gray-600" set:html={marked.parse(t.heroDescriptionMd)} />
+      <div class="mt-4 max-w-2xl mx-auto text-left text-lg text-gray-600" set:html={marked.parse(t.heroDescriptionMd)} />
     </div>
 
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center my-10 md:my-12 border-y py-6">

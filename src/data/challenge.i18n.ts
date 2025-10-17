@@ -21,63 +21,63 @@ export type ChallengeLocaleContent = {
 export const challengeContent: Record<"en" | "es" | "fr", ChallengeLocaleContent> = {
   en: {
     metaTitle: "The Challenge | Riding4GBS",
-    heroTitle: "Conquering the Pyrenees: The Route 🚵",
+    heroTitle: "To Conquer the Pyrenees",
     heroDescriptionMd:
-      "This is not just a bike ride; it's a complete coast-to-coast traverse of one of the world's most formidable mountain ranges.",
+      "This is more than a bike ride; it's the next chapter in our shared story. A testament to Edurne's unwavering support through every step of my GBS journey, this is our challenge — a complete coast-to-coast traverse of one of the world's most challenging mountain ranges.",
     stats: [
       { value: "~21", label: "Total Days" },
       { value: "~2,000", label: "Kilometres" },
       { value: "~38,000", label: "Metres of Climbing" },
       { value: "~4.5x", label: "The Height of Everest" },
     ],
-    styleHeading: "The Style: A Self-Supported Journey",
+    styleHeading: "The Style: A Shared Journey",
     styleBodyMd:
-      "This challenge is a journey back to basics, undertaken in a self-supported bikepacking style. I'll be carrying all my own equipment, relying on the kindness of the community I meet along the way. While the logistical test is a personal one, the road itself is open to all. I would be honoured and motivated to have local riders join me for a few kilometres or to share the effort on a classic mountain pass. This journey is about community, and I welcome anyone who wants to be a part of it.",
+      "This challenge is a journey we will undertake as a team, side-by-side. We'll be riding in a self-supported bikepacking style, carrying all our own equipment and relying on the kindness of the community we meet along the way. We would be honored and motivated to have local riders join us for a few kilometers or to share the effort on a classic mountain pass. This journey is about community, and we welcome anyone who wants to be a part of it.",
     legs: [
       {
-        title: "Leg 1: The Epic Crossing",
+        title: "The French Assault",
         bodyMd:
-          "The journey begins by heading east from the Basque Country, following the path of the Tour de France legends. This first leg of the journey crosses into France to conquer icons like the Col du Tourmalet before tackling \"The Pinnacle\"—the Port d'Envalira in Andorra. It is a pure test of climbing strength on the road to the Mediterranean.",
+          "Our journey begins by taking on the giants. The first leg of the challenge is a relentless assault on the legendary climbs of the French Pyrenees. Following the path of the Tour de France, on this leg we will cross into France to conquer icons like the Col d'Aubisque and the mighty Col du Tourmalet on the long road to the Mediterranean.",
       },
       {
-        title: "Leg 2: The Journey Home",
+        title: "The Spanish Homecoming",
         bodyMd:
-          "Upon reaching the coast, the goal is to turn back west and begin the long journey home. This is a test of endurance and resilience. The return route will focus on the Spanish side, tackling the long, remote, and beautiful roads of the Pre-Pyrenees in Catalunya, Aragón, and finally, Navarra. The climbs are less steep but just as relentless, demanding a different kind of strength for the long road back.",
+          "After reaching the Mediterranean, the journey turns west for the long road home. This is a test of endurance and heart, a deep dive into the Spanish side of the mountains. Our route will focus on the long, remote, and beautiful roads of Catalunya, Aragón, and finally, Navarra. The climbs are less steep but just as relentless, demanding a different kind of strength for the journey back to the Atlantic.",
       },
     ],
   },
   es: {
     metaTitle: "El Reto | Riding4GBS",
-    heroTitle: "Conquistando los Pirineos: La Ruta 🚵",
+    heroTitle: "Para conquistar los Pirineos",
     heroDescriptionMd:
-      "Esto no es solo un paseo en bicicleta; es una travesía completa de costa a costa de una de las cordilleras más formidables del mundo.",
+      "Esto es más que un paseo en bicicleta; es el siguiente capítulo de nuestra historia compartida. Como testimonio del apoyo incondicional de Edurne en cada paso de mi camino hacia el GBS, este es nuestro reto: una travesía completa de costa a costa por una de las cordilleras más desafiantes del mundo.",
     stats: [
       { value: "~21", label: "Días Totales" },
       { value: "~2,000", label: "Kilómetros" },
       { value: "~38,000", label: "Metros de Ascensión" },
       { value: "~4.5x", label: "La Altura del Everest" },
     ],
-    styleHeading: "El Estilo: Un Viaje Autosuficiente",
+    styleHeading: "El estilo: un viaje compartido",
     styleBodyMd:
-      "Este desafío es un viaje de vuelta a lo básico, realizado en un estilo de \"bikepacking\" autosuficiente. Llevaré todo mi propio equipo, confiando en la amabilidad de la comunidad que encuentre en el camino. Aunque la prueba logística es personal, la carretera está abierta a todos. Sería un honor y una motivación que ciclistas locales se unieran a mí durante algunos kilómetros o para compartir el esfuerzo en un puerto de montaña clásico. Este viaje trata sobre la comunidad, y doy la bienvenida a cualquiera que quiera formar parte de él.",
+      "Este desafío es un viaje que emprenderemos en equipo, codo con codo. Pedalearemos con autosuficiencia, llevando todo nuestro equipo y confiando en la amabilidad de la comunidad que encontremos en el camino. Nos sentiríamos honrados y motivados si ciclistas locales nos acompañaran durante unos kilómetros o compartieran el esfuerzo en un paso de montaña clásico. Este viaje se centra en la comunidad, y damos la bienvenida a cualquiera que quiera formar parte de él.",
     legs: [
       {
-        title: "Etapa 1: El Cruce Épico",
+        title: "El asalto francés",
         bodyMd:
-          "El viaje comienza dirigiéndose hacia el este desde el País Vasco, siguiendo el camino de las leyendas del Tour de Francia. Esta primera etapa del viaje cruza a Francia para conquistar iconos como el Col du Tourmalet antes de afrontar \"La Cima\"—el Port d'Envalira en Andorra. Es una prueba pura de fuerza en la escalada camino al Mediterráneo.",
+          "Nuestro viaje comienza enfrentándonos a los gigantes. La primera etapa del desafío es un asalto implacable a las legendarias ascensiones de los Pirineos franceses. Siguiendo la estela del Tour de Francia, en esta etapa cruzaremos a Francia para conquistar iconos como el Col d'Aubisque y el imponente Col du Tourmalet en el largo camino hacia el Mediterráneo.",
       },
       {
-        title: "Etapa 2: El Viaje de Vuelta a Casa",
+        title: "El regreso a casa español",
         bodyMd:
-          "Al llegar a la costa, el objetivo es dar la vuelta hacia el oeste y comenzar el largo viaje de regreso a casa. Esta es una prueba de resistencia y resiliencia. La ruta de vuelta se centrará en el lado español, afrontando las largas, remotas y hermosas carreteras de los Prepirineos en Cataluña, Aragón y, finalmente, Navarra. Las subidas son menos empinadas pero igual de implacables, exigiendo un tipo diferente de fuerza para el largo camino de vuelta.",
+          "Tras llegar al Mediterráneo, el viaje gira hacia el oeste para emprender el largo camino de regreso. Esta es una prueba de resistencia y coraje, una inmersión profunda en la vertiente española de las montañas. Nuestra ruta se centrará en las largas, remotas y hermosas carreteras de Cataluña, Aragón y, finalmente, Navarra. Las subidas son menos empinadas, pero igual de implacables, y exigen una fuerza diferente para el regreso al Atlántico.",
       },
     ],
   },
   fr: {
     metaTitle: "Le Défi | Riding4GBS",
-    heroTitle: "À la conquête des Pyrénées : La Route 🚵",
+    heroTitle: "À la conquête des Pyrénées",
     heroDescriptionMd:
-      "Ce n'est pas juste une balade à vélo ; c'est une traversée complète d'une côte à l'autre de l'une des chaînes de montagnes les plus redoutables du monde.",
+      "C'est plus qu'une simple randonnée à vélo ; c'est le prochain chapitre de notre histoire commune. Témoignage du soutien indéfectible d'Edurne à chaque étape de mon parcours GBS, voici notre défi : une traversée complète d'un océan à l'autre de l'une des chaînes de montagnes les plus difficiles au monde.",
     stats: [
       { value: "~21", label: "Jours au total" },
       { value: "~2,000", label: "Kilomètres" },
