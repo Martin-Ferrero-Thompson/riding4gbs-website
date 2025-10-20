@@ -11,6 +11,10 @@ export interface Props {
 }
 
 const { t } = Astro.props as Props;
+// Precompute HTML strings from Markdown (marked.parse can be async)
+const heroIntroHtml = await marked.parse(t.heroIntroMd);
+const sectionBodyHtml = await marked.parse(t.section.bodyMd);
+const carouselFooterHtml = await marked.parse(t.carousel.footerMd);
 const koFiUrl = t.cta?.url && t.cta.url.trim().length > 0 ? t.cta.url : undefined;
 const hasSupporters = Array.isArray(supporters) && supporters.length > 0;
 ---
@@ -23,7 +27,7 @@ const hasSupporters = Array.isArray(supporters) && supporters.length > 0;
       <h1 class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-gray-900">
         {t.heroTitle}
       </h1>
-      <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-600 text-left" set:html={marked.parse(t.heroIntroMd)} />
+  <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-600 text-left" set:html={heroIntroHtml} />
     </div>
 
     <hr class="my-12 border-gray-200 w-48 mx-auto" />
@@ -32,7 +36,7 @@ const hasSupporters = Array.isArray(supporters) && supporters.length > 0;
       <h2 class="font-display font-bold text-3xl md:text-4xl text-gray-900">
         {t.section.heading}
       </h2>
-      <p class="mt-4 text-lg text-gray-600 leading-relaxed text-left" set:html={marked.parse(t.section.bodyMd)} />
+  <p class="mt-4 text-lg text-gray-600 leading-relaxed text-left" set:html={sectionBodyHtml} />
     </div>
 
     {hasSupporters && (
@@ -42,7 +46,7 @@ const hasSupporters = Array.isArray(supporters) && supporters.length > 0;
           client:visible 
           supporters={supporters as any}
           title={t.carousel.title as any}
-          footerHtml={marked.parse(t.carousel.footerMd) as any}
+          footerHtml={carouselFooterHtml as any}
         />
       </div>
     )}
