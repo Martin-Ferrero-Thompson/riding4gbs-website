@@ -15,20 +15,27 @@ const sidebar = i18n[lang];
 
 function renderSlideToHtml(slide: AboutGbsSlide): string {
   if (slide.kind === "narrative") {
-    return `<div class=\"space-y-4 text-lg text-gray-600 leading-relaxed\">${marked.parse(slide.bodyMd)}</div>`;
+    return `<div class="space-y-4 text-lg text-gray-600 leading-relaxed [&_ol]:list-decimal [&_ol]:list-inside [&_ul]:list-disc [&_ul]:list-inside [&_li]:mt-2 [&_li>p]:inline [&_li>p]:ml-2">${marked.parse(slide.bodyMd)}</div>`;
   }
   if (slide.kind === "image") {
     const caption = slide.captionMd ? `<p class=\"mt-4 text-center text-sm text-gray-500\">${marked.parse(slide.captionMd)}</p>` : "";
     return `\n      <img src=\"${slide.image.src}\" alt=\"${slide.image.alt}\" class=\"rounded-xl shadow-lg w-full object-cover\" />\n      ${caption}\n    `;
   }
   // resources
+  const isSingleResource = slide.resources.length === 1;
   const cards = slide.resources
     .map(
       (r) => `
-        <div class=\"bg-white rounded-lg shadow-sm p-6 flex flex-col text-center\">\n          <h4 class=\"font-display font-bold text-xl text-gray-900\">${r.title}</h4>\n          <p class=\"text-gray-600 mt-2 flex-grow text-sm\">${marked.parse(r.descriptionMd)}</p>\n          <a href=\"${r.href}\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"mt-4 inline-block text-brand-blue font-semibold hover:underline\">${r.ctaLabel}</a>\n        </div>\n      `
+        <div class="bg-white rounded-lg shadow-sm p-6 flex flex-col text-center w-full ${isSingleResource ? "max-w-4xl mx-auto" : ""}">
+          <h4 class="font-display font-bold text-xl text-gray-900">${r.title}</h4>
+          <p class="text-gray-600 mt-2 flex-grow text-sm">${marked.parse(r.descriptionMd)}</p>
+          <a href="${r.href}" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-brand-blue font-semibold hover:underline">${r.ctaLabel}</a>
+        </div>
+      `
     )
     .join("");
-  return `<div class=\"grid sm:grid-cols-2 lg:grid-cols-3 gap-8\">${cards}</div>`;
+  const gridClasses = isSingleResource ? "grid grid-cols-1 gap-8" : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8";
+  return `<div class="${gridClasses}">${cards}</div>`;
 }
 
 const slides = t.slides.map((s) => ({ title: s.title, content: renderSlideToHtml(s) }));
@@ -36,7 +43,6 @@ const slides = t.slides.map((s) => ({ title: s.title, content: renderSlideToHtml
 
 <MainLayout title={t.metaTitle}>
   <div
-    transition:name="about-gbs-card"
     class="m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 bg-white rounded-xl max-w-6xl w-full mx-auto text-gray-800 font-sans pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]"
   >
     <div class="text-center">
