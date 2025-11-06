@@ -21,7 +21,7 @@ export const donateContent: Record<'en' | 'es' | 'fr', DonateLocaleContent> = {
     metaTitle: 'Donate',
     heroTitle: 'Support Patient-Led Research in the UK',
     heroIntroMd: [
-      'We are proud to partner with Inflammatory Neuropathies UK, the national organization supporting people affected by GBS, CIDP, and related conditions.',
+      'We are proud to partner with Inflammatory Neuropathies UK, the national organisation supporting people affected by GBS, CIDP, and related conditions.',
       '100% of every donation made here in the UK will go directly to their vital work. Your support will help fund the research that UK patients and families have identified as their top priorities.',
       'Your contribution can help:\n\n- Map long-term symptoms and residuals to improve daily patient care.\n- Investigate the fear of recurrence and develop better support systems.\n- Understand the impact of aging on GBS and CIDP survivors.\n- Improve emotional and mental health support for patients, families, and caregivers.\n- Provide the long-term impact of committed physiotherapy on recovery.',
       'This is your chance to fund the research that matters most to the people who matter most.',
