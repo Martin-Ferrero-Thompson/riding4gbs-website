@@ -34,6 +34,33 @@ const eurFormatter = new Intl.NumberFormat("de-DE", {
   currency: "EUR",
   minimumFractionDigits: 0,
 });
+
+const fundsData = progressData as {
+  funds_gbp?: { total?: number; targetLabel?: string };
+  funds_eur?: { total?: number; targetLabel?: string };
+  funds_eur_fr?: { total?: number; targetLabel?: string };
+};
+
+const fundsGbpTarget = typeof fundsData.funds_gbp?.total === "number"
+  ? {
+      label: fundsData.funds_gbp.targetLabel ?? "Target",
+      value: gbpFormatter.format(fundsData.funds_gbp.total),
+    }
+  : undefined;
+
+const fundsEurTarget = typeof fundsData.funds_eur?.total === "number"
+  ? {
+      label: fundsData.funds_eur.targetLabel ?? "Target",
+      value: eurFormatter.format(fundsData.funds_eur.total),
+    }
+  : undefined;
+
+const fundsEurFrTarget = typeof fundsData.funds_eur_fr?.total === "number"
+  ? {
+      label: fundsData.funds_eur_fr.targetLabel ?? "Target",
+      value: eurFormatter.format(fundsData.funds_eur_fr.total),
+    }
+  : undefined;
 ---
 
 <aside
@@ -59,12 +86,22 @@ const eurFormatter = new Intl.NumberFormat("de-DE", {
           {gbpFormatter.format(progressData.funds_gbp.current)}
         </span>
         <span class="text-xs text-gray-400"> ({t.countries.uk})</span>
+        {fundsGbpTarget && (
+          <p class="text-xs text-gray-400 mt-1">
+            {fundsGbpTarget.label}: {fundsGbpTarget.value}
+          </p>
+        )}
       </div>
       <div>
         <span class="text-2xl font-bold text-blue-400">
           {eurFormatter.format(progressData.funds_eur.current)}
         </span>
         <span class="text-xs text-gray-400"> ({t.countries.es})</span>
+        {fundsEurTarget && (
+          <p class="text-xs text-gray-400 mt-1">
+            {fundsEurTarget.label}: {fundsEurTarget.value}
+          </p>
+        )}
       </div>
       {progressData.funds_eur_fr && (
         <div>
@@ -72,6 +109,11 @@ const eurFormatter = new Intl.NumberFormat("de-DE", {
             {eurFormatter.format(progressData.funds_eur_fr.current)}
           </span>
           <span class="text-xs text-gray-400"> ({t.countries.fr})</span>
+          {fundsEurFrTarget && (
+            <p class="text-xs text-gray-400 mt-1">
+              {fundsEurFrTarget.label}: {fundsEurFrTarget.value}
+            </p>
+          )}
         </div>
       )}
     </div>

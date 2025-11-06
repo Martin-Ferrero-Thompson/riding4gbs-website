@@ -25,12 +25,16 @@
   "funds_gbp": {
     "label": "Fondos Recaudados para GBS UK",
     "current": 20,
-    "unit": "£"
+    "total": 5000,
+    "unit": "£",
+    "targetLabel": "Objetivo"
   },
   "funds_eur": {
     "label": "Fondos Recaudados para GBS España",
     "current": 4800,
-    "unit": "€"
+    "total": 5000,
+    "unit": "€",
+    "targetLabel": "Objetivo"
   }
   ,
   "funds_eur_fr": {

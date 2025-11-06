@@ -26,6 +26,14 @@ const eurFormatter = new Intl.NumberFormat(t.format.eurLocale, { style: 'currenc
 
 const climbLocale = t.format.climbingNumberLocale;
 const formatClimb = (n: number) => climbLocale ? n.toLocaleString(climbLocale) : n.toLocaleString();
+
+const hasFundsGbpTarget = typeof data.funds_gbp?.total === 'number';
+const hasFundsEurTarget = typeof data.funds_eur?.total === 'number';
+const hasFundsEurFrTarget = typeof data.funds_eur_fr?.total === 'number';
+
+const fundsGbpPercent = hasFundsGbpTarget ? pct(data.funds_gbp.current ?? 0, data.funds_gbp.total) : undefined;
+const fundsEurPercent = hasFundsEurTarget ? pct(data.funds_eur.current ?? 0, data.funds_eur.total) : undefined;
+const fundsEurFrPercent = hasFundsEurFrTarget ? pct(data.funds_eur_fr.current ?? 0, data.funds_eur_fr.total) : undefined;
 ---
 
 <MainLayout title={t.metaTitle}>
@@ -50,7 +58,7 @@ const formatClimb = (n: number) => climbLocale ? n.toLocaleString(climbLocale) :
             {t.mapIntro}
           </p>
           <div class="bg-gray-200 rounded-xl shadow-lg overflow-hidden">
-            <img src="/riding4gbs-atlantics2med.png" alt={t.mapImageAlt} class="w-full h-full object-cover"/>
+            <img src="/riding4gbs-route.png" alt={t.mapImageAlt} class="w-full h-full object-cover"/>
           </div>
         </div>
       </div>
@@ -103,17 +111,47 @@ const formatClimb = (n: number) => climbLocale ? n.toLocaleString(climbLocale) :
         <div class="text-center pt-4">
           <p class="text-base font-medium text-gray-300">{data.funds_gbp.label}</p>
           <p class="text-4xl font-bold text-brand-blue">{gbpFormatter.format(data.funds_gbp.current)}</p>
+          {hasFundsGbpTarget && (
+            <p class="text-sm text-gray-300 mt-1">
+              {(data.funds_gbp.targetLabel ?? "Target")}: {gbpFormatter.format(data.funds_gbp.total)}
+            </p>
+          )}
+          {fundsGbpPercent !== undefined && (
+            <div class="mt-3 w-full bg-gray-600 rounded-full h-3" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow={Math.round(fundsGbpPercent)}>
+              <div class="bg-brand-blue h-3 rounded-full" style={`width: ${fundsGbpPercent}%`}></div>
+            </div>
+          )}
         </div>
 
         <div class="text-center pt-2">
           <p class="text-base font-medium text-gray-300">{data.funds_eur.label}</p>
           <p class="text-4xl font-bold text-brand-blue">{eurFormatter.format(data.funds_eur.current)}</p>
+          {hasFundsEurTarget && (
+            <p class="text-sm text-gray-300 mt-1">
+              {(data.funds_eur.targetLabel ?? "Target")}: {eurFormatter.format(data.funds_eur.total)}
+            </p>
+          )}
+          {fundsEurPercent !== undefined && (
+            <div class="mt-3 w-full bg-gray-600 rounded-full h-3" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow={Math.round(fundsEurPercent)}>
+              <div class="bg-brand-blue h-3 rounded-full" style={`width: ${fundsEurPercent}%`}></div>
+            </div>
+          )}
         </div>
 
         {data.funds_eur_fr && (
           <div class="text-center pt-2">
             <p class="text-base font-medium text-gray-300">{data.funds_eur_fr.label}</p>
             <p class="text-4xl font-bold text-brand-blue">{eurFormatter.format(data.funds_eur_fr.current)}</p>
+            {hasFundsEurFrTarget && (
+              <p class="text-sm text-gray-300 mt-1">
+                {(data.funds_eur_fr.targetLabel ?? "Target")}: {eurFormatter.format(data.funds_eur_fr.total)}
+              </p>
+            )}
+            {fundsEurFrPercent !== undefined && (
+              <div class="mt-3 w-full bg-gray-600 rounded-full h-3" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow={Math.round(fundsEurFrPercent)}>
+                <div class="bg-brand-blue h-3 rounded-full" style={`width: ${fundsEurFrPercent}%`}></div>
+              </div>
+            )}
           </div>
         )}
       </div>
