@@ -23,7 +23,7 @@
     "total": 20
   },
   "funds_gbp": {
-    "label": "Funds Raised for GBS UK",
+    "label": "Funds Raised So Far",
     "current": 20,
     "total": 5000,
     "unit": "£",
