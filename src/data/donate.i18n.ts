@@ -19,16 +19,20 @@ export type DonateLocaleContent = {
 export const donateContent: Record<'en' | 'es' | 'fr', DonateLocaleContent> = {
   en: {
     metaTitle: 'Donate',
-    heroTitle: 'Support the Mission: Fund a Cure',
-    heroIntroMd:
-      'This epic challenge is dedicated to one single goal: funding the vital research that will lead to better treatments and, one day, a cure for Guillain-Barré Syndrome. 100% of every charitable donation goes directly to our official partner organizations. Your contribution, no matter the size, is a powerful act of hope for every person affected by this devastating condition.',
+    heroTitle: 'Support Patient-Led Research in the UK',
+    heroIntroMd: [
+      'We are proud to partner with Inflammatory Neuropathies UK, the national organization supporting people affected by GBS, CIDP, and related conditions.',
+      '100% of every donation made here in the UK will go directly to their vital work. Your support will help fund the research that UK patients and families have identified as their top priorities.',
+      'Your contribution can help:\n\n- Map long-term symptoms and residuals to improve daily patient care.\n- Investigate the fear of recurrence and develop better support systems.\n- Understand the impact of aging on GBS and CIDP survivors.\n- Improve emotional and mental health support for patients, families, and caregivers.\n- Provide the long-term impact of committed physiotherapy on recovery.',
+      'This is your chance to fund the research that matters most to the people who matter most.',
+    ].join('\n\n'),
     comingSoon: 'Coming soon',
     card: {
       id: 'uk',
-      title: 'For UK Donors',
+      title: 'Donate to:',
       image: { src: '/logos/INUK-Wordmark-Logo_RGB.png', alt: 'Inflammatory Neuropathies UK Logo' },
       bodyMd:
-        'Support the research funded by Inflammatory Neuropathies UK. UK taxpayers can add 25% to their donation at no extra cost through **Gift Aid**.',
+        'Your contribution, no matter the size, will make a real difference. UK taxpayers can add 25% to their donation at no extra cost through **Gift Aid**. Thank you for your support.',
       buttonLabel: 'Donate in £ (GBP)',
     },
   },
