@@ -26,7 +26,7 @@ export const donateContent: Record<'en' | 'es' | 'fr', DonateLocaleContent> = {
       'Your contribution can help:\n\n- Map long-term symptoms and residuals to improve daily patient care.\n- Investigate the fear of recurrence and develop better support systems.\n- Understand the impact of aging on GBS and CIDP survivors.\n- Improve emotional and mental health support for patients, families, and caregivers.\n- Provide the long-term impact of committed physiotherapy on recovery.',
       'This is your chance to fund the research that matters most to the people who matter most.',
     ].join('\n\n'),
-    comingSoon: 'Coming soon',
+    comingSoon: 'Donation options coming soon',
     card: {
       id: 'uk',
       title: 'Donate to:',

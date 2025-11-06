@@ -20,7 +20,7 @@ export type SupportMeLocaleContent = {
 export const supportMeContent: Record<'en' | 'es' | 'fr', SupportMeLocaleContent> = {
   en: {
     metaTitle: 'Support Me',
-    heroTitle: 'Support Me: Be Part of the Effort',
+    heroTitle: 'Be Part of the Effort',
     heroIntroMd:
       'A self-supported ride across the Pyrenees is a huge logistical challenge. This page is for friends, family, and members of the cycling community who wish to contribute directly to the effort of the ride itself. This support is entirely separate from the charitable fundraising.',
     section: {
