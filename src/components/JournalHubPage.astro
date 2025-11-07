@@ -22,20 +22,20 @@ const listDateFormat: Intl.DateTimeFormatOptions = { month: 'long', day: 'numeri
 <MainLayout title={t.metaTitle}>
   <div 
     transition:name="journal-hub-card"
-  class="m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 bg-white rounded-xl max-w-6xl w-full mx-auto text-gray-800 font-body pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]"
+    class="page-card-dark max-w-6xl w-full mx-auto font-body pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]"
   >
     <div class="text-center">
-      <h1 class="hero-title text-gray-900">
+      <h1 class="hero-title text-white">
         {t.heroTitle}
       </h1>
-      <p class="mt-3 md:mt-4 max-w-3xl mx-auto text-center font-body text-base md:text-lg lg:text-xl text-gray-500">
+      <p class="mt-3 md:mt-4 max-w-3xl mx-auto text-center font-body text-base md:text-lg lg:text-xl text-gray-300">
         {t.heroSubtitle}
       </p>
     </div>
 
     {featuredPosts.length > 0 && (
       <div class="mt-10 md:mt-12">
-  <h2 class="font-headline font-semibold text-lg md:text-xl lg:text-2xl border-b border-gray-200 pb-2 mb-6">{t.featuredHeading}</h2>
+        <h2 class="font-headline font-semibold text-lg md:text-xl lg:text-2xl border-b border-white/20 pb-2 mb-6 text-white">{t.featuredHeading}</h2>
         {featuredPosts.map(post => (
           <a href={`/${lang}/posts/${post.slug}/`} class="block group">
             <div class="relative rounded-lg overflow-hidden">
@@ -53,7 +53,7 @@ const listDateFormat: Intl.DateTimeFormatOptions = { month: 'long', day: 'numeri
     )}
 
     <div class="mt-10 md:mt-12">
-  <h2 class="font-headline font-semibold text-lg md:text-xl lg:text-2xl border-b border-gray-200 pb-2 mb-6">{t.latestHeading}</h2>
+      <h2 class="font-headline font-semibold text-lg md:text-xl lg:text-2xl border-b border-white/20 pb-2 mb-6 text-white">{t.latestHeading}</h2>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
         {regularPosts.map(post => (
           <a href={`/${lang}/posts/${post.slug}/`} class="block group">
@@ -65,7 +65,7 @@ const listDateFormat: Intl.DateTimeFormatOptions = { month: 'long', day: 'numeri
               )}
             </div>
             <div class="p-3 md:p-4">
-              <p class="text-xs md:text-sm font-semibold text-gray-500">{new Date(post.data.pubDate).toLocaleDateString(t.dates.listLocale, listDateFormat)}</p>
+              <p class="text-xs md:text-sm font-semibold text-gray-300">{new Date(post.data.pubDate).toLocaleDateString(t.dates.listLocale, listDateFormat)}</p>
               <h3 class="font-headline font-semibold text-lg md:text-xl lg:text-2xl mt-1 text-brand-blue group-hover:underline">{post.data.title}</h3>
             </div>
           </a>
