@@ -1,5 +1,16 @@
 import React from 'react';
 
+/**
+ * @typedef {Object} SupportersCarouselProps
+ * @property {any[]} supporters
+ * @property {string} title
+ * @property {string} [footerText]
+ * @property {string} [footerHtml]
+ */
+
+/**
+ * @param {SupportersCarouselProps} props
+ */
 export function SupportersCarousel({ supporters, title, footerText, footerHtml }) {
   // Duplicate the list for md+ marquee effect only; on mobile we rely on native swipe
   const extendedSupporters = supporters.length > 0 ? [...supporters, ...supporters] : [];
