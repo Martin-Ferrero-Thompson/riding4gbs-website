@@ -14,29 +14,29 @@ const { t } = Astro.props as Props;
 <MainLayout title={t.metaTitle}>
   <div
     transition:name="challenge-card"
-  class="m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 bg-white rounded-xl max-w-6xl w-full mx-auto text-gray-800 font-body pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]"
+    class="page-card-dark max-w-6xl w-full mx-auto font-body pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]"
   >
     <div class="text-center">
-      <h1 class="hero-title text-gray-900">
+      <h1 class="hero-title text-white">
         {t.heroTitle}
       </h1>
-      <div class="mt-4 max-w-2xl mx-auto font-body text-left text-base md:text-lg lg:text-xl text-gray-600" set:html={marked.parse(t.heroDescriptionMd)} />
+      <div class="mt-4 max-w-2xl mx-auto font-body text-left text-base md:text-lg lg:text-xl text-gray-300" set:html={marked.parse(t.heroDescriptionMd)} />
     </div>
 
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center my-10 md:my-12 border-y py-6">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center my-10 md:my-12 border-y border-white/20 py-6">
       {t.stats.map((s) => (
         <div>
           <p class="font-headline font-semibold text-lg md:text-xl lg:text-2xl text-brand-blue">{s.value}</p>
-          <p class="text-sm text-gray-600">{s.label}</p>
+          <p class="text-sm text-gray-300">{s.label}</p>
         </div>
       ))}
     </div>
 
     <div class="text-center max-w-3xl mx-auto">
-      <h2 class="font-headline font-semibold text-lg md:text-xl lg:text-2xl text-gray-900">
+      <h2 class="font-headline font-semibold text-lg md:text-xl lg:text-2xl text-white">
         {t.styleHeading}
       </h2>
-      <div class="mt-4 font-body text-base md:text-lg lg:text-xl text-gray-600 text-left" set:html={marked.parse(t.styleBodyMd)} />
+      <div class="mt-4 font-body text-base md:text-lg lg:text-xl text-gray-300 text-left" set:html={marked.parse(t.styleBodyMd)} />
     </div>
 
     <div class="grid md:grid-cols-2 gap-8 mt-12">

@@ -26,6 +26,11 @@
   .hero-title { @apply font-display leading-tight tracking-wide text-5xl; }
   @screen md { .hero-title { @apply text-6xl; } }
   @screen lg { .hero-title { @apply text-7xl; } }
+
+  /* Shared dark page card wrapper for hero/section containers */
+  .page-card-dark {
+    @apply m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 rounded-xl bg-gray-900/80 text-white backdrop-blur-sm;
+  }
 }
 
 /* Accessibility & UX enhancements */
