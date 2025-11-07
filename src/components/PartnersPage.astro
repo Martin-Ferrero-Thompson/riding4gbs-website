@@ -20,20 +20,20 @@ function hasList(key: PartnersSectionKey): boolean {
 <MainLayout title={t.metaTitle}>
   <div
     transition:name="partners-card"
-    class="m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 bg-white rounded-xl max-w-6xl w-full mx-auto text-gray-800 font-sans pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]"
+  class="m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 bg-white rounded-xl max-w-6xl w-full mx-auto text-gray-800 font-body pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]"
   >
     <div class="text-center">
-      <h1 class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-gray-900">
+      <h1 class="hero-title text-gray-900">
         {t.heroTitle}
       </h1>
-      <p class="mt-4 max-w-3xl mx-auto text-center text-lg text-gray-500" set:html={marked.parse(t.heroSubtitleMd)} />
+      <p class="mt-4 max-w-3xl mx-auto text-center font-body text-base md:text-lg lg:text-xl text-gray-500" set:html={marked.parse(t.heroSubtitleMd)} />
     </div>
 
   <div class="mt-10 md:mt-16 space-y-10 md:space-y-12">
       {t.sections.map((section) => (
         hasList(section.key) && (
           <div>
-            <h2 class="font-display font-bold text-2xl md:text-3xl text-center text-gray-500 tracking-wider uppercase">
+            <h2 class="font-headline font-semibold text-lg md:text-xl lg:text-2xl text-center text-gray-500 tracking-wider uppercase">
               {section.heading}
             </h2>
             <div class="mt-8">
@@ -47,10 +47,10 @@ function hasList(key: PartnersSectionKey): boolean {
     {(t.showDividerBeforeCta ?? false) && <hr class="my-12 md:my-16 border-gray-200 w-48 mx-auto" />}
 
     <div class="bg-gray-100 rounded-xl p-8 md:p-12 text-center">
-      <h2 class="font-display font-bold text-3xl md:text-4xl text-gray-900">
+      <h2 class="font-headline font-semibold text-lg md:text-xl lg:text-2xl text-gray-900">
         {t.cta.heading}
       </h2>
-      <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600" set:html={marked.parse(t.cta.bodyMd)} />
+      <p class="mt-4 max-w-2xl mx-auto font-body text-base md:text-lg lg:text-xl text-gray-600" set:html={marked.parse(t.cta.bodyMd)} />
       <div class="mt-8">
         <a
           id="sponsor-download"

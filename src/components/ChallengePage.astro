@@ -14,38 +14,38 @@ const { t } = Astro.props as Props;
 <MainLayout title={t.metaTitle}>
   <div
     transition:name="challenge-card"
-    class="m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 bg-white rounded-xl max-w-6xl w-full mx-auto text-gray-800 font-sans pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]"
+  class="m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 bg-white rounded-xl max-w-6xl w-full mx-auto text-gray-800 font-body pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]"
   >
     <div class="text-center">
-      <h1 class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-gray-900">
+      <h1 class="hero-title text-gray-900">
         {t.heroTitle}
       </h1>
-      <div class="mt-4 max-w-2xl mx-auto text-left text-lg text-gray-600" set:html={marked.parse(t.heroDescriptionMd)} />
+      <div class="mt-4 max-w-2xl mx-auto font-body text-left text-base md:text-lg lg:text-xl text-gray-600" set:html={marked.parse(t.heroDescriptionMd)} />
     </div>
 
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center my-10 md:my-12 border-y py-6">
       {t.stats.map((s) => (
         <div>
-          <p class="font-display text-3xl md:text-4xl font-bold text-brand-blue">{s.value}</p>
+          <p class="font-headline font-semibold text-lg md:text-xl lg:text-2xl text-brand-blue">{s.value}</p>
           <p class="text-sm text-gray-600">{s.label}</p>
         </div>
       ))}
     </div>
 
     <div class="text-center max-w-3xl mx-auto">
-      <h2 class="font-display font-bold text-3xl md:text-4xl text-gray-900">
+      <h2 class="font-headline font-semibold text-lg md:text-xl lg:text-2xl text-gray-900">
         {t.styleHeading}
       </h2>
-      <div class="mt-4 text-lg text-gray-600 text-left" set:html={marked.parse(t.styleBodyMd)} />
+      <div class="mt-4 font-body text-base md:text-lg lg:text-xl text-gray-600 text-left" set:html={marked.parse(t.styleBodyMd)} />
     </div>
 
     <div class="grid md:grid-cols-2 gap-8 mt-12">
       {t.legs.map((leg) => (
         <div class="bg-gray-50 p-6 rounded-lg">
-          <h3 class="font-display font-bold text-2xl md:text-3xl text-gray-900">
+          <h3 class="font-headline font-semibold text-lg md:text-xl lg:text-2xl text-gray-900">
             {leg.title}
           </h3>
-          <div class="mt-2 text-lg text-gray-600" set:html={marked.parse(leg.bodyMd)} />
+          <div class="mt-2 font-body text-base md:text-lg lg:text-xl text-gray-600" set:html={marked.parse(leg.bodyMd)} />
         </div>
       ))}
     </div>

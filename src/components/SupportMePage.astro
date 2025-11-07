@@ -21,22 +21,22 @@ const hasSupporters = Array.isArray(supporters) && supporters.length > 0;
 <MainLayout title={t.metaTitle}>
   <div
     transition:name="support-me-card"
-    class="m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 bg-white rounded-xl max-w-6xl w-full mx-auto text-gray-800 font-sans pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]"
+  class="m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 bg-white rounded-xl max-w-6xl w-full mx-auto text-gray-800 font-body pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]"
   >
     <div class="text-center">
-      <h1 class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-gray-900">
+      <h1 class="hero-title text-gray-900">
         {t.heroTitle}
       </h1>
-  <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-600 text-left" set:html={heroIntroHtml} />
+  <p class="mt-4 max-w-3xl mx-auto font-body text-base md:text-lg lg:text-xl text-gray-600 text-left" set:html={heroIntroHtml} />
     </div>
 
     <hr class="my-12 border-gray-200 w-48 mx-auto" />
 
     <div class="text-center max-w-3xl mx-auto">
-      <h2 class="font-display font-bold text-3xl md:text-4xl text-gray-900">
+      <h2 class="font-headline font-semibold text-lg md:text-xl lg:text-2xl text-gray-900">
         {t.section.heading}
       </h2>
-  <p class="mt-4 text-lg text-gray-600 leading-relaxed text-left" set:html={sectionBodyHtml} />
+  <p class="mt-4 font-body text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed text-left" set:html={sectionBodyHtml} />
     </div>
 
     {hasSupporters && (

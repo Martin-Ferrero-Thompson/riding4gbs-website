@@ -59,11 +59,11 @@ export function Carousel({ slides, i18n }) {
         {slides.map((slide, index) => (
           <div key={index} className="w-full flex-none snap-start md:snap-center">
             <div className="p-4 md:p-8 bg-gray-50 rounded-lg"> 
-              <h3 className="font-display font-bold text-2xl md:text-3xl text-gray-900 mb-4">
+              <h3 className="font-headline font-semibold text-lg md:text-xl lg:text-2xl text-gray-900 mb-4">
                 {slide.title}
               </h3>
               <div 
-                className="space-y-4 text-lg text-gray-600 leading-relaxed" 
+                className="space-y-4 font-body text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed" 
                 dangerouslySetInnerHTML={{ __html: slide.content }}
               />
             </div>

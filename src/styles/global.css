@@ -1,4 +1,7 @@
-/* Import the Tailwind directives */
+/* Central font imports must come first for PostCSS ordering */
+@import './fonts.css';
+
+/* Tailwind directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,19 +9,23 @@
 /* Define our custom fonts at the base layer */
 @layer base {
   :root {
-    --font-sans: 'Lato', sans-serif;
-    --font-display: 'Montserrat', sans-serif;
+    /* CSS font tokens (design roles) */
+    --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-headline: 'Montserrat', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    --font-display: 'Bebas Neue', 'Montserrat', Arial, sans-serif;
   }
-  
-  /* Apply the body font */
-  body {
-    font-family: var(--font-sans);
-  }
-  
-  /* Apply the heading font to all headings */
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display);
-  }
+
+  /* Global body font */
+  body { font-family: var(--font-body); }
+
+  /* Remove blanket heading override to allow role-based classes */
+}
+
+/* Hero title composite class (other font-* utilities provided directly by Tailwind) */
+@layer components {
+  .hero-title { @apply font-display leading-tight tracking-wide text-5xl; }
+  @screen md { .hero-title { @apply text-6xl; } }
+  @screen lg { .hero-title { @apply text-7xl; } }
 }
 
 /* Accessibility & UX enhancements */

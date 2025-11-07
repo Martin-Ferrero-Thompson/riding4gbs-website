@@ -18,13 +18,13 @@ const slides = t.slides.map((s) => ({ title: s.title, content: marked.parse(s.bo
 <MainLayout title={t.metaTitle}>
   <div
     transition:name="my-story-card"
-    class="m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 bg-white rounded-xl max-w-6xl w-full mx-auto text-gray-800 font-sans pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]"
+  class="m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 bg-white rounded-xl max-w-6xl w-full mx-auto text-gray-800 font-body pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]"
   >
     <div class="text-center">
-      <h1 class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-gray-900">
+      <h1 class="hero-title text-gray-900">
         {t.heroTitle}
       </h1>
-      <p class="mt-4 max-w-3xl mx-auto text-center text-lg text-gray-500">
+      <p class="mt-4 max-w-3xl mx-auto text-center font-body text-base md:text-lg lg:text-xl text-gray-500">
         {t.heroSubtitle}
       </p>
     </div>

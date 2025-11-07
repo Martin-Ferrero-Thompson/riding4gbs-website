@@ -6,8 +6,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Lato', 'sans-serif'],
-        'display': ['Montserrat', 'sans-serif'],
+        'sans': ['Inter', 'sans-serif'],
+        'body': ['Inter', 'sans-serif'],
+        'display': ['Bebas Neue', 'Montserrat', 'sans-serif'],
+        'headline': ['Montserrat', 'Inter', 'sans-serif'],
       },
       colors: {
         'brand-blue': '#2563eb',

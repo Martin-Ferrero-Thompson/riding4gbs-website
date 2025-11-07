@@ -1,0 +1,12 @@
+/* Centralized font imports (only required weights to keep bundle lean) */
+/* Bebas Neue (display / hero) */
+@import "@fontsource/bebas-neue/index.css"; /* single regular weight */
+
+/* Montserrat (headlines / hashtags) */
+@import "@fontsource/montserrat/600.css"; /* SemiBold for section headings */
+
+/* Inter (body text + emphasis) */
+@import "@fontsource/inter/400.css"; /* Regular */
+@import "@fontsource/inter/500.css"; /* Medium for subtle emphasis */
+
+/* Note: Additional weights can be added later if required (avoid premature bloat). */
