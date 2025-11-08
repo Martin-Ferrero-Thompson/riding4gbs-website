@@ -124,7 +124,7 @@ const fundsEurFrTarget = typeof fundsData.funds_eur_fr?.total === "number"
     <div class="mb-8 font-body">
     <a
       href={`/${lang}/donate`}
-      class="block w-full text-center bg-brand-teal hover:bg-teal-600 p-3 rounded-lg font-bold transition-colors"
+      class="block w-full text-center bg-brand-teal hover:bg-teal-600 p-3 rounded-lg font-bold transition-colors text-base md:text-lg lg:text-xl"
     >
       {t.donateNow}
     </a>
@@ -185,6 +185,16 @@ const fundsEurFrTarget = typeof fundsData.funds_eur_fr?.total === "number"
             }}
             aria-current={isActive(`/${lang}/our-progress`) ? "page" : undefined}
             >{t.ourProgress}</a
+          >
+          <a
+            href={`/${lang}/latest-news`}
+            class:list={{
+              "px-3 py-3 md:py-2 rounded-md transition-colors": true,
+              "bg-brand-blue text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80": isActive(`/${lang}/latest-news`),
+              "hover:bg-brand-blue/20": !isActive(`/${lang}/latest-news`),
+            }}
+            aria-current={isActive(`/${lang}/latest-news`) ? "page" : undefined}
+            >{t.latestNews}</a
           >
           <a
             href={`/${lang}/journal-hub`}

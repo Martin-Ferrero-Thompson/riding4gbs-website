@@ -1,0 +1,46 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import type { LatestNewsLocaleContent } from "../data/latestNews.i18n";
+
+export interface Props {
+  lang: "en" | "es" | "fr";
+  t: LatestNewsLocaleContent;
+}
+
+const { t } = Astro.props as Props;
+---
+
+<MainLayout title={t.metaTitle}>
+  <div
+    transition:name="latest-news-card"
+    class="page-card-dark max-w-6xl w-full mx-auto font-body pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]"
+  >
+    <div class="text-center">
+      <h1 class="hero-title text-white">
+        {t.heroTitle}
+      </h1>
+      <p class="mt-3 md:mt-4 max-w-3xl mx-auto text-center font-body text-base md:text-lg lg:text-xl text-gray-300">
+        {t.heroSubtitle}
+      </p>
+    </div>
+
+    <div class="mt-10 md:mt-12">
+      <h2 class="font-headline font-semibold text-lg md:text-xl lg:text-2xl border-b border-white/20 pb-2 mb-6 text-white">{t.updatesHeading}</h2>
+
+      <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+        <div class="bg-gray-800 text-white rounded-xl shadow-lg p-5 md:p-6">
+          <h3 class="font-headline font-semibold text-lg md:text-xl lg:text-2xl text-brand-blue">{t.placeholderHeading}</h3>
+          <p class="mt-3 text-base md:text-lg lg:text-xl text-gray-300">{t.placeholderBody}</p>
+        </div>
+        <div class="bg-gray-800 text-white rounded-xl shadow-lg p-5 md:p-6">
+          <h3 class="font-headline font-semibold text-lg md:text-xl lg:text-2xl text-brand-blue">FAQ</h3>
+          <ul class="mt-3 space-y-2 text-base md:text-lg lg:text-xl text-gray-300 list-disc list-inside">
+            <li>Media assets and press kit will be linked here.</li>
+            <li>Key dates and milestones will appear as cards.</li>
+            <li>We keep this page lightweight: no JS required.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</MainLayout>
