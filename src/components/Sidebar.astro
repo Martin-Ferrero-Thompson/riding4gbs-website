@@ -65,7 +65,7 @@ const fundsEurFrTarget = typeof fundsData.funds_eur_fr?.total === "number"
 
 <aside
   id="sidebar"
-  class="bg-gray-900 bg-opacity-90 text-white p-6 flex flex-col h-full justify-between min-h-screen w-72 hidden md:flex fixed md:relative inset-y-0 left-0 z-40 overflow-y-auto md:overflow-visible max-h-[calc(100vh_-_env(safe-area-inset-top)_-_env(safe-area-inset-bottom))] md:max-h-none pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]"
+  class="bg-gray-900 bg-opacity-90 text-white p-6 flex flex-col h-full min-h-screen w-72 hidden md:flex fixed md:relative inset-y-0 left-0 z-40 overflow-y-auto md:overflow-visible max-h-[calc(100vh_-_env(safe-area-inset-top)_-_env(safe-area-inset-bottom))] md:max-h-none pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]"
 >
   <!-- Top content group -->
   <div class="flex flex-col">
@@ -130,7 +130,9 @@ const fundsEurFrTarget = typeof fundsData.funds_eur_fr?.total === "number"
     </a>
     </div>
 
-    <nav class="flex flex-col space-y-6 font-body text-base md:text-lg lg:text-xl">
+  </div>
+
+  <nav class="flex flex-col space-y-6 font-body text-base md:text-lg lg:text-xl my-auto">
       <!-- Challenge section -->
       <div role="group" aria-labelledby="nav-section-challenge" class="flex flex-col">
         <h2 id="nav-section-challenge" class="text-xs uppercase tracking-wider text-gray-400/90 font-headline mb-1">
@@ -238,9 +240,8 @@ const fundsEurFrTarget = typeof fundsData.funds_eur_fr?.total === "number"
         </div>
       </div>
     </nav>
-  </div>
   <!-- Bottom content group -->
-  <div class="flex flex-col space-y-4">
+  <div class="flex flex-col space-y-4 mt-8">
     <div class="bg-gray-800 rounded-lg p-4">
     <h3
   class="font-headline font-semibold text-sm md:text-base lg:text-lg text-gray-400 uppercase tracking-wider text-center mb-4"
