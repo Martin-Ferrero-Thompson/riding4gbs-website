@@ -130,77 +130,103 @@ const fundsEurFrTarget = typeof fundsData.funds_eur_fr?.total === "number"
     </a>
     </div>
 
-    <nav class="flex flex-col space-y-2 md:space-y-6 font-body text-base md:text-lg lg:text-xl">
-    <a
-      href={`/${lang}/the-challenge`}
-      class:list={{
-        "px-3 py-3 md:py-2 rounded-md transition-colors": true,
-        "bg-brand-blue text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80": isActive(`/${lang}/the-challenge`),
-        "hover:bg-brand-blue/20": !isActive(`/${lang}/the-challenge`),
-      }}
-      aria-current={isActive(`/${lang}/the-challenge`) ? "page" : undefined}
-      >{t.challenge}</a
-    >
-    <a
-      href={`/${lang}/my-story`}
-      class:list={{
-        "px-3 py-3 md:py-2 rounded-md transition-colors": true,
-        "bg-brand-blue text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80": isActive(`/${lang}/my-story`),
-        "hover:bg-brand-blue/20": !isActive(`/${lang}/my-story`),
-      }}
-      aria-current={isActive(`/${lang}/my-story`) ? "page" : undefined}
-      >{t.myStory}</a
-    >
-    <a
-      href={`/${lang}/about-gbs`}
-      class:list={{
-        "px-3 py-3 md:py-2 rounded-md transition-colors": true,
-        "bg-brand-blue text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80": isActive(`/${lang}/about-gbs`),
-        "hover:bg-brand-blue/20": !isActive(`/${lang}/about-gbs`),
-      }}
-      aria-current={isActive(`/${lang}/about-gbs`) ? "page" : undefined}
-      >{t.aboutGBS}</a
-    >
-    <a
-      href={`/${lang}/our-progress`}
-      class:list={{
-        "px-3 py-3 md:py-2 rounded-md transition-colors": true,
-        "bg-brand-blue text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80": isActive(`/${lang}/our-progress`),
-        "hover:bg-brand-blue/20": !isActive(`/${lang}/our-progress`),
-      }}
-      aria-current={isActive(`/${lang}/our-progress`) ? "page" : undefined}
-      >{t.ourProgress}</a
-    >
-    <a
-      href={`/${lang}/journal-hub`}
-      class:list={{
-        "px-3 py-3 md:py-2 rounded-md transition-colors": true,
-        "bg-brand-blue text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80": isActive(`/${lang}/journal-hub`),
-        "hover:bg-brand-blue/20": !isActive(`/${lang}/journal-hub`),
-      }}
-      aria-current={isActive(`/${lang}/journal-hub`) ? "page" : undefined}
-      >{t.journalHub}</a
-    >
-    <a
-      href={`/${lang}/partners`}
-      class:list={{
-        "px-3 py-3 md:py-2 rounded-md transition-colors": true,
-        "bg-brand-blue text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80": isActive(`/${lang}/partners`),
-        "hover:bg-brand-blue/20": !isActive(`/${lang}/partners`),
-      }}
-      aria-current={isActive(`/${lang}/partners`) ? "page" : undefined}
-      >{t.partners}</a
-    >
-    <a
-      href={`/${lang}/support-me`}
-      class:list={{
-        "px-3 py-3 md:py-2 rounded-md transition-colors": true,
-        "bg-brand-blue text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80": isActive(`/${lang}/support-me`),
-        "hover:bg-brand-blue/20": !isActive(`/${lang}/support-me`),
-      }}
-      aria-current={isActive(`/${lang}/support-me`) ? "page" : undefined}
-      >{t.supportMe}</a
-    >
+    <nav class="flex flex-col space-y-6 font-body text-base md:text-lg lg:text-xl">
+      <!-- Challenge section -->
+      <div role="group" aria-labelledby="nav-section-challenge" class="flex flex-col">
+        <h2 id="nav-section-challenge" class="text-xs uppercase tracking-wider text-gray-400/90 font-headline mb-1">
+          {t.sectionChallenge}
+        </h2>
+        <div class="flex flex-col space-y-2 md:space-y-3">
+          <a
+            href={`/${lang}/the-challenge`}
+            class:list={{
+              "px-3 py-3 md:py-2 rounded-md transition-colors": true,
+              "bg-brand-blue text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80": isActive(`/${lang}/the-challenge`),
+              "hover:bg-brand-blue/20": !isActive(`/${lang}/the-challenge`),
+            }}
+            aria-current={isActive(`/${lang}/the-challenge`) ? "page" : undefined}
+            >{t.challenge}</a
+          >
+          <a
+            href={`/${lang}/my-story`}
+            class:list={{
+              "px-3 py-3 md:py-2 rounded-md transition-colors": true,
+              "bg-brand-blue text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80": isActive(`/${lang}/my-story`),
+              "hover:bg-brand-blue/20": !isActive(`/${lang}/my-story`),
+            }}
+            aria-current={isActive(`/${lang}/my-story`) ? "page" : undefined}
+            >{t.myStory}</a
+          >
+          <a
+            href={`/${lang}/about-gbs`}
+            class:list={{
+              "px-3 py-3 md:py-2 rounded-md transition-colors": true,
+              "bg-brand-blue text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80": isActive(`/${lang}/about-gbs`),
+              "hover:bg-brand-blue/20": !isActive(`/${lang}/about-gbs`),
+            }}
+            aria-current={isActive(`/${lang}/about-gbs`) ? "page" : undefined}
+            >{t.aboutGBS}</a
+          >
+        </div>
+      </div>
+
+      <!-- Journey section -->
+      <div role="group" aria-labelledby="nav-section-journey" class="flex flex-col pt-4 border-t border-gray-800">
+        <h2 id="nav-section-journey" class="text-xs uppercase tracking-wider text-gray-400/90 font-headline mb-1">
+          {t.sectionJourney}
+        </h2>
+        <div class="flex flex-col space-y-2 md:space-y-3">
+          <a
+            href={`/${lang}/our-progress`}
+            class:list={{
+              "px-3 py-3 md:py-2 rounded-md transition-colors": true,
+              "bg-brand-blue text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80": isActive(`/${lang}/our-progress`),
+              "hover:bg-brand-blue/20": !isActive(`/${lang}/our-progress`),
+            }}
+            aria-current={isActive(`/${lang}/our-progress`) ? "page" : undefined}
+            >{t.ourProgress}</a
+          >
+          <a
+            href={`/${lang}/journal-hub`}
+            class:list={{
+              "px-3 py-3 md:py-2 rounded-md transition-colors": true,
+              "bg-brand-blue text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80": isActive(`/${lang}/journal-hub`),
+              "hover:bg-brand-blue/20": !isActive(`/${lang}/journal-hub`),
+            }}
+            aria-current={isActive(`/${lang}/journal-hub`) ? "page" : undefined}
+            >{t.journalHub}</a
+          >
+        </div>
+      </div>
+
+      <!-- Support section -->
+      <div role="group" aria-labelledby="nav-section-support" class="flex flex-col pt-4 border-t border-gray-800">
+        <h2 id="nav-section-support" class="text-xs uppercase tracking-wider text-gray-400/90 font-headline mb-1">
+          {t.sectionSupport}
+        </h2>
+        <div class="flex flex-col space-y-2 md:space-y-3">
+          <a
+            href={`/${lang}/partners`}
+            class:list={{
+              "px-3 py-3 md:py-2 rounded-md transition-colors": true,
+              "bg-brand-blue text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80": isActive(`/${lang}/partners`),
+              "hover:bg-brand-blue/20": !isActive(`/${lang}/partners`),
+            }}
+            aria-current={isActive(`/${lang}/partners`) ? "page" : undefined}
+            >{t.partners}</a
+          >
+          <a
+            href={`/${lang}/support-me`}
+            class:list={{
+              "px-3 py-3 md:py-2 rounded-md transition-colors": true,
+              "bg-brand-blue text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80": isActive(`/${lang}/support-me`),
+              "hover:bg-brand-blue/20": !isActive(`/${lang}/support-me`),
+            }}
+            aria-current={isActive(`/${lang}/support-me`) ? "page" : undefined}
+            >{t.supportMe}</a
+          >
+        </div>
+      </div>
     </nav>
   </div>
   <!-- Bottom content group -->
