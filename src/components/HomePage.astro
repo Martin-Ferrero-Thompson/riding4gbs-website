@@ -31,7 +31,7 @@ const { lang, t } = Astro.props as Props;
 
         <div class="bg-gray-50 py-16 sm:py-24 rounded-lg">
           <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-            <h2 class="text-2xl font-display font-semibold leading-7 text-blue-600">
+            <h2 class="font-display font-semibold text-blue-600 uppercase tracking-wide leading-tight text-3xl md:text-4xl lg:text-5xl">
               {t.hometownPartnerHeading}
             </h2>
 
@@ -63,13 +63,17 @@ const { lang, t } = Astro.props as Props;
             {t.supporters.map((s) => (
               <a
                 href={s.href}
-                class="group relative flex flex-col items-center justify-between gap-4 p-6 bg-white rounded-lg h-40 w-64 transition-transform hover:scale-105"
+                class="group relative flex flex-col items-center justify-between gap-3 p-5 md:p-6 bg-white rounded-lg h-48 w-64 transition-transform hover:scale-105"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src={s.imgSrc} alt={s.imgAlt} class="max-h-16 object-contain" />
-                <div class="font-body bg-gray-100 text-gray-800 px-6 py-2 rounded-md">
-                  <span lang={s.ctaLang}>{s.ctaLabel}</span>
+                <!-- Logo: allow slight shrink on small screens to create vertical space for multi-line CTA -->
+                <img src={s.imgSrc} alt={s.imgAlt} class="max-h-14 md:max-h-16 object-contain" />
+                <!-- CTA pill: full width so wrapping is predictable; font scales for accessibility; two-line wrap supported -->
+                <div class="font-body bg-gray-100 text-gray-800 w-full px-4 py-2 rounded-md text-center">
+                  <span lang={s.ctaLang} class="block text-sm md:text-base leading-snug">
+                    {s.ctaLabel}
+                  </span>
                 </div>
                 <div
                   class="absolute inset-0 bg-black/80 text-white flex items-center justify-center p-4 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
