@@ -76,6 +76,20 @@ Usage examples (abbreviated):
 - `src/styles/fonts.css` centralizes font imports.
 - `src/styles/global.css` defines CSS variables for font stacks and the `.hero-title` class; it removes blanket heading overrides so typography is role-based.
 
+## Spacing Rhythm
+
+To keep vertical rhythm consistent across pages, global vertical padding is applied in `MainLayout.astro` on the `<main>` element:
+
+- `py-12 md:py-20 lg:py-24`
+- Safe-area insets remain at the layout level: `pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]`
+
+Page wrappers should not add extra top/bottom padding. The shared `.page-card-dark` component now provides only horizontal margins and internal padding:
+
+- Margins: `mx-4 md:mx-8 lg:mx-12` (no vertical margins)
+- Padding: `p-6 md:p-8 lg:p-10`
+
+When creating new pages, rely on the layout for outer spacing and on the card for inner comfort. If a future page needs a compact or edge-to-edge layout, introduce a boolean prop on `MainLayout` to adjust the global `py-*` classes rather than adding ad‑hoc overrides.
+
 ## Internationalization (FR/ES accents)
 
 - Montserrat and Inter include Latin Extended glyphs.

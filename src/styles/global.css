@@ -29,7 +29,8 @@
 
   /* Shared dark page card wrapper for hero/section containers */
   .page-card-dark {
-    @apply m-4 md:m-8 lg:m-12 p-6 md:p-8 lg:p-10 rounded-xl bg-gray-900/80 text-white backdrop-blur-sm;
+    /* Vertical rhythm now comes from MainLayout <main> py-*, so only horizontal margins here */
+    @apply mx-4 md:mx-8 lg:mx-12 my-0 p-6 md:p-8 lg:p-10 rounded-xl bg-gray-900/80 text-white backdrop-blur-sm;
   }
 }
 
