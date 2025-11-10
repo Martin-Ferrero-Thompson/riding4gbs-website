@@ -50,7 +50,10 @@ function hasList(key: PartnersSectionKey): boolean {
       <h2 class="font-headline font-semibold text-lg md:text-xl lg:text-2xl text-gray-900">
         {t.cta.heading}
       </h2>
-      <p class="mt-4 max-w-2xl mx-auto font-body text-base md:text-lg lg:text-xl text-gray-600" set:html={marked.parse(t.cta.bodyMd)} />
+      <div
+        class="mt-4 max-w-2xl mx-auto font-body text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed [&>*:not(:first-child)]:mt-3 [&_p]:text-gray-600"
+        set:html={marked.parse(t.cta.bodyMd)}
+      />
       <div class="mt-8">
         <a
           id="sponsor-download"
