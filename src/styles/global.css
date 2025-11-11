@@ -32,6 +32,34 @@
     /* Vertical rhythm now comes from MainLayout <main> py-*, so only horizontal margins here */
     @apply mx-4 md:mx-8 lg:mx-12 my-0 p-6 md:p-8 lg:p-10 rounded-xl bg-gray-900/80 text-white backdrop-blur-sm;
   }
+
+  nav[data-interactive="true"] button .checkmark {
+    display: none;
+  }
+
+  nav[data-interactive="true"] button[aria-pressed="true"],
+  nav[data-interactive="true"] button[aria-checked="true"],
+  nav[data-interactive="true"] button.is-active {
+    background-color: rgb(55 65 81 / 1);
+    color: #fff;
+    border-color: rgb(75 85 99 / 1);
+    cursor: default;
+  }
+
+  nav[data-interactive="true"] button[aria-checked="true"] .checkmark,
+  nav[data-interactive="true"] button.is-active .checkmark {
+    display: inline;
+  }
+
+  nav[data-interactive="true"][data-active-lang="en"] button[data-lang="en"],
+  nav[data-interactive="true"][data-active-lang="es"] button[data-lang="es"],
+  nav[data-interactive="true"][data-active-lang="eu"] button[data-lang="eu"],
+  nav[data-interactive="true"][data-active-lang="fr"] button[data-lang="fr"] {
+    background-color: rgb(55 65 81 / 1);
+    color: #fff;
+    border-color: rgb(75 85 99 / 1);
+    cursor: default;
+  }
 }
 
 /* Accessibility & UX enhancements */

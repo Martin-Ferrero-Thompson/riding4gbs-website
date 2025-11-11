@@ -5,7 +5,11 @@ import "@fontsource/lato/700.css";
 import "@fontsource/montserrat/700.css";
 import "@fontsource/montserrat/900.css";
 import "../styles/global.css";
-import { landingIntroInstruction } from "../data/landing.i18n";
+import { landingCopy, landingFlag } from "../data/landing.i18n";
+import LanguageSwitcher from "../components/LanguageSwitcher.astro";
+import { DEFAULT_LANGUAGE, type Language } from "../utils/language";
+const initialLanguage = DEFAULT_LANGUAGE satisfies Language;
+const landingEntries = Object.entries(landingCopy) as Array<[Language, (typeof landingCopy)[Language]]>;
 ---
 <!doctype html>
 <html lang="en">
@@ -47,34 +51,82 @@ import { landingIntroInstruction } from "../data/landing.i18n";
           #RIDING4GBS
         </h1>
 
-        <!-- <div id="countdown" class="my-8 font-sans notranslate" translate="no" data-target-date={data.targetDate}>
+        <!-- PLEASE DO NOT REMOVE OR MODIFY <div id="countdown" class="my-8 font-sans notranslate" translate="no" data-target-date={data.targetDate}>
           <div id="cd-display" class="flex justify-center items-center gap-2 md:gap-4 text-white"></div>
           <p id="cd-message" class="text-lg text-center text-gray-300 mt-2"></p>
-        </div> -->
+        </div> END OF PLEASE DO NOT REMOVE OR MODIFY -->
 
-        <div class="landingpage-intro text-center max-w-4xl mx-auto mb-8 space-y-3 md:space-y-4 text-gray-300 text-base md:text-lg">
-          <p>
-            <span class="mr-2">🇬🇧</span>
-            In October 2026, this epic 2,000km journey across the Pyrenees is dedicated to funding vital GBS research through our international partners below.
-            <span class="block md:inline opacity-90"> {landingIntroInstruction.en}</span>
-          </p>
-          <p>
-            <span class="mr-2">🇪🇸</span>
-            En octubre de 2026, este épico viaje de 2.000 km a través de los Pirineos está dedicado a financiar la investigación vital del SGB a través de nuestros socios internacionales a continuación.
-            <span class="block md:inline opacity-90"> {landingIntroInstruction.es}</span>
-          </p>
-          <p>
-            <span class="mr-2">🇫🇷</span>
-            En octobre 2026, ce voyage épique de 2 000 km à travers les Pyrénées est dédié au financement de la recherche essentielle sur le SGB par le biais de nos partenaires internationaux ci-dessous.
-            <span class="block md:inline opacity-90"> {landingIntroInstruction.fr}</span>
-          </p>
+        <!-- Language switcher and dynamic intro (client-only swap without navigation) -->
+        <div class="flex items-center justify-center mb-6">
+          <LanguageSwitcher showFlags={true} interactive={true} />
         </div>
+        <div
+          class="landingpage-intro text-center max-w-4xl mx-auto mb-8"
+          data-landing-copy-root
+          data-default-lang={initialLanguage}
+          aria-live="polite"
+        >
+          {landingEntries.map(([lang, copy]) => (
+            <article
+              data-lang-block={lang}
+              hidden={lang !== initialLanguage}
+              aria-hidden={lang !== initialLanguage}
+              class="space-y-3 text-gray-300"
+            >
+              <p lang={lang} class="text-left text-base md:text-lg text-gray-100">
+                {copy.lead}
+              </p>
+              <p lang={lang} class="text-sm md:text-base text-gray-300 opacity-90">
+                {copy.instruction}
+              </p>
+            </article>
+          ))}
+        </div>
+        <script>
+          // @ts-nocheck
+          // Toggle pre-rendered language copy blocks based on switcher events.
+          (function () {
+            const root = document.querySelector('[data-landing-copy-root]');
+            if (!root) return;
+
+            const blocks = Array.from(root.querySelectorAll('[data-lang-block]'));
+            if (!blocks.length) return;
+
+            /** @param {string} lang */
+            function showBlock(lang) {
+              blocks.forEach((block) => {
+                const isMatch = block.getAttribute('data-lang-block') === lang;
+                block.toggleAttribute('hidden', !isMatch);
+                block.setAttribute('aria-hidden', String(!isMatch));
+              });
+              root.setAttribute('data-current-lang', lang);
+            }
+
+            function bindOnce() {
+              if ((window).__r4gbs_intro_bound) return;
+              (window).__r4gbs_intro_bound = true;
+              document.addEventListener('r4gbs:langchange', (evt) => {
+                const detail = (evt && evt.detail) || {};
+                const next = typeof detail.lang === 'string' ? detail.lang : root.getAttribute('data-default-lang') || 'en';
+                showBlock(next);
+              });
+            }
+
+            const nav = document.querySelector('nav[data-interactive="true"]');
+            const initialLang = nav?.getAttribute('data-active-lang') || root.getAttribute('data-default-lang') || 'en';
+            showBlock(initialLang);
+
+            bindOnce();
+            document.addEventListener('astro:page-load', bindOnce);
+            document.addEventListener('DOMContentLoaded', bindOnce);
+          })();
+        </script>
 
         <img src="/riding4gbs-route.png" alt="The challenge route map" class="rounded-lg shadow-md mb-8 mx-auto w-full h-auto max-w-full md:max-w-3xl object-contain" />
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <a href="/en/" data-astro-reload class="group relative bg-gray-800/50 rounded-xl p-6 flex flex-col text-center transition-transform md:hover:scale-105">
-            <header class="text-5xl mb-4">🇬🇧</header>
+            <header class="text-5xl mb-4">{landingFlag.en}</header>
             <main class="flex-grow text-gray-200">
               <h2 class="font-display font-bold text-xl mb-2 text-white">Ride for GBS Research</h2>
               <p>Welcome to an epic journey of resilience. Select your language to explore the challenge.</p>
@@ -87,7 +139,7 @@ import { landingIntroInstruction } from "../data/landing.i18n";
             </div>
           </a>
           <a href="/es/" data-astro-reload class="group relative bg-gray-800/50 rounded-xl p-6 flex flex-col text-center transition-transform md:hover:scale-105">
-            <header class="text-5xl mb-4">🇪🇸</header>
+            <header class="text-5xl mb-4">{landingFlag.es}</header>
             <main class="flex-grow text-gray-200">
               <h2 class="font-display font-bold text-xl mb-2 text-white">Pedaleando por la investigación del SGB</h2>
               <p>Bienvenido a un viaje épico de resiliencia. Selecciona tu idioma para explorar el desafío.</p>
@@ -100,7 +152,7 @@ import { landingIntroInstruction } from "../data/landing.i18n";
             </div>
           </a>
           <a href="#" data-astro-reload class="group relative bg-gray-800/50 rounded-xl p-6 flex flex-col text-center transition-transform md:hover:scale-105">
-            <header class="text-5xl mb-4">🇫🇷</header>
+            <header class="text-5xl mb-4">{landingFlag.fr}</header>
             <main class="flex-grow text-gray-200">
               <h2 class="font-display font-bold text-xl mb-2 text-white">Pédaler pour la recherche sur le SGB</h2>
               <p>Bienvenue dans un voyage épique de résilience. Sélectionnez votre langue pour explorer le défi.</p>

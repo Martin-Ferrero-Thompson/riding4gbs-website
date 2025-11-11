@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 80" width="120" height="80" aria-hidden="true">
+  <!-- Ikurriña (Basque flag) -->
+  <rect width="120" height="80" fill="#D0102A"/>
+  <!-- Green saltire -->
+  <g stroke="#007A3D" stroke-width="16" stroke-linecap="square">
+    <line x1="0" y1="0" x2="120" y2="80"/>
+    <line x1="0" y1="80" x2="120" y2="0"/>
+  </g>
+  <!-- White cross on top -->
+  <rect x="52" y="0" width="16" height="80" fill="#FFFFFF"/>
+  <rect x="0" y="32" width="120" height="16" fill="#FFFFFF"/>
+</svg>

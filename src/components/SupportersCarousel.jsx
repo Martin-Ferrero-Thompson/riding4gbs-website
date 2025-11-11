@@ -1,5 +1,3 @@
-import React from 'react';
-
 /**
  * @typedef {Object} SupportersCarouselProps
  * @property {any[]} supporters

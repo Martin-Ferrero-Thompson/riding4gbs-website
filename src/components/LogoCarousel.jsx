@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export function LogoCarousel({ partners }) {
   const [shouldAnimate, setShouldAnimate] = useState(false);
