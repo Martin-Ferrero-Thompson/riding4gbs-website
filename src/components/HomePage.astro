@@ -2,6 +2,7 @@
 import type { HomeLocaleContent } from "../data/home.i18n";
 import MainLayout from "../layouts/MainLayout.astro";
 import { marked } from "marked";
+import LogoCircleUrl from "../assets/images/LogoGSBCirculo.svg?url";
 
 export interface Props {
   lang: "en" | "es" | "fr";
@@ -9,13 +10,25 @@ export interface Props {
 }
 
 const { lang, t } = Astro.props as Props;
+
+const heroLogoAlt = {
+  en: "Riding4GBS circular logo",
+  es: "Logotipo circular Riding4GBS",
+  fr: "Logo circulaire Riding4GBS",
+}[lang];
 ---
 
 <MainLayout title={t.metaTitle}>
   <div transition:name="hero-card" class="w-full flex justify-center">
     <div
-      class="page-card-dark text-center max-w-6xl w-full"
+      class="page-card-dark text-center max-w-6xl w-full relative"
     >
+      <img
+  src={LogoCircleUrl}
+        alt={heroLogoAlt}
+        class="absolute top-6 left-6 w-16 sm:w-20 md:w-24"
+        decoding="async"
+      />
       <h1 class="hero-title">
         {t.heroTitle}
       </h1>
