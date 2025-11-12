@@ -24,14 +24,14 @@
   },
   "funds_gbp": {
     "label": "Funds Raised So Far",
-    "current": 20,
+    "current": 0,
     "total": 5000,
     "unit": "£",
     "targetLabel": "Target"
   },
   "funds_eur": {
     "label": "Funds Raised for GBS España",
-    "current": 4800,
+    "current": 0,
     "total": 5000,
     "unit": "€",
     "targetLabel": "Target"
@@ -40,6 +40,7 @@
   "funds_eur_fr": {
     "label": "Funds Raised for GBS France",
     "current": 0,
+    "total": 5000,
     "unit": "€"
   }
 }

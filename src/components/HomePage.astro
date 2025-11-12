@@ -3,6 +3,8 @@ import type { HomeLocaleContent } from "../data/home.i18n";
 import MainLayout from "../layouts/MainLayout.astro";
 import { marked } from "marked";
 import LogoCircleUrl from "../assets/images/LogoGSBCirculo.svg?url";
+import { LogoCarousel } from "./LogoCarousel.jsx";
+import partners from "../data/partners.json";
 
 export interface Props {
   lang: "en" | "es" | "fr";
@@ -106,29 +108,9 @@ const heroLogoAlt = {
 
         <div class="mt-8 md:mt-12">
           <p class="font-headline font-semibold text-lg md:text-xl lg:text-2xl text-center">{t.supportersHeading}</p>
-          <div class="mt-4 flex flex-wrap justify-center items-center gap-6">
-            {t.supporters.map((s) => (
-              <a
-                href={s.href}
-                class="group relative flex flex-col items-center justify-between gap-3 p-5 md:p-6 bg-white rounded-lg h-48 w-64 transition-transform hover:scale-105"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <!-- Logo: allow slight shrink on small screens to create vertical space for multi-line CTA -->
-                <img src={s.imgSrc} alt={s.imgAlt} class="max-h-14 md:max-h-16 object-contain" />
-                <!-- CTA pill: full width so wrapping is predictable; font scales for accessibility; two-line wrap supported -->
-                <div class="font-body bg-gray-100 text-gray-800 w-full px-4 py-2 rounded-md text-center">
-                  <span lang={s.ctaLang} class="block text-sm md:text-base leading-snug">
-                    {s.ctaLabel}
-                  </span>
-                </div>
-                <div
-                  class="absolute inset-0 bg-black/80 text-white flex items-center justify-center p-4 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                >
-                  <p class="font-headline font-semibold text-center">{s.overlayTitle}</p>
-                </div>
-              </a>
-            ))}
+          <div class="mt-4">
+            <!-- Reuse existing LogoCarousel and show only Pirineo partners -->
+            <LogoCarousel client:visible partners={partners.pirineoPartners} />
           </div>
         </div>
       </div>
