@@ -11,6 +11,7 @@ export type Supporter = {
 export type HomeLocaleContent = {
   metaTitle: string;
   heroTitle: string;
+  watermarkText: string;
   hometownPartnerHeading: string;
   hometownPartnerDescriptionMd: string; // markdown-supported
   supportersHeading: string;
@@ -31,10 +32,11 @@ export const homeContent: Record<"en" | "es" | "fr", HomeLocaleContent> = {
   en: {
     metaTitle: "The Slow Road Back | Home",
     heroTitle: "The Slow Road Back",
+    watermarkText: "To Be Replaced By Charity",
     hometownPartnerHeading: "Our Hometown Partner",
     hometownPartnerDescriptionMd:
       "We are incredibly proud to partner with **Cycla Bikes**, our local bike shop here in Pamplona. Their expert support and deep roots in the cycling community are a cornerstone of this challenge. They are generously providing the official **Start and Finish Line** for this epic journey.",
-    supportersHeading: "Proudly Supporting:",
+    supportersHeading: "Proudly Supported By:",
     introParagraphsMd: [
       "My name is Martin, and I am a survivor of Guillain-Barré Syndrome (GBS). My recovery taught me that the journey is more important than the destination. This is my **Slow Road Back**.",
       "**In October 2026**, I will begin a deeply personal cycling challenge, starting from my home in Pamplona. With my incredible wife, Edurne, as the heart of my support team, we are taking on the Pyrenees. Our goal is for us to ride from the Atlantic coast to the Mediterranean and back again to see how far this journey of resilience will take us.",
@@ -83,6 +85,7 @@ export const homeContent: Record<"en" | "es" | "fr", HomeLocaleContent> = {
   es: {
     metaTitle: "The Slow Road Back | Un Reto por la Investigación del SGB",
     heroTitle: "El lento camino de regreso",
+    watermarkText: "Para ser reemplazado por la organización benéfica",
     hometownPartnerHeading: "Nuestro compañero de origen",
     hometownPartnerDescriptionMd:
       "Estamos sumamente orgullosos de colaborar con **Cycla Bikes**, nuestra tienda de bicicletas local en Pamplona. Su apoyo experto y su sólida trayectoria en la comunidad ciclista son la piedra angular de este desafío. Ellos, generosamente, nos proporcionan **la salida y la meta oficiales** para esta épica aventura.",
@@ -135,6 +138,7 @@ export const homeContent: Record<"en" | "es" | "fr", HomeLocaleContent> = {
   fr: {
     metaTitle: "The Slow Road Back | Un Parcours pour la Recherche sur le SGB",
     heroTitle: "Le lent chemin du retour",
+    watermarkText: "À remplacer par l'organisation caritative",
     hometownPartnerHeading: "Notre partenaire local",
     hometownPartnerDescriptionMd:
       "Nous sommes extrêmement fiers de collaborer avec **Cycla Bikes**, notre magasin de vélos local à Pampelune. Leur expertise et leur ancrage profond dans la communauté cycliste sont essentiels à ce défi. Ils fournissent généreusement les **lignes de départ et d'arrivée officielles** de cette aventure épique.",

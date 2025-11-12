@@ -30,7 +30,7 @@ const heroLogoAlt = {
       <img
         src={LogoCircleUrl}
         alt={heroLogoAlt}
-        class="w-16 sm:w-20 md:w-24"
+        class="logo-r4gbs block mx-auto w-16 sm:w-20 md:w-24"
         decoding="async"
       />
       <!-- <p class="font-headline font-semibold text-lg md:text-xl lg:text-3xl text-brand-blue mt-4">
@@ -43,10 +43,10 @@ const heroLogoAlt = {
         ))}
         {t.supportMessage ? (
           <div class="support-message bg-gray-50 py-12 sm:py-16 rounded-lg relative overflow-hidden">
-            <!-- Watermark (on top): To Be Replaced By INUK -->
+            <!-- Watermark (on top): To Be Replaced By Charity -->
             <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-30" aria-hidden="true">
               <span class="transform -rotate-45 text-gray-900 opacity-70 font-bold whitespace-nowrap text-3xl sm:text-4xl md:text-4xl lg:text-5xl">
-                To Be Replaced By INUK
+                {t.watermarkText}
               </span>
             </div>
 
