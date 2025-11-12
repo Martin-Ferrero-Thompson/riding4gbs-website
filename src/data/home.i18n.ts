@@ -18,6 +18,13 @@ export type HomeLocaleContent = {
   partnerLinkTitle: string; // title attribute for Cycla link
   partnerLogoAlt: string; // localized alt for Cycla logo
   supporters: Supporter[]; // supporters cards with per-card CTA labels
+  supportMessage?: {
+    heading: string;
+    quote: string;
+    attribution: string;
+    ctaLabel: string;
+    ctaHref?: string; // optional override for CTA link
+  };
 };
 
 export const homeContent: Record<"en" | "es" | "fr", HomeLocaleContent> = {
@@ -64,6 +71,14 @@ export const homeContent: Record<"en" | "es" | "fr", HomeLocaleContent> = {
         ctaLang: "fr",
       },
     ],
+    supportMessage: {
+      heading: "A Message of Support from Inflammatory Neuropathies UK",
+      quote:
+        "We are absolutely thrilled to see Martin and Edurne embark on 'The Slow Road Back.' Their courage and determination embody the very spirit we champion at Inflammatory Neuropathies UK. This challenge will shine a much-needed light on Guillain-Barré Syndrome, helping us support more individuals and families affected by GBS. Martin, Edurne, we're cheering you on from the UK!",
+      attribution: "Sarah Davies, Head of Patient Advocacy, Inflammatory Neuropathies UK",
+      ctaLabel: "Discover More About Our Work",
+      ctaHref: "https://www.inflammatoryneuropathies.uk/",
+    },
   },
   es: {
     metaTitle: "The Slow Road Back | Un Reto por la Investigación del SGB",
@@ -108,6 +123,14 @@ export const homeContent: Record<"en" | "es" | "fr", HomeLocaleContent> = {
         ctaLang: "fr",
       },
     ],
+    supportMessage: {
+      heading: "A Message of Support from Inflammatory Neuropathies UK",
+      quote:
+        "We are absolutely thrilled to see Martin embark on 'The Slow Road Back.' His courage and determination embody the very spirit we champion at Inflammatory Neuropathies UK. This challenge will shine a much-needed light on Guillain-Barré Syndrome, helping us support more individuals and families affected by GBS. Martin, we're cheering you on from the UK!",
+      attribution: "Sarah Davies, Head of Patient Advocacy, Inflammatory Neuropathies UK",
+      ctaLabel: "Discover More About Our Work",
+      ctaHref: "https://www.inflammatoryneuropathies.uk/",
+    },
   },
   fr: {
     metaTitle: "The Slow Road Back | Un Parcours pour la Recherche sur le SGB",
@@ -151,6 +174,14 @@ export const homeContent: Record<"en" | "es" | "fr", HomeLocaleContent> = {
         ctaLabel: "Visiter le site web",
         ctaLang: "fr",
       },
-    ],
+  ],
+  supportMessage: {
+      heading: "A Message of Support from Inflammatory Neuropathies UK",
+      quote:
+        "We are absolutely thrilled to see Martin embark on 'The Slow Road Back.' His courage and determination embody the very spirit we champion at Inflammatory Neuropathies UK. This challenge will shine a much-needed light on Guillain-Barré Syndrome, helping us support more individuals and families affected by GBS. Martin, we're cheering you on from the UK!",
+      attribution: "Sarah Davies, Head of Patient Advocacy, Inflammatory Neuropathies UK",
+      ctaLabel: "Discover More About Our Work",
+      ctaHref: "https://www.inflammatoryneuropathies.uk/",
+    },
   },
 };
