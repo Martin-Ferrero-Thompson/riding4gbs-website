@@ -48,11 +48,11 @@ Tips
 - If you need anchor links later (e.g., to “Leg 1”), we can add IDs in the component or the data.
 - The three localized pages are thin wrappers; structure lives in `ChallengePage.astro`.
 
-My Story page (EN/ES/FR)
-- Data file: `src/data/myStory.i18n.ts`
-- Component: `src/components/MyStoryPage.astro`
-- Pages (wrappers): `src/pages/{en,es,fr}/my-story.astro`
-- What to edit per locale in `myStory.i18n.ts`:
+Our Story page (EN/ES/FR)
+- Data file: `src/data/ourStory.i18n.ts`
+- Component: `src/components/OurStoryPage.astro`
+- Pages (wrappers): `src/pages/{en,es,fr}/our-story.astro`
+- What to edit per locale in `ourStory.i18n.ts`:
 	- `metaTitle`: document title
 	- `heroTitle`: H1 title
 	- `heroSubtitle`: short intro under H1

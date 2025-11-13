@@ -150,14 +150,14 @@ const fundsEurFrTarget = typeof fundsData.funds_eur_fr?.total === "number"
             >{t.challenge}</a
           >
           <a
-            href={`/${lang}/my-story`}
+            href={`/${lang}/our-story`}
             class:list={{
               "px-3 py-3 md:py-2 rounded-md transition-colors": true,
-              "bg-brand-blue text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80": isActive(`/${lang}/my-story`),
-              "hover:bg-brand-blue/20": !isActive(`/${lang}/my-story`),
+              "bg-brand-blue text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80": isActive(`/${lang}/our-story`),
+              "hover:bg-brand-blue/20": !isActive(`/${lang}/our-story`),
             }}
-            aria-current={isActive(`/${lang}/my-story`) ? "page" : undefined}
-            >{t.myStory}</a
+            aria-current={isActive(`/${lang}/our-story`) ? "page" : undefined}
+            >{t.ourStory}</a
           >
           <a
             href={`/${lang}/about-gbs`}
