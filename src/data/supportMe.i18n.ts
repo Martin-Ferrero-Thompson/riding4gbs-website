@@ -1,4 +1,5 @@
-// Backwards-compatibility shim: re-export the new supportUs types and content
-export type { SupportUsLocaleContent as SupportMeLocaleContent } from "./supportUs.i18n";
-export { supportUsContent as supportMeContent } from "./supportUs.i18n";
+
+// DELETED: This compatibility shim was removed and the project now uses
+// `src/data/supportUs.i18n.ts` exclusively. The file is retained as an
+// empty marker to avoid accidental missing-file errors during local edits.
 

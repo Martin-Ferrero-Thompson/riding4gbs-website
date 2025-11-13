@@ -1,14 +1,7 @@
 ---
-// Compatibility wrapper: render the new SupportUsPage when older SupportMePage is imported
-import SupportUsPage from "./SupportUsPage.astro";
-import type { SupportUsLocaleContent } from "../data/supportUs.i18n";
-
-export interface Props {
-  lang: 'en' | 'es' | 'fr';
-  t: SupportUsLocaleContent;
-}
-
-const { t } = Astro.props as Props;
+// DELETED: SupportMePage compatibility wrapper removed.
+// The project now uses `SupportUsPage.astro` and `supportUs.i18n.ts`.
+// This file is intentionally left as a no-op marker.
 ---
 
-<SupportUsPage lang={t ? Astro.props.lang : 'en'} t={t} />
+<div aria-hidden="true"></div>
