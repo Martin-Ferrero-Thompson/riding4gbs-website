@@ -228,14 +228,14 @@ const fundsEurFrTarget = typeof fundsData.funds_eur_fr?.total === "number"
             >{t.partners}</a
           >
           <a
-            href={`/${lang}/support-me`}
+            href={`/${lang}/support-us`}
             class:list={{
               "px-3 py-3 md:py-2 rounded-md transition-colors": true,
-              "bg-brand-blue text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80": isActive(`/${lang}/support-me`),
-              "hover:bg-brand-blue/20": !isActive(`/${lang}/support-me`),
+              "bg-brand-blue text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80": isActive(`/${lang}/support-us`),
+              "hover:bg-brand-blue/20": !isActive(`/${lang}/support-us`),
             }}
-            aria-current={isActive(`/${lang}/support-me`) ? "page" : undefined}
-            >{t.supportMe}</a
+            aria-current={isActive(`/${lang}/support-us`) ? "page" : undefined}
+            >{t.supportUs}</a
           >
         </div>
       </div>

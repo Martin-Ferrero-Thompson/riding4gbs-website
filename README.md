@@ -116,10 +116,10 @@ Our Story page (EN/ES/FR)
 		- `sections`: array of `{ key: 'pirineoPartners' | 'cimaSupporters' | 'amigosDelReto', heading: string }` to set order and headings
 		- `cta`: `{ heading, bodyMd, buttonLabel, buttonHref }` — update `buttonHref` when the partnership PDF/link is ready
 
-	Support Me page (EN/ES/FR)
-	- Static copy/i18n: `src/data/supportMe.i18n.ts`
-	- Component: `src/components/SupportMePage.astro`
-	- Pages (wrappers): `src/pages/{en,es,fr}/support-me.astro`
+	Support Us page (EN/ES/FR)
+	- Static copy/i18n: `src/data/supportUs.i18n.ts`
+	- Component: `src/components/SupportUsPage.astro`
+	- Pages (wrappers): `src/pages/{en,es,fr}/support-us.astro`
 	- How it works:
 		- Supporters list comes from `src/data/supporters.json`.
 		- CTA button link comes from the environment variable `PUBLIC_KOFI_URL` (shared across locales). If missing, the CTA is hidden.
@@ -275,14 +275,14 @@ This site is designed for static output and deployed on Vercel.
 
 Environment variables
 - None required for basic operation. Add as needed for future integrations.
-- Optional: `PUBLIC_KOFI_URL` — used for the Support Me page CTA button (shared across locales). If not set, the CTA is hidden.
+- Optional: `PUBLIC_KOFI_URL` — used for the Support Us page CTA button (shared across locales). If not set, the CTA is hidden.
 - Optional: `PUBLIC_DONATE_UK_URL`, `PUBLIC_DONATE_ES_URL`, `PUBLIC_DONATE_FR_URL` — used for the Donate page cards (shared across locales). If any URL is missing, the corresponding card button is hidden.
 
 ## Environment variables
 
 Create a `.env.local` (not committed) for local dev. Example in `.env.example`.
 
-- `PUBLIC_KOFI_URL` — Shared Ko‑fi link for the Support Me page CTA (exposed to the client). If not set, the CTA is hidden.
+- `PUBLIC_KOFI_URL` — Shared Ko‑fi link for the Support Us page CTA (exposed to the client). If not set, the CTA is hidden.
 - `PUBLIC_DONATE_UK_URL`, `PUBLIC_DONATE_ES_URL`, `PUBLIC_DONATE_FR_URL` — Donation URLs for the Donate page cards (exposed to the client). If any URL is missing, the corresponding card button is hidden.
 
 Vercel

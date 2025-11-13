@@ -1,71 +1,14 @@
 ---
-import MainLayout from "../layouts/MainLayout.astro";
-import { SupportersCarousel } from "./SupportersCarousel.jsx";
-import supporters from "../data/supporters.json";
-import type { SupportMeLocaleContent } from "../data/supportMe.i18n";
-import { marked } from "marked";
+// Compatibility wrapper: render the new SupportUsPage when older SupportMePage is imported
+import SupportUsPage from "./SupportUsPage.astro";
+import type { SupportUsLocaleContent } from "../data/supportUs.i18n";
 
 export interface Props {
   lang: 'en' | 'es' | 'fr';
-  t: SupportMeLocaleContent;
+  t: SupportUsLocaleContent;
 }
 
 const { t } = Astro.props as Props;
-// Precompute HTML strings from Markdown (marked.parse can be async)
-const heroIntroHtml = await marked.parse(t.heroIntroMd);
-const sectionBodyHtml = await marked.parse(t.section.bodyMd);
-const carouselFooterHtml = await marked.parse(t.carousel.footerMd);
-const koFiUrl = t.cta?.url && t.cta.url.trim().length > 0 ? t.cta.url : undefined;
-const hasSupporters = Array.isArray(supporters) && supporters.length > 0;
 ---
-<MainLayout title={t.metaTitle}>
-  <div
-    transition:name="support-me-card"
-    class="page-card-dark max-w-6xl w-full mx-auto font-body"
-  >
-    <div class="text-center">
-      <h1 class="hero-title text-white">
-        {t.heroTitle}
-      </h1>
-  <p class="mt-4 max-w-3xl mx-auto font-body text-base md:text-lg lg:text-xl text-gray-300 text-left" set:html={heroIntroHtml} />
-    </div>
 
-  <hr class="my-12 border-white/20 w-48 mx-auto" />
-
-    <div class="text-center max-w-3xl mx-auto">
-      <h2 class="font-headline font-semibold text-lg md:text-xl lg:text-2xl text-white">
-        {t.section.heading}
-      </h2>
-  <p class="mt-4 font-body text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed text-left" set:html={sectionBodyHtml} />
-    </div>
-
-    {hasSupporters && (
-      <div class="my-12">
-        {/** Cast props to any to avoid editor JSX prop type narrowing on .jsx import */}
-        <SupportersCarousel 
-          client:visible 
-          supporters={supporters as any}
-          title={t.carousel.title as any}
-          footerHtml={carouselFooterHtml as any}
-        />
-      </div>
-    )}
-
-    {koFiUrl ? (
-      <div class="text-center max-w-3xl mx-auto">
-        <a 
-          href={koFiUrl}
-          target="_blank" 
-          rel="noopener noreferrer"
-          class="inline-block px-8 py-3 bg-brand-blue hover:bg-blue-700 text-white font-bold text-lg rounded-full transition-transform transform hover:scale-105"
-        >
-          {t.cta.label}
-        </a>
-      </div>
-    ) : (
-      <div class="text-center max-w-3xl mx-auto mt-4">
-  <p class="text-gray-300 text-sm" set:html={t.cta?.missingMd ?? ''} />
-      </div>
-    )}
-  </div>
-</MainLayout>
+<SupportUsPage lang={t ? Astro.props.lang : 'en'} t={t} />

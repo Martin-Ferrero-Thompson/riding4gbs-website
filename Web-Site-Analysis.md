@@ -7,7 +7,7 @@ This document captures a comprehensive review of the current Astro (v5.x) projec
 
 ## Scope and method
 - Reviewed configuration and build: `astro.config.mjs`, `package.json`, Tailwind & PostCSS configs, `vercel.json`.
-- Inspected layout and representative pages/components: `src/layouts/MainLayout.astro`, landing page (`src/pages/index.astro`), localized home wrappers, section pages (`Challenge`, `About GBS`, `Our Progress`, `Partners`, `Support Me`, `Journal Hub`), and dynamic posts.
+ - Inspected layout and representative pages/components: `src/layouts/MainLayout.astro`, landing page (`src/pages/index.astro`), localized home wrappers, section pages (`Challenge`, `About GBS`, `Our Progress`, `Partners`, `Support Us`, `Journal Hub`), and dynamic posts.
 - Examined interactive islands: `Carousel.jsx`, `LogoCarousel.jsx`, `SupportersCarousel.jsx`, `Countdown.jsx`, `Hamburger.astro`.
 - Checked content pipeline and assets usage: `src/content/config.ts`, posts, and common images.
 
