@@ -52,15 +52,12 @@ const heroLogoAlt = {
               </span>
             </div>
 
-            <!-- Decorative opening quote (top-left) -->
-            <svg class="hidden sm:block absolute left-4 top-4 w-20 h-20 text-brand-blue z-10" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <text x="0" y="18" fill="currentColor" style="font-size:20px; font-family: Georgia, 'Times New Roman', serif; font-weight:700;">{"\u275D"}</text>
-            </svg>
+            <!-- Decorative opening quote removed — using inline typographic quotes in the blockquote instead -->
 
             <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-20">
               <h2 class="font-display font-semibold text-brand-blue tracking-wide leading-tight text-2xl md:text-3xl lg:text-4xl">{t.supportMessage.heading}</h2>
 
-              <blockquote class="mt-6 italic text-gray-700 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">{t.supportMessage.quote}</blockquote>
+              <blockquote class="mt-6 italic text-gray-700 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">&ldquo;{t.supportMessage.quote}&rdquo;</blockquote>
 
               <p class="mt-6 text-sm text-gray-500">{t.supportMessage.attribution}</p>
 
@@ -71,10 +68,7 @@ const heroLogoAlt = {
               </div>
             </div>
 
-            <!-- Decorative closing quote (bottom-right) -->
-            <svg class="hidden sm:block absolute right-4 bottom-4 w-20 h-20 text-brand-blue z-10" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <text x="0" y="18" fill="currentColor" style="font-size:20px; font-family: Georgia, 'Times New Roman', serif; font-weight:700;">{"\u275E"}</text>
-            </svg>
+            <!-- Decorative closing quote removed — using inline typographic quotes in the blockquote instead -->
           </div>
         ) : (
           <div class="support-message bg-gray-50 py-16 sm:py-24 rounded-lg">
