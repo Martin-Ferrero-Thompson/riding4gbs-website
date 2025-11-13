@@ -42,7 +42,7 @@ export const supportMeContent: Record<'en' | 'es' | 'fr', SupportMeLocaleContent
   },
   es: {
     metaTitle: 'Apóyame',
-    heroTitle: 'Apóyame: Sé Parte del Esfuerzo',
+    heroTitle: 'Sé Parte del Esfuerzo',
     heroIntroMd:
       'Un viaje autosuficiente a través de los Pirineos es un enorme desafío logístico. Esta página es para amigos, familiares y miembros de la comunidad ciclista que deseen contribuir directamente al esfuerzo del propio viaje. Este apoyo es totalmente independiente de la recaudación de fondos benéficos.',
     section: {
@@ -64,7 +64,7 @@ export const supportMeContent: Record<'en' | 'es' | 'fr', SupportMeLocaleContent
   },
   fr: {
     metaTitle: 'Soutenez-moi',
-    heroTitle: "Soutenez-moi : Participez à l'Effort",
+    heroTitle: "Participez à l'Effort",
     heroIntroMd:
       "Une traversée des Pyrénées en autonomie est un énorme défi logistique. Cette page est destinée aux amis, à la famille et aux membres de la communauté cycliste qui souhaitent contribuer directement à l'effort du voyage lui-même. Ce soutien est entièrement distinct de la collecte de fonds caritative.",
     section: {

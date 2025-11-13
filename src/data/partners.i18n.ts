@@ -24,7 +24,7 @@ export type PartnersLocaleContent = {
 export const partnersContent: Record<'en' | 'es' | 'fr', PartnersLocaleContent> = {
   en: {
     metaTitle: 'Partners',
-    heroTitle: 'Our Partners: The Team Behind the Challenge',
+    heroTitle: 'The Partners Behind the Challenge',
     heroSubtitleMd:
       'This ambitious challenge is only possible thanks to the generous support of our partners. Every contribution—whether financial or in-kind—directly fuels our mission to raise awareness and fund vital research for Guillain-Barré Syndrome. We are incredibly grateful to the following organizations for believing in our journey.',
     sections: [
@@ -43,7 +43,7 @@ export const partnersContent: Record<'en' | 'es' | 'fr', PartnersLocaleContent> 
   },
   es: {
     metaTitle: 'Colaboradores',
-    heroTitle: 'Nuestros Colaboradores: El Equipo Detrás del Reto',
+    heroTitle: 'El Equipo Detrás del Reto',
     heroSubtitleMd:
       'Este ambicioso desafío solo es posible gracias al generoso apoyo de nuestros colaboradores. Cada contribución, ya sea financiera o en especie, impulsa directamente nuestra misión de crear conciencia y financiar la investigación vital para el Síndrome de Guillain-Barré. Estamos increíblemente agradecidos a las siguientes organizaciones por creer en nuestro viaje.',
     sections: [
@@ -62,7 +62,7 @@ export const partnersContent: Record<'en' | 'es' | 'fr', PartnersLocaleContent> 
   },
   fr: {
     metaTitle: 'Partenaires',
-    heroTitle: "Nos Partenaires : L'Équipe Derrière le Défi",
+    heroTitle: "L'Équipe Derrière le Défi",
     heroSubtitleMd:
       "Ce défi ambitieux n'est possible que grâce au soutien généreux de nos partenaires. Chaque contribution, qu'elle soit financière ou en nature, alimente directement notre mission de sensibilisation et de financement de la recherche vitale sur le syndrome de Guillain-Barré. Nous sommes incroyablement reconnaissants envers les organisations suivantes de croire en notre voyage.",
     sections: [

@@ -14,7 +14,7 @@ export type MyStoryLocaleContent = {
 export const myStoryContent: Record<"en" | "es" | "fr", MyStoryLocaleContent> = {
   en: {
     metaTitle: "My Story",
-    heroTitle: "My Story: The Slow Road Back",
+    heroTitle: "The Slow Road Back",
     heroSubtitle: "Hi, I'm Martin. In 2021, Guillain-Barré Syndrome (GBS) changed my life, but it didn't define it. This is my 'Slow Road Back'—my story so far...",
     image: { src: "/mason-bokeh2.jpeg", alt: "Martin and Bike" },
     slides: [
@@ -62,7 +62,7 @@ export const myStoryContent: Record<"en" | "es" | "fr", MyStoryLocaleContent> = 
   },
   es: {
     metaTitle: "Mi Historia",
-    heroTitle: "Mi Historia: El Lento Camino de Regreso",
+    heroTitle: "El Lento Camino de Regreso",
     heroSubtitle: "Un viaje de resiliencia, colaboración y un nuevo propósito.",
     image: { src: "/mason-bokeh2.jpeg", alt: "Martín y su bicicleta" },
     slides: [
@@ -90,7 +90,7 @@ export const myStoryContent: Record<"en" | "es" | "fr", MyStoryLocaleContent> = 
   },
   fr: {
     metaTitle: "Mon Histoire",
-    heroTitle: "Mon Histoire : Le Lent Chemin du Retour",
+    heroTitle: "Le Lent Chemin du Retour",
     heroSubtitle: "Un voyage de résilience, de partenariat et d'un nouvel objectif.",
     image: { src: "/mason-bokeh2.jpeg", alt: "Martin et son vélo" },
     slides: [

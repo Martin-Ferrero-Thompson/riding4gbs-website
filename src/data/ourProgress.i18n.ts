@@ -18,7 +18,7 @@ export type OurProgressLocaleContent = {
 export const ourProgressContent: Record<"en" | "es" | "fr", OurProgressLocaleContent> = {
   en: {
     metaTitle: "Our Progress",
-    heroTitle: "Follow The Journey: Live Progress",
+    heroTitle: "Follow The Journey",
     heroSubtitle: "This page will be updated daily with data from the road.",
     mapHeading: "Live Location Map",
     mapIntro:
@@ -29,7 +29,7 @@ export const ourProgressContent: Record<"en" | "es" | "fr", OurProgressLocaleCon
   },
   es: {
     metaTitle: "Nuestro Progreso",
-    heroTitle: "Sigue el Viaje: Progreso en Vivo",
+    heroTitle: "Sigue el Viaje",
     heroSubtitle: "Esta página se actualizará diariamente con datos desde la carretera.",
     mapHeading: "Mapa de Ubicación en Vivo",
     mapIntro:
@@ -40,7 +40,7 @@ export const ourProgressContent: Record<"en" | "es" | "fr", OurProgressLocaleCon
   },
   fr: {
     metaTitle: "Notre Progression",
-    heroTitle: "Suivez l'Aventure : Progression en Direct",
+    heroTitle: "Suivez l'Aventure",
     heroSubtitle: "Cette page sera mise à jour quotidiennement avec les données de la route.",
     mapHeading: "Carte de Localisation en Direct",
     mapIntro:
