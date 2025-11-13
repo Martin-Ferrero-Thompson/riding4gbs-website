@@ -56,39 +56,49 @@ export function Carousel({ slides, i18n }) {
     <div className="relative w-full mt-10 px-0 md:px-10">
       {/* Add items-start to prevent slides from stretching vertically */}
       <div ref={contentRef} className="flex overflow-x-auto md:overflow-x-hidden snap-x snap-mandatory scroll-smooth items-start">
-        {slides.map((slide, index) => (
-          <div key={index} className="w-full flex-none snap-start md:snap-center">
-            <div className="p-4 md:p-8 bg-gray-50 rounded-lg"> 
-              <h3 className="font-headline font-semibold text-lg md:text-xl lg:text-2xl text-gray-900 mb-4">
-                {slide.title}
-              </h3>
-              <div 
-                className="space-y-4 font-body text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed" 
-                dangerouslySetInnerHTML={{ __html: slide.content }}
-              />
+        {slides.map((slide, index) => {
+          const offset = index - currentIndex;
+          // determine transform and opacity classes based on position relative to current
+          const motionClass = offset === 0
+            ? 'opacity-100 translate-x-0'
+            : offset < 0
+              ? 'opacity-0 -translate-x-6'
+              : 'opacity-0 translate-x-6';
+
+          return (
+            <div key={index} className="w-full flex-none snap-start md:snap-center">
+              <div className={`p-4 md:p-8 bg-gray-50 rounded-lg transition-all ease-in-out duration-700 transform ${motionClass}`}>
+                <h3 className="font-headline font-semibold text-lg md:text-xl lg:text-2xl text-gray-900 mb-4">
+                  {slide.title}
+                </h3>
+                <div 
+                  className="space-y-4 font-body text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed" 
+                  dangerouslySetInnerHTML={{ __html: slide.content }}
+                />
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {/* Buttons remain the same */}
-      <button 
-        onClick={handlePrev} 
+      <button
+        onClick={handlePrev}
         title={labels.previous}
         aria-label={labels.previous}
-        className="hidden md:block absolute top-1/2 left-2 -translate-y-1/2 bg-gray-800/50 hover:bg-gray-800/80 rounded-full p-2 text-white z-10 transition-colors"
+  className="flex absolute top-1/2 left-4 -translate-y-1/2 bg-white/20 hover:bg-white/40 rounded-full w-14 h-14 p-3 items-center justify-center text-brand-blue z-20 transition-colors shadow-lg backdrop-blur-sm ring-1 ring-white/20 focus:outline-none focus:ring-2 focus:ring-white/50"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="6" stroke="currentColor" className="w-8 h-8 drop-shadow-md">
           <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
         </svg>
       </button>
-      <button 
-        onClick={handleNext} 
+      <button
+        onClick={handleNext}
         title={labels.next}
         aria-label={labels.next}
-        className="hidden md:block absolute top-1/2 right-2 -translate-y-1/2 bg-gray-800/50 hover:bg-gray-800/80 rounded-full p-2 text-white z-10 transition-colors"
+  className="flex absolute top-1/2 right-4 -translate-y-1/2 bg-white/20 hover:bg-white/40 rounded-full w-14 h-14 p-3 items-center justify-center text-brand-blue z-20 transition-colors shadow-lg backdrop-blur-sm ring-1 ring-white/20 focus:outline-none focus:ring-2 focus:ring-white/50"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="6" stroke="currentColor" className="w-8 h-8 drop-shadow-md">
           <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
         </svg>
       </button>
