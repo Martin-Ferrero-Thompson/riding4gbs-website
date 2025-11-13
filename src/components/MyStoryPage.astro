@@ -1,8 +1,0 @@
----
-// Backwards-compatibility wrapper: forward props to the new OurStoryPage component
-import OurStoryPage from "./OurStoryPage.astro";
-
-const props = Astro.props;
----
-
-<OurStoryPage {...(props as any)} />
