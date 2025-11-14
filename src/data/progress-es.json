@@ -2,36 +2,36 @@
   "targetDate": "2026-09-30T08:30:00+02:00",
   "days": {
     "label": "Días Completados",
-    "current": 11,
+    "current": 0,
     "total": 21
   },
   "distance": {
     "label": "Distancia Recorrida",
-    "current": 730,
-    "total": 1685,
+    "current": 0,
+    "total": 2000,
     "unit": "km"
   },
   "climbing": {
     "label": "Metros Ascendidos",
-    "current": 17900,
+    "current": 0,
     "total": 34900,
     "unit": "m"
   },
   "summits": {
     "label": "Cumbres conquistadas",
-    "current": 5,
+    "current": 0,
     "total": 20
   },
   "funds_gbp": {
     "label": "Fondos Recaudados para GBS UK",
-    "current": 20,
+    "current": 0,
     "total": 5000,
     "unit": "£",
     "targetLabel": "Objetivo"
   },
   "funds_eur": {
     "label": "Fondos Recaudados para GBS España",
-    "current": 4800,
+    "current": 0,
     "total": 5000,
     "unit": "€",
     "targetLabel": "Objetivo"
@@ -40,6 +40,8 @@
   "funds_eur_fr": {
     "label": "Fondos Recaudados para GBS Francia",
     "current": 0,
-    "unit": "€"
+    "total": 5000,
+    "unit": "€",
+    "targetLabel": "Objetivo"
   }
 }

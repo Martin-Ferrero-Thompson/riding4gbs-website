@@ -2,24 +2,24 @@
   "targetDate": "2026-09-30T08:30:00+02:00",
   "days": {
     "label": "Days Completed",
-    "current": 11,
+    "current": 0,
     "total": 21
   },
   "distance": {
     "label": "Distance Ridden",
-    "current": 730,
-    "total": 1685,
+    "current": 0,
+    "total": 2000,
     "unit": "km"
   },
   "climbing": {
     "label": "Metres Climbed",
-    "current": 17900,
+    "current": 0,
     "total": 34900,
     "unit": "m"
   },
   "summits": {
     "label": "Summits conquered",
-    "current": 5,
+    "current": 0,
     "total": 20
   },
   "funds_gbp": {
