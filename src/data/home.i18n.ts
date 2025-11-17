@@ -77,7 +77,7 @@ export const homeContent: Record<"en" | "es" | "fr", HomeLocaleContent> = {
       heading: "A Message of Support from Inflammatory Neuropathies UK",
       quote:
         "We are absolutely thrilled to see Martin and Edurne embark on 'The Slow Road Back.' Their courage and determination embody the very spirit we champion at Inflammatory Neuropathies UK. This challenge will shine a much-needed light on Guillain-Barré Syndrome, helping us support more individuals and families affected by GBS. Martin, Edurne, we're cheering you on from the UK!",
-      attribution: "Sarah Davies, Head of Patient Advocacy, Inflammatory Neuropathies UK",
+      attribution: "xxxxxxx, Head of Patient Advocacy, Inflammatory Neuropathies UK",
       ctaLabel: "Discover More About Our Work",
       ctaHref: "https://www.inflammatoryneuropathies.uk/",
     },
