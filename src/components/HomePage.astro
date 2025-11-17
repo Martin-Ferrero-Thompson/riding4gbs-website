@@ -2,7 +2,6 @@
 import type { HomeLocaleContent } from "../data/home.i18n";
 import MainLayout from "../layouts/MainLayout.astro";
 import { marked } from "marked";
-import LogoCircleUrl from "../assets/images/LogoGSBCirculo.svg?url";
 import { LogoCarousel } from "./LogoCarousel.jsx";
 import partners from "../data/partners.json";
 
@@ -29,15 +28,6 @@ const heroLogoAlt = {
       <h1 class="hero-title">
         {t.heroTitle}
       </h1>
-      <img
-        src={LogoCircleUrl}
-        alt={heroLogoAlt}
-        class="logo-r4gbs block mx-auto w-16 sm:w-20 md:w-24"
-        decoding="async"
-      />
-      <!-- <p class="font-headline font-semibold text-lg md:text-xl lg:text-3xl text-brand-blue mt-4">
-        #RIDING4GBS
-      </p> -->
 
   <div class="font-body text-base md:text-lg lg:text-xl max-w-4xl mx-auto space-y-6 mt-8 text-left">
         {t.introParagraphsMd.map((md) => (
