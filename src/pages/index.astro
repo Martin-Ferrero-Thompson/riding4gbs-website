@@ -128,7 +128,7 @@ const landingEntries = Object.entries(landingCopy) as Array<[Language, (typeof l
         <img src="/riding4gbs-route.png" alt="The challenge route map" class="rounded-lg shadow-md mb-8 mx-auto w-full h-auto max-w-full md:max-w-3xl object-contain" />
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <a href="/en/" data-astro-reload class="group relative bg-gray-800/50 rounded-xl p-6 flex flex-col text-center transition-transform md:hover:scale-105">
+          <a href="#" data-astro-reload class="group relative bg-gray-800/50 rounded-xl p-6 flex flex-col text-center transition-transform md:hover:scale-105">
             <header class="text-5xl mb-4">{landingFlag.en}</header>
             <main class="flex-grow text-gray-200">
               <h2 class="font-display font-bold text-xl mb-2 text-white">Ride for GBS Research</h2>
@@ -141,7 +141,7 @@ const landingEntries = Object.entries(landingCopy) as Array<[Language, (typeof l
               <p class="font-sans font-bold text-base md:text-lg">Click to enter the English site</p>
             </div>
           </a>
-          <a href="/es/" data-astro-reload class="group relative bg-gray-800/50 rounded-xl p-6 flex flex-col text-center transition-transform md:hover:scale-105">
+          <a href="#" data-astro-reload class="group relative bg-gray-800/50 rounded-xl p-6 flex flex-col text-center transition-transform md:hover:scale-105">
             <header class="text-5xl mb-4">{landingFlag.es}</header>
             <main class="flex-grow text-gray-200">
               <h2 class="font-display font-bold text-xl mb-2 text-white">Pedaleando por la investigación del SGB</h2>
@@ -197,7 +197,7 @@ const landingEntries = Object.entries(landingCopy) as Array<[Language, (typeof l
         };
         const dict: Record<"en" | "es", I18n> = {
           en: {
-            begins: (dateStr: string) => `The challenge begins on ${dateStr}`,
+            begins: (dateStr: string) => `The challenge website opens on ${dateStr}`,
             underway: "The ride is underway! Follow the progress.",
             units: {
               year: ["Year", "Years"],
