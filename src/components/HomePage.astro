@@ -8,9 +8,10 @@ import partners from "../data/partners.json";
 export interface Props {
   lang: "en" | "es" | "fr";
   t: HomeLocaleContent;
+  tEu?: HomeLocaleContent;
 }
 
-const { lang, t } = Astro.props as Props;
+const { lang, t, tEu } = Astro.props as Props;
 
 const heroLogoAlt = {
   en: "Riding4GBS circular logo",
@@ -25,79 +26,162 @@ const heroLogoAlt = {
       class="page-card-dark text-center max-w-6xl w-full relative"
     >
 
-      <h1 class="hero-title">
+      <h1 class="hero-title" data-lang={lang}>
         {t.heroTitle}
       </h1>
+      {tEu && (
+        <h1 class="hero-title hidden" data-lang="eu">
+          {tEu.heroTitle}
+        </h1>
+      )}
 
-  <div class="font-body text-base md:text-lg lg:text-xl max-w-4xl mx-auto space-y-6 mt-8 text-left">
+      <div class="font-body text-base md:text-lg lg:text-xl max-w-4xl mx-auto space-y-6 mt-8 text-left" data-lang={lang}>
         {t.introParagraphsMd.map((md) => (
           <div set:html={marked.parse(md)} />
         ))}
-        {t.supportMessage ? (
-          <div class="support-message bg-gray-50 py-12 sm:py-16 rounded-lg relative overflow-hidden">
-            <!-- Watermark (on top): To Be Replaced By Charity -->
-            <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-30" aria-hidden="true">
-              <span class="transform -rotate-45 text-gray-900 opacity-70 font-bold whitespace-nowrap text-3xl sm:text-4xl md:text-4xl lg:text-5xl">
-                {t.watermarkText}
+      </div>
+      {tEu && (
+        <div class="font-body text-base md:text-lg lg:text-xl max-w-4xl mx-auto space-y-6 mt-8 text-left hidden" data-lang="eu">
+          {tEu.introParagraphsMd.map((md) => (
+            <div set:html={marked.parse(md)} />
+          ))}
+        </div>
+      )}
+
+      {t.supportMessage ? (
+        <div class="support-message bg-gray-50 py-12 sm:py-16 rounded-lg relative overflow-hidden">
+          <!-- Watermark (on top): To Be Replaced By Charity -->
+          <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-30" aria-hidden="true">
+            <span class="transform -rotate-45 text-gray-900 opacity-70 font-bold whitespace-nowrap text-3xl sm:text-4xl md:text-4xl lg:text-5xl" data-lang={lang}>
+              {t.watermarkText}
+            </span>
+            {tEu && (
+              <span class="transform -rotate-45 text-gray-900 opacity-70 font-bold whitespace-nowrap text-3xl sm:text-4xl md:text-4xl lg:text-5xl hidden" data-lang="eu">
+                {tEu.watermarkText}
               </span>
-            </div>
-
-            <!-- Decorative opening quote removed — using inline typographic quotes in the blockquote instead -->
-
-            <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-20">
-              <h2 class="font-display font-semibold text-brand-blue tracking-wide leading-tight text-2xl md:text-3xl lg:text-4xl">{t.supportMessage.heading}</h2>
-
-              <blockquote class="mt-6 italic text-gray-700 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">&ldquo;{t.supportMessage.quote}&rdquo;</blockquote>
-
-              <p class="mt-6 text-sm text-gray-500">{t.supportMessage.attribution}</p>
-
-              <div class="mt-6">
-                <a href={t.supportMessage.ctaHref || "#"} target="_blank" rel="noopener noreferrer" class="inline-block bg-brand-blue text-white px-5 py-2.5 rounded-md shadow hover:bg-brand-blue-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-blue-light" aria-label={t.supportMessage.ctaLabel}>
-                  {t.supportMessage.ctaLabel}
-                </a>
-              </div>
-            </div>
-
-            <!-- Decorative closing quote removed — using inline typographic quotes in the blockquote instead -->
+            )}
           </div>
-        ) : (
-          <div class="support-message bg-gray-50 py-16 sm:py-24 rounded-lg">
-            <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-              <h2 class="font-display font-semibold text-blue-600 uppercase tracking-wide leading-tight text-3xl md:text-4xl lg:text-5xl">
-                {t.hometownPartnerHeading}
-              </h2>
 
-              <div class="mt-8">
+          <!-- Decorative opening quote removed — using inline typographic quotes in the blockquote instead -->
+
+          <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-20">
+            <h2 class="font-display font-semibold text-brand-blue tracking-wide leading-tight text-2xl md:text-3xl lg:text-4xl" data-lang={lang}>{t.supportMessage.heading}</h2>
+            {tEu && tEu.supportMessage && <h2 class="font-display font-semibold text-brand-blue tracking-wide leading-tight text-2xl md:text-3xl lg:text-4xl hidden" data-lang="eu">{tEu.supportMessage.heading}</h2>}
+
+            <blockquote class="mt-6 italic text-gray-700 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto" data-lang={lang}>&ldquo;{t.supportMessage.quote}&rdquo;</blockquote>
+            {tEu && tEu.supportMessage && <blockquote class="mt-6 italic text-gray-700 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto hidden" data-lang="eu">&ldquo;{tEu.supportMessage.quote}&rdquo;</blockquote>}
+
+            <p class="mt-6 text-sm text-gray-500" data-lang={lang}>{t.supportMessage.attribution}</p>
+            {tEu && tEu.supportMessage && <p class="mt-6 text-sm text-gray-500 hidden" data-lang="eu">{tEu.supportMessage.attribution}</p>}
+
+            <div class="mt-6">
+              <a href={t.supportMessage.ctaHref || "#"} target="_blank" rel="noopener noreferrer" class="inline-block bg-brand-blue text-white px-5 py-2.5 rounded-md shadow hover:bg-brand-blue-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-blue-light" aria-label={t.supportMessage.ctaLabel} data-lang={lang}>
+                {t.supportMessage.ctaLabel}
+              </a>
+              {tEu && tEu.supportMessage && (
+                <a href={tEu.supportMessage.ctaHref || "#"} target="_blank" rel="noopener noreferrer" class="inline-block bg-brand-blue text-white px-5 py-2.5 rounded-md shadow hover:bg-brand-blue-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-blue-light hidden" aria-label={tEu.supportMessage.ctaLabel} data-lang="eu">
+                  {tEu.supportMessage.ctaLabel}
+                </a>
+              )}
+            </div>
+          </div>
+
+          <!-- Decorative closing quote removed — using inline typographic quotes in the blockquote instead -->
+        </div>
+      ) : (
+        <div class="support-message bg-gray-50 py-16 sm:py-24 rounded-lg">
+          <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+            <h2 class="font-display font-semibold text-blue-600 uppercase tracking-wide leading-tight text-3xl md:text-4xl lg:text-5xl" data-lang={lang}>
+              {t.hometownPartnerHeading}
+            </h2>
+            {tEu && (
+              <h2 class="font-display font-semibold text-blue-600 uppercase tracking-wide leading-tight text-3xl md:text-4xl lg:text-5xl hidden" data-lang="eu">
+                {tEu.hometownPartnerHeading}
+              </h2>
+            )}
+
+            <div class="mt-8">
+              <a
+                href="https://cyclabikes.es/"
+                target="_blank"
+                rel="noopener noreferrer"
+                title={t.partnerLinkTitle}
+                data-lang={lang}
+              >
+                <img
+                  src="/partners/logo-cycla-bikes.png"
+                  alt={t.partnerLogoAlt}
+                  class="h-16 sm:h-20 mx-auto object-contain transition-transform duration-300 hover:scale-110"
+                />
+              </a>
+              {tEu && (
                 <a
                   href="https://cyclabikes.es/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  title={t.partnerLinkTitle}
+                  title={tEu.partnerLinkTitle}
+                  class="hidden"
+                  data-lang="eu"
                 >
                   <img
                     src="/partners/logo-cycla-bikes.png"
-                    alt={t.partnerLogoAlt}
+                    alt={tEu.partnerLogoAlt}
                     class="h-16 sm:h-20 mx-auto object-contain transition-transform duration-300 hover:scale-110"
                   />
                 </a>
-              </div>
-
-              <div
-                class="mt-6 text-lg leading-8 text-gray-600 max-w-2xl mx-auto"
-                set:html={marked.parse(t.hometownPartnerDescriptionMd)}
-              />
+              )}
             </div>
-          </div>
-        )}
 
-        <div class="mt-8 md:mt-12">
-          <p class="font-headline font-semibold text-lg md:text-xl lg:text-2xl text-center">{t.supportersHeading}</p>
-          <div class="mt-4">
-            <!-- Reuse existing LogoCarousel and show only Pirineo partners -->
-            <LogoCarousel client:visible partners={partners.pirineoPartners} />
+            <div
+              class="mt-6 text-lg leading-8 text-gray-600 max-w-2xl mx-auto"
+              data-lang={lang}
+              set:html={marked.parse(t.hometownPartnerDescriptionMd)}
+            />
+            {tEu && (
+              <div
+                class="mt-6 text-lg leading-8 text-gray-600 max-w-2xl mx-auto hidden"
+                data-lang="eu"
+                set:html={marked.parse(tEu.hometownPartnerDescriptionMd)}
+              />
+            )}
           </div>
+        </div>
+      )}
+
+      <div class="mt-8 md:mt-12">
+        <p class="font-headline font-semibold text-lg md:text-xl lg:text-2xl text-center" data-lang={lang}>{t.supportersHeading}</p>
+        {tEu && <p class="font-headline font-semibold text-lg md:text-xl lg:text-2xl text-center hidden" data-lang="eu">{tEu.supportersHeading}</p>}
+        <div class="mt-4">
+          <!-- Reuse existing LogoCarousel and show only Pirineo partners -->
+          <LogoCarousel client:visible partners={partners.pirineoPartners} />
         </div>
       </div>
     </div>
   </div>
 </MainLayout>
+
+<script>
+  import { readStoredLanguage } from "../utils/language";
+
+  async function updateLanguage() {
+    const lang = await readStoredLanguage();
+    const baseLang = document.querySelector('h1.hero-title[data-lang]:not([data-lang="eu"])')?.getAttribute('data-lang');
+    
+    if (baseLang) {
+        const elements = document.querySelectorAll('[data-lang]');
+        elements.forEach(el => {
+            const elLang = el.getAttribute('data-lang');
+            if (lang === 'eu') {
+                if (elLang === 'eu') el.classList.remove('hidden');
+                if (elLang === baseLang) el.classList.add('hidden');
+            } else {
+                if (elLang === 'eu') el.classList.add('hidden');
+                if (elLang === baseLang) el.classList.remove('hidden');
+            }
+        });
+    }
+  }
+
+  updateLanguage();
+  document.addEventListener('language-change', updateLanguage);
+</script>

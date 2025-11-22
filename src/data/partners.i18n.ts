@@ -21,7 +21,7 @@ export type PartnersLocaleContent = {
   cta: PartnersCta;
 };
 
-export const partnersContent: Record<'en' | 'es' | 'fr', PartnersLocaleContent> = {
+export const partnersContent: Record<'en' | 'es' | 'fr' | 'eu', PartnersLocaleContent> = {
   en: {
     metaTitle: 'Partners',
     heroTitle: 'The Partners Behind the Challenge',
@@ -76,6 +76,25 @@ export const partnersContent: Record<'en' | 'es' | 'fr', PartnersLocaleContent> 
       bodyMd:
         "Associez votre marque à une histoire internationale puissante de résilience, d'espoir et d'endurance. Nous offrons une occasion unique de présenter vos produits et services à un public engagé en Espagne, au Royaume-Uni et au-delà. En vous associant à nous, vous ne parrainez pas seulement une randonnée à vélo ; vous financez un remède et inspirez une communauté.",
       buttonLabel: 'Télécharger le Dossier de Partenariat',
+      buttonHref: '#',
+    },
+  },
+  eu: {
+    metaTitle: 'Laguntzaileak',
+    heroTitle: 'Erronkaren Atzean Dagoen Taldea',
+    heroSubtitleMd:
+      'Erronka handinahi hau gure laguntzaileen babes eskuzabalari esker bakarrik da posible. Ekarpen bakoitzak —finantzarioa edo gauzazkoa— zuzenean bultzatzen du gure misioa: kontzientzia sortzea eta Guillain-Barré Sindromearentzako funtsezko ikerketa finantzatzea. Izugarri eskertuta gaude ondorengo erakundeei gure bidaian sinesteagatik.',
+    sections: [
+      { key: 'pirineoPartners', heading: 'Pirinioetako Laguntzaileak' },
+      { key: 'cimaSupporters', heading: 'Cima Babesleak' },
+      { key: 'amigosDelReto', heading: 'Erronkaren Lagunak' },
+    ],
+    showDividerBeforeCta: true,
+    cta: {
+      heading: 'Bihurtu Laguntzaile: Batu Bidaiara',
+      bodyMd:
+        'Lotu zure marka erresilientzia, itxaropen eta erresistentzia istorio indartsu eta nazioarteko batekin. Aukera paregabea eskaintzen dugu zure produktuak eta zerbitzuak Espainian, Erresuma Batuan eta haratago konprometitutako audientzia bati erakusteko. Gurekin lankidetzan arituz, ez zara bizikleta ibilaldi bat babesten ari soilik; sendabide bat finantzatzen eta komunitate bat inspiratzen ari zara.',
+      buttonLabel: 'Deskargatu Lankidetza Txostena',
       buttonHref: '#',
     },
   },

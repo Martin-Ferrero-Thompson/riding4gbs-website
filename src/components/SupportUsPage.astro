@@ -6,66 +6,200 @@ import type { SupportUsLocaleContent } from "../data/supportUs.i18n";
 import { marked } from "marked";
 
 export interface Props {
-  lang: 'en' | 'es' | 'fr';
+  lang: "en" | "es" | "fr";
   t: SupportUsLocaleContent;
+  tEu?: SupportUsLocaleContent;
 }
 
-const { t } = Astro.props as Props;
+const { t, tEu } = Astro.props as Props;
 // Precompute HTML strings from Markdown (marked.parse can be async)
 const heroIntroHtml = await marked.parse(t.heroIntroMd);
 const sectionBodyHtml = await marked.parse(t.section.bodyMd);
 const carouselFooterHtml = await marked.parse(t.carousel.footerMd);
-const koFiUrl = t.cta?.url && t.cta.url.trim().length > 0 ? t.cta.url : undefined;
+const koFiUrl =
+  t.cta?.url && t.cta.url.trim().length > 0 ? t.cta.url : undefined;
+
+// Precompute EU HTML strings
+const heroIntroHtmlEu = tEu ? await marked.parse(tEu.heroIntroMd) : "";
+const sectionBodyHtmlEu = tEu ? await marked.parse(tEu.section.bodyMd) : "";
+const carouselFooterHtmlEu = tEu
+  ? await marked.parse(tEu.carousel.footerMd)
+  : "";
+const koFiUrlEu =
+  tEu?.cta?.url && tEu.cta.url.trim().length > 0 ? tEu.cta.url : undefined;
+
 const hasSupporters = Array.isArray(supporters) && supporters.length > 0;
 ---
+
 <MainLayout title={t.metaTitle}>
   <div
     transition:name="support-us-card"
     class="page-card-dark max-w-6xl w-full mx-auto font-body"
   >
     <div class="text-center">
-      <h1 class="hero-title text-white">
+      <h1 class="hero-title text-white" data-lang={Astro.props.lang}>
         {t.heroTitle}
       </h1>
-  <p class="mt-4 max-w-3xl mx-auto font-body text-base md:text-lg lg:text-xl text-gray-300 text-left" set:html={heroIntroHtml} />
+      {
+        tEu && (
+          <h1 class="hero-title text-white hidden" data-lang="eu">
+            {tEu.heroTitle}
+          </h1>
+        )
+      }
+
+      <div
+        class="mt-4 max-w-3xl mx-auto font-body text-base md:text-lg lg:text-xl text-gray-300 text-left"
+        data-lang={Astro.props.lang}
+        set:html={heroIntroHtml}
+      />
+      {
+        tEu && (
+          <div
+            class="mt-4 max-w-3xl mx-auto font-body text-base md:text-lg lg:text-xl text-gray-300 text-left hidden"
+            data-lang="eu"
+            set:html={heroIntroHtmlEu}
+          />
+        )
+      }
     </div>
 
-  <hr class="my-12 border-white/20 w-48 mx-auto" />
+    <hr class="my-12 border-white/20 w-48 mx-auto" />
 
     <div class="text-center max-w-3xl mx-auto">
-      <h2 class="font-headline font-semibold text-lg md:text-xl lg:text-2xl text-white">
+      <h2
+        class="font-headline font-semibold text-lg md:text-xl lg:text-2xl text-white"
+        data-lang={Astro.props.lang}
+      >
         {t.section.heading}
       </h2>
-  <p class="mt-4 font-body text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed text-left" set:html={sectionBodyHtml} />
+      {
+        tEu && (
+          <h2
+            class="font-headline font-semibold text-lg md:text-xl lg:text-2xl text-white hidden"
+            data-lang="eu"
+          >
+            {tEu.section.heading}
+          </h2>
+        )
+      }
+
+      <div
+        class="mt-4 font-body text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed text-left"
+        data-lang={Astro.props.lang}
+        set:html={sectionBodyHtml}
+      />
+      {
+        tEu && (
+          <div
+            class="mt-4 font-body text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed text-left hidden"
+            data-lang="eu"
+            set:html={sectionBodyHtmlEu}
+          />
+        )
+      }
     </div>
 
-    {hasSupporters && (
-      <div class="my-12">
-        {/** Cast props to any to avoid editor JSX prop type narrowing on .jsx import */}
-        <SupportersCarousel 
-          client:visible 
-          supporters={supporters as any}
-          title={t.carousel.title as any}
-          footerHtml={carouselFooterHtml as any}
-        />
-      </div>
-    )}
+    {
+      hasSupporters && (
+        <div class="my-12">
+          {/** Cast props to any to avoid editor JSX prop type narrowing on .jsx import */}
+          <div data-lang={Astro.props.lang}>
+            <SupportersCarousel
+              client:load
+              supporters={supporters as any}
+              title={t.carousel.title as any}
+              footerHtml={carouselFooterHtml as any}
+            />
+          </div>
+          {tEu && (
+            <div data-lang="eu" class="hidden">
+              <SupportersCarousel
+                client:load
+                supporters={supporters as any}
+                title={tEu.carousel.title as any}
+                footerHtml={carouselFooterHtmlEu as any}
+              />
+            </div>
+          )}
+        </div>
+      )
+    }
 
-    {koFiUrl ? (
-      <div class="text-center max-w-3xl mx-auto">
-        <a 
-          href={koFiUrl}
-          target="_blank" 
-          rel="noopener noreferrer"
-          class="inline-block px-8 py-3 bg-brand-blue hover:bg-blue-700 text-white font-bold text-lg rounded-full transition-transform transform hover:scale-105"
+    {
+      koFiUrl ? (
+        <div class="text-center max-w-3xl mx-auto" data-lang={Astro.props.lang}>
+          <a
+            href={koFiUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block px-8 py-3 bg-brand-blue hover:bg-blue-700 text-white font-bold text-lg rounded-full transition-transform transform hover:scale-105"
+          >
+            {t.cta.label}
+          </a>
+        </div>
+      ) : (
+        <div
+          class="text-center max-w-3xl mx-auto mt-4"
+          data-lang={Astro.props.lang}
         >
-          {t.cta.label}
-        </a>
-      </div>
-    ) : (
-      <div class="text-center max-w-3xl mx-auto mt-4">
-  <p class="text-gray-300 text-sm" set:html={t.cta?.missingMd ?? ''} />
-      </div>
-    )}
+          <div
+            class="text-gray-300 text-sm"
+            set:html={t.cta?.missingMd ?? ""}
+          />
+        </div>
+      )
+    }
+
+    {
+      tEu &&
+        (koFiUrlEu ? (
+          <div class="text-center max-w-3xl mx-auto hidden" data-lang="eu">
+            <a
+              href={koFiUrlEu}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-block px-8 py-3 bg-brand-blue hover:bg-blue-700 text-white font-bold text-lg rounded-full transition-transform transform hover:scale-105"
+            >
+              {tEu.cta.label}
+            </a>
+          </div>
+        ) : (
+          <div class="text-center max-w-3xl mx-auto mt-4 hidden" data-lang="eu">
+            <div
+              class="text-gray-300 text-sm"
+              set:html={tEu.cta?.missingMd ?? ""}
+            />
+          </div>
+        ))
+    }
   </div>
 </MainLayout>
+
+<script>
+  import { readStoredLanguage } from "../utils/language";
+
+  async function updateLanguage() {
+    const lang = await readStoredLanguage();
+    const baseLang = document
+      .querySelector('h1.hero-title[data-lang]:not([data-lang="eu"])')
+      ?.getAttribute("data-lang");
+
+    if (baseLang) {
+      const elements = document.querySelectorAll("[data-lang]");
+      elements.forEach((el) => {
+        const elLang = el.getAttribute("data-lang");
+        if (lang === "eu") {
+          if (elLang === "eu") el.classList.remove("hidden");
+          if (elLang === baseLang) el.classList.add("hidden");
+        } else {
+          if (elLang === "eu") el.classList.add("hidden");
+          if (elLang === baseLang) el.classList.remove("hidden");
+        }
+      });
+    }
+  }
+
+  updateLanguage();
+  document.addEventListener("language-change", updateLanguage);
+</script>

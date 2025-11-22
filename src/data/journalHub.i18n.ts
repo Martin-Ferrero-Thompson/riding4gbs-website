@@ -12,7 +12,7 @@ export type JournalHubLocaleContent = {
   dates: JournalHubDates;
 };
 
-export const journalHubContent: Record<"en" | "es" | "fr", JournalHubLocaleContent> = {
+export const journalHubContent: Record<"en" | "es" | "fr" | "eu", JournalHubLocaleContent> = {
   en: {
     metaTitle: "Journal Hub | Riding4GBS",
     heroTitle: "Journal Hub",
@@ -39,5 +39,14 @@ export const journalHubContent: Record<"en" | "es" | "fr", JournalHubLocaleConte
     featuredHeading: "Mise à Jour en Vedette",
     latestHeading: "Dernières Mises à Jour",
     dates: { featuredLocale: "fr-FR", listLocale: "fr-FR" },
+  },
+  eu: {
+    metaTitle: "Egunkari Zentroa | Riding4GBS",
+    heroTitle: "Egunkari Zentroa",
+    heroSubtitle:
+      "Jarraitu eguneroko aurrerapena errepidetik, eguneraketekin, argazkiekin eta bidaiaren istorioekin.",
+    featuredHeading: "Eguneraketa Nabarmena",
+    latestHeading: "Azken Eguneraketak",
+    dates: { featuredLocale: "eu-ES", listLocale: "eu-ES" },
   },
 };

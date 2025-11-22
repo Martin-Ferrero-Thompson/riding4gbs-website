@@ -7,7 +7,7 @@ export type LatestNewsLocaleContent = {
   placeholderBody: string;
 };
 
-export const latestNewsContent: Record<"en" | "es" | "fr", LatestNewsLocaleContent> = {
+export const latestNewsContent: Record<"en" | "es" | "fr" | "eu", LatestNewsLocaleContent> = {
   en: {
     metaTitle: "Latest News | Riding4GBS",
     heroTitle: "Latest News",
@@ -31,5 +31,13 @@ export const latestNewsContent: Record<"en" | "es" | "fr", LatestNewsLocaleConte
     updatesHeading: "Faits marquants récents",
     placeholderHeading: "La page Actualités prend vie",
     placeholderBody: "Le contenu apparaîtra ici au fur et à mesure des annonces officielles et de la couverture médiatique. Restez à l'écoute pour les étapes du parcours, les réussites de collecte et les mentions dans la presse.",
+  },
+  eu: {
+    metaTitle: "Azken Albisteak | Riding4GBS",
+    heroTitle: "Azken Albisteak",
+    heroSubtitle: "Riding4GBS bidaiaren iragarpen nagusiak eta mugarrien eguneraketak.",
+    updatesHeading: "Azken Nabarmentzeak",
+    placeholderHeading: "Albisteen Orria Bizitzen Ari Da",
+    placeholderBody: "Edukia hemen agertuko da iragarpen ofizialak eta hedabideen estaldura argitaratu ahala. Egon adi bidaiaren mugarriei, diru-bilketaren lorpen-ei eta prentsa-aipamenei.",
   },
 };

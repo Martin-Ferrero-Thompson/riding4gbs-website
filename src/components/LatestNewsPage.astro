@@ -5,9 +5,10 @@ import type { LatestNewsLocaleContent } from "../data/latestNews.i18n";
 export interface Props {
   lang: "en" | "es" | "fr";
   t: LatestNewsLocaleContent;
+  tEu?: LatestNewsLocaleContent;
 }
 
-const { t } = Astro.props as Props;
+const { lang, t, tEu } = Astro.props as Props;
 ---
 
 <MainLayout title={t.metaTitle}>
@@ -16,25 +17,97 @@ const { t } = Astro.props as Props;
     class="page-card-dark max-w-6xl w-full mx-auto font-body"
   >
     <div class="text-center">
-      <h1 class="hero-title text-white">
+      <h1 class="hero-title text-white" data-lang={lang}>
         {t.heroTitle}
       </h1>
-      <p class="mt-3 md:mt-4 max-w-3xl mx-auto text-center font-body text-base md:text-lg lg:text-xl text-gray-300">
+      {
+        tEu && (
+          <h1 class="hero-title text-white hidden" data-lang="eu">
+            {tEu.heroTitle}
+          </h1>
+        )
+      }
+      <p
+        class="mt-3 md:mt-4 max-w-3xl mx-auto text-center font-body text-base md:text-lg lg:text-xl text-gray-300"
+        data-lang={lang}
+      >
         {t.heroSubtitle}
       </p>
+      {
+        tEu && (
+          <p
+            class="mt-3 md:mt-4 max-w-3xl mx-auto text-center font-body text-base md:text-lg lg:text-xl text-gray-300 hidden"
+            data-lang="eu"
+          >
+            {tEu.heroSubtitle}
+          </p>
+        )
+      }
     </div>
 
     <div class="mt-10 md:mt-12">
-      <h2 class="font-headline font-semibold text-lg md:text-xl lg:text-2xl border-b border-white/20 pb-2 mb-6 text-white">{t.updatesHeading}</h2>
+      <h2
+        class="font-headline font-semibold text-lg md:text-xl lg:text-2xl border-b border-white/20 pb-2 mb-6 text-white"
+        data-lang={lang}
+      >
+        {t.updatesHeading}
+      </h2>
+      {
+        tEu && (
+          <h2
+            class="font-headline font-semibold text-lg md:text-xl lg:text-2xl border-b border-white/20 pb-2 mb-6 text-white hidden"
+            data-lang="eu"
+          >
+            {tEu.updatesHeading}
+          </h2>
+        )
+      }
 
       <div class="grid md:grid-cols-2 gap-6 md:gap-8">
         <div class="bg-gray-800 text-white rounded-xl shadow-lg p-5 md:p-6">
-          <h3 class="font-headline font-semibold text-lg md:text-xl lg:text-2xl text-brand-blue">{t.placeholderHeading}</h3>
-          <p class="mt-3 text-base md:text-lg lg:text-xl text-gray-300">{t.placeholderBody}</p>
+          <h3
+            class="font-headline font-semibold text-lg md:text-xl lg:text-2xl text-brand-blue"
+            data-lang={lang}
+          >
+            {t.placeholderHeading}
+          </h3>
+          {
+            tEu && (
+              <h3
+                class="font-headline font-semibold text-lg md:text-xl lg:text-2xl text-brand-blue hidden"
+                data-lang="eu"
+              >
+                {tEu.placeholderHeading}
+              </h3>
+            )
+          }
+
+          <p
+            class="mt-3 text-base md:text-lg lg:text-xl text-gray-300"
+            data-lang={lang}
+          >
+            {t.placeholderBody}
+          </p>
+          {
+            tEu && (
+              <p
+                class="mt-3 text-base md:text-lg lg:text-xl text-gray-300 hidden"
+                data-lang="eu"
+              >
+                {tEu.placeholderBody}
+              </p>
+            )
+          }
         </div>
         <div class="bg-gray-800 text-white rounded-xl shadow-lg p-5 md:p-6">
-          <h3 class="font-headline font-semibold text-lg md:text-xl lg:text-2xl text-brand-blue">FAQ</h3>
-          <ul class="mt-3 space-y-2 text-base md:text-lg lg:text-xl text-gray-300 list-disc list-inside">
+          <h3
+            class="font-headline font-semibold text-lg md:text-xl lg:text-2xl text-brand-blue"
+          >
+            FAQ
+          </h3>
+          <ul
+            class="mt-3 space-y-2 text-base md:text-lg lg:text-xl text-gray-300 list-disc list-inside"
+          >
             <li>Media assets and press kit will be linked here.</li>
             <li>Key dates and milestones will appear as cards.</li>
             <li>We keep this page lightweight: no JS required.</li>
@@ -44,3 +117,31 @@ const { t } = Astro.props as Props;
     </div>
   </div>
 </MainLayout>
+
+<script>
+  import { readStoredLanguage } from "../utils/language";
+
+  async function updateLanguage() {
+    const lang = await readStoredLanguage();
+    const baseLang = document
+      .querySelector('h1.hero-title[data-lang]:not([data-lang="eu"])')
+      ?.getAttribute("data-lang");
+
+    if (baseLang) {
+      const elements = document.querySelectorAll("[data-lang]");
+      elements.forEach((el) => {
+        const elLang = el.getAttribute("data-lang");
+        if (lang === "eu") {
+          if (elLang === "eu") el.classList.remove("hidden");
+          if (elLang === baseLang) el.classList.add("hidden");
+        } else {
+          if (elLang === "eu") el.classList.add("hidden");
+          if (elLang === baseLang) el.classList.remove("hidden");
+        }
+      });
+    }
+  }
+
+  updateLanguage();
+  document.addEventListener("language-change", updateLanguage);
+</script>

@@ -18,7 +18,7 @@ export type ChallengeLocaleContent = {
   legs: ChallengeLeg[]; // expect 2 entries
 };
 
-export const challengeContent: Record<"en" | "es" | "fr", ChallengeLocaleContent> = {
+export const challengeContent: Record<"en" | "es" | "fr" | "eu", ChallengeLocaleContent> = {
   en: {
     metaTitle: "The Challenge | Riding4GBS",
     heroTitle: "To Conquer the Pyrenees",
@@ -97,6 +97,33 @@ export const challengeContent: Record<"en" | "es" | "fr", ChallengeLocaleContent
         title: "Étape 2 : Le Retour à la Maison",
         bodyMd:
           "Une fois la côte atteinte, l'objectif est de repartir vers l'ouest pour commencer le long voyage de retour. C'est un test d'endurance et de résilience. L'itinéraire de retour se concentrera sur le côté espagnol, en s'attaquant aux routes longues, isolées et magnifiques des Pré-Pyrénées en Catalogne, en Aragón et enfin en Navarre. Les ascensions sont moins raides mais tout aussi implacables, exigeant un autre type de force pour le long chemin du retour.",
+      },
+    ],
+  },
+  eu: {
+    metaTitle: "Erronka | Riding4GBS",
+    heroTitle: "Pirinioak Konkistatzeko",
+    heroDescriptionMd:
+      "Hau bizikleta ibilaldi bat baino gehiago da; gure istorio partekatuaren hurrengo kapitulua da. Edurnek nire SGB bidaiaren pauso bakoitzean emandako laguntza etengabearen lekuko, hau da gure erronka: munduko mendikate zailenetako baten kostaldetik kostalderako zeharkaldi osoa.",
+    stats: [
+      { value: "~21", label: "Egun Guztira" },
+      { value: "~2,000", label: "Kilometro" },
+      { value: "~38,000", label: "Igoera Metroak" },
+      { value: "~4.5x", label: "Everest-en Altuera" },
+    ],
+    styleHeading: "Estiloa: Bidaia Partekatu Bat",
+    styleBodyMd:
+      "Erronka hau talde gisa egingo dugun bidaia da, elkarren ondoan. Autosufizientzian pedaleatuko dugu, gure ekipamendu guztia eramanez eta bidean aurkitzen dugun komunitatearen adeitasunean konfiantza izanez. Ohore eta motibazio handia izango litzateke tokiko txirrindulariak gurekin kilometro batzuetan batzea edo mendate klasiko batean ahalegina partekatzea. Bidaia hau komunitateari buruzkoa da, eta parte izan nahi duen edonori ongi etorria ematen diogu.",
+    legs: [
+      {
+        title: "Frantziar Erasoa",
+        bodyMd:
+          "Gure bidaia erraldoiei aurre eginez hasten da. Erronkaren lehen etapa Frantziako Pirinioetako igoera mitikoen aurkako eraso etengabea da. Frantziako Tourraren bidea jarraituz, etapa honetan Frantziara gurutzatuko dugu Col d'Aubisque eta Col du Tourmalet bezalako ikonoak konkistatzeko Mediterraneorako bide luzean.",
+      },
+      {
+        title: "Espainiar Etxeratzea",
+        bodyMd:
+          "Mediterraneora iritsi ondoren, bidaia mendebalderantz itzultzen da etxera bide luzerako. Hau erresistentzia eta bihotz proba bat da, mendien Espainiako aldean murgiltze sakona. Gure ibilbidea Katalunia, Aragoi eta, azkenik, Nafarroako errepide luze, urrun eta ederretan zentratuko da. Igoerak ez dira hain aldapatsuak baina bai etengabeak, Atlantikorako itzulerako bidaiarako beste indar mota bat eskatuz.",
       },
     ],
   },

@@ -15,7 +15,7 @@ export type OurProgressLocaleContent = {
   format: OurProgressFormat;
 };
 
-export const ourProgressContent: Record<"en" | "es" | "fr", OurProgressLocaleContent> = {
+export const ourProgressContent: Record<"en" | "es" | "fr" | "eu", OurProgressLocaleContent> = {
   en: {
     metaTitle: "Our Progress",
     heroTitle: "Follow The Journey",
@@ -48,5 +48,16 @@ export const ourProgressContent: Record<"en" | "es" | "fr", OurProgressLocaleCon
     mapImageAlt: "La carte de l'itinéraire du défi.",
     numbersHeading: "Les Chiffres",
     format: { gbpLocale: "en-GB", eurLocale: "fr-FR", climbingNumberLocale: "fr-FR" },
+  },
+  eu: {
+    metaTitle: "Gure Aurrerapena",
+    heroTitle: "Jarraitu Bidaia",
+    heroSubtitle: "Orrialde hau egunero eguneratuko da errepideko datuekin.",
+    mapHeading: "Zuzeneko Kokapen Mapa",
+    mapIntro:
+      "Mapa honek orain arte osatutako ibilbidea erakusten du. Itzuli egunero nire aurrerapena Pirinioetan zehar ikusteko!",
+    mapImageAlt: "Erronkaren ibilbide mapa.",
+    numbersHeading: "Zenbakiak",
+    format: { gbpLocale: "en-GB", eurLocale: "es-ES" },
   },
 };

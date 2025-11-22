@@ -17,7 +17,7 @@ export type SupportUsLocaleContent = {
   };
 };
 
-export const supportUsContent: Record<'en' | 'es' | 'fr', SupportUsLocaleContent> = {
+export const supportUsContent: Record<'en' | 'es' | 'fr' | 'eu', SupportUsLocaleContent> = {
   en: {
     metaTitle: 'Support Us',
     heroTitle: 'Be Part of the Effort',
@@ -82,6 +82,28 @@ export const supportUsContent: Record<'en' | 'es' | 'fr', SupportUsLocaleContent
       url: 'https://Ko-fi.com/riding4gbs',
       missingMd:
         "CTA à venir. En attendant, contactez-nous si vous souhaitez contribuer directement au soutien du voyage.",
+    },
+  },
+  eu: {
+    metaTitle: 'Lagundu Guri',
+    heroTitle: 'Izan Ahaleginaren Parte',
+    heroIntroMd:
+      'Pirinioak zeharkatzea autosufizientzian erronka logistiko itzela da. Orrialde hau bidaia bera zuzenean lagundu nahi duten lagun, senide eta txirrindularitza komunitateko kideentzat da. Laguntza hau karitatezko diru-bilketatik guztiz bereizita dago.',
+    section: {
+      heading: '⚙️ Lagundu Gurpilak Biraka Mantentzen',
+      bodyMd:
+        'Bidaia honen alderdi bakoitza, ekipamendu espezializatutik eta osagai iraunkorretatik hasi eta eguneroko elikadura eta aterpe sinpleraino, autofinantzatua da. Zure ekarpen zuzenak, tamaina edozein dela ere, ezinbesteko kostu horiek estaltzen laguntzen du eta bultzada moral handia ematen dio taldeari gure **Itzulera Bide Motelan**.',
+    },
+    carousel: {
+      title: 'Gure Laguntza Talde Sinestezina',
+      footerMd:
+        'Bihotzezko eskerrak bidaia hau posible egiten zuzenean lagundu duzuen guztioi. Zure laguntzak mundua esan nahi du guretzat!',
+    },
+    cta: {
+      label: 'Batu gure laguntza talde zoragarrira!',
+      url: 'https://Ko-fi.com/riding4gbs',
+      missingMd:
+        'CTA laster. Bitartean, jarri harremanetan bidaiaren laguntzan zuzenean lagundu nahi baduzu.',
     },
   },
 };

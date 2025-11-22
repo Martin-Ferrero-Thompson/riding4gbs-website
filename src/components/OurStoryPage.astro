@@ -8,11 +8,25 @@ import { marked } from "marked";
 export interface Props {
   lang: "en" | "es" | "fr";
   t: OurStoryLocaleContent;
+  tEu?: OurStoryLocaleContent;
 }
 
-const { lang, t } = Astro.props as Props;
+const { lang, t, tEu } = Astro.props as Props;
 const sidebar = i18n[lang];
-const slides = t.slides.map((s) => ({ title: s.title, content: marked.parse(s.bodyMd) as string }));
+const slides = t.slides.map((s) => ({
+  title: s.title,
+  content: marked.parse(s.bodyMd) as string,
+}));
+
+const slidesMap = tEu
+  ? {
+      es: slides, // Assuming 't' is 'es' when tEu is present
+      eu: tEu.slides.map((s) => ({
+        title: s.title,
+        content: marked.parse(s.bodyMd) as string,
+      })),
+    }
+  : undefined;
 ---
 
 <MainLayout title={t.metaTitle}>
@@ -21,12 +35,32 @@ const slides = t.slides.map((s) => ({ title: s.title, content: marked.parse(s.bo
     class="page-card-dark max-w-6xl w-full mx-auto font-body"
   >
     <div class="text-center">
-      <h1 class="hero-title text-white">
+      <h1 class="hero-title text-white" data-lang={lang}>
         {t.heroTitle}
       </h1>
-      <p class="mt-4 max-w-3xl mx-auto text-center font-body text-base md:text-lg lg:text-xl text-gray-300">
+      {
+        tEu && (
+          <h1 class="hero-title text-white hidden" data-lang="eu">
+            {tEu.heroTitle}
+          </h1>
+        )
+      }
+      <p
+        class="mt-4 max-w-3xl mx-auto text-center font-body text-base md:text-lg lg:text-xl text-gray-300"
+        data-lang={lang}
+      >
         {t.heroSubtitle}
       </p>
+      {
+        tEu && (
+          <p
+            class="mt-4 max-w-3xl mx-auto text-center font-body text-base md:text-lg lg:text-xl text-gray-300 hidden"
+            data-lang="eu"
+          >
+            {tEu.heroSubtitle}
+          </p>
+        )
+      }
     </div>
     <div class="relative w-full mt-12 px-0 md:px-10">
       <div class="w-full">
@@ -40,6 +74,39 @@ const slides = t.slides.map((s) => ({ title: s.title, content: marked.parse(s.bo
       </div>
     </div>
 
-    <Carousel client:load slides={slides} i18n={sidebar} />
+    <Carousel
+      client:load
+      slides={slides}
+      slidesMap={slidesMap}
+      i18n={sidebar}
+    />
   </div>
 </MainLayout>
+
+<script>
+  import { readStoredLanguage } from "../utils/language";
+
+  async function updateLanguage() {
+    const lang = await readStoredLanguage();
+    const baseLang = document
+      .querySelector('h1.hero-title[data-lang]:not([data-lang="eu"])')
+      ?.getAttribute("data-lang");
+
+    if (baseLang) {
+      const elements = document.querySelectorAll("[data-lang]");
+      elements.forEach((el) => {
+        const elLang = el.getAttribute("data-lang");
+        if (lang === "eu") {
+          if (elLang === "eu") el.classList.remove("hidden");
+          if (elLang === baseLang) el.classList.add("hidden");
+        } else {
+          if (elLang === "eu") el.classList.add("hidden");
+          if (elLang === baseLang) el.classList.remove("hidden");
+        }
+      });
+    }
+  }
+
+  updateLanguage();
+  document.addEventListener("language-change", updateLanguage);
+</script>

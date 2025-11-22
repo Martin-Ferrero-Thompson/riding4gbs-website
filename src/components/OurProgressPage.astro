@@ -5,10 +5,11 @@ import type { OurProgressLocaleContent } from "../data/ourProgress.i18n";
 export interface Props {
   lang: "en" | "es" | "fr";
   t: OurProgressLocaleContent;
+  tEu?: OurProgressLocaleContent;
   data: any; // shape from progress*.json
 }
 
-const { t, data } = Astro.props as Props;
+const { t, tEu, data } = Astro.props as Props;
 
 function pct(current: number, total: number): number {
   if (!total || total <= 0) return 0;
@@ -17,23 +18,45 @@ function pct(current: number, total: number): number {
 }
 
 const daysPercent = pct(data.days?.current ?? 0, data.days?.total ?? 0);
-const distancePercent = pct(data.distance?.current ?? 0, data.distance?.total ?? 0);
-const climbingPercent = pct(data.climbing?.current ?? 0, data.climbing?.total ?? 0);
-const summitsPercent = pct(data.summits?.current ?? 0, data.summits?.total ?? 0);
+const distancePercent = pct(
+  data.distance?.current ?? 0,
+  data.distance?.total ?? 0,
+);
+const climbingPercent = pct(
+  data.climbing?.current ?? 0,
+  data.climbing?.total ?? 0,
+);
+const summitsPercent = pct(
+  data.summits?.current ?? 0,
+  data.summits?.total ?? 0,
+);
 
-const gbpFormatter = new Intl.NumberFormat(t.format.gbpLocale, { style: 'currency', currency: 'GBP' });
-const eurFormatter = new Intl.NumberFormat(t.format.eurLocale, { style: 'currency', currency: 'EUR' });
+const gbpFormatter = new Intl.NumberFormat(t.format.gbpLocale, {
+  style: "currency",
+  currency: "GBP",
+});
+const eurFormatter = new Intl.NumberFormat(t.format.eurLocale, {
+  style: "currency",
+  currency: "EUR",
+});
 
 const climbLocale = t.format.climbingNumberLocale;
-const formatClimb = (n: number) => climbLocale ? n.toLocaleString(climbLocale) : n.toLocaleString();
+const formatClimb = (n: number) =>
+  climbLocale ? n.toLocaleString(climbLocale) : n.toLocaleString();
 
-const hasFundsGbpTarget = typeof data.funds_gbp?.total === 'number';
-const hasFundsEurTarget = typeof data.funds_eur?.total === 'number';
-const hasFundsEurFrTarget = typeof data.funds_eur_fr?.total === 'number';
+const hasFundsGbpTarget = typeof data.funds_gbp?.total === "number";
+const hasFundsEurTarget = typeof data.funds_eur?.total === "number";
+const hasFundsEurFrTarget = typeof data.funds_eur_fr?.total === "number";
 
-const fundsGbpPercent = hasFundsGbpTarget ? pct(data.funds_gbp.current ?? 0, data.funds_gbp.total) : undefined;
-const fundsEurPercent = hasFundsEurTarget ? pct(data.funds_eur.current ?? 0, data.funds_eur.total) : undefined;
-const fundsEurFrPercent = hasFundsEurFrTarget ? pct(data.funds_eur_fr.current ?? 0, data.funds_eur_fr.total) : undefined;
+const fundsGbpPercent = hasFundsGbpTarget
+  ? pct(data.funds_gbp.current ?? 0, data.funds_gbp.total)
+  : undefined;
+const fundsEurPercent = hasFundsEurTarget
+  ? pct(data.funds_eur.current ?? 0, data.funds_eur.total)
+  : undefined;
+const fundsEurFrPercent = hasFundsEurFrTarget
+  ? pct(data.funds_eur_fr.current ?? 0, data.funds_eur_fr.total)
+  : undefined;
 ---
 
 <MainLayout title={t.metaTitle}>
@@ -42,22 +65,74 @@ const fundsEurFrPercent = hasFundsEurFrTarget ? pct(data.funds_eur_fr.current ??
     class="page-card-dark max-w-6xl w-full mx-auto font-body"
   >
     <div class="text-center mb-12">
-      <h1 class="hero-title text-white">
+      <h1 class="hero-title text-white" data-lang={Astro.props.lang}>
         {t.heroTitle}
       </h1>
-      <p class="mt-4 max-w-3xl mx-auto text-center text-base md:text-lg lg:text-xl font-body text-gray-300">
+      {
+        tEu && (
+          <h1 class="hero-title text-white hidden" data-lang="eu">
+            {tEu.heroTitle}
+          </h1>
+        )
+      }
+      <p
+        class="mt-4 max-w-3xl mx-auto text-center text-base md:text-lg lg:text-xl font-body text-gray-300"
+        data-lang={Astro.props.lang}
+      >
         {t.heroSubtitle}
       </p>
+      {
+        tEu && (
+          <p
+            class="mt-4 max-w-3xl mx-auto text-center text-base md:text-lg lg:text-xl font-body text-gray-300 hidden"
+            data-lang="eu"
+          >
+            {tEu.heroSubtitle}
+          </p>
+        )
+      }
     </div>
 
     <div class="grid lg:grid-cols-3 gap-8 items-start">
       <div class="lg:col-span-2 space-y-8">
         <div>
-          <h2 class="font-headline font-semibold text-lg md:text-xl lg:text-2xl text-white mb-4">{t.mapHeading}</h2>
-          <p class="font-body text-base md:text-lg lg:text-xl text-gray-300 mb-4">
+          <h2
+            class="font-headline font-semibold text-lg md:text-xl lg:text-2xl text-white mb-4"
+            data-lang={Astro.props.lang}
+          >
+            {t.mapHeading}
+          </h2>
+          {
+            tEu && (
+              <h2
+                class="font-headline font-semibold text-lg md:text-xl lg:text-2xl text-white mb-4 hidden"
+                data-lang="eu"
+              >
+                {tEu.mapHeading}
+              </h2>
+            )
+          }
+
+          <p
+            class="font-body text-base md:text-lg lg:text-xl text-gray-300 mb-4"
+            data-lang={Astro.props.lang}
+          >
             {t.mapIntro}
           </p>
-          <div class="route-map bg-gray-200 rounded-xl shadow-lg overflow-hidden">
+          {
+            tEu && (
+              <p
+                class="font-body text-base md:text-lg lg:text-xl text-gray-300 mb-4 hidden"
+                data-lang="eu"
+              >
+                {tEu.mapIntro}
+              </p>
+            )
+          }
+
+          <div
+            class="route-map bg-gray-200 rounded-xl shadow-lg overflow-hidden"
+          >
             <button
               id="routeMapOpenBtn"
               type="button"
@@ -66,7 +141,11 @@ const fundsEurFrPercent = hasFundsEurFrTarget ? pct(data.funds_eur_fr.current ??
               aria-expanded="false"
               class="w-full block"
             >
-              <img src="/riding4gbs-route.png" alt={t.mapImageAlt} class="w-full h-full object-cover"/>
+              <img
+                src="/riding4gbs-route.png"
+                alt={t.mapImageAlt}
+                class="w-full h-full object-cover"
+              />
             </button>
           </div>
 
@@ -79,170 +158,350 @@ const fundsEurFrPercent = hasFundsEurFrTarget ? pct(data.funds_eur_fr.current ??
             aria-hidden="true"
             tabindex="-1"
           >
-            <div class="route-map-overlay absolute inset-0 bg-black/70" data-close></div>
+            <div
+              class="route-map-overlay absolute inset-0 bg-black/70"
+              data-close
+            >
+            </div>
 
             <div class="relative modal-content w-full mx-auto z-10">
-              <button id="routeMapCloseBtn" class="modal-close absolute top-3 right-3 text-white bg-black/40 hover:bg-black/60 p-2 rounded" aria-label={(t as any).closeLabel ?? 'Close'}>&times;</button>
-              <img src="/riding4gbs-route.png" alt={t.mapImageAlt} class="modal-image w-full h-auto rounded-lg shadow-lg" />
+              <button
+                id="routeMapCloseBtn"
+                class="modal-close absolute top-3 right-3 text-white bg-black/40 hover:bg-black/60 p-2 rounded"
+                aria-label={(t as any).closeLabel ?? "Close"}>&times;</button
+              >
+              <img
+                src="/riding4gbs-route.png"
+                alt={t.mapImageAlt}
+                class="modal-image w-full h-auto rounded-lg shadow-lg"
+              />
             </div>
           </div>
 
           <style>
-            .route-map-modal.hidden { display: none; }
-            .route-map-modal.flex { display: flex; }
-            .route-map-overlay { backdrop-filter: blur(2px); }
-            .modal-close { line-height: 1; font-size: 1.25rem; }
+            .route-map-modal.hidden {
+              display: none;
+            }
+            .route-map-modal.flex {
+              display: flex;
+            }
+            .route-map-overlay {
+              backdrop-filter: blur(2px);
+            }
+            .modal-close {
+              line-height: 1;
+              font-size: 1.25rem;
+            }
 
             /* Make modal image larger while keeping it contained within the viewport */
             /* Increase max-width so modal image appears roughly ~25% larger than before on most screens */
-            .route-map-modal .modal-content { width: min(98vw, 1200px); max-width: 1200px; max-height: 94vh; display: flex; align-items: center; justify-content: center; }
-            .route-map-modal .modal-image { width: 100%; height: auto; max-height: 92vh; object-fit: contain; }
+            .route-map-modal .modal-content {
+              width: min(98vw, 1200px);
+              max-width: 1200px;
+              max-height: 94vh;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+            .route-map-modal .modal-image {
+              width: 100%;
+              height: auto;
+              max-height: 92vh;
+              object-fit: contain;
+            }
 
             @media (min-width: 768px) {
-              .route-map-modal .modal-content { width: min(95vw, 1200px); }
+              .route-map-modal .modal-content {
+                width: min(95vw, 1200px);
+              }
             }
           </style>
 
           <script>
-            (function(){
-              const openBtn = document.getElementById('routeMapOpenBtn') as HTMLButtonElement | null;
-              const modal = document.getElementById('routeMapModal') as HTMLElement | null;
-              const closeBtn = document.getElementById('routeMapCloseBtn') as HTMLButtonElement | null;
+            (function () {
+              const openBtn = document.getElementById(
+                "routeMapOpenBtn",
+              ) as HTMLButtonElement | null;
+              const modal = document.getElementById(
+                "routeMapModal",
+              ) as HTMLElement | null;
+              const closeBtn = document.getElementById(
+                "routeMapCloseBtn",
+              ) as HTMLButtonElement | null;
               let lastFocused: HTMLElement | null = null;
 
-              function openModal(){
-                if(!modal) return;
+              function openModal() {
+                if (!modal) return;
                 lastFocused = document.activeElement as HTMLElement | null;
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
-                modal.setAttribute('aria-hidden','false');
-                openBtn && openBtn.setAttribute('aria-expanded','true');
+                modal.classList.remove("hidden");
+                modal.classList.add("flex");
+                modal.setAttribute("aria-hidden", "false");
+                openBtn && openBtn.setAttribute("aria-expanded", "true");
                 closeBtn && closeBtn.focus();
-                document.addEventListener('keydown', onKeyDown);
+                document.addEventListener("keydown", onKeyDown);
               }
 
-              function closeModal(){
-                if(!modal) return;
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-                modal.setAttribute('aria-hidden','true');
-                openBtn && openBtn.setAttribute('aria-expanded','false');
-                if(lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
-                document.removeEventListener('keydown', onKeyDown);
+              function closeModal() {
+                if (!modal) return;
+                modal.classList.add("hidden");
+                modal.classList.remove("flex");
+                modal.setAttribute("aria-hidden", "true");
+                openBtn && openBtn.setAttribute("aria-expanded", "false");
+                if (lastFocused && typeof lastFocused.focus === "function")
+                  lastFocused.focus();
+                document.removeEventListener("keydown", onKeyDown);
               }
 
-              function onKeyDown(e: KeyboardEvent){
-                if(e.key === 'Escape'){
+              function onKeyDown(e: KeyboardEvent) {
+                if (e.key === "Escape") {
                   closeModal();
                 }
               }
 
-              if(openBtn) openBtn.addEventListener('click', openModal);
-              if(closeBtn) closeBtn.addEventListener('click', closeModal);
+              if (openBtn) openBtn.addEventListener("click", openModal);
+              if (closeBtn) closeBtn.addEventListener("click", closeModal);
 
-              if(modal) modal.addEventListener('click', function(e){
-                const target = e.target as HTMLElement | null;
-                if(target && (target.dataset?.close !== undefined || target === modal)){
-                  closeModal();
-                }
-              });
+              if (modal)
+                modal.addEventListener("click", function (e) {
+                  const target = e.target as HTMLElement | null;
+                  if (
+                    target &&
+                    (target.dataset?.close !== undefined || target === modal)
+                  ) {
+                    closeModal();
+                  }
+                });
             })();
           </script>
         </div>
       </div>
 
-      <div class="bg-gray-800 text-white rounded-xl shadow-lg p-5 md:p-6 space-y-5 md:space-y-6 lg:sticky lg:top-8">
-        <h2 class="font-headline font-semibold text-lg md:text-xl lg:text-2xl text-center">{t.numbersHeading}</h2>
-        
+      <div
+        class="bg-gray-800 text-white rounded-xl shadow-lg p-5 md:p-6 space-y-5 md:space-y-6 lg:sticky lg:top-8"
+      >
+        <h2
+          class="font-headline font-semibold text-lg md:text-xl lg:text-2xl text-center"
+          data-lang={Astro.props.lang}
+        >
+          {t.numbersHeading}
+        </h2>
+        {
+          tEu && (
+            <h2
+              class="font-headline font-semibold text-lg md:text-xl lg:text-2xl text-center hidden"
+              data-lang="eu"
+            >
+              {tEu.numbersHeading}
+            </h2>
+          )
+        }
+
         <div>
-          <div class="flex flex-wrap justify-between items-baseline gap-x-2 gap-y-1 mb-1 text-xs md:text-sm">
+          <div
+            class="flex flex-wrap justify-between items-baseline gap-x-2 gap-y-1 mb-1 text-xs md:text-sm"
+          >
             <span class="font-medium text-gray-300">{data.days.label}</span>
-            <span class="font-bold">{data.days.current} / {data.days.total}</span>
+            <span class="font-bold"
+              >{data.days.current} / {data.days.total}</span
+            >
           </div>
           <div class="w-full bg-gray-600 rounded-full h-4 md:h-3">
-            <div class="bg-brand-blue h-4 md:h-3 rounded-full" style={`width: ${daysPercent}%`}></div>
+            <div
+              class="bg-brand-blue h-4 md:h-3 rounded-full"
+              style={`width: ${daysPercent}%`}
+            >
+            </div>
           </div>
         </div>
 
         <div>
-          <div class="flex flex-wrap justify-between items-baseline gap-x-2 gap-y-1 mb-1 text-xs md:text-sm">
+          <div
+            class="flex flex-wrap justify-between items-baseline gap-x-2 gap-y-1 mb-1 text-xs md:text-sm"
+          >
             <span class="font-medium text-gray-300">{data.distance.label}</span>
-            <span class="font-bold">{data.distance.current} / {data.distance.total} {data.distance.unit}</span>
+            <span class="font-bold"
+              >{data.distance.current} / {data.distance.total}
+              {data.distance.unit}</span
+            >
           </div>
           <div class="w-full bg-gray-600 rounded-full h-4 md:h-3">
-            <div class="bg-brand-blue h-4 md:h-3 rounded-full" style={`width: ${distancePercent}%`}></div>
-          </div>
-        </div>
-        
-        <div>
-          <div class="flex flex-wrap justify-between items-baseline gap-x-2 gap-y-1 mb-1 text-xs md:text-sm">
-            <span class="font-medium text-gray-300">{data.climbing.label}</span>
-            <span class="font-bold">{formatClimb(data.climbing.current)} / {formatClimb(data.climbing.total)} {data.climbing.unit}</span>
-          </div>
-          <div class="w-full bg-gray-600 rounded-full h-4 md:h-3">
-            <div class="bg-brand-blue h-4 md:h-3 rounded-full" style={`width: ${climbingPercent}%`}></div>
+            <div
+              class="bg-brand-blue h-4 md:h-3 rounded-full"
+              style={`width: ${distancePercent}%`}
+            >
+            </div>
           </div>
         </div>
 
-        {data.summits && (
-          <div>
-            <div class="flex flex-wrap justify-between items-baseline gap-x-2 gap-y-1 mb-1 text-xs md:text-sm">
-              <span class="font-medium text-gray-300">{data.summits.label}</span>
-              <span class="font-bold">{data.summits.current} / {data.summits.total}</span>
-            </div>
-            <div class="w-full bg-gray-600 rounded-full h-4 md:h-3">
-              <div class="bg-brand-blue h-4 md:h-3 rounded-full" style={`width: ${summitsPercent}%`}></div>
+        <div>
+          <div
+            class="flex flex-wrap justify-between items-baseline gap-x-2 gap-y-1 mb-1 text-xs md:text-sm"
+          >
+            <span class="font-medium text-gray-300">{data.climbing.label}</span>
+            <span class="font-bold"
+              >{formatClimb(data.climbing.current)} / {
+                formatClimb(data.climbing.total)
+              }
+              {data.climbing.unit}</span
+            >
+          </div>
+          <div class="w-full bg-gray-600 rounded-full h-4 md:h-3">
+            <div
+              class="bg-brand-blue h-4 md:h-3 rounded-full"
+              style={`width: ${climbingPercent}%`}
+            >
             </div>
           </div>
-        )}
+        </div>
+
+        {
+          data.summits && (
+            <div>
+              <div class="flex flex-wrap justify-between items-baseline gap-x-2 gap-y-1 mb-1 text-xs md:text-sm">
+                <span class="font-medium text-gray-300">
+                  {data.summits.label}
+                </span>
+                <span class="font-bold">
+                  {data.summits.current} / {data.summits.total}
+                </span>
+              </div>
+              <div class="w-full bg-gray-600 rounded-full h-4 md:h-3">
+                <div
+                  class="bg-brand-blue h-4 md:h-3 rounded-full"
+                  style={`width: ${summitsPercent}%`}
+                />
+              </div>
+            </div>
+          )
+        }
 
         <div class="text-center pt-4">
-          <p class="text-base font-medium text-gray-300">{data.funds_gbp.label}</p>
-          <p class="text-4xl font-bold text-brand-blue">{gbpFormatter.format(data.funds_gbp.current)}</p>
-          {hasFundsGbpTarget && (
-            <p class="text-sm text-gray-300 mt-1">
-              {(data.funds_gbp.targetLabel ?? "Target")}: {gbpFormatter.format(data.funds_gbp.total)}
-            </p>
-          )}
-          {fundsGbpPercent !== undefined && (
-            <div class="mt-3 w-full bg-gray-600 rounded-full h-3" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow={Math.round(fundsGbpPercent)}>
-              <div class="bg-brand-blue h-3 rounded-full" style={`width: ${fundsGbpPercent}%`}></div>
-            </div>
-          )}
+          <p class="text-base font-medium text-gray-300">
+            {data.funds_gbp.label}
+          </p>
+          <p class="text-4xl font-bold text-brand-blue">
+            {gbpFormatter.format(data.funds_gbp.current)}
+          </p>
+          {
+            hasFundsGbpTarget && (
+              <p class="text-sm text-gray-300 mt-1">
+                {data.funds_gbp.targetLabel ?? "Target"}:{" "}
+                {gbpFormatter.format(data.funds_gbp.total)}
+              </p>
+            )
+          }
+          {
+            fundsGbpPercent !== undefined && (
+              <div
+                class="mt-3 w-full bg-gray-600 rounded-full h-3"
+                role="progressbar"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow={Math.round(fundsGbpPercent)}
+              >
+                <div
+                  class="bg-brand-blue h-3 rounded-full"
+                  style={`width: ${fundsGbpPercent}%`}
+                />
+              </div>
+            )
+          }
         </div>
 
         <div class="text-center pt-2">
-          <p class="text-base font-medium text-gray-300">{data.funds_eur.label}</p>
-          <p class="text-4xl font-bold text-brand-blue">{eurFormatter.format(data.funds_eur.current)}</p>
-          {hasFundsEurTarget && (
-            <p class="text-sm text-gray-300 mt-1">
-              {(data.funds_eur.targetLabel ?? "Target")}: {eurFormatter.format(data.funds_eur.total)}
-            </p>
-          )}
-          {fundsEurPercent !== undefined && (
-            <div class="mt-3 w-full bg-gray-600 rounded-full h-3" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow={Math.round(fundsEurPercent)}>
-              <div class="bg-brand-blue h-3 rounded-full" style={`width: ${fundsEurPercent}%`}></div>
-            </div>
-          )}
+          <p class="text-base font-medium text-gray-300">
+            {data.funds_eur.label}
+          </p>
+          <p class="text-4xl font-bold text-brand-blue">
+            {eurFormatter.format(data.funds_eur.current)}
+          </p>
+          {
+            hasFundsEurTarget && (
+              <p class="text-sm text-gray-300 mt-1">
+                {data.funds_eur.targetLabel ?? "Target"}:{" "}
+                {eurFormatter.format(data.funds_eur.total)}
+              </p>
+            )
+          }
+          {
+            fundsEurPercent !== undefined && (
+              <div
+                class="mt-3 w-full bg-gray-600 rounded-full h-3"
+                role="progressbar"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow={Math.round(fundsEurPercent)}
+              >
+                <div
+                  class="bg-brand-blue h-3 rounded-full"
+                  style={`width: ${fundsEurPercent}%`}
+                />
+              </div>
+            )
+          }
         </div>
 
-        {data.funds_eur_fr && (
-          <div class="text-center pt-2">
-            <p class="text-base font-medium text-gray-300">{data.funds_eur_fr.label}</p>
-            <p class="text-4xl font-bold text-brand-blue">{eurFormatter.format(data.funds_eur_fr.current)}</p>
-            {hasFundsEurFrTarget && (
-              <p class="text-sm text-gray-300 mt-1">
-                {(data.funds_eur_fr.targetLabel ?? "Target")}: {eurFormatter.format(data.funds_eur_fr.total)}
+        {
+          data.funds_eur_fr && (
+            <div class="text-center pt-2">
+              <p class="text-base font-medium text-gray-300">
+                {data.funds_eur_fr.label}
               </p>
-            )}
-            {fundsEurFrPercent !== undefined && (
-              <div class="mt-3 w-full bg-gray-600 rounded-full h-3" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow={Math.round(fundsEurFrPercent)}>
-                <div class="bg-brand-blue h-3 rounded-full" style={`width: ${fundsEurFrPercent}%`}></div>
-              </div>
-            )}
-          </div>
-        )}
+              <p class="text-4xl font-bold text-brand-blue">
+                {eurFormatter.format(data.funds_eur_fr.current)}
+              </p>
+              {hasFundsEurFrTarget && (
+                <p class="text-sm text-gray-300 mt-1">
+                  {data.funds_eur_fr.targetLabel ?? "Target"}:{" "}
+                  {eurFormatter.format(data.funds_eur_fr.total)}
+                </p>
+              )}
+              {fundsEurFrPercent !== undefined && (
+                <div
+                  class="mt-3 w-full bg-gray-600 rounded-full h-3"
+                  role="progressbar"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  aria-valuenow={Math.round(fundsEurFrPercent)}
+                >
+                  <div
+                    class="bg-brand-blue h-3 rounded-full"
+                    style={`width: ${fundsEurFrPercent}%`}
+                  />
+                </div>
+              )}
+            </div>
+          )
+        }
       </div>
     </div>
   </div>
 </MainLayout>
+
+<script>
+  import { readStoredLanguage } from "../utils/language";
+
+  async function updateLanguage() {
+    const lang = await readStoredLanguage();
+    const baseLang = document
+      .querySelector('h1.hero-title[data-lang]:not([data-lang="eu"])')
+      ?.getAttribute("data-lang");
+
+    if (baseLang) {
+      const elements = document.querySelectorAll("[data-lang]");
+      elements.forEach((el) => {
+        const elLang = el.getAttribute("data-lang");
+        if (lang === "eu") {
+          if (elLang === "eu") el.classList.remove("hidden");
+          if (elLang === baseLang) el.classList.add("hidden");
+        } else {
+          if (elLang === "eu") el.classList.add("hidden");
+          if (elLang === baseLang) el.classList.remove("hidden");
+        }
+      });
+    }
+  }
+
+  updateLanguage();
+  document.addEventListener("language-change", updateLanguage);
+</script>

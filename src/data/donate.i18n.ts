@@ -1,4 +1,4 @@
-export type DonateCardId = 'uk' | 'es' | 'fr';
+export type DonateCardId = 'uk' | 'es' | 'fr' | 'eu';
 
 export type DonateCard = {
   id: DonateCardId;
@@ -16,7 +16,7 @@ export type DonateLocaleContent = {
   comingSoon: string;
 };
 
-export const donateContent: Record<'en' | 'es' | 'fr', DonateLocaleContent> = {
+export const donateContent: Record<'en' | 'es' | 'fr' | 'eu', DonateLocaleContent> = {
   en: {
     metaTitle: 'Donate',
     heroTitle: 'Support Patient-Led Research in the UK',
@@ -64,6 +64,21 @@ export const donateContent: Record<'en' | 'es' | 'fr', DonateLocaleContent> = {
       bodyMd:
         "Soutenez la recherche financée par l'Association Française du Syndrome de Guillain-Barré.",
       buttonLabel: 'Faire un don en € (EUR)',
+    },
+  },
+  eu: {
+    metaTitle: 'Dohaintza egin',
+    heroTitle: 'Lagundu Misioa: Finantzatu Sendabidea',
+    heroIntroMd:
+      'Erronka epiko hau helburu bakar bati eskainita dago: Guillain-Barré Sindromearentzako tratamendu hobeak eta, egunen batean, sendabidea ekarriko duen funtsezko ikerketa finantzatzea. Karitatezko dohaintza bakoitzaren %100 gure erakunde laguntzaile ofizialetara doa zuzenean. Zure ekarpena, tamaina edozein dela ere, itxaropen ekintza indartsua da egoera suntsitzaile honek kaltetutako pertsona bakoitzarentzat.',
+    comingSoon: 'Laster',
+    card: {
+      id: 'eu',
+      title: 'Espainiako Emaileentzat',
+      image: { src: '/logos/GBS-CIDP_neuropatias-RC-3.png', alt: 'GBS CIDP España Logotipoa' },
+      bodyMd:
+        'Lagundu GBS|CIDP España-k finantzatutako ikerketa Espainia osoko pazienteei laguntzeko.',
+      buttonLabel: 'Egin dohaintza €-tan (EUR)',
     },
   },
 };

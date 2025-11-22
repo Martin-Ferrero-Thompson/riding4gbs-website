@@ -31,7 +31,7 @@ export type AboutGbsLocaleContent = {
   slides: AboutGbsSlide[];
 };
 
-export const aboutGbsContent: Record<"en" | "es" | "fr", AboutGbsLocaleContent> = {
+export const aboutGbsContent: Record<"en" | "es" | "fr" | "eu", AboutGbsLocaleContent> = {
   en: {
     metaTitle: "About GBS",
     heroTitle: "About Guillain-Barré Syndrome",
@@ -65,7 +65,7 @@ export const aboutGbsContent: Record<"en" | "es" | "fr", AboutGbsLocaleContent> 
         kind: "narrative",
         title: "What Happens After GBS cont'd",
         bodyMd:
-      "**Going Home & The Plan**\n\nLeaving the hospital can be intimidating. You'll get a \"Care Plan\" before you go. This is just a detailed schedule that outlines:\n\n- What treatment and support you'll get (e.g., community care, equipment).\n- Who will provide the support.\n- When and how often they'll help.\n- Who to contact if you have problems.\n\n**Lingering Symptoms**\n\nIt is completely normal to have lingering symptoms for weeks or months. The most common are:\n\n- Extreme tiredness (fatigue).\n- Weakness, tingling, or aching in your limbs.\n- Nerve pain.\n- Balance and coordination problems.\n\nThese symptoms might feel worse when you're tired or sick (like with a cold). This is normal and does not mean the GBS is coming back. A relapse is extremely rare.",
+          "**Going Home & The Plan**\n\nLeaving the hospital can be intimidating. You'll get a \"Care Plan\" before you go. This is just a detailed schedule that outlines:\n\n- What treatment and support you'll get (e.g., community care, equipment).\n- Who will provide the support.\n- When and how often they'll help.\n- Who to contact if you have problems.\n\n**Lingering Symptoms**\n\nIt is completely normal to have lingering symptoms for weeks or months. The most common are:\n\n- Extreme tiredness (fatigue).\n- Weakness, tingling, or aching in your limbs.\n- Nerve pain.\n- Balance and coordination problems.\n\nThese symptoms might feel worse when you're tired or sick (like with a cold). This is normal and does not mean the GBS is coming back. A relapse is extremely rare.",
       },
       {
         kind: "narrative",
@@ -77,7 +77,7 @@ export const aboutGbsContent: Record<"en" | "es" | "fr", AboutGbsLocaleContent> 
         kind: "narrative",
         title: "The Slow Road Back: (And Why It's Okay That It's Slow)",
         bodyMd:
-      "You've got this!!\n\nLet's be real: recovering from GBS is a marathon you never signed up for, and you're probably (and understandably) tired of running. This process is tough, it's often slow, and it's okay to be frustrated, angry, or just plain over it. You're allowed to have bad days. Your feelings are valid, and anyone who tells you to \"just stay positive\" hasn't been in your shoes. Acknowledging that this is incredibly difficult isn't being negative; it's being realistic.\n\nThis recovery isn't a smooth, straight line. It's more like a chaotic scribble. You'll have \"two steps forward, one step back\" days, and those \"back\" steps can feel like a massive failure. They're not. They are a normal, infuriating part of a complex healing process. Your body is doing a massive, invisible repair job. Your only job is to pace yourself (which is harder than it sounds) and not compare your progress to anyone else's, or even to your own from last week.\n\nSo, celebrate the small, seemingly ridiculous wins. Got your own socks on? That's a win. Made it through a physio session? Win. Didn't throw something during a moment of frustration? Also a win. You don't get extra points for doing this alone, so lean on your support team and let them help. You've already navigated the impossible just by getting to this point. You have the strength for this, even (and especially) on the days you're convinced you don't.\n\nYou are not alone...",
+          "You've got this!!\n\nLet's be real: recovering from GBS is a marathon you never signed up for, and you're probably (and understandably) tired of running. This process is tough, it's often slow, and it's okay to be frustrated, angry, or just plain over it. You're allowed to have bad days. Your feelings are valid, and anyone who tells you to \"just stay positive\" hasn't been in your shoes. Acknowledging that this is incredibly difficult isn't being negative; it's being realistic.\n\nThis recovery isn't a smooth, straight line. It's more like a chaotic scribble. You'll have \"two steps forward, one step back\" days, and those \"back\" steps can feel like a massive failure. They're not. They are a normal, infuriating part of a complex healing process. Your body is doing a massive, invisible repair job. Your only job is to pace yourself (which is harder than it sounds) and not compare your progress to anyone else's, or even to your own from last week.\n\nSo, celebrate the small, seemingly ridiculous wins. Got your own socks on? That's a win. Made it through a physio session? Win. Didn't throw something during a moment of frustration? Also a win. You don't get extra points for doing this alone, so lean on your support team and let them help. You've already navigated the impossible just by getting to this point. You have the strength for this, even (and especially) on the days you're convinced you don't.\n\nYou are not alone...",
       },
       {
         kind: "resources",
@@ -126,7 +126,7 @@ export const aboutGbsContent: Record<"en" | "es" | "fr", AboutGbsLocaleContent> 
         kind: "resources",
         title: "[5/5] Más Información",
         resources: [
-         {
+          {
             title: "GBS|CIDP España",
             descriptionMd:
               "Un grupo de defensa de pacientes con sede en España, que ofrece apoyo y recursos.",
@@ -176,6 +176,50 @@ export const aboutGbsContent: Record<"en" | "es" | "fr", AboutGbsLocaleContent> 
               "EPODIN - European Patient Organisation for Dysimmune & Inflammatory Neuropathies, qui fournit des informations et un soutien aux patients en France.",
             href: "https://www.epodin.org/",
             ctaLabel: "Visiter le site web →",
+          },
+        ],
+      },
+    ],
+  },
+  eu: {
+    metaTitle: "SGBri buruz",
+    heroTitle: "Zer da Guillain-Barré Sindromea?",
+    heroSubtitle: "Erronkaren atzean dagoen egoera ulertzen.",
+    slides: [
+      {
+        kind: "narrative",
+        title: "[1/5] Zer da Guillain-Barré Sindromea?",
+        bodyMd:
+          "Guillain-Barré Sindromea (GBS) nahaste autoimmune arraro eta larria da. Bertan, gorputzaren sistema immunitarioak oker erasotzen die bere nerbio periferikoei — hau da, garunetik eta bizkarrezur-muinetik kanpo dagoen nerbio-sareari.\n\nHasiera bat-batekoa izan ohi da, ordu edo egun gutxitan larriagotuz, larrialdi neurologiko bihurtu arte. Mundu mailan paralisia akutu ez-traumatikoaren kausa nagusia da.",
+      },
+      {
+        kind: "narrative",
+        title: "[2/5] Identitate Nahaste Kasu Bat",
+        bodyMd:
+          "Onartuen dagoen teoria **\"mimetismo molekularra\"** da. Askotan, sindromea infekzio arrunt baten ondoren hasten da, adibidez, urdaileko bakterio bat (*Campylobacter jejuni*) edo arnas birus bat.\n\nSistema immunitarioak antigorputzak sortzen ditu germenari aurre egiteko, baina germen horren zati batzuk gure nerbio-zelulen antza handia dute. Antigorputzek akats larria egiten dute eta nerbio osasuntsuak erasotzen hasten dira, SGB definitzen duten ahultasuna, inurridura eta paralisia eraginez.",
+      },
+      {
+        kind: "narrative",
+        title: "[3/5] Itxaropena Zerumugan",
+        bodyMd:
+          "Gaur egungo tratamenduek laguntzen badute ere, ez dira sendabidea eta ez dira eraginkorrak guztientzat. Horregatik da hain garrantzitsua ikerketa. Zientzialariak diagnostiko-tresna azkarragoak aurkitzeko eta terapia berri eta zehatzagoak garatzeko lanean ari dira. Zure laguntzak funtsezko ikerketa hau bultzatzen du eta itxaropena ematen dio SGBk kaltetutako pertsona bakoitzari.",
+      },
+      {
+        kind: "image",
+        title: "[4/5] Eragina Nerbio Zeluletan",
+        image: { src: "/gbs-details.png", alt: "Guillain-Barré Sindromearen azalpena - Neurona eta Nerbio Sistema" },
+        captionMd: "*SGBk nerbio-zeluletan eta bideetan duen eragina erakusten duen irudia.*",
+      },
+      {
+        kind: "resources",
+        title: "[5/5] Informazio Gehiago",
+        resources: [
+          {
+            title: "GBS|CIDP España",
+            descriptionMd:
+              "Espainian egoitza duen pazienteen defentsa-taldea, laguntza eta baliabideak eskaintzen dituena.",
+            href: "https://gbs-cidp.org.es/",
+            ctaLabel: "Webgunea Bisitatu →",
           },
         ],
       },

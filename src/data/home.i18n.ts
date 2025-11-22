@@ -5,7 +5,7 @@ export type Supporter = {
   imgAlt: string;
   overlayTitle: string;
   ctaLabel: string;
-  ctaLang: "en" | "es" | "fr"; // language of the CTA label for screen readers
+  ctaLang: "en" | "es" | "fr" | "eu"; // language of the CTA label for screen readers
 };
 
 export type HomeLocaleContent = {
@@ -28,7 +28,7 @@ export type HomeLocaleContent = {
   };
 };
 
-export const homeContent: Record<"en" | "es" | "fr", HomeLocaleContent> = {
+export const homeContent: Record<"en" | "es" | "fr" | "eu", HomeLocaleContent> = {
   en: {
     metaTitle: "The Slow Road Back | Home",
     heroTitle: "The Slow Road Back",
@@ -178,8 +178,61 @@ export const homeContent: Record<"en" | "es" | "fr", HomeLocaleContent> = {
         ctaLabel: "Visiter le site web",
         ctaLang: "fr",
       },
-  ],
-  supportMessage: {
+    ],
+    supportMessage: {
+      heading: "A Message of Support from Inflammatory Neuropathies UK",
+      quote:
+        "We are absolutely thrilled to see Martin embark on 'The Slow Road Back.' His courage and determination embody the very spirit we champion at Inflammatory Neuropathies UK. This challenge will shine a much-needed light on Guillain-Barré Syndrome, helping us support more individuals and families affected by GBS. Martin, we're cheering you on from the UK!",
+      attribution: "Sarah Davies, Head of Patient Advocacy, Inflammatory Neuropathies UK",
+      ctaLabel: "Discover More About Our Work",
+      ctaHref: "https://www.inflammatoryneuropathies.uk/",
+    },
+  },
+  eu: {
+    metaTitle: "The Slow Road Back | Ikerketa SGBren aldeko Erronka",
+    heroTitle: "Itzulera Bide Motela",
+    watermarkText: "Karitateak ordezkatuko du",
+    hometownPartnerHeading: "Gure Jatorrizko Bazkidea",
+    hometownPartnerDescriptionMd:
+      "Izugarri harro gaude **Cycla Bikes**-ekin, Iruñeko gure bizikleta dendarekin, lankidetzan aritzeaz. Haien laguntza aditua eta txirrindularitza komunitatean dituzten sustrai sakonak erronka honen oinarria dira. Eskuzabaltasunez, abentura epiko honetarako **Irteera eta Helmuga ofizialak** eskaintzen dizkigute.",
+    supportersHeading: "Harrotasunez Babestua:",
+    introParagraphsMd: [
+      "Nire izena Martin da, eta Guillain-Barré Sindromearen (SGB) bizirik atera naiz. Nire sendatze prozesuak irakatsi zidan bidaia helmuga baino garrantzitsuagoa dela. Hau da nire **\"Itzulera Bide Motela\"**.",
+      "**2026ko urrian**, erronka txirrindulari oso pertsonal bat hasiko dut, Iruñeko nire etxetik. Baina ez dut bakarrik egingo. Nire emazte zoragarriarekin, Edurne, nire laguntza taldearen bihotza dena, Pirinioei aurre egingo diegu. Gure helburua Atlantikoko kostaldetik Mediterraneora eta buelta egitea da, erresilientzia bidaia honek noraino eramango gaituen ikusteko.",
+      "Gure ibilbidea misio partekatu bat da, SGB komunitatearentzat ikusgarritasuna eta funtsak biltzeko. Ez dakigu zehazki zenbat egun beharko ditugun, ezta zenbat mendi igo beharko ditugun. Baina gonbidatzen zaituztegu gu jarraitzera, egunez egun, itxaropen eta erresilientzia bidaia honetan.",
+    ],
+    partnerLinkTitle: "Cycla Bikes - Zure erreferentziazko bizikleta tailerra",
+    partnerLogoAlt: "Cycla Bikes Iruñea Logotipoa",
+    supporters: [
+      {
+        id: "inuk",
+        href: "https://www.inflammatoryneuropathies.uk/",
+        imgSrc: "/logos/INUK-Wordmark-Logo_RGB.png",
+        imgAlt: "Inflammatory Neuropathies UK",
+        overlayTitle: "Inflammatory Neuropathies UK",
+        ctaLabel: "Visit Website",
+        ctaLang: "en",
+      },
+      {
+        id: "es",
+        href: "https://gbs-cidp.org.es/",
+        imgSrc: "/logos/GBS-CIDP_neuropatias-RC-3.png",
+        imgAlt: "GBS|CIDP España",
+        overlayTitle: "GBS|CIDP España",
+        ctaLabel: "Webgunea Bisitatu",
+        ctaLang: "es",
+      },
+      {
+        id: "fr",
+        href: "https://www.epodin.org/",
+        imgSrc: "/logos/fr.png",
+        imgAlt: "EPODIN - European Patient Organisation for Dysimmune & Inflammatory Neuropathies",
+        overlayTitle: "EPODIN - European Patient Organisation for Dysimmune & Inflammatory Neuropathies",
+        ctaLabel: "Visiter le site web",
+        ctaLang: "fr",
+      },
+    ],
+    supportMessage: {
       heading: "A Message of Support from Inflammatory Neuropathies UK",
       quote:
         "We are absolutely thrilled to see Martin embark on 'The Slow Road Back.' His courage and determination embody the very spirit we champion at Inflammatory Neuropathies UK. This challenge will shine a much-needed light on Guillain-Barré Syndrome, helping us support more individuals and families affected by GBS. Martin, we're cheering you on from the UK!",
