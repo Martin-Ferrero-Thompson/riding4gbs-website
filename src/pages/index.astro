@@ -1,5 +1,5 @@
 ---
-import data from '../data/progress.json';
+import data from "../data/progress.json";
 import "@fontsource/lato/400.css";
 import "@fontsource/lato/700.css";
 import "@fontsource/montserrat/700.css";
@@ -9,8 +9,11 @@ import { landingCopy, landingFlag } from "../data/landing.i18n";
 import LanguageSwitcher from "../components/LanguageSwitcher.astro";
 import { DEFAULT_LANGUAGE, type Language } from "../utils/language";
 const initialLanguage = DEFAULT_LANGUAGE satisfies Language;
-const landingEntries = Object.entries(landingCopy) as Array<[Language, (typeof landingCopy)[Language]]>;
+const landingEntries = Object.entries(landingCopy) as Array<
+  [Language, (typeof landingCopy)[Language]]
+>;
 ---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -34,8 +37,12 @@ const landingEntries = Object.entries(landingCopy) as Array<[Language, (typeof l
         }
       }
       @keyframes fade-in {
-        from { opacity: 0; }
-        to { opacity: 1; }
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
       }
       .animate-fade-in {
         animation: fade-in 1s ease-out forwards;
@@ -45,142 +52,248 @@ const landingEntries = Object.entries(landingCopy) as Array<[Language, (typeof l
   <body class="bg-gray-800 text-white font-sans overflow-x-hidden">
     <a href="#main" class="skip-link">Skip to main content</a>
     <main id="main">
-    <div class="min-h-screen flex flex-col items-center justify-center p-4 animate-fade-in pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]">
-      <div class="bg-gray-900/80 backdrop-blur-sm rounded-xl p-6 md:p-8 max-w-6xl w-full">
-        <h1 class="font-display font-extrabold text-3xl md:text-5xl text-center text-brand-blue mb-6">
-          #RIDING4GBS
-        </h1>
-
-        <img src="/LogoGBSCirculo.svg" alt="Riding4GBS circular logo" class="mx-auto mb-6 h-40 w-auto" />
-
-        <!-- PLEASE DO NOT REMOVE OR MODIFY -->
-        <div id="countdown" class="my-8 font-sans notranslate" translate="no" data-target-date={data.targetDate}>
-          <div id="cd-display" class="flex justify-center items-center gap-2 md:gap-4 text-white"></div>
-          <p id="cd-message" class="text-lg text-center text-gray-300 mt-2"></p>
-        </div> <!-- END OF PLEASE DO NOT REMOVE OR MODIFY -->
-
-        <!-- Language switcher and dynamic intro (client-only swap without navigation) -->
-        <div class="flex items-center justify-center mb-6">
-          <LanguageSwitcher showFlags={true} interactive={true} />
-        </div>
+      <div
+        class="min-h-screen flex flex-col items-center justify-center p-4 animate-fade-in pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]"
+      >
         <div
-          class="landingpage-intro text-center max-w-4xl mx-auto mb-8"
-          data-landing-copy-root
-          data-default-lang={initialLanguage}
-          aria-live="polite"
+          class="bg-gray-900/80 backdrop-blur-sm rounded-xl p-6 md:p-8 max-w-6xl w-full"
         >
-          {landingEntries.map(([lang, copy]) => (
-            <article
-              data-lang-block={lang}
-              hidden={lang !== initialLanguage}
-              aria-hidden={lang !== initialLanguage}
-              class="space-y-3 text-gray-300"
+          <h1
+            class="font-display font-extrabold text-3xl md:text-5xl text-center text-brand-blue mb-6"
+          >
+            #RIDING4GBS
+          </h1>
+
+          <img
+            src="/LogoGBSCirculo.svg"
+            alt="Riding4GBS circular logo"
+            class="mx-auto mb-6 h-40 w-auto"
+          />
+
+          <!-- PLEASE DO NOT REMOVE -->
+          <div
+            id="countdown"
+            class="my-8 font-sans notranslate"
+            translate="no"
+            data-target-date={data.targetDate}
+          >
+            <div
+              id="cd-display"
+              class="flex justify-center items-center gap-2 md:gap-4 text-white"
             >
-              <p lang={lang} class="text-left text-base md:text-lg text-gray-100">
-                {copy.lead}
-              </p>
-              <p lang={lang} class="text-sm md:text-base text-gray-300 opacity-90">
-                {copy.instruction}
-              </p>
-            </article>
-          ))}
-        </div>
-        <script>
-          // @ts-nocheck
-          // Toggle pre-rendered language copy blocks based on switcher events.
-          (function () {
-            const root = document.querySelector('[data-landing-copy-root]');
-            if (!root) return;
+            </div>
+            <p id="cd-message" class="text-lg text-center text-gray-300 mt-2">
+            </p>
+          </div>
+          <!-- END OF PLEASE DO NOT REMOVE -->
 
-            const blocks = Array.from(root.querySelectorAll('[data-lang-block]'));
-            if (!blocks.length) return;
-
-            /** @param {string} lang */
-            function showBlock(lang) {
-              blocks.forEach((block) => {
-                const isMatch = block.getAttribute('data-lang-block') === lang;
-                block.toggleAttribute('hidden', !isMatch);
-                block.setAttribute('aria-hidden', String(!isMatch));
-              });
-              root.setAttribute('data-current-lang', lang);
+          <!-- Language switcher and dynamic intro (client-only swap without navigation) -->
+          <div class="flex items-center justify-center mb-6">
+            <LanguageSwitcher showFlags={true} interactive={true} />
+          </div>
+          <div
+            class="landingpage-intro text-center max-w-4xl mx-auto mb-8"
+            data-landing-copy-root
+            data-default-lang={initialLanguage}
+            aria-live="polite"
+          >
+            {
+              landingEntries.map(([lang, copy]) => (
+                <article
+                  data-lang-block={lang}
+                  hidden={lang !== initialLanguage}
+                  aria-hidden={lang !== initialLanguage}
+                  class="space-y-3 text-gray-300"
+                >
+                  <p
+                    lang={lang}
+                    class="text-left text-base md:text-lg text-gray-100"
+                  >
+                    {copy.lead}
+                  </p>
+                  <p
+                    lang={lang}
+                    class="text-sm md:text-base text-gray-300 opacity-90"
+                  >
+                    {copy.instruction}
+                  </p>
+                </article>
+              ))
             }
+          </div>
+          <script>
+            // @ts-nocheck
+            // Toggle pre-rendered language copy blocks based on switcher events.
+            (function () {
+              const root = document.querySelector("[data-landing-copy-root]");
+              if (!root) return;
 
-            function bindOnce() {
-              if ((window).__r4gbs_intro_bound) return;
-              (window).__r4gbs_intro_bound = true;
-              document.addEventListener('r4gbs:langchange', (evt) => {
-                const detail = (evt && evt.detail) || {};
-                const next = typeof detail.lang === 'string' ? detail.lang : root.getAttribute('data-default-lang') || 'en';
-                showBlock(next);
-              });
-            }
+              const blocks = Array.from(
+                root.querySelectorAll("[data-lang-block]"),
+              );
+              if (!blocks.length) return;
 
-            const nav = document.querySelector('nav[data-interactive="true"]');
-            const initialLang = nav?.getAttribute('data-active-lang') || root.getAttribute('data-default-lang') || 'en';
-            showBlock(initialLang);
+              /** @param {string} lang */
+              function showBlock(lang) {
+                blocks.forEach((block) => {
+                  const isMatch =
+                    block.getAttribute("data-lang-block") === lang;
+                  block.toggleAttribute("hidden", !isMatch);
+                  block.setAttribute("aria-hidden", String(!isMatch));
+                });
+                root.setAttribute("data-current-lang", lang);
+              }
 
-            bindOnce();
-            document.addEventListener('astro:page-load', bindOnce);
-            document.addEventListener('DOMContentLoaded', bindOnce);
-          })();
-        </script>
+              function bindOnce() {
+                if (window.__r4gbs_intro_bound) return;
+                window.__r4gbs_intro_bound = true;
+                document.addEventListener("r4gbs:langchange", (evt) => {
+                  const detail = (evt && evt.detail) || {};
+                  const next =
+                    typeof detail.lang === "string"
+                      ? detail.lang
+                      : root.getAttribute("data-default-lang") || "en";
+                  showBlock(next);
+                });
+              }
 
-        <img src="/riding4gbs-route.png" alt="The challenge route map" class="rounded-lg shadow-md mb-8 mx-auto w-full h-auto max-w-full md:max-w-3xl object-contain" />
+              const nav = document.querySelector(
+                'nav[data-interactive="true"]',
+              );
+              const initialLang =
+                nav?.getAttribute("data-active-lang") ||
+                root.getAttribute("data-default-lang") ||
+                "en";
+              showBlock(initialLang);
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <a href="#" data-astro-reload class="group relative bg-gray-800/50 rounded-xl p-6 flex flex-col text-center transition-transform md:hover:scale-105">
-            <header class="text-5xl mb-4">{landingFlag.en}</header>
-            <main class="flex-grow text-gray-200">
-              <h2 class="font-display font-bold text-xl mb-2 text-white">Ride for GBS Research</h2>
-              <p>Welcome to an epic journey of resilience. Select your language to explore the challenge.</p>
-            </main>
-            <footer class="mt-6 p-3 bg-white rounded-lg">
-              <img src="/logos/INUK-Wordmark-Logo_RGB.png" alt="Inflammatory Neuropathies UK" class="h-10 mx-auto object-contain" />
-            </footer>
-            <div class="absolute inset-0 bg-black/80 text-white flex items-center justify-center p-4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <p class="font-sans font-bold text-base md:text-lg">Click to enter the English site</p>
-            </div>
-          </a>
-          <a href="#" data-astro-reload class="group relative bg-gray-800/50 rounded-xl p-6 flex flex-col text-center transition-transform md:hover:scale-105">
-            <header class="text-5xl mb-4">{landingFlag.es}</header>
-            <main class="flex-grow text-gray-200">
-              <h2 class="font-display font-bold text-xl mb-2 text-white">Pedaleando por la investigación del SGB</h2>
-              <p>Bienvenido a un viaje épico de resiliencia. Selecciona tu idioma para explorar el desafío.</p>
-            </main>
-            <footer class="mt-6 p-3 bg-white rounded-lg">
-              <img src="/logos/GBS-CIDP_neuropatias-RC-3.png" alt="GBS|CIDP España" class="h-10 mx-auto object-contain" />
-            </footer>
-            <div class="absolute inset-0 bg-black/80 text-white flex items-center justify-center p-4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <p class="font-sans font-bold text-base md:text-lg">Haga clic para entrar en el sitio en español</p>
-            </div>
-          </a>
-          <a href="#" data-astro-reload class="group relative bg-gray-800/50 rounded-xl p-6 flex flex-col text-center transition-transform md:hover:scale-105">
-            <header class="text-5xl mb-4">{landingFlag.fr}</header>
-            <main class="flex-grow text-gray-200">
-              <h2 class="font-display font-bold text-xl mb-2 text-white">Pédaler pour la recherche sur le SGB</h2>
-              <p>Bienvenue dans un voyage épique de résilience. Sélectionnez votre langue pour explorer le défi.</p>
-            </main>
-            <footer class="mt-6 p-3 bg-white rounded-lg">
-              <img src="/logos/fr.png" alt="EPODIN - European Patient Organisation for Dysimmune & Inflammatory Neuropathies" class="h-10 mx-auto object-contain" />
-            </footer>
-            <div class="absolute inset-0 bg-black/80 text-white flex items-center justify-center p-4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <p class="font-sans font-bold text-base md:text-lg">Cliquez pour accéder au site en français</p>
-            </div>
-          </a>
+              bindOnce();
+              document.addEventListener("astro:page-load", bindOnce);
+              document.addEventListener("DOMContentLoaded", bindOnce);
+            })();
+          </script>
+
+          <img
+            src="/riding4gbs-route.png"
+            alt="The challenge route map"
+            class="rounded-lg shadow-md mb-8 mx-auto w-full h-auto max-w-full md:max-w-3xl object-contain"
+          />
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <a
+              href="#"
+              data-astro-reload
+              class="group relative bg-gray-800/50 rounded-xl p-6 flex flex-col text-center transition-transform md:hover:scale-105"
+            >
+              <header class="text-5xl mb-4">{landingFlag.en}</header>
+              <main class="flex-grow text-gray-200">
+                <h2 class="font-display font-bold text-xl mb-2 text-white">
+                  Ride for GBS Research
+                </h2>
+                <p>
+                  Welcome to an epic journey of resilience. Select your language
+                  to explore the challenge.
+                </p>
+              </main>
+              <footer class="mt-6 p-3 bg-white rounded-lg">
+                <img
+                  src="/logos/INUK-Wordmark-Logo_RGB.png"
+                  alt="Inflammatory Neuropathies UK"
+                  class="h-10 mx-auto object-contain"
+                />
+              </footer>
+              <div
+                class="absolute inset-0 bg-black/80 text-white flex items-center justify-center p-4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >
+                <p class="font-sans font-bold text-base md:text-lg">
+                  Click to enter the English site
+                </p>
+              </div>
+            </a>
+            <a
+              href="#"
+              data-astro-reload
+              class="group relative bg-gray-800/50 rounded-xl p-6 flex flex-col text-center transition-transform md:hover:scale-105"
+            >
+              <header class="text-5xl mb-4">{landingFlag.es}</header>
+              <main class="flex-grow text-gray-200">
+                <h2 class="font-display font-bold text-xl mb-2 text-white">
+                  Pedaleando por la investigación del SGB
+                </h2>
+                <p>
+                  Bienvenido a un viaje épico de resiliencia. Selecciona tu
+                  idioma para explorar el desafío.
+                </p>
+              </main>
+              <footer class="mt-6 p-3 bg-white rounded-lg">
+                <img
+                  src="/logos/GBS-CIDP_neuropatias-RC-3.png"
+                  alt="GBS|CIDP España"
+                  class="h-10 mx-auto object-contain"
+                />
+              </footer>
+              <div
+                class="absolute inset-0 bg-black/80 text-white flex items-center justify-center p-4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >
+                <p class="font-sans font-bold text-base md:text-lg">
+                  Haga clic para entrar en el sitio en español
+                </p>
+              </div>
+            </a>
+            <a
+              href="#"
+              data-astro-reload
+              class="group relative bg-gray-800/50 rounded-xl p-6 flex flex-col text-center transition-transform md:hover:scale-105"
+            >
+              <header class="text-5xl mb-4">{landingFlag.fr}</header>
+              <main class="flex-grow text-gray-200">
+                <h2 class="font-display font-bold text-xl mb-2 text-white">
+                  Pédaler pour la recherche sur le SGB
+                </h2>
+                <p>
+                  Bienvenue dans un voyage épique de résilience. Sélectionnez
+                  votre langue pour explorer le défi.
+                </p>
+              </main>
+              <footer class="mt-6 p-3 bg-white rounded-lg">
+                <img
+                  src="/logos/fr.png"
+                  alt="EPODIN - European Patient Organisation for Dysimmune & Inflammatory Neuropathies"
+                  class="h-10 mx-auto object-contain"
+                />
+              </footer>
+              <div
+                class="absolute inset-0 bg-black/80 text-white flex items-center justify-center p-4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >
+                <p class="font-sans font-bold text-base md:text-lg">
+                  Cliquez pour accéder au site en français
+                </p>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
-  </div>
-  </main>
+    </main>
     <script>
       (function () {
-        const countdownContainer = document.getElementById("countdown") as HTMLElement | null;
+        const countdownContainer = document.getElementById(
+          "countdown",
+        ) as HTMLElement | null;
         if (!countdownContainer) return;
-        
+
         const targetDateString = countdownContainer.dataset.targetDate;
         if (!targetDateString) return;
 
         const TARGET_DATE = new Date(targetDateString);
-        const lang = document.documentElement.lang.startsWith("es") ? "es" : "en";
+
+        // Initial language detection
+        let currentLang = (document.documentElement.lang || "en") as
+          | "en"
+          | "es"
+          | "eu"
+          | "fr";
+        if (!["en", "es", "eu", "fr"].includes(currentLang)) {
+          currentLang = "en";
+        }
 
         type Units = {
           year: [string, string];
@@ -195,9 +308,11 @@ const landingEntries = Object.entries(landingCopy) as Array<[Language, (typeof l
           units: Units;
           dateLocale: string;
         };
-        const dict: Record<"en" | "es", I18n> = {
+
+        const dict: Record<"en" | "es" | "eu" | "fr", I18n> = {
           en: {
-            begins: (dateStr: string) => `The challenge website opens on ${dateStr}`,
+            begins: (dateStr: string) =>
+              `The challenge website opens on ${dateStr}`,
             underway: "The ride is underway! Follow the progress.",
             units: {
               year: ["Year", "Years"],
@@ -220,46 +335,107 @@ const landingEntries = Object.entries(landingCopy) as Array<[Language, (typeof l
             },
             dateLocale: "es-ES",
           },
+          eu: {
+            begins: (dateStr: string) => `Erronka hasiera: ${dateStr}`,
+            underway: "Ibilbidea martxan da! Jarraitu aurrerapena.",
+            units: {
+              year: ["Urte", "Urteak"],
+              day: ["Egun", "Egunak"],
+              hour: ["Ordu", "Orduak"],
+              minute: ["Minutu", "Minutuak"],
+              second: ["Segundo", "Segundoak"],
+            },
+            dateLocale: "eu-ES",
+          },
+          fr: {
+            begins: (dateStr: string) => `Le défi commence le ${dateStr}`,
+            underway: "Le parcours est en cours ! Suivez la progression.",
+            units: {
+              year: ["An", "Ans"],
+              day: ["Jour", "Jours"],
+              hour: ["Heure", "Heures"],
+              minute: ["Minute", "Minutes"],
+              second: ["Seconde", "Secondes"],
+            },
+            dateLocale: "fr-FR",
+          },
         };
-        const i18n = dict[lang];
 
-        const displayEl = document.getElementById("cd-display") as HTMLElement | null;
-        const msgEl = document.getElementById("cd-message") as HTMLElement | null;
+        const displayEl = document.getElementById(
+          "cd-display",
+        ) as HTMLElement | null;
+        const msgEl = document.getElementById(
+          "cd-message",
+        ) as HTMLElement | null;
         if (!displayEl || !msgEl) return;
 
         let timerId: ReturnType<typeof setInterval>;
 
         function updateCountdown() {
+          const i18n = dict[currentLang] || dict.en;
           const now = new Date();
           const diff = TARGET_DATE.getTime() - now.getTime();
           if (diff <= 0) {
             msgEl!.classList.remove("hidden");
             msgEl!.textContent = i18n.underway;
             countdownContainer!.innerHTML = "";
-            clearInterval(timerId!);
+            if (timerId) clearInterval(timerId);
             return;
           }
           let days = Math.floor(diff / (1000 * 60 * 60 * 24));
-          let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          let hours = Math.floor(
+            (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+          );
           let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
           let seconds = Math.floor((diff % (1000 * 60)) / 1000);
           const years = Math.floor(days / 365);
           days %= 365;
 
-          const label = (units: [string, string], n: number) => (n === 1 ? units[0] : units[1]);
+          const label = (units: [string, string], n: number) =>
+            n === 1 ? units[0] : units[1];
           const parts: string[] = [];
           if (years > 0)
-            parts.push(`<div class="text-center"><div class="font-bold text-2xl md:text-3xl">${years}</div><div class="text-xs">${label(i18n.units.year, years)}</div></div>`);
+            parts.push(
+              `<div class="text-center"><div class="font-bold text-2xl md:text-3xl">${years}</div><div class="text-xs">${label(i18n.units.year, years)}</div></div>`,
+            );
           if (days > 0 || years > 0)
-            parts.push(`<div class="text-center"><div class="font-bold text-2xl md:text-3xl">${days}</div><div class="text-xs">${label(i18n.units.day, days)}</div></div>`);
+            parts.push(
+              `<div class="text-center"><div class="font-bold text-2xl md:text-3xl">${days}</div><div class="text-xs">${label(i18n.units.day, days)}</div></div>`,
+            );
           if (hours > 0 || days > 0 || years > 0)
-            parts.push(`<div class="text-center"><div class="font-bold text-2xl md:text-3xl">${hours}</div><div class="text-xs">${label(i18n.units.hour, hours)}</div></div>`);
-          parts.push(`<div class="text-center"><div class="font-bold text-2xl md:text-3xl">${minutes}</div><div class="text-xs">${label(i18n.units.minute, minutes)}</div></div>`);
-          parts.push(`<div class="text-center"><div class="font-bold text-2xl md:text-3xl">${seconds}</div><div class="text-xs">${label(i18n.units.second, seconds)}</div></div>`);
-          displayEl!.innerHTML = parts.join('<div class="text-2xl md:text-3xl font-bold">:</div>');
-          const targetLocaleString = TARGET_DATE.toLocaleString(i18n.dateLocale, { day: "2-digit", month: "long", year: "numeric", timeZone: "Europe/Madrid" });
+            parts.push(
+              `<div class="text-center"><div class="font-bold text-2xl md:text-3xl">${hours}</div><div class="text-xs">${label(i18n.units.hour, hours)}</div></div>`,
+            );
+          parts.push(
+            `<div class="text-center"><div class="font-bold text-2xl md:text-3xl">${minutes}</div><div class="text-xs">${label(i18n.units.minute, minutes)}</div></div>`,
+          );
+          parts.push(
+            `<div class="text-center"><div class="font-bold text-2xl md:text-3xl">${seconds}</div><div class="text-xs">${label(i18n.units.second, seconds)}</div></div>`,
+          );
+          displayEl!.innerHTML = parts.join(
+            '<div class="text-2xl md:text-3xl font-bold">:</div>',
+          );
+          const targetLocaleString = TARGET_DATE.toLocaleString(
+            i18n.dateLocale,
+            {
+              day: "2-digit",
+              month: "long",
+              year: "numeric",
+              timeZone: "Europe/Madrid",
+            },
+          );
           msgEl!.textContent = i18n.begins(targetLocaleString);
         }
+
+        // Listen for language changes
+        document.addEventListener("r4gbs:langchange", (evt: any) => {
+          const newLang = evt.detail?.lang;
+          if (newLang && dict[newLang as keyof typeof dict]) {
+            currentLang = newLang as any;
+            updateCountdown();
+          }
+        });
+
         updateCountdown();
         timerId = setInterval(updateCountdown, 1000);
       })();
