@@ -2,6 +2,7 @@
 import progressData from "../data/progress.json";
 import i18n from "../data/sidebar.json";
 import { Countdown } from "./Countdown.jsx";
+import packageJson from "../../package.json";
 
 const currentPath = Astro.url.pathname;
 const lang = currentPath.startsWith("/es")
@@ -396,7 +397,7 @@ const fundsEurFrTarget =
       <span>|</span>
       <a href="/fr" class="hover:text-white underline">Français</a>
     </div> -->
-        <p>&copy; 2025 Riding4GBS. {t.rightsReserved}</p>
+        <p>&copy; 2025 Riding4GBS. {t.rightsReserved} | v{packageJson.version}</p>
       </footer>
     </div>
   </nav>
