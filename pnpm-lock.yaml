@@ -45,11 +45,11 @@ importers:
         specifier: ^13.0.2
         version: 13.0.3
       react:
-        specifier: ^19.1.1
-        version: 19.1.1
+        specifier: ^19.1.2
+        version: 19.1.2
       react-dom:
-        specifier: ^19.1.1
-        version: 19.1.1(react@19.1.1)
+        specifier: ^19.1.2
+        version: 19.1.2(react@19.1.2)
       solid-js:
         specifier: ^1.9.10
         version: 1.9.10
