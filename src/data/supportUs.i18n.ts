@@ -17,7 +17,7 @@ export type SupportUsLocaleContent = {
   };
 };
 
-export const supportUsContent: Record<'en' | 'es' | 'fr' | 'eu', SupportUsLocaleContent> = {
+export const supportUsContent: Record<'en' | 'es' | 'eu', SupportUsLocaleContent> = {
   en: {
     metaTitle: 'Support Us',
     heroTitle: 'Be Part of the Effort',
@@ -53,35 +53,13 @@ export const supportUsContent: Record<'en' | 'es' | 'fr' | 'eu', SupportUsLocale
     carousel: {
       title: 'Nuestro Increíble Equipo de Apoyo',
       footerMd:
-        'Un sincero agradecimiento a todos los que han contribuido directamente para hacer posible este viaje. ¡Tu apoyo significa el mundo para nosotros!',
+        'A sincere agradecimiento a todos los que han contribuido directamente para hacer posible este viaje. ¡Tu apoyo significa el mundo para nosotros!',
     },
     cta: {
       label: '¡Únete a nuestro increíble equipo de apoyo!',
       url: 'https://Ko-fi.com/riding4gbs',
       missingMd:
         'CTA próximamente. Mientras tanto, ponte en contacto si deseas contribuir directamente al apoyo del viaje.',
-    },
-  },
-  fr: {
-    metaTitle: 'Soutenez-nous',
-    heroTitle: "Participez à l'Effort",
-    heroIntroMd:
-      "Une traversée des Pyrénées en autonomie est un énorme défi logistique. Cette page est destinée aux amis, à la famille et aux membres de la communauté cycliste qui souhaitent contribuer directement au soutien du voyage lui-même. Ce soutien est entièrement distinct de la collecte de fonds caritative.",
-    section: {
-      heading: '⚙️ Aidez à Faire Tourner les Roues',
-      bodyMd:
-        "Chaque aspect de ce voyage, de l'équipement spécialisé et des composants durables à la nutrition quotidienne et à l'abri simple, est autofinancé. Votre contribution directe, quelle que soit sa taille, aide à couvrir ces coûts essentiels et constitue un énorme soutien moral pour notre **Lent Chemin du Retour**.",
-    },
-    carousel: {
-      title: 'Notre Incroyable Équipe de Soutien',
-      footerMd:
-        'Un grand merci à tous ceux qui ont contribué directement à rendre ce voyage possible. Votre soutien compte énormément pour nous !',
-    },
-    cta: {
-      label: 'Rejoignez notre incroyable équipe de soutien !',
-      url: 'https://Ko-fi.com/riding4gbs',
-      missingMd:
-        "CTA à venir. En attendant, contactez-nous si vous souhaitez contribuer directement au soutien du voyage.",
     },
   },
   eu: {

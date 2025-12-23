@@ -21,7 +21,7 @@ export type PartnersLocaleContent = {
   cta: PartnersCta;
 };
 
-export const partnersContent: Record<'en' | 'es' | 'fr' | 'eu', PartnersLocaleContent> = {
+export const partnersContent: Record<'en' | 'es' | 'eu', PartnersLocaleContent> = {
   en: {
     metaTitle: 'Partners',
     heroTitle: 'The Partners Behind the Challenge',
@@ -57,25 +57,6 @@ export const partnersContent: Record<'en' | 'es' | 'fr' | 'eu', PartnersLocaleCo
       bodyMd:
         'Asocia tu marca con una poderosa historia internacional de resiliencia, esperanza y superación. Ofrecemos una oportunidad única para mostrar tus productos y servicios a una audiencia comprometida en España, el Reino Unido y más allá. Al colaborar con nosotros, no solo estás patrocinando un viaje en bicicleta; estás financiando una cura e inspirando a una comunidad.',
       buttonLabel: 'Descargar Dossier de Colaboración',
-      buttonHref: '#',
-    },
-  },
-  fr: {
-    metaTitle: 'Partenaires',
-    heroTitle: "L'Équipe Derrière le Défi",
-    heroSubtitleMd:
-      "Ce défi ambitieux n'est possible que grâce au soutien généreux de nos partenaires. Chaque contribution, qu'elle soit financière ou en nature, alimente directement notre mission de sensibilisation et de financement de la recherche vitale sur le syndrome de Guillain-Barré. Nous sommes incroyablement reconnaissants envers les organisations suivantes de croire en notre voyage.",
-    sections: [
-      { key: 'pirineoPartners', heading: 'Partenaires des Pyrénées' },
-      { key: 'cimaSupporters', heading: 'Soutiens de Cima' },
-      { key: 'amigosDelReto', heading: 'Amis du Défi' },
-    ],
-    showDividerBeforeCta: true,
-    cta: {
-      heading: "Devenez Partenaire : Rejoignez l'Aventure",
-      bodyMd:
-        "Associez votre marque à une histoire internationale puissante de résilience, d'espoir et d'endurance. Nous offrons une occasion unique de présenter vos produits et services à un public engagé en Espagne, au Royaume-Uni et au-delà. En vous associant à nous, vous ne parrainez pas seulement une randonnée à vélo ; vous financez un remède et inspirez une communauté.",
-      buttonLabel: 'Télécharger le Dossier de Partenariat',
       buttonHref: '#',
     },
   },

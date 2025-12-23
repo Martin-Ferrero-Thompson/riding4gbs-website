@@ -18,7 +18,7 @@ export type ChallengeLocaleContent = {
   legs: ChallengeLeg[]; // expect 1 entry
 };
 
-export const challengeContent: Record<"en" | "es" | "fr" | "eu", ChallengeLocaleContent> = {
+export const challengeContent: Record<"en" | "es" | "eu", ChallengeLocaleContent> = {
   en: {
     metaTitle: "The Challenge | Riding4GBS",
     heroTitle: "To Conquer the Pyrenees",
@@ -60,28 +60,6 @@ export const challengeContent: Record<"en" | "es" | "fr" | "eu", ChallengeLocale
         title: "El regreso a casa español",
         bodyMd:
           "Tras llegar al Mediterráneo, el viaje gira hacia el oeste para emprender el largo camino de regreso. Esta es una prueba de resistencia y coraje, una inmersión profunda en la vertiente española de las montañas. Nuestra ruta se centrará en las largas, remotas y hermosas carreteras de Cataluña, Aragón y, finalmente, Navarra. Las subidas son menos empinadas, pero igual de implacables, y exigen una fuerza diferente para el regreso al Atlántico.",
-      },
-    ],
-  },
-  fr: {
-    metaTitle: "Le Défi | Riding4GBS",
-    heroTitle: "À la conquête des Pyrénées",
-    heroDescriptionMd:
-      "C'est plus qu'une simple randonnée à vélo ; c'est le prochain chapitre de notre histoire commune. Témoignage du soutien indéfectible d'Edurne à chaque étape de mon parcours GBS, voici notre défi : une traversée complète d'un océan à l'autre de l'une des chaînes de montagnes les plus difficiles au monde.",
-    stats: [
-      { value: "~21", label: "Jours au total" },
-      { value: "~2,000", label: "Kilomètres" },
-      { value: "~38,000", label: "Mètres de dénivelé" },
-      { value: "~4.5x", label: "La hauteur de l'Everest" },
-    ],
-    styleHeading: "Le Style : Un Voyage en Autonomie",
-    styleBodyMd:
-      "Ce défi est un retour à l'essentiel, entrepris dans un style de \"bikepacking\" en autonomie. Je transporterai tout mon propre équipement, en comptant sur la gentillesse de la communauté que je rencontrerai en chemin. Bien que le test logistique soit personnel, la route elle-même est ouverte à tous. Je serais honoré et motivé si des cyclistes locaux se joignaient à moi pour quelques kilomètres ou pour partager l'effort sur un col de montagne classique. Ce voyage est une question de communauté, et je souhaite la bienvenue à tous ceux qui veulent en faire partie.",
-    legs: [
-      {
-        title: "Étape 2 : Le Retour à la Maison",
-        bodyMd:
-          "Une fois la côte atteinte, l'objectif est de repartir vers l'ouest pour commencer le long voyage de retour. C'est un test d'endurance et de résilience. L'itinéraire de retour se concentrera sur le côté espagnol, en s'attaquant aux routes longues, isolées et magnifiques des Pré-Pyrénées en Catalogne, en Aragón et enfin en Navarre. Les ascensions sont moins raides mais tout aussi implacables, exigeant un autre type de force pour le long chemin du retour.",
       },
     ],
   },

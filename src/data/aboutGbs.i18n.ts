@@ -31,7 +31,7 @@ export type AboutGbsLocaleContent = {
   slides: AboutGbsSlide[];
 };
 
-export const aboutGbsContent: Record<"en" | "es" | "fr" | "eu", AboutGbsLocaleContent> = {
+export const aboutGbsContent: Record<"en" | "es" | "eu", AboutGbsLocaleContent> = {
   en: {
     metaTitle: "About GBS",
     heroTitle: "About Guillain-Barré Syndrome",
@@ -132,50 +132,6 @@ export const aboutGbsContent: Record<"en" | "es" | "fr" | "eu", AboutGbsLocaleCo
               "Un grupo de defensa de pacientes con sede en España, que ofrece apoyo y recursos.",
             href: "https://gbs-cidp.org.es/",
             ctaLabel: "Visitar Sitio Web →",
-          },
-        ],
-      },
-    ],
-  },
-  fr: {
-    metaTitle: "À propos du SGB",
-    heroTitle: "Qu'est-ce que le syndrome de Guillain-Barré ?",
-    heroSubtitle: "Comprendre la maladie derrière le défi.",
-    slides: [
-      {
-        kind: "narrative",
-        title: "[1/5] Qu'est-ce que le syndrome de Guillain-Barré ?",
-        bodyMd:
-          "Le syndrome de Guillain-Barré (SGB) est une maladie auto-immune rare et grave dans laquelle le système immunitaire de l'organisme attaque par erreur ses propres nerfs périphériques — le réseau nerveux situé à l'extérieur du cerveau et de la moelle épinière.\n\nL'apparition est souvent soudaine, s'aggravant en quelques heures ou quelques jours pour devenir une urgence neurologique. C'est la principale cause de paralysie aiguë non traumatique dans le monde.",
-      },
-      {
-        kind: "narrative",
-        title: "[2/5] Un Cas d'Erreur d'Identité",
-        bodyMd:
-          "La théorie la plus acceptée est celle du **\"mimétisme moléculaire\"**. Souvent, le syndrome débute après une infection courante, comme une gastro-entérite (*Campylobacter jejuni*) ou un virus respiratoire.\n\nLe système immunitaire crée des anticorps pour combattre le microbe, mais certaines parties de ce microbe ressemblent étrangement à nos propres cellules nerveuses. Les anticorps commettent une erreur catastrophique et commencent à attaquer les nerfs sains, entraînant la faiblesse, l'engourdissement et la paralysie qui définissent le SGB.",
-      },
-      {
-        kind: "narrative",
-        title: "[3/5] L'Espoir à l'Horizon",
-        bodyMd:
-          "Bien que les traitements actuels aident, ils ne constituent pas un remède et ne sont pas efficaces pour tout le monde. C'est pourquoi la recherche est si cruciale. Les scientifiques s'efforcent de trouver des outils de diagnostic plus rapides et de développer de nouvelles thérapies plus ciblées. Votre soutien alimente cette recherche vitale et apporte de l'espoir à chaque personne touchée par le SGB.",
-      },
-      {
-        kind: "image",
-        title: "[4/5] Impact sur les Cellules Nerveuses",
-        image: { src: "/gbs-details.png", alt: "Explication du syndrome de Guillain-Barré - Neurone et système nerveux" },
-        captionMd: "*Image illustrant l'impact du SGB sur les cellules et voies nerveuses.*",
-      },
-      {
-        kind: "resources",
-        title: "[5/5] En Savoir Plus",
-        resources: [
-          {
-            title: "EPODIN - European Patient Organisation for Dysimmune & Inflammatory Neuropathies",
-            descriptionMd:
-              "EPODIN - European Patient Organisation for Dysimmune & Inflammatory Neuropathies, qui fournit des informations et un soutien aux patients en France.",
-            href: "https://www.epodin.org/",
-            ctaLabel: "Visiter le site web →",
           },
         ],
       },

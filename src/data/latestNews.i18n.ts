@@ -7,7 +7,7 @@ export type LatestNewsLocaleContent = {
   placeholderBody: string;
 };
 
-export const latestNewsContent: Record<"en" | "es" | "fr" | "eu", LatestNewsLocaleContent> = {
+export const latestNewsContent: Record<"en" | "es" | "eu", LatestNewsLocaleContent> = {
   en: {
     metaTitle: "Latest News | Riding4GBS",
     heroTitle: "Latest News",
@@ -23,14 +23,6 @@ export const latestNewsContent: Record<"en" | "es" | "fr" | "eu", LatestNewsLoca
     updatesHeading: "Aspectos Recientes",
     placeholderHeading: "La página de noticias está tomando forma",
     placeholderBody: "El contenido aparecerá aquí a medida que se publiquen anuncios oficiales y cobertura mediática. Mantente atento a los hitos del viaje, logros de recaudación y menciones en prensa.",
-  },
-  fr: {
-    metaTitle: "Dernières Nouvelles | Riding4GBS",
-    heroTitle: "Dernières Nouvelles",
-    heroSubtitle: "Annonces clés et mises à jour des étapes du parcours Riding4GBS.",
-    updatesHeading: "Faits marquants récents",
-    placeholderHeading: "La page Actualités prend vie",
-    placeholderBody: "Le contenu apparaîtra ici au fur et à mesure des annonces officielles et de la couverture médiatique. Restez à l'écoute pour les étapes du parcours, les réussites de collecte et les mentions dans la presse.",
   },
   eu: {
     metaTitle: "Azken Albisteak | Riding4GBS",

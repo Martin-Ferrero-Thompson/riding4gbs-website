@@ -1,4 +1,4 @@
-export type DonateCardId = 'uk' | 'es' | 'fr' | 'eu';
+export type DonateCardId = 'uk' | 'es' | 'eu';
 
 export type DonateCard = {
   id: DonateCardId;
@@ -16,7 +16,7 @@ export type DonateLocaleContent = {
   comingSoon: string;
 };
 
-export const donateContent: Record<'en' | 'es' | 'fr' | 'eu', DonateLocaleContent> = {
+export const donateContent: Record<'en' | 'es' | 'eu', DonateLocaleContent> = {
   en: {
     metaTitle: 'Donate',
     heroTitle: 'Support Patient-Led Research in the UK',
@@ -49,21 +49,6 @@ export const donateContent: Record<'en' | 'es' | 'fr' | 'eu', DonateLocaleConten
       bodyMd:
         'Apoya la investigación financiada por GBS|CIDP España para ayudar a los pacientes en toda España.',
       buttonLabel: 'Donar en € (EUR)',
-    },
-  },
-  fr: {
-    metaTitle: 'Faire un Don',
-    heroTitle: 'Soutenez la Mission : Financez un Remède',
-    heroIntroMd:
-      "Ce défi épique est dédié à un seul objectif : financer la recherche vitale qui mènera à de meilleurs traitements et, un jour, à un remède pour le syndrome de Guillain-Barré. 100% de chaque don caritatif va directement à nos organisations partenaires officielles. Votre contribution, quelle que soit sa taille, est un puissant acte d'espoir pour chaque personne touchée par cette maladie dévastatrice.",
-    comingSoon: 'Bientôt disponible',
-    card: {
-      id: 'fr',
-      title: 'Pour les Donateurs Français',
-      image: { src: '/logos/fr.jpg', alt: "Logo de l'Association Française du Syndrome de Guillain-Barré" },
-      bodyMd:
-        "Soutenez la recherche financée par l'Association Française du Syndrome de Guillain-Barré.",
-      buttonLabel: 'Faire un don en € (EUR)',
     },
   },
   eu: {

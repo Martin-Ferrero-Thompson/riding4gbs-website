@@ -5,7 +5,7 @@ export type Supporter = {
   imgAlt: string;
   overlayTitle: string;
   ctaLabel: string;
-  ctaLang: "en" | "es" | "fr" | "eu"; // language of the CTA label for screen readers
+  ctaLang: "en" | "es" | "eu"; // language of the CTA label for screen readers
 };
 
 export type HomeLocaleContent = {
@@ -28,7 +28,7 @@ export type HomeLocaleContent = {
   };
 };
 
-export const homeContent: Record<"en" | "es" | "fr" | "eu", HomeLocaleContent> = {
+export const homeContent: Record<"en" | "es" | "eu", HomeLocaleContent> = {
   en: {
     metaTitle: "The Slow Road Back | Home",
     heroTitle: "The Slow Road Back",
@@ -62,15 +62,6 @@ export const homeContent: Record<"en" | "es" | "fr" | "eu", HomeLocaleContent> =
         overlayTitle: "GBS|CIDP España",
         ctaLabel: "Visita el sitio web",
         ctaLang: "es",
-      },
-      {
-        id: "fr",
-        href: "https://www.epodin.org/",
-        imgSrc: "/logos/fr.png",
-        imgAlt: "EPODIN - European Patient Organisation for Dysimmune & Inflammatory Neuropathies",
-        overlayTitle: "EPODIN - European Patient Organisation for Dysimmune & Inflammatory Neuropathies",
-        ctaLabel: "Visiter le site web",
-        ctaLang: "fr",
       },
     ],
     supportMessage: {
@@ -116,68 +107,6 @@ export const homeContent: Record<"en" | "es" | "fr" | "eu", HomeLocaleContent> =
         ctaLabel: "Visita el sitio web",
         ctaLang: "es",
       },
-      {
-        id: "fr",
-        href: "https://www.epodin.org/",
-        imgSrc: "/logos/fr.png",
-        imgAlt: "EPODIN - European Patient Organisation for Dysimmune & Inflammatory Neuropathies",
-        overlayTitle: "EPODIN - European Patient Organisation for Dysimmune & Inflammatory Neuropathies",
-        ctaLabel: "Visiter le site web",
-        ctaLang: "fr",
-      },
-    ],
-    supportMessage: {
-      heading: "A Message of Support from Inflammatory Neuropathies UK",
-      quote:
-        "We are absolutely thrilled to see Martin embark on 'The Slow Road Back.' His courage and determination embody the very spirit we champion at Inflammatory Neuropathies UK. This challenge will shine a much-needed light on Guillain-Barré Syndrome, helping us support more individuals and families affected by GBS. Martin, we're cheering you on from the UK!",
-      attribution: "Sarah Davies, Head of Patient Advocacy, Inflammatory Neuropathies UK",
-      ctaLabel: "Discover More About Our Work",
-      ctaHref: "https://www.inflammatoryneuropathies.uk/",
-    },
-  },
-  fr: {
-    metaTitle: "The Slow Road Back | Un Parcours pour la Recherche sur le SGB",
-    heroTitle: "Le lent chemin du retour",
-    watermarkText: "À remplacer par l'organisation caritative",
-    hometownPartnerHeading: "Notre partenaire local",
-    hometownPartnerDescriptionMd:
-      "Nous sommes extrêmement fiers de collaborer avec **Cycla Bikes**, notre magasin de vélos local à Pampelune. Leur expertise et leur ancrage profond dans la communauté cycliste sont essentiels à ce défi. Ils fournissent généreusement les **lignes de départ et d'arrivée officielles** de cette aventure épique.",
-    supportersHeading: "Fièrement en soutien à :",
-    introParagraphsMd: [
-      "Je m'appelle Martin, et je suis un survivant du syndrome de Guillain-Barré (SGB). Ma convalescence m'a appris que le voyage est plus important que la destination. C'est mon **\"Lent Chemin du Retour\"**.",
-      "**En octobre 2026**, je commencerai un défi cycliste profondément personnel depuis notre domicile à Pampelune. Mais je ne le fais pas seul. Avec mon incroyable épouse, Edurne, qui est le cœur de mon équipe de soutien, nous nous attaquons aux Pyrénées. Notre objectif est que nous roulions de la côte atlantique à la Méditerranée et retour, pour voir jusqu'où ce voyage de résilience nous mènera.",
-      "Notre parcours est une mission partagée pour sensibiliser et collecter des fonds pour la communauté du SGB. Nous ne savons pas exactement combien de jours cela prendra, ni combien de montagnes il faudra gravir. Mais nous vous invitons à nous suivre, jour après jour, dans notre voyage d'espoir et de résilience.",
-    ],
-    partnerLinkTitle: "Cycla Bikes - Your reference cycling workshop",
-    partnerLogoAlt: "Logo Cycla Bikes Pampelune",
-    supporters: [
-      {
-        id: "inuk",
-        href: "https://www.inflammatoryneuropathies.uk/",
-        imgSrc: "/logos/INUK-Wordmark-Logo_RGB.png",
-        imgAlt: "Inflammatory Neuropathies UK",
-        overlayTitle: "Inflammatory Neuropathies UK",
-        ctaLabel: "Visit Website",
-        ctaLang: "en",
-      },
-      {
-        id: "es",
-        href: "https://gbs-cidp.org.es/",
-        imgSrc: "/logos/GBS-CIDP_neuropatias-RC-3.png",
-        imgAlt: "GBS|CIDP España",
-        overlayTitle: "GBS|CIDP España",
-        ctaLabel: "Visita el sitio web",
-        ctaLang: "es",
-      },
-      {
-        id: "fr",
-        href: "https://www.epodin.org/",
-        imgSrc: "/logos/fr.png",
-        imgAlt: "EPODIN - European Patient Organisation for Dysimmune & Inflammatory Neuropathies",
-        overlayTitle: "EPODIN - European Patient Organisation for Dysimmune & Inflammatory Neuropathies",
-        ctaLabel: "Visiter le site web",
-        ctaLang: "fr",
-      },
     ],
     supportMessage: {
       heading: "A Message of Support from Inflammatory Neuropathies UK",
@@ -221,15 +150,6 @@ export const homeContent: Record<"en" | "es" | "fr" | "eu", HomeLocaleContent> =
         overlayTitle: "GBS|CIDP España",
         ctaLabel: "Webgunea Bisitatu",
         ctaLang: "es",
-      },
-      {
-        id: "fr",
-        href: "https://www.epodin.org/",
-        imgSrc: "/logos/fr.png",
-        imgAlt: "EPODIN - European Patient Organisation for Dysimmune & Inflammatory Neuropathies",
-        overlayTitle: "EPODIN - European Patient Organisation for Dysimmune & Inflammatory Neuropathies",
-        ctaLabel: "Visiter le site web",
-        ctaLang: "fr",
       },
     ],
     supportMessage: {

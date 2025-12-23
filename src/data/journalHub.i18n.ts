@@ -12,7 +12,7 @@ export type JournalHubLocaleContent = {
   dates: JournalHubDates;
 };
 
-export const journalHubContent: Record<"en" | "es" | "fr" | "eu", JournalHubLocaleContent> = {
+export const journalHubContent: Record<"en" | "es" | "eu", JournalHubLocaleContent> = {
   en: {
     metaTitle: "Journal Hub | Riding4GBS",
     heroTitle: "Journal Hub",
@@ -30,15 +30,6 @@ export const journalHubContent: Record<"en" | "es" | "fr" | "eu", JournalHubLoca
     featuredHeading: "Actualización Destacada",
     latestHeading: "Últimas Actualizaciones",
     dates: { featuredLocale: "es-ES", listLocale: "es-ES" },
-  },
-  fr: {
-    metaTitle: "Journal de Route | Riding4GBS",
-    heroTitle: "Journal de Route",
-    heroSubtitle:
-      "Suivez la progression quotidienne depuis la route, avec des mises à jour, des photos et des récits du voyage.",
-    featuredHeading: "Mise à Jour en Vedette",
-    latestHeading: "Dernières Mises à Jour",
-    dates: { featuredLocale: "fr-FR", listLocale: "fr-FR" },
   },
   eu: {
     metaTitle: "Egunkari Zentroa | Riding4GBS",

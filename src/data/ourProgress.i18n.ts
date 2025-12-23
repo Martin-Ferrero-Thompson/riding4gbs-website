@@ -15,7 +15,7 @@ export type OurProgressLocaleContent = {
   format: OurProgressFormat;
 };
 
-export const ourProgressContent: Record<"en" | "es" | "fr" | "eu", OurProgressLocaleContent> = {
+export const ourProgressContent: Record<"en" | "es" | "eu", OurProgressLocaleContent> = {
   en: {
     metaTitle: "Our Progress",
     heroTitle: "Follow The Journey",
@@ -37,17 +37,6 @@ export const ourProgressContent: Record<"en" | "es" | "fr" | "eu", OurProgressLo
     mapImageAlt: "El mapa de la ruta para el desafío.",
     numbersHeading: "Las Cifras",
     format: { gbpLocale: "en-GB", eurLocale: "de-DE" },
-  },
-  fr: {
-    metaTitle: "Notre Progression",
-    heroTitle: "Suivez l'Aventure",
-    heroSubtitle: "Cette page sera mise à jour quotidiennement avec les données de la route.",
-    mapHeading: "Carte de Localisation en Direct",
-    mapIntro:
-      "Cette carte montre l'itinéraire accompli jusqu'à présent. Revenez chaque jour pour voir ma progression à travers les Pyrénées !",
-    mapImageAlt: "La carte de l'itinéraire du défi.",
-    numbersHeading: "Les Chiffres",
-    format: { gbpLocale: "en-GB", eurLocale: "fr-FR", climbingNumberLocale: "fr-FR" },
   },
   eu: {
     metaTitle: "Gure Aurrerapena",
