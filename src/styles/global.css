@@ -40,9 +40,10 @@
   nav[data-interactive="true"] button[aria-pressed="true"],
   nav[data-interactive="true"] button[aria-checked="true"],
   nav[data-interactive="true"] button.is-active {
-    background-color: rgb(55 65 81 / 1);
+    background-color: rgba(31, 41, 55, 0.8) !important;
     color: #fff;
-    border-color: rgb(75 85 99 / 1);
+    border-color: #007bff;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
     cursor: default;
   }
 
@@ -53,11 +54,11 @@
 
   nav[data-interactive="true"][data-active-lang="en"] button[data-lang="en"],
   nav[data-interactive="true"][data-active-lang="es"] button[data-lang="es"],
-  nav[data-interactive="true"][data-active-lang="eu"] button[data-lang="eu"],
-  nav[data-interactive="true"][data-active-lang="fr"] button[data-lang="fr"] {
-    background-color: rgb(55 65 81 / 1);
+  nav[data-interactive="true"][data-active-lang="eu"] button[data-lang="eu"] {
+    background-color: rgba(31, 41, 55, 0.8) !important;
     color: #fff;
-    border-color: rgb(75 85 99 / 1);
+    border-color: #007bff;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
     cursor: default;
   }
 }

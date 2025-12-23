@@ -47,6 +47,18 @@ const landingEntries = Object.entries(landingCopy) as Array<
       .animate-fade-in {
         animation: fade-in 1s ease-out forwards;
       }
+      .active-card {
+        border-color: #007bff;
+        box-shadow: 0 0 20px rgba(0, 123, 255, 0.4);
+        transform: scale(1.05);
+        background-color: rgba(31, 41, 55, 0.8) !important;
+      }
+      .active-card footer {
+        background-color: #007bff;
+      }
+      .active-card footer img {
+        filter: brightness(0) invert(1);
+      }
     </style>
   </head>
   <body class="bg-gray-800 text-white font-sans overflow-x-hidden">
@@ -142,6 +154,15 @@ const landingEntries = Object.entries(landingCopy) as Array<
                   block.setAttribute("aria-hidden", String(!isMatch));
                 });
                 root.setAttribute("data-current-lang", lang);
+
+                // Highlight corresponding card
+                document
+                  .querySelectorAll("[data-lang-card]")
+                  .forEach((card) => {
+                    const isActive =
+                      card.getAttribute("data-lang-card") === lang;
+                    card.classList.toggle("active-card", isActive);
+                  });
               }
 
               function bindOnce() {
@@ -178,71 +199,47 @@ const landingEntries = Object.entries(landingCopy) as Array<
             class="rounded-lg shadow-md mb-8 mx-auto w-full h-auto max-w-full md:max-w-3xl object-contain"
           />
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <a
-              href="#"
-              data-astro-reload
-              class="group relative bg-gray-800/50 rounded-xl p-6 flex flex-col text-center transition-transform md:hover:scale-105"
-            >
-              <header class="text-5xl mb-4">{landingFlag.en}</header>
-              <main class="flex-grow text-gray-200">
-                <h2
-                  class="font-display font-bold text-xl mb-2 text-white tracking-wider"
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {
+              landingEntries.map(([lang, copy]) => (
+                <a
+                  href={`/${lang}/`}
+                  data-astro-reload
+                  data-lang-card={lang}
+                  class="group relative bg-gray-800/50 rounded-xl p-6 flex flex-col text-center transition-all duration-300 md:hover:scale-105 border-2 border-transparent"
                 >
-                  Ride for GBS Research
-                </h2>
-                <p>
-                  Welcome to an epic journey of resilience. Select your language
-                  to explore the challenge.
-                </p>
-              </main>
-              <footer class="mt-6 p-3 bg-white rounded-lg">
-                <img
-                  src="/logos/INUK-Wordmark-Logo_RGB.png"
-                  alt="Inflammatory Neuropathies UK"
-                  class="h-10 mx-auto object-contain"
-                />
-              </footer>
-              <div
-                class="absolute inset-0 bg-black/80 text-white flex items-center justify-center p-4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              >
-                <p class="font-sans font-bold text-base md:text-lg">
-                  Click to enter the English site
-                </p>
-              </div>
-            </a>
-            <a
-              href="#"
-              data-astro-reload
-              class="group relative bg-gray-800/50 rounded-xl p-6 flex flex-col text-center transition-transform md:hover:scale-105"
-            >
-              <header class="text-5xl mb-4">{landingFlag.es}</header>
-              <main class="flex-grow text-gray-200">
-                <h2
-                  class="font-display font-bold text-xl mb-2 text-white tracking-wider"
-                >
-                  Pedaleando por la investigación del SGB
-                </h2>
-                <p>
-                  Bienvenido a un viaje épico de resiliencia. Selecciona tu
-                  idioma para explorar el desafío.
-                </p>
-              </main>
-              <footer class="mt-6 p-3 bg-white rounded-lg">
-                <img
-                  src="/logos/GBS-CIDP_neuropatias-RC-3.png"
-                  alt="GBS|CIDP España"
-                  class="h-10 mx-auto object-contain"
-                />
-              </footer>
-              <div
-                class="absolute inset-0 bg-black/80 text-white flex items-center justify-center p-4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              >
-                <p class="font-sans font-bold text-base md:text-lg">
-                  Haga clic para entrar en el sitio en español
-                </p>
-              </div>
-            </a>
+                  <header class="text-5xl mb-4">
+                    {copy.flag.startsWith("/") ? (
+                      <img
+                        src={copy.flag}
+                        alt={`${lang} flag`}
+                        class="h-12 mx-auto"
+                      />
+                    ) : (
+                      copy.flag
+                    )}
+                  </header>
+                  <main class="flex-grow text-gray-200">
+                    <h2 class="font-display font-bold text-xl mb-2 text-white tracking-wider">
+                      {copy.cardTitle}
+                    </h2>
+                    <p>{copy.cardDescription}</p>
+                  </main>
+                  <footer class="mt-6 p-3 bg-white rounded-lg">
+                    <img
+                      src={copy.logo}
+                      alt={copy.logoAlt}
+                      class="h-10 mx-auto object-contain"
+                    />
+                  </footer>
+                  <div class="absolute inset-0 bg-black/80 text-white flex items-center justify-center p-4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="font-sans font-bold text-base md:text-lg">
+                      {copy.cardHover}
+                    </p>
+                  </div>
+                </a>
+              ))
+            }
           </div>
         </div>
       </div>
