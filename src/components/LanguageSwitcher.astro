@@ -37,41 +37,42 @@ const defaultLabels: Record<Language, string> = {
   en: "EN",
   es: "ES",
   eu: "EU",
-  fr: "FR",
 };
 
 const defaultFlags: Record<Language, string> = {
   en: "🇬🇧",
   es: "🇪🇸",
   eu: "/flags/eu.svg",
-  fr: "🇫🇷",
 };
 
 const labels: Record<Language, string> = {
   en: customLabels.en ?? defaultLabels.en,
   es: customLabels.es ?? defaultLabels.es,
   eu: customLabels.eu ?? defaultLabels.eu,
-  fr: customLabels.fr ?? defaultLabels.fr,
 };
 
 const flags: Record<Language, string> = {
   en: customFlags.en ?? defaultFlags.en,
   es: customFlags.es ?? defaultFlags.es,
   eu: customFlags.eu ?? defaultFlags.eu,
-  fr: customFlags.fr ?? defaultFlags.fr,
 };
 
-const isFlagImage = (value: string) => /^(?:\/?[\w\-\.]+\/.+|https?:\/\/|data:\w+\/\w+)/.test(value);
+const isFlagImage = (value: string) =>
+  /^(?:\/?[\w\-\.]+\/.+|https?:\/\/|data:\w+\/\w+)/.test(value);
 
 const path = Astro.url.pathname;
 const firstSeg = path.split("/").filter(Boolean)[0] ?? "";
-const currentLang: Language = (SUPPORTED_LANGUAGES as readonly string[]).includes(firstSeg)
+const currentLang: Language = (
+  SUPPORTED_LANGUAGES as readonly string[]
+).includes(firstSeg)
   ? (firstSeg as Language)
   : DEFAULT_LANGUAGE;
 
 function targetUrl(target: Language): string {
   const parts = path.split("/");
-  const hasLangPrefix = (SUPPORTED_LANGUAGES as readonly string[]).includes(parts[1] ?? "");
+  const hasLangPrefix = (SUPPORTED_LANGUAGES as readonly string[]).includes(
+    parts[1] ?? "",
+  );
 
   if (!hasLangPrefix) {
     return `/${target}/`;
@@ -102,68 +103,72 @@ const staticOptions = SUPPORTED_LANGUAGES.map((lang) => ({
 }));
 ---
 
-{interactive ? (
-  <LanguageSwitcherIsland
-    client:load
-    ariaLabel={ariaLabel}
-    className={className}
-    options={interactiveOptions}
-    initialLang={currentLang}
-    showFlags={showFlags}
-    baseBtnClasses={baseBtnClasses}
-  />
-) : (
-  <nav aria-label={ariaLabel} class:list={["inline-block", className]}>
-    <ul class="flex items-center gap-2">
-      {staticOptions.map(({ code, label, flag, href, isCurrent }) => (
-        <li>
-          {isCurrent ? (
-            <span
-              aria-current="true"
-              class="px-2.5 py-1 text-sm font-medium rounded-md border border-gray-600 bg-gray-700 text-white cursor-default select-none flex items-center gap-1"
-            >
-              {showFlags && (isFlagImage(flag) ? (
-                <img
-                  src={flag}
-                  alt=""
-                  aria-hidden="true"
-                  width={16}
-                  height={12}
-                  class="inline-block w-4 h-3 object-cover"
-                  loading="lazy"
-                  decoding="async"
-                />
-              ) : (
-                <span aria-hidden="true">{flag}</span>
-              ))}
-              {label}
-            </span>
-          ) : (
-            <a
-              href={href}
-              lang={code}
-              hreflang={code}
-              class="px-2.5 py-1 text-sm font-medium rounded-md border border-gray-600 text-gray-200 hover:text-white hover:border-gray-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-800 transition flex items-center gap-1"
-            >
-              {showFlags && (isFlagImage(flag) ? (
-                <img
-                  src={flag}
-                  alt=""
-                  aria-hidden="true"
-                  width={16}
-                  height={12}
-                  class="inline-block w-4 h-3 object-cover"
-                  loading="lazy"
-                  decoding="async"
-                />
-              ) : (
-                <span aria-hidden="true">{flag}</span>
-              ))}
-              {label}
-            </a>
-          )}
-        </li>
-      ))}
-    </ul>
-  </nav>
-)}
+{
+  interactive ? (
+    <LanguageSwitcherIsland
+      client:load
+      ariaLabel={ariaLabel}
+      className={className}
+      options={interactiveOptions}
+      initialLang={currentLang}
+      showFlags={showFlags}
+      baseBtnClasses={baseBtnClasses}
+    />
+  ) : (
+    <nav aria-label={ariaLabel} class:list={["inline-block", className]}>
+      <ul class="flex items-center gap-2">
+        {staticOptions.map(({ code, label, flag, href, isCurrent }) => (
+          <li>
+            {isCurrent ? (
+              <span
+                aria-current="true"
+                class="px-2.5 py-1 text-sm font-medium rounded-md border border-gray-600 bg-gray-700 text-white cursor-default select-none flex items-center gap-1"
+              >
+                {showFlags &&
+                  (isFlagImage(flag) ? (
+                    <img
+                      src={flag}
+                      alt=""
+                      aria-hidden="true"
+                      width={16}
+                      height={12}
+                      class="inline-block w-4 h-3 object-cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  ) : (
+                    <span aria-hidden="true">{flag}</span>
+                  ))}
+                {label}
+              </span>
+            ) : (
+              <a
+                href={href}
+                lang={code}
+                hreflang={code}
+                class="px-2.5 py-1 text-sm font-medium rounded-md border border-gray-600 text-gray-200 hover:text-white hover:border-gray-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-800 transition flex items-center gap-1"
+              >
+                {showFlags &&
+                  (isFlagImage(flag) ? (
+                    <img
+                      src={flag}
+                      alt=""
+                      aria-hidden="true"
+                      width={16}
+                      height={12}
+                      class="inline-block w-4 h-3 object-cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  ) : (
+                    <span aria-hidden="true">{flag}</span>
+                  ))}
+                {label}
+              </a>
+            )}
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
+}

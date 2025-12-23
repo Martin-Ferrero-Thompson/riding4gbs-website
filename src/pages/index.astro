@@ -178,7 +178,7 @@ const landingEntries = Object.entries(landingCopy) as Array<
             class="rounded-lg shadow-md mb-8 mx-auto w-full h-auto max-w-full md:max-w-3xl object-contain"
           />
 
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             <a
               href="#"
               data-astro-reload
@@ -239,36 +239,6 @@ const landingEntries = Object.entries(landingCopy) as Array<
                 </p>
               </div>
             </a>
-            <a
-              href="#"
-              data-astro-reload
-              class="group relative bg-gray-800/50 rounded-xl p-6 flex flex-col text-center transition-transform md:hover:scale-105"
-            >
-              <header class="text-5xl mb-4">{landingFlag.fr}</header>
-              <main class="flex-grow text-gray-200">
-                <h2 class="font-display font-bold text-xl mb-2 text-white">
-                  Pédaler pour la recherche sur le SGB
-                </h2>
-                <p>
-                  Bienvenue dans un voyage épique de résilience. Sélectionnez
-                  votre langue pour explorer le défi.
-                </p>
-              </main>
-              <footer class="mt-6 p-3 bg-white rounded-lg">
-                <img
-                  src="/logos/fr.png"
-                  alt="EPODIN - European Patient Organisation for Dysimmune & Inflammatory Neuropathies"
-                  class="h-10 mx-auto object-contain"
-                />
-              </footer>
-              <div
-                class="absolute inset-0 bg-black/80 text-white flex items-center justify-center p-4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              >
-                <p class="font-sans font-bold text-base md:text-lg">
-                  Cliquez pour accéder au site en français
-                </p>
-              </div>
-            </a>
           </div>
         </div>
       </div>
@@ -289,9 +259,8 @@ const landingEntries = Object.entries(landingCopy) as Array<
         let currentLang = (document.documentElement.lang || "en") as
           | "en"
           | "es"
-          | "eu"
-          | "fr";
-        if (!["en", "es", "eu", "fr"].includes(currentLang)) {
+          | "eu";
+        if (!["en", "es", "eu"].includes(currentLang)) {
           currentLang = "en";
         }
 
@@ -309,7 +278,7 @@ const landingEntries = Object.entries(landingCopy) as Array<
           dateLocale: string;
         };
 
-        const dict: Record<"en" | "es" | "eu" | "fr", I18n> = {
+        const dict: Record<"en" | "es" | "eu", I18n> = {
           en: {
             begins: (dateStr: string) =>
               `The challenge website opens on ${dateStr}`,
@@ -346,18 +315,6 @@ const landingEntries = Object.entries(landingCopy) as Array<
               second: ["Segundo", "Segundoak"],
             },
             dateLocale: "eu-ES",
-          },
-          fr: {
-            begins: (dateStr: string) => `Le défi commence le ${dateStr}`,
-            underway: "Le parcours est en cours ! Suivez la progression.",
-            units: {
-              year: ["An", "Ans"],
-              day: ["Jour", "Jours"],
-              hour: ["Heure", "Heures"],
-              minute: ["Minute", "Minutes"],
-              second: ["Seconde", "Secondes"],
-            },
-            dateLocale: "fr-FR",
           },
         };
 

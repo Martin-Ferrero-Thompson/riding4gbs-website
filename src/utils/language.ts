@@ -1,4 +1,4 @@
-export const SUPPORTED_LANGUAGES = ["en", "es", "eu", "fr"] as const;
+export const SUPPORTED_LANGUAGES = ["en", "es", "eu"] as const;
 export type Language = (typeof SUPPORTED_LANGUAGES)[number];
 
 const LOCAL_STORAGE_KEY = "r4gbs:preferredLanguage";
