@@ -1,13 +1,13 @@
 {
   "en": {
     "challenge": "The Challenge",
-  "ourStory": "Our Story",
+    "ourStory": "Our Story",
     "aboutGBS": "About GBS",
     "ourProgress": "Our Progress",
     "latestNews": "Latest News",
     "journalHub": "Journal Hub",
-  "partners": "Partners",
-  "supportUs": "Support Us",
+    "partners": "Partners",
+    "supportUs": "Support Us",
     "sectionChallenge": "Challenge",
     "sectionJourney": "Journey",
     "sectionSupport": "Support",
@@ -36,13 +36,13 @@
   },
   "es": {
     "challenge": "El Reto",
-  "ourStory": "Nuestra Historia",
+    "ourStory": "Nuestra Historia",
     "aboutGBS": "Sobre el SGB",
     "ourProgress": "Nuestro Progreso",
     "latestNews": "Últimas Noticias",
     "journalHub": "Centro de revistas",
-  "partners": "Colaboradores",
-  "supportUs": "Apóyanos",
+    "partners": "Colaboradores",
+    "supportUs": "Apóyanos",
     "sectionChallenge": "Reto",
     "sectionJourney": "Viaje",
     "sectionSupport": "Apoyo",
@@ -69,39 +69,39 @@
       "second": "Segs"
     }
   },
-  "fr": {
-    "challenge": "Le Défi",
-  "ourStory": "Notre Histoire",
-    "aboutGBS": "À propos du SGB",
-    "ourProgress": "Notre Progression",
-    "latestNews": "Dernières Nouvelles",
-    "journalHub": "Journal Hub",
-  "partners": "Partenaires",
-  "supportUs": "Soutenez-nous",
-    "sectionChallenge": "Défi",
-    "sectionJourney": "Parcours",
-    "sectionSupport": "Soutien",
-    "donateNow": "Faire un Don",
-    "totalRaised": "Total Collecté",
-    "followJourney": "Suivez le voyage sur :",
-    "language": "Langue",
-    "rightsReserved": "Tous droits réservés.",
+  "eu": {
+    "challenge": "Erronka",
+    "ourStory": "Gure Istorioa",
+    "aboutGBS": "SGBri buruz",
+    "ourProgress": "Gure Aurrerapena",
+    "latestNews": "Azken Albisteak",
+    "journalHub": "Aldizkari Zentroa",
+    "partners": "Laguntzaileak",
+    "supportUs": "Lagundu Guri",
+    "sectionChallenge": "Erronka",
+    "sectionJourney": "Bidaia",
+    "sectionSupport": "Laguntza",
+    "donateNow": "Eman Orain",
+    "totalRaised": "Guztira Bildutakoa",
+    "followJourney": "Jarraitu Bidaia Hemen:",
+    "language": "Hizkuntza",
+    "rightsReserved": "Eskubide guztiak erreserbatuta.",
     "countries": {
       "uk": "UK",
-      "es": "Espagne",
-      "fr": "France"
+      "es": "Espainia",
+      "fr": "Frantzia"
     },
     "carousel": {
-      "previous": "Diapositive Précédente",
-      "next": "Diapositive Suivante"
+      "previous": "Aurreko Diapositiba",
+      "next": "Hurrengo Diapositiba"
     },
-    "underway": "Parcours en cours !",
+    "underway": "Ibilbidea Martxan!",
     "countdownUnits": {
-      "year": "Ans",
-      "day": "Jours",
-      "hour": "Heures",
-      "minute": "Mins",
-      "second": "Secs"
+      "year": "Urte",
+      "day": "Egun",
+      "hour": "Ordu",
+      "minute": "Min",
+      "second": "Seg"
     }
   }
 }

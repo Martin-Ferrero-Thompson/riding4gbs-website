@@ -7,8 +7,8 @@ import packageJson from "../../package.json";
 const currentPath = Astro.url.pathname;
 const lang = currentPath.startsWith("/es")
   ? "es"
-  : currentPath.startsWith("/fr")
-    ? "fr"
+  : currentPath.startsWith("/eu")
+    ? "eu"
     : "en";
 const t = i18n[lang];
 
