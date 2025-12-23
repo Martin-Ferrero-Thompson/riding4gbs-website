@@ -44,7 +44,6 @@ const eurFormatter = new Intl.NumberFormat("de-DE", {
 const fundsData = progressData as {
   funds_gbp?: { total?: number; targetLabel?: string };
   funds_eur?: { total?: number; targetLabel?: string };
-  funds_eur_fr?: { total?: number; targetLabel?: string };
 };
 
 const fundsGbpTarget =
@@ -60,14 +59,6 @@ const fundsEurTarget =
     ? {
         label: fundsData.funds_eur.targetLabel ?? "Target",
         value: eurFormatter.format(fundsData.funds_eur.total),
-      }
-    : undefined;
-
-const fundsEurFrTarget =
-  typeof fundsData.funds_eur_fr?.total === "number"
-    ? {
-        label: fundsData.funds_eur_fr.targetLabel ?? "Target",
-        value: eurFormatter.format(fundsData.funds_eur_fr.total),
       }
     : undefined;
 ---
@@ -273,21 +264,6 @@ const fundsEurFrTarget =
               )
             }
           </div>
-          {
-            progressData.funds_eur_fr && (
-              <div>
-                <span class="text-2xl font-bold text-blue-400">
-                  {eurFormatter.format(progressData.funds_eur_fr.current)}
-                </span>
-                <span class="text-xs text-gray-400"> ({t.countries.fr})</span>
-                {fundsEurFrTarget && (
-                  <p class="text-xs text-gray-400 mt-1">
-                    {fundsEurFrTarget.label}: {fundsEurFrTarget.value}
-                  </p>
-                )}
-              </div>
-            )
-          }
         </div>
       </div>
     </div>
@@ -397,7 +373,9 @@ const fundsEurFrTarget =
       <span>|</span>
       <a href="/fr" class="hover:text-white underline">Français</a>
     </div> -->
-        <p>&copy; 2025 Riding4GBS. {t.rightsReserved} | v{packageJson.version}</p>
+        <p>
+          &copy; 2025 Riding4GBS. {t.rightsReserved} | v{packageJson.version}
+        </p>
       </footer>
     </div>
   </nav>

@@ -36,11 +36,4 @@
     "unit": "€",
     "targetLabel": "Target"
   }
-  ,
-  "funds_eur_fr": {
-    "label": "Funds Raised for GBS France",
-    "current": 0,
-    "total": 5000,
-    "unit": "€"
-  }
 }
