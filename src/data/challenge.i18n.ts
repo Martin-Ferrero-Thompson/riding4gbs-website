@@ -25,10 +25,10 @@ export const challengeContent: Record<"en" | "es" | "eu", ChallengeLocaleContent
     heroDescriptionMd:
       "This is more than a bike ride; it's the next chapter in our shared story. A testament to Edurne's unwavering support through every step of my GBS journey, this is our challenge — a complete coast-to-coast traverse of one of the world's most challenging mountain ranges.",
     stats: [
-      { value: "~21", label: "Total Days" },
-      { value: "~2,000", label: "Kilometres" },
-      { value: "~38,000", label: "Metres of Climbing" },
-      { value: "~4.5x", label: "The Height of Everest" },
+      { value: "~12", label: "Total Days" },
+      { value: "~1,000", label: "Kilometres" },
+      { value: "~22,000", label: "Metres of Climbing" },
+      { value: "~2.5x", label: "The Height of Everest" },
     ],
     styleHeading: "The Style: A Shared Journey",
     styleBodyMd:
@@ -47,10 +47,10 @@ export const challengeContent: Record<"en" | "es" | "eu", ChallengeLocaleContent
     heroDescriptionMd:
       "Esto es más que un paseo en bicicleta; es el siguiente capítulo de nuestra historia compartida. Como testimonio del apoyo incondicional de Edurne en cada paso de mi camino hacia el GBS, este es nuestro reto: una travesía completa de costa a costa por una de las cordilleras más desafiantes del mundo.",
     stats: [
-      { value: "~21", label: "Días Totales" },
-      { value: "~2,000", label: "Kilómetros" },
-      { value: "~38,000", label: "Metros de Ascensión" },
-      { value: "~4.5x", label: "La Altura del Everest" },
+      { value: "~12", label: "Días Totales" },
+      { value: "~1,000", label: "Kilómetros" },
+      { value: "~22,000", label: "Metros de Ascensión" },
+      { value: "~2.5x", label: "La Altura del Everest" },
     ],
     styleHeading: "El estilo: un viaje compartido",
     styleBodyMd:
@@ -69,10 +69,10 @@ export const challengeContent: Record<"en" | "es" | "eu", ChallengeLocaleContent
     heroDescriptionMd:
       "Hau bizikleta ibilaldi bat baino gehiago da; gure istorio partekatuaren hurrengo kapitulua da. Edurnek nire SGB bidaiaren pauso bakoitzean emandako laguntza etengabearen lekuko, hau da gure erronka: munduko mendikate zailenetako baten kostaldetik kostalderako zeharkaldi osoa.",
     stats: [
-      { value: "~21", label: "Egun Guztira" },
-      { value: "~2,000", label: "Kilometro" },
-      { value: "~38,000", label: "Igoera Metroak" },
-      { value: "~4.5x", label: "Everest-en Altuera" },
+      { value: "~12", label: "Egun Guztira" },
+      { value: "~1,000", label: "Kilometro" },
+      { value: "~22,000", label: "Igoera Metroak" },
+      { value: "~2.5x", label: "Everest-en Altuera" },
     ],
     styleHeading: "Estiloa: Bidaia Partekatu Bat",
     styleBodyMd:

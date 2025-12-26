@@ -1,58 +1,15 @@
 [
+
   {
-    "name": "John Smith",
-    "country": "United Kingdom"
-  },
-  {
-    "name": "María García",
+    "name": "Martin Thompson",
     "country": "España"
   },
   {
-    "name": "Emily Jones",
-    "country": "United Kingdom"
-  },
-  {
-    "name": "Javier Fernández",
+    "name": "Edurne Ferrero Aguirre",
     "country": "España"
   },
   {
-    "name": "David Williams",
+    "name": "Andrew Deeley",
     "country": "United Kingdom"
-  },
-  {
-    "name": "Carmen Ruiz",
-    "country": "España"
-  },
-  {
-    "name": "Sarah Taylor",
-    "country": "United Kingdom"
-  },
-  {
-    "name": "Francisco Moreno",
-    "country": "España"
-  },
-  {
-    "name": "Michael Brown",
-    "country": "United Kingdom"
-  },
-  {
-    "name": "Isabel Jiménez",
-    "country": "España"
-  },
-  {
-    "name": "Laura Evans",
-    "country": "United Kingdom"
-  },
-  {
-    "name": "Sergio González",
-    "country": "España"
-  },
-  {
-    "name": "James Wilson",
-    "country": "United Kingdom"
-  },
-  {
-    "name": "Elena Navarro",
-    "country": "España"
   }
 ]
