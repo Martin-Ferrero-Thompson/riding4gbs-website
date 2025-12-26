@@ -4,63 +4,61 @@ import type { DonateLocaleContent } from "../data/donate.i18n";
 import { marked } from "marked";
 import progressEn from "../data/progress.json";
 import progressEs from "../data/progress-es.json";
-import progressFr from "../data/progress-fr.json";
+import progressEs from "../data/progress-es.json";
 
 export interface Props {
-  lang: "en" | "es" | "fr";
+  lang: "en" | "es";
   t: DonateLocaleContent; // now includes a single `card`
   tEu?: DonateLocaleContent;
 }
 
 const { lang, t, tEu } = Astro.props as Props;
 
-const progressByLang: Record<"en" | "es" | "fr" | "eu", any> = {
+const progressByLang: Record<"en" | "es" | "eu", any> = {
   en: progressEn,
   es: progressEs,
-  fr: progressFr,
   eu: progressEs, // Use ES progress for EU
 };
 
-const currencyFormatter: Record<"uk" | "es" | "fr" | "eu", Intl.NumberFormat> =
-  {
-    uk: new Intl.NumberFormat("en-GB", {
-      style: "currency",
-      currency: "GBP",
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
-    }),
-    es: new Intl.NumberFormat("de-DE", {
-      style: "currency",
-      currency: "EUR",
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
-    }),
-    fr: new Intl.NumberFormat("de-DE", {
-      style: "currency",
-      currency: "EUR",
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
-    }),
-    eu: new Intl.NumberFormat("de-DE", {
-      style: "currency",
-      currency: "EUR",
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
-    }),
-  };
+const currencyFormatter: Record<"uk" | "es" | "eu", Intl.NumberFormat> = {
+  uk: new Intl.NumberFormat("en-GB", {
+    style: "currency",
+    currency: "GBP",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }),
+  es: new Intl.NumberFormat("de-DE", {
+    style: "currency",
+    currency: "EUR",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }),
+  es: new Intl.NumberFormat("de-DE", {
+    style: "currency",
+    currency: "EUR",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }),
+  eu: new Intl.NumberFormat("de-DE", {
+    style: "currency",
+    currency: "EUR",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }),
+};
 
 const getFundData = (content: DonateLocaleContent) => {
   let pData = progressByLang[lang];
   if (content.card.id === "uk") pData = progressEn;
   if (content.card.id === "es") pData = progressEs;
-  if (content.card.id === "fr") pData = progressFr;
+  if (content.card.id === "es") pData = progressEs;
   if (content.card.id === "eu") pData = progressEs;
 
   if (!pData) return undefined;
 
   if (content.card.id === "uk") return pData.funds_gbp;
   if (content.card.id === "es") return pData.funds_eur;
-  if (content.card.id === "fr") return pData.funds_eur_fr ?? pData.funds_eur;
+  if (content.card.id === "es") return pData.funds_eur;
   if (content.card.id === "eu") return pData.funds_eur;
   return undefined;
 };
@@ -68,10 +66,10 @@ const getFundData = (content: DonateLocaleContent) => {
 const fundData = getFundData(t);
 const fundDataEu = tEu ? getFundData(tEu) : undefined;
 
-const urls: Record<"uk" | "es" | "fr" | "eu", string | undefined> = {
+const urls: Record<"uk" | "es" | "eu", string | undefined> = {
   uk: import.meta.env.PUBLIC_DONATE_UK_URL as string | undefined,
   es: import.meta.env.PUBLIC_DONATE_ES_URL as string | undefined,
-  fr: import.meta.env.PUBLIC_DONATE_FR_URL as string | undefined,
+  es: import.meta.env.PUBLIC_DONATE_ES_URL as string | undefined,
   eu: import.meta.env.PUBLIC_DONATE_ES_URL as string | undefined, // Use ES URL for EU
 };
 ---
