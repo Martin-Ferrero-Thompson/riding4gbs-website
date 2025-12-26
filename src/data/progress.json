@@ -3,18 +3,18 @@
   "days": {
     "label": "Days Completed",
     "current": 0,
-    "total": 21
+    "total": 12
   },
   "distance": {
     "label": "Distance Ridden",
     "current": 0,
-    "total": 2000,
+    "total": 1000,
     "unit": "km"
   },
   "climbing": {
     "label": "Metres Climbed",
     "current": 0,
-    "total": 34900,
+    "total": 22900,
     "unit": "m"
   },
   "summits": {
@@ -23,14 +23,14 @@
     "total": 20
   },
   "funds_gbp": {
-    "label": "Funds Raised So Far",
+    "label": "Funds Raised So Far for Inflammatory Neuropathies UK",
     "current": 0,
     "total": 10000,
     "unit": "£",
     "targetLabel": "Target"
   },
   "funds_eur": {
-    "label": "Funds Raised for GBS España",
+    "label": "Funds Raised for GBS|CIDP España",
     "current": 0,
     "total": 10000,
     "unit": "€",

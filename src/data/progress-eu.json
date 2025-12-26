@@ -1,0 +1,39 @@
+{
+    "targetDate": "2026-01-01T08:30:00+02:00",
+    "days": {
+        "label": "Osatutako Egunak",
+        "current": 0,
+        "total": 12
+    },
+    "distance": {
+        "label": "Egindako Distantzia",
+        "current": 0,
+        "total": 1000,
+        "unit": "km"
+    },
+    "climbing": {
+        "label": "Igotako Metroak",
+        "current": 0,
+        "total": 22900,
+        "unit": "m"
+    },
+    "summits": {
+        "label": "Konkistatutako Gailurrak",
+        "current": 0,
+        "total": 20
+    },
+    "funds_gbp": {
+        "label": "Inflammatory Neuropathies UK-rako Bildutako Funtsak",
+        "current": 0,
+        "total": 10000,
+        "unit": "£",
+        "targetLabel": "Helburua"
+    },
+    "funds_eur": {
+        "label": "GBS|CIDP España-rako Bildutako Funtsak",
+        "current": 0,
+        "total": 10000,
+        "unit": "€",
+        "targetLabel": "Helburua"
+    }
+}
