@@ -36,12 +36,4 @@
     "unit": "€",
     "targetLabel": "Objetivo"
   }
-  ,
-  "funds_eur_fr": {
-    "label": "Fondos Recaudados para GBS Francia",
-    "current": 0,
-    "total": 5000,
-    "unit": "€",
-    "targetLabel": "Objetivo"
-  }
 }

@@ -109,12 +109,12 @@ export const homeContent: Record<"en" | "es" | "eu", HomeLocaleContent> = {
       },
     ],
     supportMessage: {
-      heading: "A Message of Support from Inflammatory Neuropathies UK",
+      heading: "Un mensaje de apoyo de GBS|CIDP España- Polineuropatías Inmunomediadas.",
       quote:
-        "We are absolutely thrilled to see Martin embark on 'The Slow Road Back.' His courage and determination embody the very spirit we champion at Inflammatory Neuropathies UK. This challenge will shine a much-needed light on Guillain-Barré Syndrome, helping us support more individuals and families affected by GBS. Martin, we're cheering you on from the UK!",
-      attribution: "Sarah Davies, Head of Patient Advocacy, Inflammatory Neuropathies UK",
-      ctaLabel: "Discover More About Our Work",
-      ctaHref: "https://www.inflammatoryneuropathies.uk/",
+        "Estamos absolutamente encantados de ver a Martin y Edurne embarcarse en 'El lento camino de regreso'.",
+      attribution: "Alex Pérez del Real, Presidenta de GBS|CIDP España- Polineuropatías Inmunomediadas.",
+      ctaLabel: "Descubre más sobre nuestro trabajo",
+      ctaHref: "https://gbs-cidp.org.es/",
     },
   },
   eu: {
@@ -153,12 +153,12 @@ export const homeContent: Record<"en" | "es" | "eu", HomeLocaleContent> = {
       },
     ],
     supportMessage: {
-      heading: "A Message of Support from Inflammatory Neuropathies UK",
+      heading: "GBS|CIDP España- Polineuropatías Inmunomediadas-en laguntza mezua",
       quote:
-        "We are absolutely thrilled to see Martin embark on 'The Slow Road Back.' His courage and determination embody the very spirit we champion at Inflammatory Neuropathies UK. This challenge will shine a much-needed light on Guillain-Barré Syndrome, helping us support more individuals and families affected by GBS. Martin, we're cheering you on from the UK!",
-      attribution: "Sarah Davies, Head of Patient Advocacy, Inflammatory Neuropathies UK",
-      ctaLabel: "Discover More About Our Work",
-      ctaHref: "https://www.inflammatoryneuropathies.uk/",
+        "Erabat pozik gaude Martin eta Edurne 'Itzulera Bide Motela'-n murgiltzen ikusteaz.",
+      attribution: "Alex Pérez del Real, GBS|CIDP España- Polineuropatías Inmunomediadas-eko Presidentea",
+      ctaLabel: "Ezagutu gure lanari buruz gehiago",
+      ctaHref: "https://gbs-cidp.org.es/",
     },
   },
 };
