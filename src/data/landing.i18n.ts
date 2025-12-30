@@ -9,9 +9,9 @@ export const landingFlag: Record<LandingLocale, string> = {
 
 // Lead paragraph describing the challenge (language-specific full sentence).
 export const landingIntroLead: Record<LandingLocale, string> = {
-  en: "In October 2026, this epic 2,000km journey across the Pyrenees is dedicated to funding vital GBS research through our international partners below.",
-  es: "En octubre de 2026, este épico viaje de 2.000 km a través de los Pirineos está dedicado a financiar la investigación vital del SGB a través de nuestros socios internacionales a continuación.",
-  eu: "2026ko urrian, Pirinioetan zehar 2.000 km-ko ibilaldi epiko hau gure nazioarteko bazkideen bidez GBS ikerketa funtsezkoa finantzatzeari eskainita dago.",
+  en: "In September/October 2026, this epic journey across the Pyrenees is dedicated to funding vital GBS research through our international partners below.",
+  es: "En septiembre/octubre de 2026, el viaje épico a través de los Pirineos está dedicado a financiar la investigación vital del SGB a través de nuestros socios internacionales a continuación.",
+  eu: "2026ko irail/urrian, Pirinioetan zeharreko bidaia epiko gure nazioarteko bazkideen bidez GBS ikerketa funtsezkoa finantzatzeari eskainita dago.",
 };
 
 // Short, action-oriented instruction shown beneath each language intro.
