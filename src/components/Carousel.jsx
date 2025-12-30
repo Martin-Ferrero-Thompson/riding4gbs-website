@@ -87,17 +87,13 @@ export function Carousel({ slides, slidesMap, i18n }) {
       {/* Add items-start to prevent slides from stretching vertically */}
       <div ref={contentRef} className="flex overflow-x-auto md:overflow-x-hidden snap-x snap-mandatory scroll-smooth items-start">
         {currentSlides.map((slide, index) => {
-          const offset = index - currentIndex;
-          // determine transform and opacity classes based on position relative to current
-          const motionClass = offset === 0
-            ? 'opacity-100 translate-x-0'
-            : offset < 0
-              ? 'opacity-0 -translate-x-6'
-              : 'opacity-0 translate-x-6';
+          // On mobile, show all slides for scrolling; on desktop (md+), only show the current slide
+          const isCurrentSlide = index === currentIndex;
+          const visibilityClass = isCurrentSlide ? 'block' : 'md:hidden';
 
           return (
-            <div key={index} className="w-full flex-none snap-start md:snap-center">
-              <div className={`p-4 md:p-8 bg-gray-50 rounded-lg transition-all ease-in-out duration-700 transform ${motionClass}`}>
+            <div key={index} className={`w-full flex-none snap-start md:snap-center ${visibilityClass}`}>
+              <div className="p-4 md:p-8 bg-gray-50 rounded-lg transition-opacity ease-in-out duration-700">
                 <h3 className="font-headline font-semibold text-lg md:text-xl lg:text-2xl text-gray-900 mb-4">
                   {slide.title}
                 </h3>

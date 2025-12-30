@@ -91,7 +91,7 @@ const lang = path.startsWith("/es")
         const LOCAL_STORAGE_KEY = "r4gbs:preferredLanguage";
         const COOKIE_NAME = "r4gbs_pref_lang";
 
-        function writeCookie(value) {
+        function writeCookie(value: string) {
           const expires = new Date();
           expires.setFullYear(expires.getFullYear() + 1);
           document.cookie = `${COOKIE_NAME}=${encodeURIComponent(value)}; path=/; expires=${expires.toUTCString()}; SameSite=Lax`;

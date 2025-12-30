@@ -6,7 +6,7 @@ import { LogoCarousel } from "./LogoCarousel.jsx";
 import partners from "../data/partners.json";
 
 export interface Props {
-  lang: "en" | "es" | "fr";
+  lang: "en" | "es" | "eu";
   t: HomeLocaleContent;
   tEu?: HomeLocaleContent;
 }
@@ -16,7 +16,7 @@ const { lang, t, tEu } = Astro.props as Props;
 const heroLogoAlt = {
   en: "Riding4GBS circular logo",
   es: "Logotipo circular Riding4GBS",
-  fr: "Logo circulaire Riding4GBS",
+  eu: "Riding4GBS logo zirkularra",
 }[lang];
 ---
 

@@ -1,5 +1,5 @@
 
-import { readdir, writeFile } from "node:fs/promises";
+import { readdir } from "node:fs/promises";
 import { join, basename } from "node:path";
 
 const DATA_DIR = join(process.cwd(), "src/data");
@@ -41,8 +41,8 @@ async function main() {
 
         markdownOutput += `# Page: ${pageName}\n\n`;
 
-        // Order: en, es, eu, fr
-        const languages = ["en", "es", "eu", "fr"];
+        // Order: en, es, eu
+        const languages = ["en", "es", "eu"];
 
         for (let i = 0; i < languages.length; i++) {
             const lang = languages[i];
@@ -64,7 +64,7 @@ async function main() {
         markdownOutput += "\n\n================================================================\n\n";
     }
 
-    await writeFile(OUTPUT_FILE, markdownOutput, "utf-8");
+    await Bun.write(OUTPUT_FILE, markdownOutput);
     console.log(`Generated ${OUTPUT_FILE}`);
 }
 

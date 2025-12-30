@@ -7,7 +7,7 @@ import progressEs from "../data/progress-es.json";
 import progressEu from "../data/progress-eu.json";
 
 export interface Props {
-  lang: "en" | "es";
+  lang: "en" | "es" | "eu";
   t: DonateLocaleContent; // now includes a single `card`
   tEu?: DonateLocaleContent;
 }
@@ -33,12 +33,6 @@ const currencyFormatter: Record<"uk" | "es" | "eu", Intl.NumberFormat> = {
     minimumFractionDigits: 0,
     maximumFractionDigits: 0,
   }),
-  es: new Intl.NumberFormat("de-DE", {
-    style: "currency",
-    currency: "EUR",
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  }),
   eu: new Intl.NumberFormat("de-DE", {
     style: "currency",
     currency: "EUR",
@@ -51,13 +45,11 @@ const getFundData = (content: DonateLocaleContent) => {
   let pData = progressByLang[lang];
   if (content.card.id === "uk") pData = progressEn;
   if (content.card.id === "es") pData = progressEs;
-  if (content.card.id === "es") pData = progressEs;
   if (content.card.id === "eu") pData = progressEs;
 
   if (!pData) return undefined;
 
   if (content.card.id === "uk") return pData.funds_gbp;
-  if (content.card.id === "es") return pData.funds_eur;
   if (content.card.id === "es") return pData.funds_eur;
   if (content.card.id === "eu") return pData.funds_eur;
   return undefined;
@@ -68,7 +60,6 @@ const fundDataEu = tEu ? getFundData(tEu) : undefined;
 
 const urls: Record<"uk" | "es" | "eu", string | undefined> = {
   uk: import.meta.env.PUBLIC_DONATE_UK_URL as string | undefined,
-  es: import.meta.env.PUBLIC_DONATE_ES_URL as string | undefined,
   es: import.meta.env.PUBLIC_DONATE_ES_URL as string | undefined,
   eu: import.meta.env.PUBLIC_DONATE_ES_URL as string | undefined, // Use ES URL for EU
 };
