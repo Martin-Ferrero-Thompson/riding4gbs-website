@@ -1,5 +1,5 @@
 
-import { readdir } from "node:fs/promises";
+import { readdir, writeFile } from "node:fs/promises";
 import { join, basename } from "node:path";
 
 const DATA_DIR = join(process.cwd(), "src/data");
@@ -64,7 +64,7 @@ async function main() {
         markdownOutput += "\n\n================================================================\n\n";
     }
 
-    await Bun.write(OUTPUT_FILE, markdownOutput);
+    await writeFile(OUTPUT_FILE, markdownOutput, "utf-8");
     console.log(`Generated ${OUTPUT_FILE}`);
 }
 
