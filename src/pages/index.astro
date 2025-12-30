@@ -12,6 +12,11 @@ const initialLanguage = DEFAULT_LANGUAGE satisfies Language;
 const landingEntries = Object.entries(landingCopy) as Array<
   [Language, (typeof landingCopy)[Language]]
 >;
+
+// Unlock date: midnight on February 1st, 2026 (Europe/Madrid timezone)
+const UNLOCK_DATE = new Date("2026-02-01T00:00:00+01:00");
+const now = new Date();
+const isLocked = now < UNLOCK_DATE;
 ---
 
 <!doctype html>
@@ -58,6 +63,14 @@ const landingEntries = Object.entries(landingCopy) as Array<
       }
       .active-card footer img {
         filter: brightness(0) invert(1);
+      }
+      .locked-card {
+        opacity: 0.5;
+        cursor: not-allowed;
+        pointer-events: none;
+      }
+      .locked-card:hover {
+        transform: none !important;
       }
     </style>
   </head>
@@ -201,44 +214,76 @@ const landingEntries = Object.entries(landingCopy) as Array<
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {
-              landingEntries.map(([lang, copy]) => (
-                <a
-                  href={`/${lang}/`}
-                  data-astro-reload
-                  data-lang-card={lang}
-                  class="group relative bg-gray-800/50 rounded-xl p-6 flex flex-col text-center transition-all duration-300 md:hover:scale-105 border-2 border-transparent"
-                >
-                  <header class="text-5xl mb-4">
-                    {copy.flag.startsWith("/") ? (
+              landingEntries.map(([lang, copy]) => {
+                const baseClasses =
+                  "group relative bg-gray-800/50 rounded-xl p-6 flex flex-col text-center transition-all duration-300 border-2 border-transparent";
+                const interactiveClasses = isLocked
+                  ? "locked-card"
+                  : "md:hover:scale-105";
+                const combinedClasses = `${baseClasses} ${interactiveClasses}`;
+
+                // Determine hover text based on locked state
+                const hoverText = isLocked
+                  ? lang === "en"
+                    ? "Available from 01 February 2026"
+                    : lang === "es"
+                      ? "Disponible desde el 01 de febrero de 2026"
+                      : "2026ko otsailaren 01etik eskuragarri"
+                  : copy.cardHover;
+
+                const cardContent = (
+                  <>
+                    <header class="text-5xl mb-4">
+                      {copy.flag.startsWith("/") ? (
+                        <img
+                          src={copy.flag}
+                          alt={`${lang} flag`}
+                          class="h-12 mx-auto"
+                        />
+                      ) : (
+                        copy.flag
+                      )}
+                    </header>
+                    <main class="flex-grow text-gray-200">
+                      <h2 class="font-display font-bold text-xl mb-2 text-white tracking-wider">
+                        {copy.cardTitle}
+                      </h2>
+                      <p>{copy.cardDescription}</p>
+                    </main>
+                    <footer class="mt-6 p-3 bg-white rounded-lg">
                       <img
-                        src={copy.flag}
-                        alt={`${lang} flag`}
-                        class="h-12 mx-auto"
+                        src={copy.logo}
+                        alt={copy.logoAlt}
+                        class="h-10 mx-auto object-contain"
                       />
-                    ) : (
-                      copy.flag
-                    )}
-                  </header>
-                  <main class="flex-grow text-gray-200">
-                    <h2 class="font-display font-bold text-xl mb-2 text-white tracking-wider">
-                      {copy.cardTitle}
-                    </h2>
-                    <p>{copy.cardDescription}</p>
-                  </main>
-                  <footer class="mt-6 p-3 bg-white rounded-lg">
-                    <img
-                      src={copy.logo}
-                      alt={copy.logoAlt}
-                      class="h-10 mx-auto object-contain"
-                    />
-                  </footer>
-                  <div class="absolute inset-0 bg-black/80 text-white flex items-center justify-center p-4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <p class="font-sans font-bold text-base md:text-lg">
-                      {copy.cardHover}
-                    </p>
+                    </footer>
+                    <div class="absolute inset-0 bg-black/80 text-white flex items-center justify-center p-4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <p class="font-sans font-bold text-base md:text-lg">
+                        {hoverText}
+                      </p>
+                    </div>
+                  </>
+                );
+
+                return isLocked ? (
+                  <div
+                    data-lang-card={lang}
+                    class={combinedClasses}
+                    aria-disabled="true"
+                  >
+                    {cardContent}
                   </div>
-                </a>
-              ))
+                ) : (
+                  <a
+                    href={`/${lang}/`}
+                    data-astro-reload
+                    data-lang-card={lang}
+                    class={combinedClasses}
+                  >
+                    {cardContent}
+                  </a>
+                );
+              })
             }
           </div>
         </div>
