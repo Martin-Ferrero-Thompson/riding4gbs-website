@@ -23,41 +23,25 @@ export const ourStoryContent: Record<"en" | "es" | "eu", OurStoryLocaleContent> 
         bodyMd:
           "For as long as I can remember, my life has been intertwined with the simple freedom of a bicycle. I was a long-distance cyclist, happiest when pushing my limits on the beautiful roads and mountains of the UK and Europe. Cycling was more than a hobby; it was a core part of my identity. Whether it was mountain biking over the moors, running in the forests with the dogs, or embarking on long road adventures, being outdoors fueled my energy and my mental well-being.\n\nIt was on one these adventures, I shared the road with a close friend and ride partner, herself living with a chronic autoimmune condition. Together, we tackled epic journeys, like riding the entire length of the Rhine from Rotterdam to its source near Andermatt in Switzerland. Cycling took me to incredible places and introduced me to amazing people.\n\nIt was also during this time that I reconnected with a wonderful friend in Spain, Edurne. Our friendship blossomed into a relationship, and we began dreaming of our own cycling adventures together, maybe even the Camino de Santiago. Life felt full of possibility.\n\nInspired by a friend, I planned a major fundraising ride in the UK (for another autoimmune charity) —a hilly 2000 mile, self-supported route from Land's End to John O'Groats. Tragically, an accident forced me to stop early. I was gutted. But Edurne's support shone through, and our focus shifted to planning our ride together in Spain.\n\nShortly after returning home to Yorkshire, however, the first warning signs appeared. A persistent lower back pain made sleeping difficult. Then came the strange tingling, the fleeting moments of weakness in my legs. Masked by painkillers and dismissed as nothing serious, life carried on... until the day my world stopped.",
       },
-      {
-        title: "The Supporter Before",
-        bodyMd:
-          "Edurne's Words Here: -> Edurne was my rock during this time. Her unwavering support and love provided me with the strength I needed to face the challenges ahead. Even from a distance, she was always there for me, offering words of encouragement and hope. I couldn't have made it through without her.",
-      },
+
       {
         title: "The Day My World Stopped",
         bodyMd:
           "On __August 5th, 2021__, that future was thrown into terrifying uncertainty. One moment, I was walking through the house; The next, I had collapsed on the floor, unable to move my legs. I tried to stand, but nothing happened. It was pure shock and disbelief. \n\nThe paramedics arrived quickly, and soon I was on my way to the A&E hospital. My mind was racing. What was happening to me? Why? What did this mean for my life, for my future with Edurne, for our plans to ride together? Would I ever ride again? So many questions, and no answers. \n\nAfter a long wait, I was admitted. Doctors ran tests, trying to understand the sudden paralysis that was now creeping into my arms and hands. A spinal tap revealed elevated proteins, and finally, a diagnosis emerged: Guillain-Barré Syndrome. It was a name I'd never heard before, but one that would change everything. \n\nI was rushed to Intensive Care and immediately started on a five-day course of Immunoglobulin (IVIG). In the space of a day, I had gone from a highly active cyclist to being almost completely immobile. It was a profoundly dark and terrifying place. Throughout this time, separated by thousands of miles, my lifeline was Edurne. She was my constant connection to the outside world, a daily voice of hope on the internet that kept my spirits from breaking. After a few weeks, I was moved to a rehabilitation hospital. The long, slow road back was just beginning.",
       },
-      {
-        title: "The Supporter The Day My World Stopped",
-        bodyMd:
-          "Edurne's Words Here: -> The moment I heard the news, I felt my world shatter. Martin was thousands of miles away, and I was powerless to help him. I remember the endless video calls, trying to keep his spirits up, sharing stories from home, and reminding him of our dreams. It was incredibly hard, but I knew I had to be strong for him. Every day, I held onto hope that he would recover and that we would ride together again someday.",
-      },
+
       {
         title: "The Fight for Every Step",
         bodyMd:
           "The road back was slow and grueling. After the ICU, I was moved to a rehabilitation ward for three months. With official physiotherapy limited, I knew I had to take charge of my own recovery. A fellow patient, Ian, and I would race our wheelchairs down the hospital corridors, a small act of defiance that kept my spirit alive. When I graduated to crutches, I would \"escape\" the hospital grounds, pushing myself to walk further each day, determined to rebuild what I had lost.\n\nRecovery continued long after I left the hospital. It was a daily battle, managing chronic pain and relearning how to live in a body that felt alien to me.",
       },
-      {
-        title: "The Supporter The Fight for Every Step",
-        bodyMd:
-          "Edurne's Words Here: -> Throughout Martin's recovery, I remained his steadfast supporter. I visited him as often as I could, bringing pieces of home to the hospital. I celebrated every small victory with him, from his first steps with crutches to the day he walked unaided. It was a challenging journey, but our bond grew stronger with each hurdle we overcame together. I was determined to be there for him, no matter what.",
-      },
+
       {
         title: "A New Beginning, A New Purpose",
         bodyMd:
           "Released from the hospital, I returned home, but the struggle was far from over. I was living with the lasting effects of GBS—significant weakness in my legs from the muscle atrophy, reliant on high doses of neuropathic painkillers, and dependent on using a catheter. \n\nBut I was determined not to let these define me. The mountains were calling, and my spirit hadn't broken. Fueled by the support of my family, and crucially, by the unwavering love of Edurne thousands of miles away, I started rebuilding. I reconnected with my local cycling community, joining group rides even if I was the slowest one. I ventured out more and more, discovering that while the pre-GBS speed was gone, a new appreciation for simply being outdoors had taken its place. I even found joy in helping others, volunteering as a tandem pilot for riders less able than myself. \n\nThrough it all, the greatest source of strength was my relationship with Edurne. Our connection grew deeper, and in 2023, we made a life-changing decision: I moved to Pamplona,  and that October, we were married. \n\nWith Edurne's incredible support by my side, we tackled the final hurdles together. I finally weaned myself off the last of the medication and catheters. We had built a new life, surrounded by the mountains I love. It was here I realized my perspective had taken a true shift. GBS had taken away power, but it had given me something profound in return: a deeper appreciation for the journey itself, for every single pedal stroke. This became my '__Slow Road Back.__' \n\nIt was from this new perspective that the idea for this challenge was born. This ride is a deeply personal pilgrimage, a testament to recovery, but it's only possible because of Edurne's unwavering support. It is our shared mission. This journey is for her, for every person affected by GBS, and for the incredible support teams who stand beside them.",
       },
-      {
-        title: "The Supporter A New Beginning, A New Purpose",
-        bodyMd:
-          "Edurne's Words Here: -> Our journey together has been one of resilience and love. Marrying Martin was the culmination of our shared dreams and the beginning of a new chapter. Supporting him through his recovery has strengthened our bond, and I am incredibly proud of the person he has become. This challenge is not just about Martin's journey; it's about our journey together, and I will be there every step of the way, cheering him on.",
-      },
+
     ],
   },
   es: {
