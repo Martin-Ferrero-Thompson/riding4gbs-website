@@ -159,29 +159,3 @@ const heroLogoAlt = {
     </div>
   </div>
 </MainLayout>
-
-<script>
-  import { readStoredLanguage } from "../utils/language";
-
-  async function updateLanguage() {
-    const lang = await readStoredLanguage();
-    const baseLang = document.querySelector('h1.hero-title[data-lang]:not([data-lang="eu"])')?.getAttribute('data-lang');
-    
-    if (baseLang) {
-        const elements = document.querySelectorAll('[data-lang]');
-        elements.forEach(el => {
-            const elLang = el.getAttribute('data-lang');
-            if (lang === 'eu') {
-                if (elLang === 'eu') el.classList.remove('hidden');
-                if (elLang === baseLang) el.classList.add('hidden');
-            } else {
-                if (elLang === 'eu') el.classList.add('hidden');
-                if (elLang === baseLang) el.classList.remove('hidden');
-            }
-        });
-    }
-  }
-
-  updateLanguage();
-  document.addEventListener('language-change', updateLanguage);
-</script>

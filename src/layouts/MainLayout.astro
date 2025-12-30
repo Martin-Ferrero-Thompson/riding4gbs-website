@@ -86,6 +86,46 @@ const lang = path.startsWith("/es")
     </div>
 
     <script>
+      // Sync stored language preference with current URL route
+      (function () {
+        const LOCAL_STORAGE_KEY = "r4gbs:preferredLanguage";
+        const COOKIE_NAME = "r4gbs_pref_lang";
+
+        function writeCookie(value) {
+          const expires = new Date();
+          expires.setFullYear(expires.getFullYear() + 1);
+          document.cookie = `${COOKIE_NAME}=${encodeURIComponent(value)}; path=/; expires=${expires.toUTCString()}; SameSite=Lax`;
+        }
+
+        function syncLanguageFromRoute() {
+          const path = window.location.pathname;
+          let lang = "en"; // default
+
+          if (path.startsWith("/es")) {
+            lang = "es";
+          } else if (path.startsWith("/eu")) {
+            lang = "eu";
+          } else if (path.startsWith("/en")) {
+            lang = "en";
+          }
+
+          // Update stored preference to match the current route
+          try {
+            if (typeof window !== "undefined") {
+              window.localStorage.setItem(LOCAL_STORAGE_KEY, lang);
+            }
+            writeCookie(lang);
+          } catch (error) {
+            console.warn("[language] Unable to sync language", error);
+          }
+        }
+
+        syncLanguageFromRoute();
+        document.addEventListener("astro:page-load", syncLanguageFromRoute);
+      })();
+    </script>
+
+    <script>
       function setupHamburger() {
         const hamburgerButton = document.getElementById("hamburger-button");
         const sidebar = document.getElementById("sidebar");
